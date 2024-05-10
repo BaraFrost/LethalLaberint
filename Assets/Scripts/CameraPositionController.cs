@@ -25,7 +25,7 @@ namespace Game
 
         void Update()
         {
-            transform.position = _player.gameObject.transform.position - _cameraPlayerPositionDifference;//Vector3.SmoothDamp(transform.position, _player.gameObject.transform.position - _cameraPlayerPositionDifference, ref _velocity, _smooth);
+            transform.position = Vector3.SmoothDamp(transform.position, _player.gameObject.transform.position - _cameraPlayerPositionDifference, ref _velocity, _smooth);
         }
     }
 }
