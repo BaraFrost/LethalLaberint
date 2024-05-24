@@ -1,10 +1,8 @@
 using UnityEngine;
 
-namespace Game
-{
+namespace Game {
 
-    public class CameraPositionController : MonoBehaviour
-    {
+    public class CameraPositionController : MonoBehaviour {
 
         [SerializeField]
         private GameObject _player;
@@ -16,16 +14,24 @@ namespace Game
 
         private Vector3 _cameraPlayerPositionDifference;
 
-        private float yPosition;
+        private float _startYPosition;
 
-        void Start()
-        {   
+        void Start() {
+            _startYPosition = gameObject.transform.position.y;
             _cameraPlayerPositionDifference = _player.gameObject.transform.position - gameObject.transform.position;
         }
 
-        void Update()
-        {
-            transform.position = Vector3.SmoothDamp(transform.position, _player.gameObject.transform.position - _cameraPlayerPositionDifference, ref _velocity, _smooth);
+        void Update() {
+            UpdateCameraPosition();
+        }
+
+        private void UpdateCameraPosition() {
+            if (_player == null) {
+                return;
+            }
+            var newPosition = Vector3.SmoothDamp(transform.position, _player.gameObject.transform.position - _cameraPlayerPositionDifference, ref _velocity, _smooth);
+            newPosition.y = _startYPosition;
+            transform.position = newPosition;
         }
     }
 }
