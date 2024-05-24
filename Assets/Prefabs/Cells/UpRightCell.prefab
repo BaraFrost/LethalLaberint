@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3714507444479652114}
   - component: {fileID: 6512197731316312124}
   m_Layer: 0
-  m_Name: UpCell
+  m_Name: UpRightCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,6 +50,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _availablePositions:
+  - _direction: 1
   - _direction: 2
   fieldPosition: {x: 0, y: 0}
 --- !u!1001 &1055153656020257941
@@ -336,7 +337,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y

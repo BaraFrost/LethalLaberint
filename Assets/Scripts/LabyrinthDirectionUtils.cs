@@ -1,5 +1,6 @@
 using Game;
 using System.Collections.Generic;
+using System.Numerics;
 using UnityEngine;
 
 namespace Utils {
@@ -26,6 +27,10 @@ namespace Utils {
 
         public static LabyrinthCell.Direction ConvertVectorToDirection(Vector2Int vector) {
             return vectorToDirection[vector];
+        }
+
+        public static LabyrinthCell.Direction GetOppositeDirection(LabyrinthCell.Direction direction) {
+            return vectorToDirection[directionToVector[direction] * -1];
         }
     }
 }

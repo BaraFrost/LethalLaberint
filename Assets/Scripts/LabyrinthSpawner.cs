@@ -1,19 +1,29 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
+using UnityEditor;
 using UnityEngine;
 using Utils;
 
 namespace Game {
 
+#if UNITY_EDITOR
+    [CustomEditor(typeof(LabyrinthSpawner))]
+    public class LabyrinthSpawnerEditor: Editor {
+        public override void OnInspectorGUI() {
+            base.OnInspectorGUI();
+            var LabyrinthSpawner = target as LabyrinthSpawner;
+            if (GUILayout.Button("Respawn")) {
+                LabyrinthSpawner.Respawn();
+            }
+        }
+    }
+#endif
+
     public class LabyrinthSpawner : MonoBehaviour {
 
         [SerializeField]
         private LabyrinthCell[] _cellsPrefabs;
-
-        [SerializeField]
-        private LabyrinthCell[] _deadEndCellsPrefabs;
-        private Dictionary<LabyrinthCell.Direction, LabyrinthCell> _cachedDeadEndCellsPrefabs;
 
         [SerializeField]
         private int labyrinthSize;
@@ -30,10 +40,18 @@ namespace Game {
         private LabyrinthCell[,] _field;
         private List<LabyrinthCell> _spawnedSells = new List<LabyrinthCell>();
 
+        public void Respawn() {
+            _spawnedSells.Remove(_startCell);
+            foreach (var cell in _spawnedSells) {
+                Destroy(cell.gameObject);
+            }
+            _spawnedSells.Clear();
+            Spawn();
+        }
+
         public void Spawn() {
-            _cachedDeadEndCellsPrefabs = _deadEndCellsPrefabs.ToDictionary(prefab => prefab.AvailablePositions.FirstOrDefault().Key);
-            _field = new LabyrinthCell[_maxCellsCount, _maxCellsCount];
-            var startCellFieldPosition = new Vector2Int(_maxCellsCount / 2, 0);
+            _field = new LabyrinthCell[labyrinthSize + 2, labyrinthSize + 2];
+            var startCellFieldPosition = new Vector2Int(labyrinthSize / 2, 1);
             _field[startCellFieldPosition.x, startCellFieldPosition.y] = _startCell;
             _spawnedSells.Add(_startCell);
             _startCell.fieldPosition = startCellFieldPosition;
@@ -42,15 +60,30 @@ namespace Game {
         }
 
         private void AddDeadEndCells() {
-            foreach(var cell in _spawnedSells) {
-                foreach(var positions in cell.AvailablePositions) {
-                    if(GetCellByFieldPosition(cell.fieldPosition + positions.Value.GetDirectionVector()) != null) {
+            var deadEnds = new List<LabyrinthCell>();
+            foreach (var cell in _spawnedSells) {
+                foreach (var positions in cell.AvailablePositions) {
+                    var fieldPosition = cell.fieldPosition + positions.Value.GetDirectionVector();
+                    if (GetCellByFieldPositionForDeadEnd(fieldPosition) != null) {
                         continue;
                     }
-                    var deadEndPrefab = _cachedDeadEndCellsPrefabs[LabyrinthDirectionUtils.ConvertVectorToDirection(positions.Value.GetDirectionVector() * -1)];
-                    InstantiateCell(cell, positions.Value.GetDirectionVector(),deadEndPrefab);
+                    var requiredDirections = GetAllRequiredDirections(fieldPosition);
+                    var deadEndPrefabs = _cellsPrefabs.Where(cell => cell.AvailableOnlyThisDirections(requiredDirections)).ToArray();
+                    if (deadEndPrefabs == null || deadEndPrefabs.Length == 0) {
+                        var sb = new StringBuilder();
+                        foreach (var direction in requiredDirections) {
+                            sb.Append($"{direction},");
+                        }
+                        Debug.Log(sb);
+                        continue;
+                    }
+                    var deadEndInstance = InstantiateCell(cell, positions.Value.GetDirectionVector(), deadEndPrefabs[UnityEngine.Random.Range(0, deadEndPrefabs.Count() - 1)]);
+                    deadEndInstance.fieldPosition = fieldPosition;
+                    _field[fieldPosition.x, fieldPosition.y] = deadEndInstance;
+                    deadEnds.Add(deadEndInstance);
                 }
             }
+            _spawnedSells.AddRange(deadEnds);
         }
 
         private void AddCells(LabyrinthCell labyrinthCell) {
@@ -64,8 +97,8 @@ namespace Game {
                 if (!FieldPositionIsValid(newFieldCellPosition) || GetCellByFieldPosition(newFieldCellPosition) != null) {
                     continue;
                 }
-                var requiredDirection = LabyrinthDirectionUtils.ConvertVectorToDirection(positionDirection * -1);
-                var availableCells = _cellsPrefabs.Where(cell => cell.AvailablePositions.ContainsKey(requiredDirection)).ToArray();
+                var requiredDirections = GetAllRequiredDirections(newFieldCellPosition);
+                var availableCells = _cellsPrefabs.Where(cell => cell.AvailableAllDirections(requiredDirections)).ToArray();
                 if (availableCells.Count() == 0) {
                     continue;
                 }
@@ -79,8 +112,24 @@ namespace Game {
             }
         }
 
+        private List<LabyrinthCell.Direction> GetAllRequiredDirections(Vector2Int fieldCellPosition) {
+            var result = new List<LabyrinthCell.Direction>();
+            foreach (var direction in LabyrinthDirectionUtils.directionToVector) {
+                var nearestCellPosition = fieldCellPosition + direction.Value;
+                var nearestCell = GetCellByFieldPositionForDeadEnd(nearestCellPosition);
+                if (nearestCell != null) {
+                    result.Add(direction.Key);
+                }
+            }
+            return result;
+        }
+
         private bool FieldPositionIsValid(Vector2Int cellFieldPosition) {
-            return _maxCellsCount > cellFieldPosition.x && _maxCellsCount > cellFieldPosition.y && cellFieldPosition.x >= 0 && cellFieldPosition.y >= 0;
+            return labyrinthSize > cellFieldPosition.x && labyrinthSize > cellFieldPosition.y && cellFieldPosition.x >= 1 && cellFieldPosition.y >= 1;
+        }
+
+        private bool FieldPositionIsValidForDeadEnd(Vector2Int cellFieldPosition) {
+            return labyrinthSize + 2 > cellFieldPosition.x && labyrinthSize + 2 > cellFieldPosition.y && cellFieldPosition.x >= 0 && cellFieldPosition.y >= 0;
         }
 
         private LabyrinthCell InstantiateCell(LabyrinthCell labyrinthCell, Vector2Int direction, LabyrinthCell cellToSpawn) {
@@ -102,6 +151,13 @@ namespace Game {
 
         private LabyrinthCell GetCellByFieldPosition(Vector2Int cellFieldPosition) {
             if (!FieldPositionIsValid(cellFieldPosition)) {
+                return null;
+            }
+            return _field[cellFieldPosition.x, cellFieldPosition.y];
+        }
+
+        private LabyrinthCell GetCellByFieldPositionForDeadEnd(Vector2Int cellFieldPosition) {
+            if (!FieldPositionIsValidForDeadEnd(cellFieldPosition)) {
                 return null;
             }
             return _field[cellFieldPosition.x, cellFieldPosition.y];

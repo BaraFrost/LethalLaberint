@@ -58,6 +58,19 @@ namespace Game {
             AvailablePositions.Remove(direction);
             return true;
         }
+
+        public bool AvailableAllDirections(List<Direction> directions) {
+            foreach(var direction in directions) {
+                if(!AvailablePositions.ContainsKey(direction)) {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public bool AvailableOnlyThisDirections(List<Direction> directions) {
+            return directions.Count == AvailablePositions.Count && AvailableAllDirections(directions);
+        }
     }
 }
 
