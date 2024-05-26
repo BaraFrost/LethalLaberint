@@ -51,10 +51,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _availablePositions:
   - _direction: 0
+    _connectionType: 0
   - _direction: 1
+    _connectionType: 0
   - _direction: 2
+    _connectionType: 0
   - _direction: 3
-  fieldPosition: {x: 0, y: 0}
+    _connectionType: 0
 --- !u!1001 &1055153656020257941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,6 +147,10 @@ PrefabInstance:
     - target: {fileID: 4806218519410877322, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_Name
       value: SellLight
+      objectReference: {fileID: 0}
+    - target: {fileID: 4806218519410877322, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5155328303471561680, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_RootOrder

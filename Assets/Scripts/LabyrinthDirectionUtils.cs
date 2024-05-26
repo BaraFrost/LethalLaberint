@@ -1,7 +1,8 @@
 using Game;
+using System;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 namespace Utils {
 
@@ -31,6 +32,10 @@ namespace Utils {
 
         public static LabyrinthCell.Direction GetOppositeDirection(LabyrinthCell.Direction direction) {
             return vectorToDirection[directionToVector[direction] * -1];
+        }
+
+        public static LabyrinthCell.Direction RotateDirection(LabyrinthCell.Direction direction, int rotation) {
+            return (LabyrinthCell.Direction)(((rotation / 90) + (int)direction) % Enum.GetValues(typeof(LabyrinthCell.Direction)).Length);
         }
     }
 }

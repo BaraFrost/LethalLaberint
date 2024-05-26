@@ -363,7 +363,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 286297225}
   m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
-  m_LocalPosition: {x: 0, y: 10.3, z: -2.44}
+  m_LocalPosition: {x: 0, y: 10.3, z: -3.24}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -671,32 +671,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _cellsPrefabs:
-  - {fileID: 6512197731316312124, guid: 9e8f66f20c69a6b4c87b1bf93154d248, type: 3}
-  - {fileID: 6512197731316312124, guid: ee9e5d61fb273864ea7aeb559bf9dcf9, type: 3}
-  - {fileID: 6512197731316312124, guid: e5c7931debc10594a9cd28f5d5fd0ddb, type: 3}
-  - {fileID: 6512197731316312124, guid: b3cf38bb8a7c41649ac1cf4a73d53328, type: 3}
-  - {fileID: 6512197731316312124, guid: b3cf38bb8a7c41649ac1cf4a73d53328, type: 3}
-  - {fileID: 6512197731316312124, guid: e8c2597dae6130841bccb1cfa12f91be, type: 3}
-  - {fileID: 6512197731316312124, guid: f310f552137437b479c30460e912d6d8, type: 3}
-  - {fileID: 6512197731316312124, guid: f310f552137437b479c30460e912d6d8, type: 3}
-  - {fileID: 6512197731316312124, guid: f310f552137437b479c30460e912d6d8, type: 3}
-  - {fileID: 6512197731316312124, guid: f310f552137437b479c30460e912d6d8, type: 3}
-  - {fileID: 6512197731316312124, guid: 91f1f24b1be28404b9c072fe9cb91ccd, type: 3}
-  - {fileID: 6512197731316312124, guid: dc80d059b90c1cf43b2e6961758340c8, type: 3}
-  - {fileID: 6512197731316312124, guid: 04cdabb5b4c49f24f90dd723f07451ba, type: 3}
-  - {fileID: 6512197731316312124, guid: 04cdabb5b4c49f24f90dd723f07451ba, type: 3}
-  - {fileID: 6512197731316312124, guid: 73635785ff66a5e4d8b9ffb11bb3f5e1, type: 3}
-  - {fileID: 6512197731316312124, guid: b5d0699de65f43941babfc97503cbeaa, type: 3}
-  - {fileID: 6512197731316312124, guid: ae8d99a8676cbb5489f712ac89b42fbf, type: 3}
-  - {fileID: 6512197731316312124, guid: b95c99f30a48e0f4099223bdc0b8f463, type: 3}
-  - {fileID: 6512197731316312124, guid: f1da6d58419cdf44c88c9d8c80001a5d, type: 3}
+  - {fileID: 6512197731316312124, guid: 66f768df62165044b8707c3c1339b388, type: 3}
   - {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
-  - {fileID: 6512197731316312124, guid: 73635785ff66a5e4d8b9ffb11bb3f5e1, type: 3}
-  - {fileID: 6512197731316312124, guid: 91f1f24b1be28404b9c072fe9cb91ccd, type: 3}
-  - {fileID: 6512197731316312124, guid: e5c7931debc10594a9cd28f5d5fd0ddb, type: 3}
-  - {fileID: 6512197731316312124, guid: ae8d99a8676cbb5489f712ac89b42fbf, type: 3}
-  - {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
-  - {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
+  - {fileID: 6512197731316312124, guid: d2880a8949f11934a80d8571e90fcb18, type: 3}
+  - {fileID: 6512197731316312124, guid: 3094a46e80809174481d9dc8c428d0fb, type: 3}
+  - {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
+  _fonCellPrefab: {fileID: 6512197731316312124, guid: 5494ffb8c0e35aa48a107349b97c9c43, type: 3}
   labyrinthSize: 13
   _cellSize: 2.485378
   _maxCellsCount: 50

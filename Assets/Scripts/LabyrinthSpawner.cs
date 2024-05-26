@@ -9,7 +9,7 @@ namespace Game {
 
 #if UNITY_EDITOR
     [CustomEditor(typeof(LabyrinthSpawner))]
-    public class LabyrinthSpawnerEditor: Editor {
+    public class LabyrinthSpawnerEditor : Editor {
         public override void OnInspectorGUI() {
             base.OnInspectorGUI();
             var LabyrinthSpawner = target as LabyrinthSpawner;
@@ -24,6 +24,11 @@ namespace Game {
 
         [SerializeField]
         private LabyrinthCell[] _cellsPrefabs;
+
+        [SerializeField]
+        private LabyrinthCell _fonCellPrefab;
+
+        private List<RotatedLabyrinthCell> _rotatedLabyrinthCells;
 
         [SerializeField]
         private int labyrinthSize;
@@ -50,25 +55,54 @@ namespace Game {
         }
 
         public void Spawn() {
+            SetStartData();
+            GenerateRotatedCells();
+            AddCells(_startCell);
+            AddDeadEndCells();
+            AddFonCells();
+        }
+
+        private void SetStartData() {
             _field = new LabyrinthCell[labyrinthSize + 2, labyrinthSize + 2];
             var startCellFieldPosition = new Vector2Int(labyrinthSize / 2, 1);
             _field[startCellFieldPosition.x, startCellFieldPosition.y] = _startCell;
             _spawnedSells.Add(_startCell);
             _startCell.fieldPosition = startCellFieldPosition;
-            AddCells(_startCell);
-            AddDeadEndCells();
+        }
+
+        private void GenerateRotatedCells() {
+            _rotatedLabyrinthCells = new List<RotatedLabyrinthCell>();
+            foreach (var prefab in _cellsPrefabs) {
+                for (int i = 0; i < 4; i++) {
+                    _rotatedLabyrinthCells.Add(new RotatedLabyrinthCell(prefab, 90 * i));
+                }
+            }
+        }
+
+        private void AddFonCells() {
+            var zeroPosition = _startCell.gameObject.transform.position - new Vector3(labyrinthSize / 2, 0, 1) * _cellSize;
+            for (int i = 0; i < labyrinthSize + 2; i++) {
+                for (int j = 0; j < labyrinthSize + 2; j++) {
+                    if (_field[i, j] != null) {
+                        continue;
+                    }
+                    var newCellPosition = zeroPosition + (new Vector3(i, 0, j) * _cellSize);
+                    _field[i, j] = Instantiate(_fonCellPrefab, newCellPosition, Quaternion.identity, transform);
+                    _spawnedSells.Add(_field[i, j]);
+                }
+            }
         }
 
         private void AddDeadEndCells() {
             var deadEnds = new List<LabyrinthCell>();
             foreach (var cell in _spawnedSells) {
-                foreach (var positions in cell.AvailablePositions) {
+                foreach (var positions in cell.RealtimeAvailablePositions) {
                     var fieldPosition = cell.fieldPosition + positions.Value.GetDirectionVector();
                     if (GetCellByFieldPositionForDeadEnd(fieldPosition) != null) {
                         continue;
                     }
                     var requiredDirections = GetAllRequiredDirections(fieldPosition);
-                    var deadEndPrefabs = _cellsPrefabs.Where(cell => cell.AvailableOnlyThisDirections(requiredDirections)).ToArray();
+                    var deadEndPrefabs = _rotatedLabyrinthCells.Where(cell => cell.AvailableOnlyThisDirections(requiredDirections)).ToArray();
                     if (deadEndPrefabs == null || deadEndPrefabs.Length == 0) {
                         var sb = new StringBuilder();
                         foreach (var direction in requiredDirections) {
@@ -77,7 +111,7 @@ namespace Game {
                         Debug.Log(sb);
                         continue;
                     }
-                    var deadEndInstance = InstantiateCell(cell, positions.Value.GetDirectionVector(), deadEndPrefabs[UnityEngine.Random.Range(0, deadEndPrefabs.Count() - 1)]);
+                    var deadEndInstance = deadEndPrefabs[UnityEngine.Random.Range(0, deadEndPrefabs.Count() - 1)].InstantiateCell(cell, positions.Value.GetDirectionVector(), transform, _cellSize);
                     deadEndInstance.fieldPosition = fieldPosition;
                     _field[fieldPosition.x, fieldPosition.y] = deadEndInstance;
                     deadEnds.Add(deadEndInstance);
@@ -87,7 +121,7 @@ namespace Game {
         }
 
         private void AddCells(LabyrinthCell labyrinthCell) {
-            var availablePositions = labyrinthCell.AvailablePositions;
+            var availablePositions = labyrinthCell.RealtimeAvailablePositions;
             foreach (var position in availablePositions) {
                 if (_spawnedSells.Count >= _maxCellsCount) {
                     return;
@@ -98,12 +132,12 @@ namespace Game {
                     continue;
                 }
                 var requiredDirections = GetAllRequiredDirections(newFieldCellPosition);
-                var availableCells = _cellsPrefabs.Where(cell => cell.AvailableAllDirections(requiredDirections)).ToArray();
+                var availableCells = _rotatedLabyrinthCells.Where(cell => cell.AvailableAllDirections(requiredDirections)).ToArray();
                 if (availableCells.Count() == 0) {
                     continue;
                 }
                 var randomCellToSpawn = availableCells[UnityEngine.Random.Range(0, availableCells.Count() - 1)];
-                var newCellInstance = InstantiateCell(labyrinthCell, positionDirection, randomCellToSpawn);
+                var newCellInstance = randomCellToSpawn.InstantiateCell(labyrinthCell, positionDirection, transform, _cellSize);
                 newCellInstance.fieldPosition = newFieldCellPosition;
                 _spawnedSells.Add(newCellInstance);
                 _field[newFieldCellPosition.x, newFieldCellPosition.y] = newCellInstance;
@@ -130,11 +164,6 @@ namespace Game {
 
         private bool FieldPositionIsValidForDeadEnd(Vector2Int cellFieldPosition) {
             return labyrinthSize + 2 > cellFieldPosition.x && labyrinthSize + 2 > cellFieldPosition.y && cellFieldPosition.x >= 0 && cellFieldPosition.y >= 0;
-        }
-
-        private LabyrinthCell InstantiateCell(LabyrinthCell labyrinthCell, Vector2Int direction, LabyrinthCell cellToSpawn) {
-            var newCellPosition = labyrinthCell.transform.position + (new Vector3(direction.x, 0, direction.y) * _cellSize);
-            return Instantiate(cellToSpawn, newCellPosition, Quaternion.identity, transform);
         }
 
         private void ConnectNearestCells(LabyrinthCell labyrinthCell) {

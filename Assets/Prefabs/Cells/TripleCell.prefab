@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3714507444479652114}
   - component: {fileID: 6512197731316312124}
   m_Layer: 0
-  m_Name: UpCell
+  m_Name: TripleCell
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -50,8 +50,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _availablePositions:
+  - _direction: 1
+    _connectionType: 0
+  - _direction: 3
+    _connectionType: 0
   - _direction: 2
-  fieldPosition: {x: 0, y: 0}
+    _connectionType: 0
 --- !u!1001 &1055153656020257941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -74,7 +78,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 697105626334456626, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -0.0019
       objectReference: {fileID: 0}
     - target: {fileID: 697105626334456626, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_LocalRotation.w
@@ -153,10 +157,6 @@ PrefabInstance:
     - target: {fileID: 5155328303471561680, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5155328303471561680, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5155328303471561680, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_LocalPosition.z
@@ -258,7 +258,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
@@ -336,7 +336,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
