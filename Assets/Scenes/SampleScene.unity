@@ -670,16 +670,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0b7e1941bd926b4895ffacbe496bec7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cellsPrefabs:
-  - {fileID: 6512197731316312124, guid: 66f768df62165044b8707c3c1339b388, type: 3}
-  - {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
-  - {fileID: 6512197731316312124, guid: d2880a8949f11934a80d8571e90fcb18, type: 3}
-  - {fileID: 6512197731316312124, guid: 3094a46e80809174481d9dc8c428d0fb, type: 3}
-  - {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
   _fonCellPrefab: {fileID: 6512197731316312124, guid: 5494ffb8c0e35aa48a107349b97c9c43, type: 3}
+  _labyrinthCellsContainer: {fileID: 11400000, guid: f98889420943cf946b55e097b9dad4db, type: 2}
   labyrinthSize: 13
   _cellSize: 2.485378
-  _maxCellsCount: 50
+  _maxCellsCount: 100
+  _maxEpoch: 30
   _startCell: {fileID: 6039175099153464742}
 --- !u!4 &1394291445
 Transform:

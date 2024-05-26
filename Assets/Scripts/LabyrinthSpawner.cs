@@ -1,3 +1,4 @@
+using Data;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,12 +24,10 @@ namespace Game {
     public class LabyrinthSpawner : MonoBehaviour {
 
         [SerializeField]
-        private LabyrinthCell[] _cellsPrefabs;
-
-        [SerializeField]
         private LabyrinthCell _fonCellPrefab;
 
-        private List<RotatedLabyrinthCell> _rotatedLabyrinthCells;
+        [SerializeField]
+        private LabyrinthCellsContainer _labyrinthCellsContainer;
 
         [SerializeField]
         private int labyrinthSize;
@@ -38,6 +37,9 @@ namespace Game {
 
         [SerializeField]
         private int _maxCellsCount;
+
+        [SerializeField]
+        private int _maxEpoch;
 
         [SerializeField]
         private LabyrinthCell _startCell;
@@ -56,8 +58,8 @@ namespace Game {
 
         public void Spawn() {
             SetStartData();
-            GenerateRotatedCells();
-            AddCells(_startCell);
+            AddCellsTest();
+            //AddCells(_startCell, epoch: 0);
             AddDeadEndCells();
             AddFonCells();
         }
@@ -68,15 +70,6 @@ namespace Game {
             _field[startCellFieldPosition.x, startCellFieldPosition.y] = _startCell;
             _spawnedSells.Add(_startCell);
             _startCell.fieldPosition = startCellFieldPosition;
-        }
-
-        private void GenerateRotatedCells() {
-            _rotatedLabyrinthCells = new List<RotatedLabyrinthCell>();
-            foreach (var prefab in _cellsPrefabs) {
-                for (int i = 0; i < 4; i++) {
-                    _rotatedLabyrinthCells.Add(new RotatedLabyrinthCell(prefab, 90 * i));
-                }
-            }
         }
 
         private void AddFonCells() {
@@ -102,16 +95,8 @@ namespace Game {
                         continue;
                     }
                     var requiredDirections = GetAllRequiredDirections(fieldPosition);
-                    var deadEndPrefabs = _rotatedLabyrinthCells.Where(cell => cell.AvailableOnlyThisDirections(requiredDirections)).ToArray();
-                    if (deadEndPrefabs == null || deadEndPrefabs.Length == 0) {
-                        var sb = new StringBuilder();
-                        foreach (var direction in requiredDirections) {
-                            sb.Append($"{direction},");
-                        }
-                        Debug.Log(sb);
-                        continue;
-                    }
-                    var deadEndInstance = deadEndPrefabs[UnityEngine.Random.Range(0, deadEndPrefabs.Count() - 1)].InstantiateCell(cell, positions.Value.GetDirectionVector(), transform, _cellSize);
+                    var deadEndPrefab = _labyrinthCellsContainer.GetRandomDeadEndCell(requiredDirections);
+                    var deadEndInstance = deadEndPrefab.InstantiateCell(cell, positions.Value.GetDirectionVector(), transform, _cellSize);
                     deadEndInstance.fieldPosition = fieldPosition;
                     _field[fieldPosition.x, fieldPosition.y] = deadEndInstance;
                     deadEnds.Add(deadEndInstance);
@@ -120,8 +105,39 @@ namespace Game {
             _spawnedSells.AddRange(deadEnds);
         }
 
-        private void AddCells(LabyrinthCell labyrinthCell) {
+
+        private void AddCellsTest() {
+            LabyrinthCell[] availableCells;
+            var epoch = 0;
+            do {
+                availableCells = _spawnedSells.Where(cell => cell.RealtimeAvailablePositions.Count > 0).ToArray();
+                foreach (var cell in availableCells) {
+                    foreach (var position in cell.RealtimeAvailablePositions) {
+                        var positionDirection = position.Value.GetDirectionVector();
+                        var newFieldCellPosition = cell.fieldPosition + positionDirection;
+                        if (!FieldPositionIsValid(newFieldCellPosition) || GetCellByFieldPosition(newFieldCellPosition) != null) {
+                            continue;
+                        }
+                        var requiredDirections = GetAllRequiredDirections(newFieldCellPosition);
+                        var randomCellToSpawn = _labyrinthCellsContainer.GetRandomCell(requiredDirections, epoch);
+                        var newCellInstance = randomCellToSpawn.InstantiateCell(cell, positionDirection, transform, _cellSize);
+                        newCellInstance.fieldPosition = newFieldCellPosition;
+                        _spawnedSells.Add(newCellInstance);
+                        _field[newFieldCellPosition.x, newFieldCellPosition.y] = newCellInstance;
+                        ConnectNearestCells(newCellInstance);
+                    }
+                }
+                epoch++;
+            }
+            while (epoch < _maxEpoch && availableCells != null && availableCells.Length > 0 && _spawnedSells.Count < _maxCellsCount) ;
+        }
+
+        private void AddCells(LabyrinthCell labyrinthCell, int epoch) {
             var availablePositions = labyrinthCell.RealtimeAvailablePositions;
+            epoch++;
+            if (epoch > _maxEpoch) {
+                return;
+            }
             foreach (var position in availablePositions) {
                 if (_spawnedSells.Count >= _maxCellsCount) {
                     return;
@@ -132,17 +148,13 @@ namespace Game {
                     continue;
                 }
                 var requiredDirections = GetAllRequiredDirections(newFieldCellPosition);
-                var availableCells = _rotatedLabyrinthCells.Where(cell => cell.AvailableAllDirections(requiredDirections)).ToArray();
-                if (availableCells.Count() == 0) {
-                    continue;
-                }
-                var randomCellToSpawn = availableCells[UnityEngine.Random.Range(0, availableCells.Count() - 1)];
+                var randomCellToSpawn = _labyrinthCellsContainer.GetRandomCell(requiredDirections, epoch);
                 var newCellInstance = randomCellToSpawn.InstantiateCell(labyrinthCell, positionDirection, transform, _cellSize);
                 newCellInstance.fieldPosition = newFieldCellPosition;
                 _spawnedSells.Add(newCellInstance);
                 _field[newFieldCellPosition.x, newFieldCellPosition.y] = newCellInstance;
                 ConnectNearestCells(newCellInstance);
-                AddCells(newCellInstance);
+                AddCells(newCellInstance, epoch);
             }
         }
 
