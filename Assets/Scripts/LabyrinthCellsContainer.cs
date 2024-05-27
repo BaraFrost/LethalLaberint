@@ -35,22 +35,34 @@ namespace Data {
         }
 
         [System.Serializable]
-        private class CellsEpoch {
+        private class CellsWithEpoch : CellsContainer {
+
+            [SerializeField]
+            private int _maxEpoch;
+            public int MaxEpoch => _maxEpoch;
+        }
+
+        [System.Serializable]
+        private class CellsContainer {
 
             [SerializeField]
             private CellWithWeight[] _labyrinthCells;
             public CellWithWeight[] LabyrinthCells => _labyrinthCells;
 
-            public List<RotatedCellWithWeight> RotatedCellsWithWeight { get; private set; }
-
-            [SerializeField]
-            private int _maxEpoch;
-            public int MaxEpoch => _maxEpoch;
-
-            public void GenerateRotatedCells() {
-                if (RotatedCellsWithWeight != null) {
-                    return;
+            private List<RotatedCellWithWeight> _rotatedCellsWithWeight;
+            public List<RotatedCellWithWeight> RotatedCellsWithWeight {
+                get {
+                    if (_rotatedCellsWithWeight == null) {
+                        GenerateRotatedCells();
+                    }
+                    return _rotatedCellsWithWeight;
                 }
+                private set {
+                    _rotatedCellsWithWeight = value;
+                }
+            }
+
+            private void GenerateRotatedCells() {
                 RotatedCellsWithWeight = new List<RotatedCellWithWeight>();
                 foreach (var prefabWithWeight in _labyrinthCells) {
                     for (int i = 0; i < 4; i++) {
@@ -59,22 +71,37 @@ namespace Data {
                     }
                 }
             }
+
+            public RotatedCellWithWeight[] GetAvailableOnlyThisDirectionsCells(List<LabyrinthCell.Direction> directions) {
+                return RotatedCellsWithWeight.Where(cell => cell.LabyrinthCell.AvailableOnlyThisDirections(directions)).ToArray();
+            }
+
+            public RotatedCellWithWeight[] GetAvailableAllDirectionsCells(List<LabyrinthCell.Direction> directions) {
+                return RotatedCellsWithWeight.Where(cell => cell.LabyrinthCell.AvailableAllDirections(directions)).ToArray();
+            }
         }
 
         [SerializeField]
-        private CellsEpoch[] _cellsEpochs;
+        private CellsWithEpoch[] _cellsEpochs;
+
+        [SerializeField]
+        private CellsContainer _allCells;
 
         public RotatedLabyrinthCell GetRandomCell(List<LabyrinthCell.Direction> requiredDirections, int epochNum) {
             var epoch = GetEpoch(epochNum);
-            epoch.GenerateRotatedCells();
-            var availableCells = epoch.RotatedCellsWithWeight.Where(cell => cell.LabyrinthCell.AvailableAllDirections(requiredDirections)).ToArray();
+            var availableCells = epoch.GetAvailableAllDirectionsCells(requiredDirections);
+            if (availableCells.Length == 0) {
+                availableCells = _allCells.GetAvailableAllDirectionsCells(requiredDirections);
+            }
             return GetRandomCell(availableCells);
         }
 
         public RotatedLabyrinthCell GetRandomDeadEndCell(List<LabyrinthCell.Direction> requiredDirections) {
             var epoch = _cellsEpochs.Last();
-            epoch.GenerateRotatedCells();
-            var availableCells = epoch.RotatedCellsWithWeight.Where(cell => cell.LabyrinthCell.AvailableOnlyThisDirections(requiredDirections)).ToArray();
+            var availableCells = epoch.GetAvailableOnlyThisDirectionsCells(requiredDirections);
+            if(availableCells.Length == 0) {
+                availableCells = _allCells.GetAvailableOnlyThisDirectionsCells(requiredDirections);
+            }
             return GetRandomCell(availableCells);
         }
 
@@ -94,7 +121,7 @@ namespace Data {
             return rotatedCells.Last().LabyrinthCell;
         }
 
-        private CellsEpoch GetEpoch(int epochNum) {
+        private CellsWithEpoch GetEpoch(int epochNum) {
             foreach (var cellsEpoch in _cellsEpochs) {
                 if (cellsEpoch.MaxEpoch > epochNum) {
                     return cellsEpoch;

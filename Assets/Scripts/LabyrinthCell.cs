@@ -69,6 +69,12 @@ namespace Game {
         [NonSerialized]
         public Vector2Int fieldPosition;
 
+        public void Clear() {
+            _realtimeAvailablePositions = null;
+            _nearestCells.Clear();
+            fieldPosition = Vector2Int.zero;
+        }
+
         public bool TryToAddNearestCell(Direction direction, LabyrinthCell labyrinthCell) {
             if (RealtimeAvailablePositions.ContainsKey(direction)) {
                 return false;
