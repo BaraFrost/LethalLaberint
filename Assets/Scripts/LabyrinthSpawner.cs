@@ -1,27 +1,22 @@
 using Data;
+using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using UnityEditor;
 using UnityEngine;
 using Utils;
 
 namespace Game {
 
-#if UNITY_EDITOR
-    [CustomEditor(typeof(LabyrinthSpawner))]
-    public class LabyrinthSpawnerEditor : Editor {
-        public override void OnInspectorGUI() {
-            base.OnInspectorGUI();
-            var LabyrinthSpawner = target as LabyrinthSpawner;
-            if (GUILayout.Button("Respawn")) {
-                LabyrinthSpawner.Respawn();
-            }
-        }
-    }
-#endif
-
     public class LabyrinthSpawner : MonoBehaviour {
+
+        [Serializable]
+        private struct FieldOffsets {
+            public int startCellYPosition;
+            public int additionalFieldSize;
+            public int deadEndOffset;
+        }
 
         [SerializeField]
         private LabyrinthCell _fonCellPrefab;
@@ -30,7 +25,10 @@ namespace Game {
         private LabyrinthCellsContainer _labyrinthCellsContainer;
 
         [SerializeField]
-        private int labyrinthSize;
+        private GameObject _floor;
+
+        [SerializeField]
+        private int _labyrinthSize;
 
         [SerializeField]
         private float _cellSize;
@@ -47,10 +45,20 @@ namespace Game {
         [SerializeField]
         private LabyrinthCell[] _additiveStartCells;
 
+        [SerializeField]
+        private FieldOffsets _fieldOffsets;
+
+
+        private int FullLabyrinthSize => _labyrinthSize + _fieldOffsets.additionalFieldSize;
+
         private LabyrinthCell[,] _field;
         private List<LabyrinthCell> _spawnedSells = new List<LabyrinthCell>();
 
+        [Button]
         public void Respawn() {
+            if (!EditorApplication.isPlaying) {
+                return;
+            }
             _spawnedSells.Remove(_startCell);
             _startCell.Clear();
             foreach (var startCell in _additiveStartCells) {
@@ -72,11 +80,12 @@ namespace Game {
         }
 
         private void SetStartData() {
-            _field = new LabyrinthCell[labyrinthSize + 2, labyrinthSize + 2];
-            var startCellFieldPosition = new Vector2Int(labyrinthSize / 2, 3);
+            _field = new LabyrinthCell[FullLabyrinthSize, FullLabyrinthSize];
+            var startCellFieldPosition = new Vector2Int(FullLabyrinthSize / 2, _fieldOffsets.startCellYPosition);
             _field[startCellFieldPosition.x, startCellFieldPosition.y] = _startCell;
             _spawnedSells.Add(_startCell);
             _startCell.fieldPosition = startCellFieldPosition;
+            SetFloorPosition();
             foreach (var additiveStartCell in _additiveStartCells) {
                 var positionDifference = additiveStartCell.transform.position - _startCell.transform.position;
                 var fieldPosition = Vector2Int.RoundToInt(new Vector2(positionDifference.x, positionDifference.z) / _cellSize) + _startCell.fieldPosition;
@@ -87,10 +96,22 @@ namespace Game {
             }
         }
 
+        private void SetFloorPosition() {
+            var floorFieldPosition = new Vector2Int(FullLabyrinthSize / 2, FullLabyrinthSize / 2) - _startCell.fieldPosition;
+            var floorPosition = FieldPostionToVector3(floorFieldPosition) * _cellSize + _startCell.gameObject.transform.position;
+            floorPosition.y = _floor.transform.position.y;
+            _floor.transform.position = floorPosition;
+            _floor.transform.localScale = (Vector3.one * (FullLabyrinthSize - _fieldOffsets.deadEndOffset) * _cellSize / 10) * _floor.transform.localScale.x / _floor.transform.lossyScale.x;
+        }
+
+        private Vector3 FieldPostionToVector3(Vector2Int vector) {
+            return new Vector3(vector.x, 0, vector.y);
+        }
+
         private void AddFonCells() {
             var zeroPosition = _startCell.gameObject.transform.position - new Vector3(_startCell.fieldPosition.x, 0, _startCell.fieldPosition.y) * _cellSize;
-            for (int i = 0; i < labyrinthSize + 1; i++) {
-                for (int j = 0; j < labyrinthSize + 1; j++) {
+            for (int i = 0; i < FullLabyrinthSize; i++) {
+                for (int j = 0; j < FullLabyrinthSize; j++) {
                     if (_field[i, j] != null) {
                         continue;
                     }
@@ -160,11 +181,17 @@ namespace Game {
         }
 
         private bool FieldPositionIsValid(Vector2Int cellFieldPosition) {
-            return labyrinthSize > cellFieldPosition.x && labyrinthSize > cellFieldPosition.y && cellFieldPosition.x >= 1 && cellFieldPosition.y >= 1;
+            return _labyrinthSize > cellFieldPosition.x
+                && _labyrinthSize > cellFieldPosition.y
+                && cellFieldPosition.x >= _fieldOffsets.additionalFieldSize
+                && cellFieldPosition.y >= _fieldOffsets.additionalFieldSize;
         }
 
         private bool FieldPositionIsValidForDeadEnd(Vector2Int cellFieldPosition) {
-            return labyrinthSize + 2 > cellFieldPosition.x && labyrinthSize + 2 > cellFieldPosition.y && cellFieldPosition.x >= 0 && cellFieldPosition.y >= 0;
+            return FullLabyrinthSize - _fieldOffsets.deadEndOffset > cellFieldPosition.x
+                && FullLabyrinthSize - _fieldOffsets.deadEndOffset > cellFieldPosition.y
+                && cellFieldPosition.x >= _fieldOffsets.deadEndOffset
+                && cellFieldPosition.y >= _fieldOffsets.deadEndOffset;
         }
 
         private void ConnectNearestCells(LabyrinthCell labyrinthCell) {
