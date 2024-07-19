@@ -58,6 +58,7 @@ MonoBehaviour:
     _connectionType: 0
   - _direction: 3
     _connectionType: 0
+  _closedCell: 0
 --- !u!1001 &1055153656020257941
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -144,13 +145,65 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3714507444479652114}
     m_Modifications:
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Range
+      value: 6.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_DrawHalo
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Intensity
+      value: 2.73
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_SpotAngle
+      value: 24.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_RenderMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Shadows.m_Bias
+      value: 0.832
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_BounceIntensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.278
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Shadows.m_NearPlane
+      value: 3.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 3070643913238400070, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
+      propertyPath: m_Shadows.m_NormalBias
+      value: 0.82
+      objectReference: {fileID: 0}
     - target: {fileID: 4806218519410877322, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_Name
       value: SellLight
       objectReference: {fileID: 0}
     - target: {fileID: 4806218519410877322, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5155328303471561680, guid: 2a79f20272cd8f24b9dcd3dcb4b3f570, type: 3}
       propertyPath: m_RootOrder

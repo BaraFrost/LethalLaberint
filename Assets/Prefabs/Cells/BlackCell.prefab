@@ -137,3 +137,4 @@ MonoBehaviour:
     _connectionType: 0
   - _direction: 3
     _connectionType: 0
+  _closedCell: 1
