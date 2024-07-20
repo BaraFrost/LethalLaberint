@@ -157,7 +157,16 @@ PrefabInstance:
       value: Large Axel Finished
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: -1217030297075129771, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: -2567555823779535870, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: -9070748969904699067, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: 2903893172859080141, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: -7367559088687387456, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: 5090062054982439474, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: -3403155128824885820, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: 9022215874312191456, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
+    - {fileID: -5731229141766309534, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: -8679921383154817045, guid: 61df170bf728a464ba1686ca23676a8d, type: 3}
       insertIndex: -1
