@@ -18,15 +18,28 @@ namespace Game {
             _wallet.onItemFellOut -= DropItemCollectibleItem;
         }
 
+        public void DropAllItems() {
+            var items = _wallet.TakeAllItems();
+            foreach (var item in items) {
+                DropItemCollectibleItem(item, addToIgnoreColliderEnter: false);
+            }
+        }
+
         private void DropItemCollectibleItem(CollectibleItem collectibleItem) {
+            DropItemCollectibleItem(collectibleItem, addToIgnoreColliderEnter: true);
+        }
+
+        private void DropItemCollectibleItem(CollectibleItem collectibleItem, bool addToIgnoreColliderEnter) {
             collectibleItem.transform.position = new Vector3(gameObject.transform.position.x, collectibleItem.transform.position.y, gameObject.transform.position.z);
             collectibleItem.gameObject.SetActive(true);
-            _feltCollectibleItems.Add(collectibleItem);
+            if (addToIgnoreColliderEnter) {
+                _feltCollectibleItems.Add(collectibleItem);
+            }
         }
 
         private void OnTriggerEnter(Collider other) {
             if (other.TryGetComponent<CollectibleItem>(out var item)) {
-                if(_feltCollectibleItems.Contains(item)) {
+                if (_feltCollectibleItems.Contains(item)) {
                     _feltCollectibleItems.Remove(item);
                     return;
                 }

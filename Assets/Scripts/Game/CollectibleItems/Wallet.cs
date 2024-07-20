@@ -38,12 +38,23 @@ namespace Game {
         }
 
         public int GetItemsMoneyAndDestroyItems() {
-            var money = _items.Count;
+            var money = 0;
             foreach (var item in _items) {
+                money += item.Key.Price;
                 Destroy(item.Key.gameObject);
             }
             _items.Clear();
             return money;
+        }
+
+        public List<CollectibleItem> TakeAllItems() {
+            var result = new List<CollectibleItem>();
+            foreach (var item in _items) {
+                result.Add(item.Value);
+                Destroy(item.Key.gameObject);
+            }
+            _items.Clear();
+            return result;
         }
     }
 }

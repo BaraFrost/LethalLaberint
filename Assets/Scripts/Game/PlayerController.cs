@@ -4,6 +4,17 @@ namespace Game {
 
     public class PlayerController : MonoBehaviour {
 
+        [SerializeField]
+        private HealthLogic _healthLogic;
+        public HealthLogic HealthLogic => _healthLogic;
+
+        [SerializeField]
+        private ItemsCollector _itemsCollector;
+        public ItemsCollector ItemsCollector => _itemsCollector;
+
+        [SerializeField]
+        private PlayerVisualLogic _playerVisualLogic;
+
         public float speedMove;
         public float jumpPower;
         public float rotationSpeed;
@@ -14,8 +25,9 @@ namespace Game {
         private CharacterController ch_controller;
         private Animator ch_animator;
 
-
         private void Start() {
+            HealthLogic.onDamaged += ItemsCollector.DropAllItems;
+            HealthLogic.onDamaged += _playerVisualLogic.SpawnRagdoll;
             ch_animator = GetComponent<Animator>();
             ch_controller = GetComponent<CharacterController>();
         }

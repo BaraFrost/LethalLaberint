@@ -15,10 +15,10 @@ TagManager:
   - MiniMap
   - MiniMapAndDefault
   - Wallet
-  - 
-  - 
-  - 
-  - 
+  - IgnoreCamera
+  - Enemy
+  - Ragdoll
+  - RaycastObstacle
   - 
   - 
   - 

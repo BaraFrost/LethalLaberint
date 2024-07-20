@@ -8,7 +8,7 @@ namespace Game {
         private float _attackDistance;
 
         public override void AttackTarget(PlayerController target) {
-            Debug.Log("Attack");
+            target.HealthLogic.AddDamage();
         }
 
         public override bool CanAttackTarget(PlayerController target) {

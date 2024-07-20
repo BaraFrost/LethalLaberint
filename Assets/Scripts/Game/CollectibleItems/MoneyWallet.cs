@@ -12,7 +12,7 @@ namespace Game {
 
         public void AddMoney(int count) {
             _moneyCount += count;
-            _text.text = $"Money:{_moneyCount}" ;
+            _text.text = $"{_moneyCount}$" ;
         }
 
     }
