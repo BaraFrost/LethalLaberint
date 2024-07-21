@@ -2,7 +2,7 @@ using Scripts.Infrastructure.BehaviorTree;
 
 namespace Game {
 
-    public class AttackNode : EnemyNode {
+    public class AttackNode : EnemyNode<Enemy> {
 
         public AttackNode(Enemy enemy) : base(enemy) {
         }

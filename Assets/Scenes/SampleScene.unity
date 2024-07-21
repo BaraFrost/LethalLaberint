@@ -8,8 +8,8 @@ OcclusionCullingSettings:
     smallestOccluder: 5
     smallestHole: 0.25
     backfaceThreshold: 100
-  m_SceneGUID: 9fc0d4010bbf28b4594072e72b8655ab
-  m_OcclusionCullingData: {fileID: 36300000, guid: 2525f1570c1b1a54ea4022038531eed7, type: 2}
+  m_SceneGUID: 00000000000000000000000000000000
+  m_OcclusionCullingData: {fileID: 0}
 --- !u!104 &2
 RenderSettings:
   m_ObjectHideFlags: 0
@@ -960,7 +960,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!114 &286297229
@@ -1691,7 +1691,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!4 &775299485
@@ -2563,7 +2563,7 @@ Camera:
   m_AllowMSAA: 1
   m_AllowDynamicResolution: 0
   m_ForceIntoRT: 0
-  m_OcclusionCulling: 1
+  m_OcclusionCulling: 0
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
 --- !u!1 &1679658948 stripped
@@ -2957,7 +2957,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984437, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3881087803549984438, guid: ec536a7718376554185e4a856d5ae230, type: 3}
       propertyPath: m_Enabled
@@ -3586,22 +3586,6 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 376523682}
-    - target: {fileID: 9091978142166124638, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.2899847
-      objectReference: {fileID: 0}
-    - target: {fileID: 9091978142166124638, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.2899847
-      objectReference: {fileID: 0}
-    - target: {fileID: 9091978142166124638, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.2899847
-      objectReference: {fileID: 0}
-    - target: {fileID: 9091978142166124638, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -5.67e-12
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

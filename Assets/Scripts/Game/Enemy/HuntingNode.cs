@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class HuntingNode : EnemyNode {
+    public class HuntingNode : EnemyNode<Enemy> {
 
         private Vector3? _lastTargetPosition;
 

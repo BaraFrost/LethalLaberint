@@ -1169,7 +1169,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _healthLogic: {fileID: 5382552434125708256}
   _itemsCollector: {fileID: 399126826151555604}
+  _collider: {fileID: 4785830032495001264}
   _playerVisualLogic: {fileID: 7651086917584605103}
+  _joystick: {fileID: 0}
   speedMove: 6
   jumpPower: 6
   rotationSpeed: 10

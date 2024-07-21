@@ -21,6 +21,8 @@ namespace Game {
             return distance.magnitude <= _stopDistance;
         }
 
+        public override void Rotate(Vector3 lookAtPosition) { }
+
         public override void Stop() {
             _agent.isStopped = true;
         }

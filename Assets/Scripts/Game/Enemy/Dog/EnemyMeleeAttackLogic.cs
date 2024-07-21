@@ -14,6 +14,9 @@ namespace Game {
         public override bool CanAttackTarget(PlayerController target) {
             return Vector3.Distance(target.gameObject.transform.position, gameObject.transform.position) < _attackDistance;
         }
+
+        public override void StopAttack() {
+        }
     }
 }
 

@@ -13,6 +13,10 @@ namespace Game {
         public ItemsCollector ItemsCollector => _itemsCollector;
 
         [SerializeField]
+        private Collider _collider;
+        public Collider Collider => _collider;
+
+        [SerializeField]
         private PlayerVisualLogic _playerVisualLogic;
 
         [SerializeField]
@@ -43,8 +47,8 @@ namespace Game {
 
         private void CharacterMove() {
             moveVector = Vector3.zero;
-            moveVector.x = Input.GetAxis("Horizontal") * speedMove; //_joystick.Horizontal * speedMove;//
-            moveVector.z = Input.GetAxis("Vertical") * speedMove; //_joystick.Vertical * speedMove; //
+            moveVector.x = Input.GetAxis("Horizontal") * speedMove;////_joystick.Horizontal * speedMove
+            moveVector.z = Input.GetAxis("Vertical") * speedMove; // //_joystick.Vertical * speedMove;
             if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0) {
                 Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, rotationSpeed * Time.deltaTime, 0.0f);
                 transform.rotation = Quaternion.LookRotation(direct);

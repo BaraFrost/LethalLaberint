@@ -1,10 +1,9 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Linq;
 using UnityEngine;
 
 namespace Game {
 
-    public class PatrollingNode : EnemyNode {
+    public class PatrollingNode : EnemyNode<Enemy> {
 
         private Vector3 _targetPosition;
 

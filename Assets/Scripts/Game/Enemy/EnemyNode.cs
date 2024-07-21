@@ -2,11 +2,11 @@ using Scripts.Infrastructure.BehaviorTree;
 
 namespace Game {
 
-    public abstract class EnemyNode : Node {
+    public abstract class EnemyNode<T> : Node where T: Enemy {
 
-        protected Enemy _enemy;
+        protected T _enemy;
 
-        protected EnemyNode(Enemy enemy) {
+        protected EnemyNode(T enemy) {
             _enemy = enemy;
         }
     }
