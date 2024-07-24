@@ -300,6 +300,7 @@ MonoBehaviour:
   _raycastLayerMask:
     serializedVersion: 2
     m_Bits: 8827
+  _sphereCastRadius: 0.001
 --- !u!114 &3943296467411184341
 MonoBehaviour:
   m_ObjectHideFlags: 0

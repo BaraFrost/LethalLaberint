@@ -213,8 +213,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6579909402593264634}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.00000017666, y: 16.19, z: 0.9}
-  m_LocalScale: {x: 0.7517832, y: 0.7517832, z: 0.7517832}
+  m_LocalPosition: {x: 0.000000058883, y: 16.19, z: 0.9}
+  m_LocalScale: {x: 1.1637604, y: 1.1637604, z: 1.1637604}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4885179736990003613}
@@ -1228,6 +1228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _wallet: {fileID: 0}
   _moneyWallet: {fileID: 0}
+  _itemsCollector: {fileID: 399126826151555604}
 --- !u!114 &5382552434125708256
 MonoBehaviour:
   m_ObjectHideFlags: 0

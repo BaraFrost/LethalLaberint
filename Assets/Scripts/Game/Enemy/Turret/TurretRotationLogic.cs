@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game {
@@ -7,6 +8,9 @@ namespace Game {
 
         [SerializeField]
         private float _rotationSpeed;
+
+        [SerializeField]
+        private float _pursuitSpeed;
 
         [SerializeField]
         private Transform _rotationRoot;
@@ -19,18 +23,26 @@ namespace Game {
 
         private Queue<Transform> _rotationTargetsQueue;
 
+        private void Start() {
+            var randomRotation = Random.Range(0, 360);
+            gameObject.transform.rotation = Quaternion.AngleAxis(randomRotation, Vector3.up);
+            if (Random.Range(0, 2) == 1) {
+                _rotationTargets = _rotationTargets.Reverse().ToArray();
+            }
+        }
+
         public bool RotationReached(Vector3 position) {
             var angle = Mathf.Abs(GetAngle(position));
             return angle <= _reachedAngle;
         }
 
-        public void Rotate(Vector3 lookAtPosition) {
+        public void Rotate(Vector3 lookAtPosition, bool usePursuitSpeed = false) {
             if (RotationReached(lookAtPosition)) {
                 return;
             }
             var currentRotation = _rotationRoot.transform.rotation.eulerAngles.y;
             var differenceAngle = GetAngle(lookAtPosition);
-            var rotation = Mathf.Lerp(currentRotation, differenceAngle + currentRotation, _rotationSpeed * Time.deltaTime);
+            var rotation = Mathf.Lerp(currentRotation, differenceAngle + currentRotation, usePursuitSpeed ? _pursuitSpeed : _rotationSpeed * Time.deltaTime);
             _rotationRoot.transform.rotation = Quaternion.AngleAxis(rotation, Vector3.up);
         }
 

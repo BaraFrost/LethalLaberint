@@ -1,10 +1,9 @@
 using NaughtyAttributes;
-using System;
 using System.Collections.Generic;
-using System.Linq;
 using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Game {
 
@@ -41,6 +40,12 @@ namespace Game {
             _navMeshSurface.BuildNavMesh();
             _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer);
             _collectibleItemsSpawner.Spawn(_cellsContainer);
+        }
+
+        private void Update() {
+            if(Input.GetKeyDown(KeyCode.R)) {
+                SceneManager.LoadScene(0);
+            }
         }
 
 #if UNITY_EDITOR

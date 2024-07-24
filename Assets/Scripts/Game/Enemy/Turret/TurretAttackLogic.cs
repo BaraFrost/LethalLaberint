@@ -9,10 +9,16 @@ namespace Game {
         private float _timeBeforeAttack;
 
         [SerializeField]
+        private float _timeBeforeDoDamage;
+
+        [SerializeField]
         private int _missProbability;
 
         [SerializeField]
         private ParticleSystem _shootEffect;
+
+        [SerializeField]
+        private TurretVisualLogic _turretVisualLogic;
 
         private Coroutine _coroutine;
 
@@ -27,8 +33,10 @@ namespace Game {
 
         private IEnumerator AttackCoroutine(PlayerController target) {
             _isAttack = true;
+            _turretVisualLogic.PlayPrepareShootEffects();
             yield return new WaitForSeconds(_timeBeforeAttack);
-            _shootEffect.Play();
+            _turretVisualLogic.PlayShootEffects();
+            yield return new WaitForSeconds(_timeBeforeDoDamage);
             while (true) {
                 yield return null;
                 if(TryToAttack(target)) {
@@ -36,7 +44,7 @@ namespace Game {
                 }
             }
             _isAttack = false;
-            _shootEffect.Stop();
+            _turretVisualLogic.StopShootEffects();
         }
 
         private bool TryToAttack(PlayerController target) {
@@ -57,7 +65,7 @@ namespace Game {
                 return;
             }
             _isAttack = false;
-            _shootEffect.Stop();
+            _turretVisualLogic.StopShootEffects();
             StopCoroutine(_coroutine);
         }
     }

@@ -80,7 +80,7 @@ namespace Game {
             AddCells();
             AddDeadEndCells();
             AddFonCells();
-            return new SpawnedLabyrinthCellsContainer(_spawnedCells.Where(cell => !cell.ClosedCell).ToList(), FullLabyrinthSize);
+            return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field);
         }
 
         private void SetStartData() {

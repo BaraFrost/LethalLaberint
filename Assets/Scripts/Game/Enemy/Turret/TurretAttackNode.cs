@@ -13,8 +13,7 @@ namespace Game {
                 return NodeState.Failure;
             }
             if (!_enemy.TurretRotationLogic.RotationReached(_enemy.Data.Player.transform.position)) {
-                _enemy.TurretRotationLogic.Rotate(_enemy.Data.Player.transform.position);
-                _enemy.AttackLogic.StopAttack();
+                _enemy.TurretRotationLogic.Rotate(_enemy.Data.Player.transform.position, true);
                 return NodeState.Running;
             }
             if (_enemy.AttackLogic.CanAttackTarget(_enemy.Data.Player)) {

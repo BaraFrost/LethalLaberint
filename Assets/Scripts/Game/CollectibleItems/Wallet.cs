@@ -37,13 +37,11 @@ namespace Game {
             _items.Add(spawnedItem, item);
         }
 
-        public int GetItemsMoneyAndDestroyItems() {
+        public int GetItemsMoney() {
             var money = 0;
             foreach (var item in _items) {
                 money += item.Key.Price;
-                Destroy(item.Key.gameObject);
             }
-            _items.Clear();
             return money;
         }
 

@@ -11,8 +11,10 @@ namespace Game {
         private MoneyWallet _moneyWallet;
 
         private void OnTriggerEnter(Collider other) {
-            if(other.gameObject.TryGetComponent<WarehouseArea>(out var warehouseArea)) {
-                var money = _wallet.GetItemsMoneyAndDestroyItems();
+            if (other.gameObject.TryGetComponent<WarehouseArea>(out var warehouseArea)) {
+                var money = _wallet.GetItemsMoney();
+                var items = _wallet.TakeAllItems();
+                warehouseArea.AddItems(items);
                 _moneyWallet.AddMoney(money);
             }
         }

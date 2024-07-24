@@ -9,9 +9,11 @@ namespace Game {
         private List<LabyrinthCell> _cells;
         private List<LabyrinthCell> _availableCells;
         public List<LabyrinthCell> AvailableCells => _availableCells;
+        public LabyrinthCell[,] Field { get; private set; }
         public int LabyrinthSize { get; private set; }
 
-        public SpawnedLabyrinthCellsContainer(List<LabyrinthCell> cells, int labyrinthSize) {
+        public SpawnedLabyrinthCellsContainer(List<LabyrinthCell> cells, int labyrinthSize, LabyrinthCell[,] field) {
+            Field = field;
             _cells = cells;
             _availableCells = cells.Where(cell => !cell.ClosedCell).ToList();
             LabyrinthSize = labyrinthSize;

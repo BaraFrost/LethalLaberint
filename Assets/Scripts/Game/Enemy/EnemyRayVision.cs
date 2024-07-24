@@ -17,6 +17,9 @@ namespace Game {
         [SerializeField]
         private LayerMask _raycastLayerMask;
 
+        [SerializeField]
+        private float _sphereCastRadius;
+
         public override bool CanSeeTarget(PlayerController enemyTarget) {
             var directionVector = enemyTarget.Collider.bounds.center - _visionPosition.transform.position;
             var directionForAngleCalculation = new Vector3(directionVector.x, 0, directionVector.z);
@@ -26,7 +29,7 @@ namespace Game {
                 return false;
             }
             Debug.DrawRay(_visionPosition.transform.position, directionVector);
-            if (Physics.Raycast(_visionPosition.transform.position, directionVector, out var hitInfo, _distance, _raycastLayerMask) && hitInfo.collider != null
+            if (Physics.SphereCast(_visionPosition.transform.position, _sphereCastRadius, directionVector, out var hitInfo, _distance, _raycastLayerMask) && hitInfo.collider != null
                 && hitInfo.collider.TryGetComponent<PlayerController>(out var player)) {
                 return true;
             }
