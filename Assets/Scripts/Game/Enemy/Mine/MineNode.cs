@@ -2,15 +2,11 @@ using Scripts.Infrastructure.BehaviorTree;
 
 namespace Game {
 
-    public class AttackNode : EnemyNode<Enemy> {
+    public class MineNode : EnemyNode<MineEnemy> {
 
-        public AttackNode(Enemy enemy) : base(enemy) {
-        }
+        public MineNode(MineEnemy enemy) : base(enemy) { }
 
         public override NodeState Evaluate() {
-            if(!_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
-                return NodeState.Failure;
-            }
             if(!_enemy.AttackLogic.CanAttackTarget(_enemy.Data.Player)) {
                 return NodeState.Failure;
             }

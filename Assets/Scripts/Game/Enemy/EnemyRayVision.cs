@@ -1,4 +1,3 @@
-using System.Runtime.CompilerServices;
 using UnityEngine;
 
 namespace Game {
@@ -20,7 +19,7 @@ namespace Game {
         [SerializeField]
         private float _sphereCastRadius;
 
-        public override bool CanSeeTarget(PlayerController enemyTarget) {
+        protected override bool CanSeeTargetInternal(PlayerController enemyTarget) {
             var directionVector = enemyTarget.Collider.bounds.center - _visionPosition.transform.position;
             var directionForAngleCalculation = new Vector3(directionVector.x, 0, directionVector.z);
             var angleBetween = Vector3.Angle(_visionPosition.transform.forward, directionForAngleCalculation);

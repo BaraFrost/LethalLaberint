@@ -402,7 +402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyContainer: {fileID: 11400000, guid: bcfb32ce8afe92849b6722cec7fbb329, type: 2}
-  _maxLabyrinthSize: 1000
+  _maxLabyrinthSize: 5000
   _enemyCount: 4
 --- !u!1 &2276894953205499033
 GameObject:
@@ -777,7 +777,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _miniMapCamera: {fileID: 2610162608893123572}
-  _additionalSize: 0.1
+  _additionalSize: 0
 --- !u!1 &4869728459178956166
 GameObject:
   m_ObjectHideFlags: 0
@@ -1472,7 +1472,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ff36a7c2ba96b24fb245df61b8a3ec5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _randomOffset: 0.2
+  _randomOffset: 0.5
 --- !u!1 &8638563738870275082
 GameObject:
   m_ObjectHideFlags: 0

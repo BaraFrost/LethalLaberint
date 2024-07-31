@@ -32,6 +32,7 @@ namespace Game {
         private int _enemyCount;
 
         public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells) {
+            _enemyContainer.ResetCachedEnemy();
             _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
             UpdateWeightsByDistance(player.transform.position);
             for (var i = 0; i < _enemyCount; i++) {
