@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class CollectibleItem : MonoBehaviour {
+    public class CollectibleItem : MonoBehaviour, ILabyrinthEntity {
 
         [SerializeField]
         private WalletCollectibleItem _walletCollectibleItemPrefab;

@@ -204,8 +204,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4694957873225218840}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0.000000026458, y: 0.124, z: 0}
-  m_LocalScale: {x: 4.718991, y: 4.718991, z: 4.718991}
+  m_LocalPosition: {x: 0.000000088633, y: 0.124, z: -0.00000013222}
+  m_LocalScale: {x: 2.2163684, y: 2.2163684, z: 2.2163684}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3711902380264783942}
@@ -293,7 +293,7 @@ Transform:
   m_GameObject: {fileID: 4760317934417618662}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.000000092828, y: 0.061726764, z: -1.4682397}
-  m_LocalScale: {x: 0.48085734, y: 0.48085734, z: 0.48085734}
+  m_LocalScale: {x: 0.9016075, y: 0.9016075, z: 0.9016075}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7823031429118370073}
@@ -379,7 +379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeBeforeExplosion: 1
-  _activateDistance: 0.4
+  _activateDistance: 0.45
   _damageDistance: 3.52
   _raycastLayerMask:
     serializedVersion: 2

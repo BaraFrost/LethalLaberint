@@ -17,8 +17,8 @@ namespace Game {
                 positionSum += cell.transform.position;
             }
             positionSum /= cellsToRender.Count;
-            _miniMapCamera.transform.position = new Vector3(positionSum.x, _miniMapCamera.transform.position.y, positionSum.z);
-            _miniMapCamera.orthographicSize = cellsContainer.LabyrinthSize + _additionalSize;
+           /* _miniMapCamera.transform.position = new Vector3(positionSum.x, _miniMapCamera.transform.position.y, positionSum.z);
+            _miniMapCamera.orthographicSize = cellsContainer.LabyrinthSize + _additionalSize;*/
         }
     }
 }

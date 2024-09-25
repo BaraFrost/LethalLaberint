@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System.Collections.Generic;
+using UI;
 using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
@@ -27,6 +28,9 @@ namespace Game {
         [SerializeField]
         private CollectibleItemsSpawner _collectibleItemsSpawner;
 
+        [SerializeField]
+        private EntityPointersSystem _entityPointersSystem;
+
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
@@ -40,10 +44,11 @@ namespace Game {
             _navMeshSurface.BuildNavMesh();
             _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer);
             _collectibleItemsSpawner.Spawn(_cellsContainer);
+            _entityPointersSystem.Init(_enemies, _collectibleItemsSpawner.SpawnedItems);
         }
 
         private void Update() {
-            if(Input.GetKeyDown(KeyCode.R)) {
+            if (Input.GetKeyDown(KeyCode.R)) {
                 SceneManager.LoadScene(0);
             }
         }

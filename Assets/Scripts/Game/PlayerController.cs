@@ -20,6 +20,10 @@ namespace Game {
         private PlayerVisualLogic _playerVisualLogic;
 
         [SerializeField]
+        private PlayerAbilityLogic _playerAbilityLogic;
+        public PlayerAbilityLogic PlayerAbilityLogic => _playerAbilityLogic;
+
+        [SerializeField]
         private VariableJoystick _joystick;
 
         public float speedMove;
