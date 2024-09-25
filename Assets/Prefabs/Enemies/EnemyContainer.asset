@@ -15,7 +15,7 @@ MonoBehaviour:
   _enemies:
   - _enemy: {fileID: 8933810298978875248, guid: 59efb381a2196364198ee4cb7f5b108c, type: 3}
     _count: 4
-  - _enemy: {fileID: 6244266453083633643, guid: 69011b7cb416c904e8be9379944f558f, type: 3}
+  - _enemy: {fileID: 6641828935266196660, guid: 69011b7cb416c904e8be9379944f558f, type: 3}
     _count: 1
   - _enemy: {fileID: 1972887871381213514, guid: 67959371dab98a441b792f942fe550e5, type: 3}
     _count: 1

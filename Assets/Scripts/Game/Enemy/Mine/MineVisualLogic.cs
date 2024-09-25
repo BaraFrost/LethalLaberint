@@ -15,7 +15,9 @@ namespace Game {
         private float _lampSwitchTime;
 
         private void Start() {
-            StartCoroutine(PlayMineLampSwitchEffect());
+            if(_mineLamp != null) {
+                StartCoroutine(PlayMineLampSwitchEffect());
+            }
         }
 
         private IEnumerator PlayMineLampSwitchEffect() {
