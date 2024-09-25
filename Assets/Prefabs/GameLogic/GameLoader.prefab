@@ -2788,6 +2788,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 8512862603431775101}
+    - target: {fileID: 4878960910836868890, guid: d1f047f07e9c5114e93509f5379df7ca, type: 3}
+      propertyPath: _minDistance
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 6442812355756492692, guid: d1f047f07e9c5114e93509f5379df7ca, type: 3}
       propertyPath: m_RootOrder
       value: -1

@@ -372,6 +372,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 8534898511108125954, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _minDistance
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
