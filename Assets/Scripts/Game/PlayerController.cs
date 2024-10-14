@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.AI;
 
 namespace Game {
 
@@ -24,23 +25,40 @@ namespace Game {
         public PlayerAbilityLogic PlayerAbilityLogic => _playerAbilityLogic;
 
         [SerializeField]
+        private PlayerInputLogic _playerInputLogic;
+        public PlayerInputLogic PlayerInputLogic => _playerInputLogic;
+
+        [SerializeField]
         private VariableJoystick _joystick;
 
-        public float speedMove;
-        public float jumpPower;
-        public float rotationSpeed;
+        [SerializeField]
+        private float _correctionDistance;
 
-        private float gravityForce;
-        private Vector3 moveVector;
+        [SerializeField]
+        private float _correctionForce;
 
-        private CharacterController ch_controller;
-        private Animator ch_animator;
+        [SerializeField]
+        private float _rayDistance;
+
+        [SerializeField]
+        private float _moveSpeed;
+        [SerializeField]
+        private float _rotationSpeed;
+
+        [SerializeField]
+        private LayerMask _wallLayer;  // Создайте переменную для слоя стен
+
+        private float _gravityForce;
+        private Vector3 _inputMoveVector;
+
+        private CharacterController _characterController;
+        private Animator _characterAnimator;
 
         private void Start() {
             HealthLogic.onDamaged += ItemsCollector.DropAllItems;
             HealthLogic.onDamaged += _playerVisualLogic.SpawnRagdoll;
-            ch_animator = GetComponent<Animator>();
-            ch_controller = GetComponent<CharacterController>();
+            _characterAnimator = GetComponent<Animator>();
+            _characterController = GetComponent<CharacterController>();
         }
 
         private void Update() {
@@ -48,40 +66,76 @@ namespace Game {
             GamingGravity();
         }
 
+        private Vector3 CorrectMovementOnNavMesh(Vector3 moveDirection) {
+            var playerPosition = transform.position;
+            playerPosition.y = 0;
+            var newPosition = transform.position + moveDirection;
+            if (NavMesh.SamplePosition(newPosition, out var hit, _correctionDistance, NavMesh.AllAreas)) {
+                var navMeshPoint = hit.position;
+                navMeshPoint.y = 0f;
+                var correctedDirection = (navMeshPoint - playerPosition).normalized;
+                if ((navMeshPoint - playerPosition).magnitude < _correctionForce * Time.deltaTime) {
+                    return Vector3.zero;
+                }
+                return correctedDirection;
+            }
+            return Vector3.zero;
+        }
+
+        private Vector3 CorrectMovement(Vector3 moveDirection) {
+            if (moveDirection.sqrMagnitude == 0) {
+                return moveDirection;
+            }
+            Debug.Log($"start:{_inputMoveVector}");
+            var correctedMovement = CorrectMovementOnNavMesh(moveDirection);
+            if (correctedMovement.sqrMagnitude != 0) {
+                return correctedMovement;
+            }
+            if (Physics.SphereCast(transform.position, 0.2f, Vector3Int.RoundToInt(moveDirection.normalized), out var raycasthit, _rayDistance, _wallLayer)) {
+                Vector3 wallNormal = raycasthit.point - gameObject.transform.position;
+                Debug.Log($"wallNormal:{wallNormal}");
+                correctedMovement = Vector3.ProjectOnPlane(transform.forward, Vector3Int.RoundToInt(wallNormal.normalized)).normalized;
+            } else {
+                return correctedMovement;
+            }
+            return CorrectMovementOnNavMesh(correctedMovement * _moveSpeed * Time.deltaTime);
+        }
 
         private void CharacterMove() {
-            moveVector = Vector3.zero;
+            _inputMoveVector = Vector3.zero;
             if (_joystick.Direction.magnitude > 0) {
-                moveVector.x = _joystick.Horizontal * speedMove;
-                moveVector.z = _joystick.Vertical * speedMove;
+                var joystickVector = _joystick.Direction;
+                _inputMoveVector.x = joystickVector.x;
+                _inputMoveVector.z = joystickVector.y;
             } else {
-                moveVector.x = Input.GetAxis("Horizontal") * speedMove;
-                moveVector.z = Input.GetAxis("Vertical") * speedMove;
+                _inputMoveVector.x = Input.GetAxisRaw("Horizontal");
+                _inputMoveVector.z = Input.GetAxisRaw("Vertical");
             }
+            _inputMoveVector = CorrectMovement(_inputMoveVector.normalized * _moveSpeed * Time.deltaTime) * _moveSpeed * Time.deltaTime;
+            Debug.Log(_inputMoveVector);
+            UpdateRotation();
+            if (_joystick.Direction.magnitude > 0) {
 
-            if (Vector3.Angle(Vector3.forward, moveVector) > 1f || Vector3.Angle(Vector3.forward, moveVector) == 0) {
-                Vector3 direct = Vector3.RotateTowards(transform.forward, moveVector, rotationSpeed * Time.deltaTime, 0.0f);
-                transform.rotation = Quaternion.LookRotation(direct);
+                _inputMoveVector *= _joystick.Direction.magnitude;
             }
-            if (ch_controller.isGrounded) {
-
-                if (gravityForce < 0) {
-                    ch_animator.SetBool("Jump", false);
-                }
-
-                if (moveVector.x != 0 || moveVector.z != 0) ch_animator.SetBool("Move", true);
-                else ch_animator.SetBool("Move", false);
+            if (_characterController.isGrounded) {
+                if (_inputMoveVector.x != 0 || _inputMoveVector.z != 0) _characterAnimator.SetBool("Move", true);
+                else _characterAnimator.SetBool("Move", false);
             }
-            moveVector.y = gravityForce;
-            ch_controller.Move(moveVector * Time.deltaTime);
+            _inputMoveVector.y = _gravityForce;
+            _characterController.Move(_inputMoveVector);
+        }
+
+        private void UpdateRotation() {
+            Vector3 direct = Vector3.RotateTowards(transform.forward, _inputMoveVector, _rotationSpeed * Time.deltaTime, 0.0f);
+            transform.rotation = Quaternion.LookRotation(direct);
         }
 
         private void GamingGravity() {
-            if (!ch_controller.isGrounded) gravityForce -= 20f * Time.deltaTime;
-            else gravityForce = -1f;
-            if (Input.GetKeyDown(KeyCode.Space) && ch_controller.isGrounded) {
-                gravityForce = jumpPower;
-                ch_animator.SetBool("Jump", true);
+            if (!_characterController.isGrounded) {
+                _gravityForce -= 20f * Time.deltaTime;
+            } else {
+                _gravityForce = -1f;
             }
         }
     }

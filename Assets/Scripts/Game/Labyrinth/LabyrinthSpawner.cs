@@ -80,7 +80,13 @@ namespace Game {
             AddCells();
             AddDeadEndCells();
             AddFonCells();
+            AddLabyrinthToStaticBatching();
             return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field);
+        }
+
+        private void AddLabyrinthToStaticBatching() {
+            var objectsToCombine = _spawnedCells.SelectMany(cell => cell.Walls).ToArray();
+            StaticBatchingUtility.Combine(objectsToCombine, _floor.gameObject);
         }
 
         private void SetStartData() {

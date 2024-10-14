@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: AbilityData
   m_EditorClassIdentifier: 
   _abstractAbility: {fileID: 4459479490428146231, guid: 3e2e29e3d0087294fa08e22d5e9adcbb, type: 3}
+  _sprite: {fileID: 21300000, guid: e8ce57ed2e4ff9b40bc77a98ee765e82, type: 3}

@@ -16,6 +16,10 @@ namespace Game {
                 onAbilityUsed?.Invoke(0);
             }
         }
+
+        public void AbilityButtonActivate(int index) {
+            onAbilityUsed?.Invoke(index);
+        }
     }
 }
 

@@ -9,5 +9,9 @@ namespace Data {
         [SerializeField]
         private AbstractAbility _abstractAbility;
         public AbstractAbility AbstractAbility => _abstractAbility;
+
+        [SerializeField]
+        private Sprite _sprite;
+        public Sprite Sprite => _sprite;
     }
 }

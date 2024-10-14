@@ -49,4 +49,4 @@ MonoBehaviour:
   _explosionEffect: {fileID: -7932197881740879313, guid: 4c9c84be3ce650a4daf88fb866a19da2, type: 3}
   _layerMask:
     serializedVersion: 2
-    m_Bits: 10337
+    m_Bits: 2048

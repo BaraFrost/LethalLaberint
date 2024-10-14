@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -13,12 +11,9 @@ namespace Game {
         private Transform target;
         [SerializeField]
         private LineRenderer lineRenderer;
-
         [SerializeField]
         private float _minDistance;
 
-        [SerializeField]
-        private float cellSize;
         private NavMeshPath path;
 
         private void Start() {
@@ -43,13 +38,13 @@ namespace Game {
             }
 
             lineRenderer.enabled = true;
-            var gridPath = corners;//ConvertToGrid(corners, target);
+            var gridPath = corners;
             gridPath[^1] = target.position;
             lineRenderer.positionCount = gridPath.Length;
             lineRenderer.SetPositions(gridPath);
         }
 
-        private Vector3[] ConvertToGrid(Vector3[] pathCorners, Transform target) {
+        /*private Vector3[] ConvertToGrid(Vector3[] pathCorners, Transform target) {
             var gridPositions = new Vector3[pathCorners.Length];
 
             for (int i = 0; i < pathCorners.Length; i++) {
@@ -64,6 +59,6 @@ namespace Game {
             float z = Mathf.Round(worldPosition.z / cellSize) * cellSize;
 
             return new Vector3(x, worldPosition.y, z);
-        }
+        }*/
     }
 }

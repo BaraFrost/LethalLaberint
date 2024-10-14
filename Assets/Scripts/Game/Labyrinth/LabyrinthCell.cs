@@ -73,6 +73,10 @@ namespace Game {
         private bool _closedCell;
         public bool ClosedCell => _closedCell;
 
+        [SerializeField]
+        private GameObject[] _walls;
+        public GameObject[] Walls => _walls;
+
         public void Clear() {
             _realtimeAvailablePositions = null;
             _nearestCells.Clear();

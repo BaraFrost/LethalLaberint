@@ -9,6 +9,7 @@ namespace Game {
         private List<LabyrinthCell> _cells;
         private List<LabyrinthCell> _availableCells;
         public List<LabyrinthCell> AvailableCells => _availableCells;
+        public List<LabyrinthCellWithDoor> CellsWithDoors { get; private set; }
         public LabyrinthCell[,] Field { get; private set; }
         public int LabyrinthSize { get; private set; }
 
@@ -16,6 +17,7 @@ namespace Game {
             Field = field;
             _cells = cells;
             _availableCells = cells.Where(cell => !cell.ClosedCell).ToList();
+            CellsWithDoors = _availableCells.Where(cell => cell is LabyrinthCellWithDoor).Cast<LabyrinthCellWithDoor>().ToList();
             LabyrinthSize = labyrinthSize;
         }
 

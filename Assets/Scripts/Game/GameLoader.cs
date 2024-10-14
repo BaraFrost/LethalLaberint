@@ -20,6 +20,9 @@ namespace Game {
         private EnemySpawner _enemySpawner;
 
         [SerializeField]
+        private PlayerSpawner _playerSpawner;
+
+        [SerializeField]
         private PlayerController _playerController;
 
         [SerializeField]
@@ -31,20 +34,30 @@ namespace Game {
         [SerializeField]
         private EntityPointersSystem _entityPointersSystem;
 
+        [SerializeField]
+        private InventoryVisualizer _inventoryVisualizer;
+
+        [SerializeField]
+        private DoorsOpeningButton _doorsOpeningButton;
+
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
         private void Awake() {
             Init();
+            Application.targetFrameRate = 30;
         }
 
         private void Init() {
             _cellsContainer = _labyrinthSpawner.Spawn();
             _miniMapCameraPlacer.Place(_cellsContainer);
             _navMeshSurface.BuildNavMesh();
+            _playerSpawner.Init();
             _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer);
             _collectibleItemsSpawner.Spawn(_cellsContainer);
-            _entityPointersSystem.Init(_enemies, _collectibleItemsSpawner.SpawnedItems);
+            _entityPointersSystem.Init(_enemies, _collectibleItemsSpawner.SpawnedItems, _playerController);
+            _inventoryVisualizer.Init(_playerController);
+            _doorsOpeningButton.Init(_cellsContainer.CellsWithDoors, _playerController.transform);
         }
 
         private void Update() {

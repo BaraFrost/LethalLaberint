@@ -18,7 +18,7 @@ namespace Game {
         [SerializeField]
         private AbilityInitData[] _initData;
 
-        private void Awake() {
+        public void Init() {
             _playerController.HealthLogic.onDamaged += StartRespawnCoroutine;
             _playerController.PlayerAbilityLogic.Init(_initData);
         }

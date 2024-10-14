@@ -15,13 +15,22 @@ namespace UI {
         [SerializeField]
         private RectTransform _itemPointerPrefab;
 
+        [SerializeField]
+        private float _minSizeDistance;
+        [SerializeField]
+        private float _maxSizeDistance;
+        [SerializeField]
+        private float _minSize;
+
         private List<RectTransform> _itemsPointers = new List<RectTransform>();
         private List<RectTransform> _enemyPointers = new List<RectTransform>();
 
         private List<Enemy> _enemies;
         private List<CollectibleItem> _collectibleItems;
+        private PlayerController _playerController;
 
-        public void Init(List<Enemy> enemies, List<CollectibleItem> collectibleItem) {
+        public void Init(List<Enemy> enemies, List<CollectibleItem> collectibleItem, PlayerController playerController) {
+            _playerController = playerController;
             _enemies = enemies;
             _collectibleItems = collectibleItem;
             foreach (var enemy in enemies) {
@@ -34,18 +43,29 @@ namespace UI {
 
         private void Update() {
             for (int i = 0; i < _itemsPointers.Count; i++) {
-                UpdateArrowPosition(_collectibleItems[i].transform, _itemsPointers[i]);
+                //UpdateArrowPosition(_collectibleItems[i].transform, _itemsPointers[i]);
             }
             for (int i = 0; i < _enemyPointers.Count; i++) {
                 if (_enemies[i] == null) {
                     _enemyPointers[i].gameObject.SetActive(false);
                     continue;
                 }
-                UpdateArrowPosition(_enemies[i].transform, _enemyPointers[i]);
+                UpdateArrowPosition(_enemies[i].transform, _enemyPointers[i], _enemyPointerPrefab);
             }
         }
 
-        private void UpdateArrowPosition(Transform entity, RectTransform pointer) {
+        private void UpdateArrowPosition(Transform entity, RectTransform pointer, RectTransform prefab) {
+            var distanceToEntity = (_playerController.transform.position - entity.position).magnitude;
+            if (distanceToEntity > _minSizeDistance) {
+                pointer.gameObject.SetActive(false);
+                return;
+            }
+            var arrowSize = _enemyPointerPrefab.localScale * (1 - (distanceToEntity - _maxSizeDistance) / (_minSizeDistance - _maxSizeDistance));
+            if(arrowSize.magnitude < _minSize) {
+                pointer.gameObject.SetActive(false);
+                return;
+            }
+            pointer.localScale = arrowSize;
             var screenPosition = _gameCamera.WorldToScreenPoint(entity.position);
             var isOffScreen = screenPosition.z < 0 || screenPosition.x < 0 || screenPosition.x > Screen.width || screenPosition.y < 0 || screenPosition.y > Screen.height;
             if (isOffScreen) {

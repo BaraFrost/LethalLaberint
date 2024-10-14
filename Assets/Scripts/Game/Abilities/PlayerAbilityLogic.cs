@@ -1,4 +1,5 @@
 using Data;
+using System;
 using System.Linq;
 using UnityEngine;
 
@@ -6,11 +7,18 @@ namespace Game {
 
     public class PlayerAbilityLogic : MonoBehaviour {
 
-        private class SpawnedAbility {
-            private int _count;
-            private AbstractAbility _ability;
+        public class SpawnedAbility {
 
-            public SpawnedAbility(AbstractAbility ability, int count) {
+            private int _count;
+            public int Count => _count;
+
+            private AbstractAbility _ability;
+            public AbstractAbility Ability => _ability;
+
+            public AbilityData AbilityData { get; private set; }
+
+            public SpawnedAbility(AbstractAbility ability, int count, AbilityData abilityData) {
+                AbilityData = abilityData;
                 _count = count;
                 _ability = ability;
             }
@@ -29,17 +37,23 @@ namespace Game {
         private PlayerInputLogic _playerInputLogic;
 
         private SpawnedAbility[] _abilities;
+        public SpawnedAbility[] Abilities => _abilities;
+
+        public Action onAbilityActivate;
 
         public void Init(AbilityInitData[] abilitiesInitData) {
-            _abilities = abilitiesInitData.Select(ability => new SpawnedAbility(Instantiate(ability.abilityData.AbstractAbility, gameObject.transform), ability.count)).ToArray();
+            _abilities = abilitiesInitData.Select(ability =>
+                new SpawnedAbility(Instantiate(ability.abilityData.AbstractAbility, gameObject.transform), ability.count, ability.abilityData)).ToArray();
             _playerInputLogic.onAbilityUsed += ActivateAbility;
         }
 
         private void ActivateAbility(int index) {
-            if(index >= _abilities.Length) {
+            if (index >= _abilities.Length) {
                 return;
             }
-            _abilities[index].TryToActivate();
+            if (_abilities[index].TryToActivate()) {
+                onAbilityActivate?.Invoke();
+            }
         }
     }
 }
