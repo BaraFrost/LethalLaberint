@@ -1,4 +1,5 @@
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 
 namespace Game {
@@ -18,6 +19,9 @@ namespace Game {
         private LayerMask _raycastLayerMask;
 
         [SerializeField]
+        private LayerMask _overlapEnemyLayerMask;
+
+        [SerializeField]
         private MineVisualLogic _visualLogic;
 
         private Coroutine _coroutine;
@@ -28,18 +32,25 @@ namespace Game {
             _coroutine = StartCoroutine(AttackCoroutine(target));
         }
 
-        public bool CanSeeTarget(PlayerController enemyTarget) {
-            var directionVector = enemyTarget.Collider.bounds.center - gameObject.transform.position;
+        public bool CanSeeTarget(Collider targetCollider) {
+            var directionVector = targetCollider.bounds.center - gameObject.transform.position;
             return Physics.Raycast(gameObject.transform.position, directionVector, out var hitInfo, _damageDistance, _raycastLayerMask)
                 && hitInfo.collider != null
-                && hitInfo.collider.TryGetComponent<PlayerController>(out var player);
+                && hitInfo.collider == targetCollider;
         }
 
         private IEnumerator AttackCoroutine(PlayerController target) {
             _isAttacking = true;
             yield return new WaitForSeconds(_timeBeforeExplosion);
-            if (CanSeeTarget(target)) {
+            if (CanSeeTarget(target.Collider)) {
                 target.HealthLogic.AddDamage();
+            }
+            var targets = Physics.OverlapSphere(gameObject.transform.position, _damageDistance, _overlapEnemyLayerMask);
+            foreach(var enemyTarget in targets) {
+                if(!enemyTarget.TryGetComponent<Enemy>(out var enemy) || enemy.HealthLogic == null || !CanSeeTarget(enemyTarget)) {
+                    continue;
+                }
+                enemy.HealthLogic.AddDamage();
             }
             _visualLogic.PlayExplosionEffect();
             Destroy(gameObject);

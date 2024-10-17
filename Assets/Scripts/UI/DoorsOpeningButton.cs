@@ -10,8 +10,11 @@ namespace UI {
         [SerializeField]
         private Button _button;
 
-       /* [SerializeField]
-        private Camera _gameCamera;*/
+        /* [SerializeField]
+         private Camera _gameCamera;*/
+
+        [SerializeField]
+        private PlayerInputLogic _playerInputLogic;
 
         [SerializeField]
         private float _distanceToPlayer;
@@ -26,6 +29,7 @@ namespace UI {
             _playerTransform = playerTransform;
             _cellsWithDoors = cellsWithDoors;
             _button.onClick.AddListener(ChangeDoorState);
+            _playerInputLogic.onDoorButtonClicked += ChangeDoorState;
             _button.gameObject.SetActive(false);
         }
 
@@ -46,7 +50,16 @@ namespace UI {
                     distanceToClosestCell = distanceToCell;
                 }
             }
+            if (_currentCell != closestCell) {
+                if (_currentCell != null) {
+                    _currentCell.DeselectDoor();
+                }
+                if(closestCell != null) {
+                    closestCell.SelectDoor();
+                }
+            }
             _currentCell = closestCell;
+
             if (_currentCell == null) {
                 _button.gameObject.SetActive(false);
             } else {

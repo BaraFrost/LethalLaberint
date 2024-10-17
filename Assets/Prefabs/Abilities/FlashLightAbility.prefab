@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _distance: 5
   _flashTime: 3
-  _explosionEffect: {fileID: -7932197881740879313, guid: 4c9c84be3ce650a4daf88fb866a19da2, type: 3}
+  _explosionEffect: {fileID: -2367198053712461187, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
   _layerMask:
     serializedVersion: 2
     m_Bits: 2048

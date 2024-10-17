@@ -271,6 +271,7 @@ MonoBehaviour:
   _visionLogic: {fileID: 0}
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 3431991226794376618}
+  _healthLogic: {fileID: 0}
 --- !u!114 &3431991226794376618
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -283,12 +284,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bc05355c7d7fe41825137176963913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBeforeExplosion: 0.6
-  _activateDistance: 0.76
+  _timeBeforeExplosion: 0.65
+  _activateDistance: 0.55
   _damageDistance: 3.7
   _raycastLayerMask:
     serializedVersion: 2
-    m_Bits: 8827
+    m_Bits: 10875
+  _overlapEnemyLayerMask:
+    serializedVersion: 2
+    m_Bits: 2048
   _visualLogic: {fileID: 5911711476580357005}
 --- !u!114 &5911711476580357005
 MonoBehaviour:
@@ -302,6 +306,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7669a310e1495104dae0c75111dca15f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _effectPrefab: {fileID: -7932197881740879313, guid: 9ab090adf4cc2ee49af450273027c451, type: 3}
+  _effectPrefab: {fileID: 6059230585448111071, guid: e1b08032bec16ba4eb1ae23cbd572664, type: 3}
   _mineLamp: {fileID: 2728999698111781182}
   _lampSwitchTime: 0.5

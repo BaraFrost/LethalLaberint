@@ -115,6 +115,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6841467670988048851, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7309559122452934394, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: -633945100355014200, guid: a59f6548c14dfa84ba2ca07e21ce1543, type: 3}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
       value: 1.3154837

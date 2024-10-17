@@ -1881,7 +1881,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &312182707308264224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2621,7 +2621,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _button: {fileID: 1615357500456889251}
-  _distanceToPlayer: 50
+  _playerInputLogic: {fileID: 8262015030330086521}
+  _distanceToPlayer: 40
 --- !u!1 &8834159900100654348
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2678,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 6893679740146699478}
     m_Modifications:
     - target: {fileID: 1781792701325569312, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
+      propertyPath: _minSize
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781792701325569312, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
       propertyPath: _gameCamera
       value: 
       objectReference: {fileID: 542068314500621356}
@@ -2687,6 +2692,14 @@ PrefabInstance:
     - target: {fileID: 1781792701325569312, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
       propertyPath: _minDistance
       value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781792701325569312, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
+      propertyPath: _maxSizeDistance
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1781792701325569312, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
+      propertyPath: _minSizeDistance
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 2039459001584863942, guid: 5904c9fde34532c4d875aff8954ee5c4, type: 3}
       propertyPath: m_Pivot.x
@@ -3030,18 +3043,6 @@ PrefabInstance:
       value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 4885179736990003613, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885179736990003613, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885179736990003613, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.085
-      objectReference: {fileID: 0}
-    - target: {fileID: 4885179736990003613, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.07
       objectReference: {fileID: 0}
@@ -3089,26 +3090,6 @@ PrefabInstance:
       propertyPath: _joystick
       value: 
       objectReference: {fileID: 6016062389663072127}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _moveSpeed
-      value: 6.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _rayDistance
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _rotationSpeed
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _correctionForce
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _wallLayer.m_Bits
-      value: 8256
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3123,6 +3104,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c4c06af735e2a684e9dfa3f0a4897f4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &8262015030330086521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5134372529002573465, guid: e586cd813de26a84494ca19bce115050, type: 3}
+  m_PrefabInstance: {fileID: 3884467351914789600}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9036494384080769479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f00d72b5892da5b42b7eb0eac20851f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &8512862603431775101 stripped

@@ -29,6 +29,10 @@ namespace Game {
         private AbstractEnemyAttackLogic _attackLogic;
         public AbstractEnemyAttackLogic AttackLogic => _attackLogic;
 
+        [SerializeField]
+        private HealthLogic _healthLogic;
+        public HealthLogic HealthLogic => _healthLogic;
+
         public abstract BehaviorTree NpcBehaviorTree { get; }
 
         public EnemyData Data { get; private set; }

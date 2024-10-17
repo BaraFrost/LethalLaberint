@@ -27,7 +27,7 @@ MonoBehaviour:
     - _labyrinthCell: {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
       _weight: 8
     - _labyrinthCell: {fileID: 8411927632492007985, guid: 29bd5690e55010148a52751f5f69379c, type: 3}
-      _weight: 20
+      _weight: 1
     _maxEpoch: 5
   _allCells:
     _labyrinthCells:
@@ -42,4 +42,4 @@ MonoBehaviour:
     - _labyrinthCell: {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
       _weight: 5
     - _labyrinthCell: {fileID: 8411927632492007985, guid: 29bd5690e55010148a52751f5f69379c, type: 3}
-      _weight: 20
+      _weight: 1

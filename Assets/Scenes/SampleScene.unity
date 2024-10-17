@@ -341,17 +341,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 4091639321858905021, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: _minSize
-      value: 0.6
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091639321858905021, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: _maxSizeDistance
-      value: 15
-      objectReference: {fileID: 0}
-    - target: {fileID: 4091639321858905021, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: _minSizeDistance
-      value: 30
+    - target: {fileID: 4675363690595260775, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _moveSpeed
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

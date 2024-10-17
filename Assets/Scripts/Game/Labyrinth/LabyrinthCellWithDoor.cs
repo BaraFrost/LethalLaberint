@@ -17,9 +17,12 @@ namespace Game {
         [SerializeField]
         private float _openingTime;
 
-        private bool _isOpen;
+        [SerializeField]
+        private MaterialReplacer _materialReplacer;
 
+        private bool _isOpen;
         private bool _inCoroutine;
+        private bool _selected;
 
         [Button]
         public void ChangeDoorState() {
@@ -40,8 +43,24 @@ namespace Game {
                 yield return null;
             }
             _door.transform.position = target.position;
-           _isOpen = !_isOpen;
+            _isOpen = !_isOpen;
             _inCoroutine = false;
+        }
+
+        public void SelectDoor() {
+            if(_selected) {
+                return;
+            }
+            _selected = true;
+            _materialReplacer.Switch();
+        }
+
+        public void DeselectDoor() {
+            if (!_selected) {
+                return;
+            }
+            _selected = false;
+            _materialReplacer.Switch();
         }
     }
 }

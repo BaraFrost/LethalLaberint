@@ -45,7 +45,7 @@ namespace Game {
 
         private void Awake() {
             Init();
-            Application.targetFrameRate = 30;
+           // Application.targetFrameRate = 30;
         }
 
         private void Init() {
