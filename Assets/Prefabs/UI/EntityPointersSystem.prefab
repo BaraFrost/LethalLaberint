@@ -52,3 +52,6 @@ MonoBehaviour:
   _gameCamera: {fileID: 0}
   _enemyPointerPrefab: {fileID: 395534175055320768, guid: 7f6b302714b416347871d6eb9cf55aab, type: 3}
   _itemPointerPrefab: {fileID: 8066250987134560672, guid: 126c453b89b0fb840944e9bda44a1140, type: 3}
+  _minSizeDistance: 30
+  _maxSizeDistance: 15
+  _minSize: 0.6

@@ -28,15 +28,18 @@ namespace Game {
 
         private List<CellWithWeight> _cellsWithWeight;
 
-        [SerializeField]
-        private int _enemyCount;
+        private DifficultyProgressionConfig _difficultyProgressionConfig;
 
-        public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells) {
-            _enemyContainer.ResetCachedEnemy();
+        private float _countMult;
+
+        public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems, DifficultyProgressionConfig difficultyProgressionConfig) {
+            _difficultyProgressionConfig = difficultyProgressionConfig;
+            _countMult = (float)_difficultyProgressionConfig.EnemyCount / _enemyContainer.GetEnemySum();
+            _enemyContainer.ResetCachedEnemy(_countMult);
             _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
             UpdateWeightsByDistance(player.transform.position);
-            for (var i = 0; i < _enemyCount; i++) {
-                _enemies.Add(SpawnRandomEnemy(player, labyrinthCells));
+            for (var i = 0; i < _difficultyProgressionConfig.EnemyCount; i++) {
+                _enemies.Add(SpawnRandomEnemy(player, labyrinthCells, collectibleItems));
             }
             return _enemies;
         }
@@ -50,12 +53,12 @@ namespace Game {
             }
         }
 
-        private Enemy SpawnRandomEnemy(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells) {
-            var enemyToSpawn = _enemyContainer.GetRandomEnemy();
+        private Enemy SpawnRandomEnemy(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems) {
+            var enemyToSpawn = _enemyContainer.GetRandomEnemy(_countMult);
             var positionToSpawn = GetRandomCellPosition();
             var enemy = Instantiate(enemyToSpawn, positionToSpawn, Quaternion.identity, transform);
             UpdateWeightsByDistance(enemy.transform.position);
-            enemy.Init(player, labyrinthCells);
+            enemy.Init(player, labyrinthCells, collectibleItems);
             return enemy;
         }
 

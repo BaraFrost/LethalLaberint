@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public abstract class AbstractEnemyVisionLogic : MonoBehaviour {
+    public abstract class AbstractEnemyVisionLogic : AbstractEnemyLogic<Enemy> {
 
         private bool _temporaryDisabled;
 

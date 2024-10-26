@@ -26,13 +26,24 @@ namespace Data {
 
         private List<(Enemy, int)> _cachedEnemyWithCount;
 
-        public void ResetCachedEnemy() {
-            _cachedEnemyWithCount = _enemies.Select(e => (e.Enemy, e.Count)).ToList();
+        public int GetEnemySum() {
+            var sum = 0;
+            foreach(var enemy in _enemies) {
+                sum += enemy.Count;
+            }
+            return sum;
         }
 
-        public Enemy GetRandomEnemy() {
+        public void ResetCachedEnemy(float countMult) {
+            if(countMult < 1) {
+                countMult = 1;
+            }
+            _cachedEnemyWithCount = _enemies.Select(e => (e.Enemy, (int)(e.Count * countMult))).ToList();
+        }
+
+        public Enemy GetRandomEnemy(float countMult) {
             if (_cachedEnemyWithCount == null) {
-                ResetCachedEnemy();
+                ResetCachedEnemy(countMult);
             }
             var randomIndex = UnityEngine.Random.Range(0, _cachedEnemyWithCount.Count);
             var enemyWithCache = _cachedEnemyWithCount[randomIndex];

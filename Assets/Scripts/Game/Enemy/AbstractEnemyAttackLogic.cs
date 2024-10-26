@@ -1,8 +1,6 @@
-using UnityEngine;
-
 namespace Game {
 
-    public abstract class AbstractEnemyAttackLogic : MonoBehaviour {
+    public abstract class AbstractEnemyAttackLogic : AbstractEnemyLogic<Enemy>{
 
         public abstract bool CanAttackTarget(PlayerController target);
 

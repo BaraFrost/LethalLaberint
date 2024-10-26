@@ -29,7 +29,7 @@ namespace Game {
             }
             Debug.DrawRay(_visionPosition.transform.position, directionVector);
             if (Physics.SphereCast(_visionPosition.transform.position, _sphereCastRadius, directionVector, out var hitInfo, _distance, _raycastLayerMask) && hitInfo.collider != null
-                && hitInfo.collider.TryGetComponent<PlayerController>(out var player)) {
+                && hitInfo.collider.gameObject == enemyTarget.gameObject) {
                 return true;
             }
             return false;

@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class MineVisualLogic : MonoBehaviour {
+    public class MineVisualLogic : AbstractEnemyLogic<MineEnemy> {
 
         [SerializeField]
         private DestroyableEffect _effectPrefab;

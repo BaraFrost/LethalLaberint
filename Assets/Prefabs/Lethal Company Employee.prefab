@@ -1086,7 +1086,7 @@ MonoBehaviour:
   _correctionDistance: 2
   _correctionForce: 3
   _rayDistance: 6
-  _moveSpeed: 6.5
+  _moveSpeed: 8
   _rotationSpeed: 15
   _wallLayer:
     serializedVersion: 2

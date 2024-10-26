@@ -86,14 +86,12 @@ namespace Game {
             if (moveDirection.sqrMagnitude == 0) {
                 return moveDirection;
             }
-            Debug.Log($"start:{_inputMoveVector}");
             var correctedMovement = CorrectMovementOnNavMesh(moveDirection);
             if (correctedMovement.sqrMagnitude != 0) {
                 return correctedMovement;
             }
             if (Physics.SphereCast(transform.position, 0.2f, Vector3Int.RoundToInt(moveDirection.normalized), out var raycasthit, _rayDistance, _wallLayer)) {
                 Vector3 wallNormal = raycasthit.point - gameObject.transform.position;
-                Debug.Log($"wallNormal:{wallNormal}");
                 correctedMovement = Vector3.ProjectOnPlane(transform.forward, Vector3Int.RoundToInt(wallNormal.normalized)).normalized;
             } else {
                 return correctedMovement;
@@ -112,7 +110,6 @@ namespace Game {
                 _inputMoveVector.z = Input.GetAxisRaw("Vertical");
             }
             _inputMoveVector = CorrectMovement(_inputMoveVector.normalized * _moveSpeed * Time.deltaTime) * _moveSpeed * Time.deltaTime;
-            Debug.Log(_inputMoveVector);
             UpdateRotation();
             if (_joystick.Direction.magnitude > 0) {
 

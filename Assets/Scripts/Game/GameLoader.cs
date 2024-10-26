@@ -1,3 +1,4 @@
+using Data;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UI;
@@ -40,24 +41,35 @@ namespace Game {
         [SerializeField]
         private DoorsOpeningButton _doorsOpeningButton;
 
+        [SerializeField]
+        private ItemsCountVisualizer _itemsCountVisualizer;
+
+        [SerializeField]
+        private DifficultyProgressionConfig _difficultyProgressionConfig;
+
+        [SerializeField]
+        private int _currentStage;
+
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
         private void Awake() {
             Init();
-           // Application.targetFrameRate = 30;
+            // Application.targetFrameRate = 30;
         }
 
         private void Init() {
-            _cellsContainer = _labyrinthSpawner.Spawn();
+            _difficultyProgressionConfig.Init(_currentStage);
+            _cellsContainer = _labyrinthSpawner.Spawn(_difficultyProgressionConfig);
             _miniMapCameraPlacer.Place(_cellsContainer);
             _navMeshSurface.BuildNavMesh();
             _playerSpawner.Init();
-            _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer);
-            _collectibleItemsSpawner.Spawn(_cellsContainer);
+            _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer, _collectibleItemsSpawner.SpawnedItems, _difficultyProgressionConfig);
+            _collectibleItemsSpawner.Spawn(_cellsContainer, _difficultyProgressionConfig);
             _entityPointersSystem.Init(_enemies, _collectibleItemsSpawner.SpawnedItems, _playerController);
             _inventoryVisualizer.Init(_playerController);
             _doorsOpeningButton.Init(_cellsContainer.CellsWithDoors, _playerController.transform);
+            _itemsCountVisualizer.Init(_collectibleItemsSpawner.SpawnedItems);
         }
 
         private void Update() {

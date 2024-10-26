@@ -43,6 +43,7 @@ namespace Game {
                     _feltCollectibleItems.Remove(item);
                     return;
                 }
+                item.collectedByEnemy = false;
                 item.gameObject.SetActive(false);
                 _wallet.AddItem(item);
             }

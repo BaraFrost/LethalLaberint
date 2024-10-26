@@ -1,4 +1,5 @@
 using Scripts.Infrastructure.BehaviorTree;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
@@ -11,9 +12,12 @@ namespace Game {
 
             public SpawnedLabyrinthCellsContainer CellContainer { get; private set; }
 
-            public EnemyData(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer) {
+            public List<CollectibleItem> CollectibleItems { get; private set; }
+
+            public EnemyData(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
                 Player = player;
                 CellContainer = cellsContainer;
+                CollectibleItems = collectibleItems;
             }
         }
 
@@ -39,8 +43,8 @@ namespace Game {
 
         private bool _isInited = false;
 
-        public virtual void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer) {
-            Data = new EnemyData(player, cellsContainer);
+        public virtual void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
+            Data = new EnemyData(player, cellsContainer, collectibleItems);
             _isInited = true;
         }
 

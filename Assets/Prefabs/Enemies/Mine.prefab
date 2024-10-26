@@ -284,9 +284,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30bc05355c7d7fe41825137176963913, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBeforeExplosion: 0.65
+  _timeBeforeExplosion: 0.55
   _activateDistance: 0.55
-  _damageDistance: 3.7
+  _damageDistance: 5
   _raycastLayerMask:
     serializedVersion: 2
     m_Bits: 10875

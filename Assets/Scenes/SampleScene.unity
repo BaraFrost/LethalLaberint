@@ -152,7 +152,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 0.9811321, g: 0.9106413, b: 0.68864363, a: 1}
-  m_Intensity: 0.5
+  m_Intensity: 0.83
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -341,9 +341,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 4675363690595260775, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: _moveSpeed
-      value: 8
+    - target: {fileID: 9077933867509478514, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _currentStage
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

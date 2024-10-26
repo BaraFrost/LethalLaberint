@@ -34,9 +34,13 @@ namespace Game {
 
         public LabyrinthCell InstantiateCell(LabyrinthCell parentCell, Vector2Int direction, Transform parent, float cellSize) {
             var newCellPosition = parentCell.transform.position + (new Vector3(direction.x, 0, direction.y) * cellSize);
-            var cellInstance = Object.Instantiate(_labyrinthCell, newCellPosition, Quaternion.AngleAxis(_rotation, Vector3.up), parent);
+            var cellInstance = Object.Instantiate(_labyrinthCell, newCellPosition + GetAdditionalVector(), Quaternion.AngleAxis(_rotation, Vector3.up), parent);
             cellInstance.SetRealtimeAvailablePositions(_availablePositions);
             return cellInstance;
+        }
+
+        private Vector3 GetAdditionalVector() {
+            return Vector3.up * Random.Range(-0.01f, 0.01f);
         }
 
         public bool AvailableAllDirections(List<LabyrinthCell.Direction> directions) {

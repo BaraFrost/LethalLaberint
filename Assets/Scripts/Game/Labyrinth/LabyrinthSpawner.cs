@@ -27,17 +27,9 @@ namespace Game {
         [SerializeField]
         private GameObject _floor;
 
-        [SerializeField]
-        private int _labyrinthSize;
 
         [SerializeField]
         private float _cellSize;
-
-        [SerializeField]
-        private int _maxCellsCount;
-
-        [SerializeField]
-        private int _maxEpoch;
 
         [SerializeField]
         private LabyrinthCell _startCell;
@@ -48,12 +40,15 @@ namespace Game {
         [SerializeField]
         private FieldOffsets _fieldOffsets;
 
-
-        private int FullLabyrinthSize => _labyrinthSize + _fieldOffsets.additionalFieldSize;
+        private int LabyrinthSize => _difficultyProgressionConfig.LabyrinthSize;
+        private int MaxCellsCount => _difficultyProgressionConfig.LabyrinthCellsCount;
+        private int MaxEpoch => _difficultyProgressionConfig.LabyrinthEpoch;
+        private int FullLabyrinthSize => LabyrinthSize + _fieldOffsets.additionalFieldSize;
 
         private LabyrinthCell[,] _field;
         private List<LabyrinthCell> _spawnedCells = new List<LabyrinthCell>();
         public List<LabyrinthCell> SpawnedCells => _spawnedCells;
+        private DifficultyProgressionConfig _difficultyProgressionConfig;
 
 #if UNITY_EDITOR
         [Button]
@@ -71,11 +66,12 @@ namespace Game {
                 Destroy(cell.gameObject);
             }
             _spawnedCells.Clear();
-            Spawn();
+            Spawn(_difficultyProgressionConfig);
         }
 #endif
 
-        public SpawnedLabyrinthCellsContainer Spawn() {
+        public SpawnedLabyrinthCellsContainer Spawn(DifficultyProgressionConfig difficultyProgressionConfig) {
+            _difficultyProgressionConfig = difficultyProgressionConfig;
             SetStartData();
             AddCells();
             AddDeadEndCells();
@@ -175,7 +171,7 @@ namespace Game {
                 }
                 epoch++;
             }
-            while (epoch < _maxEpoch && availableCells != null && availableCells.Length > 0 && _spawnedCells.Count < _maxCellsCount);
+            while (epoch < MaxEpoch && availableCells != null && availableCells.Length > 0 && _spawnedCells.Count < MaxCellsCount);
         }
 
         private List<LabyrinthCell.Direction> GetAllRequiredDirections(Vector2Int fieldCellPosition) {
@@ -191,8 +187,8 @@ namespace Game {
         }
 
         private bool FieldPositionIsValid(Vector2Int cellFieldPosition) {
-            return _labyrinthSize > cellFieldPosition.x
-                && _labyrinthSize > cellFieldPosition.y
+            return LabyrinthSize > cellFieldPosition.x
+                && LabyrinthSize > cellFieldPosition.y
                 && cellFieldPosition.x >= _fieldOffsets.additionalFieldSize
                 && cellFieldPosition.y >= _fieldOffsets.additionalFieldSize;
         }

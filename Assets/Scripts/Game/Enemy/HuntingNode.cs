@@ -14,11 +14,15 @@ namespace Game {
             if(_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
                 _lastTargetPosition = _enemy.Data.Player.transform.position;
             }
-            if(_lastTargetPosition != null && !_enemy.MovementLogic.PositionReached(_lastTargetPosition.Value)) {
-                _enemy.MovementLogic.MoveToPosition(_enemy.Data.Player.transform.position);
-                _lastTargetPosition = null;
+            if(_lastTargetPosition == null) {
+                return NodeState.Failure;
+            }
+            Debug.DrawLine(_enemy.transform.position, _lastTargetPosition.Value, Color.blue);
+            _enemy.MovementLogic.MoveToPosition(_lastTargetPosition.Value);
+            if (!_enemy.MovementLogic.PositionReached(_lastTargetPosition.Value)) {
                 return NodeState.Running;
             }
+            _lastTargetPosition = null;
             return NodeState.Failure;
         }
     }
