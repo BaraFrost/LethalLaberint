@@ -13,6 +13,7 @@ namespace Game {
         public Action onDamaged;
 
         private bool _isDamaged;
+        public bool IsDamaged => _isDamaged;
 
         public void Awake() {
             _currentHealthCount = _startHealthCount;

@@ -88,7 +88,7 @@ MonoBehaviour:
     _connectionType: 0
   - _direction: 3
     _connectionType: 0
-  _closedCell: 0
+  _closedCell: 1
   _walls:
   - {fileID: 8858808099596251637}
   - {fileID: 3471149615186009250}

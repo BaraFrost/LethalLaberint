@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 namespace Game {
@@ -7,8 +8,25 @@ namespace Game {
         [SerializeField]
         private float _attackDistance;
 
+        [SerializeField]
+        private float _timeBeforeDamage;
+
+        private bool _isAttacking;
+        public override bool IsAttacking => _isAttacking;
+
         public override void AttackTarget(PlayerController target) {
+            if (_isAttacking) {
+                return;
+            }
+            OnAttack?.Invoke();
+            StartCoroutine(DoDamageCoroutine(target));
+        }
+
+        private IEnumerator DoDamageCoroutine(PlayerController target) {
+            _isAttacking = true;
+            yield return new WaitForSeconds(_timeBeforeDamage);
             target.HealthLogic.AddDamage();
+            _isAttacking = false;
         }
 
         public override bool CanAttackTarget(PlayerController target) {

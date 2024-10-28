@@ -28,6 +28,7 @@ namespace Game {
                 var randomAngle = Random.Range(0, 360);
                 _items.Add(Instantiate(item, new Vector3(position.x, item.transform.position.y, position.z), Quaternion.AngleAxis(randomAngle, Vector3.up), transform));
             }
+            _items.AddRange(cellsContainer.StartCells.StartCollectibleItems);
         }
     }
 }

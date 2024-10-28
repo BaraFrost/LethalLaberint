@@ -1,6 +1,7 @@
 using Data;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game {
@@ -39,7 +40,11 @@ namespace Game {
             _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
             UpdateWeightsByDistance(player.transform.position);
             for (var i = 0; i < _difficultyProgressionConfig.EnemyCount; i++) {
-                _enemies.Add(SpawnRandomEnemy(player, labyrinthCells, collectibleItems));
+                _enemies.Add(SpawnRandomEnemy());
+            }
+            _enemies.AddRange(labyrinthCells.StartCells.StartEnemies);
+            foreach (var startEnemy in _enemies) {
+                startEnemy.Init(player, labyrinthCells, collectibleItems);
             }
             return _enemies;
         }
@@ -53,12 +58,12 @@ namespace Game {
             }
         }
 
-        private Enemy SpawnRandomEnemy(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems) {
+        private Enemy SpawnRandomEnemy() {
             var enemyToSpawn = _enemyContainer.GetRandomEnemy(_countMult);
             var positionToSpawn = GetRandomCellPosition();
+            positionToSpawn.y = enemyToSpawn.transform.position.y;
             var enemy = Instantiate(enemyToSpawn, positionToSpawn, Quaternion.identity, transform);
             UpdateWeightsByDistance(enemy.transform.position);
-            enemy.Init(player, labyrinthCells, collectibleItems);
             return enemy;
         }
 

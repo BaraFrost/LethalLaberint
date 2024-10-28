@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class EnemyItemsCollectionLogic : MonoBehaviour {
+    public class EnemyItemsCollectionLogic : AbstractEnemyLogic<Enemy> {
 
         public bool HasItem => _collectedItem != null;
         public Vector3 StartPosition { get; private set; }

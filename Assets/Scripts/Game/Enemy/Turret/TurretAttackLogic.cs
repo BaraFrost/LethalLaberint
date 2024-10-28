@@ -23,6 +23,7 @@ namespace Game {
         private Coroutine _coroutine;
 
         private bool _isAttack = false;
+        public override bool IsAttacking => _isAttack;
 
         public override void AttackTarget(PlayerController target) {
             if (_isAttack) {
@@ -49,7 +50,8 @@ namespace Game {
 
         private bool TryToAttack(PlayerController target) {
             var shoot = Random.Range(0,_missProbability) == 0;
-            if(!shoot) {
+            OnAttack?.Invoke();
+            if (!shoot) {
                 return false;
             }
             target.HealthLogic.AddDamage();
@@ -64,6 +66,7 @@ namespace Game {
             if(_coroutine == null || !_isAttack) {
                 return;
             }
+            OnAttackStopped?.Invoke();
             _isAttack = false;
             _turretVisualLogic.StopShootEffects();
             StopCoroutine(_coroutine);

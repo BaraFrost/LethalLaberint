@@ -1,12 +1,12 @@
 
 namespace Game {
 
-    public class MineBehaviorTree : NpcBehaviorTree<MineEnemy> {
+    public class ZoneBehaviorTree : NpcBehaviorTree<ZoneEnemy> {
 
-        public MineBehaviorTree(MineEnemy enemy) : base(enemy) { }
+        public ZoneBehaviorTree(ZoneEnemy enemy) : base(enemy) { }
 
         protected override void GenerateTree() {
-            _root = new MineNode(_enemy);
+            _root = new ZoneEnemyNode(_enemy);
         }
     }
 }

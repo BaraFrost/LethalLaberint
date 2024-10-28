@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -6,23 +7,23 @@ namespace Game {
     public class PathDrawer : MonoBehaviour {
 
         [SerializeField]
-        private Transform start;
-        [SerializeField]
-        private Transform target;
-        [SerializeField]
         private LineRenderer lineRenderer;
         [SerializeField]
         private float _minDistance;
 
         private NavMeshPath path;
+        private Transform _target;
+        private Transform _start;
 
-        private void Start() {
+        public void Init(Transform target, Transform start) {
+            _target = target;
+            _start = start;
             path = new NavMeshPath();
         }
 
         private void Update() {
-            if (NavMesh.CalculatePath(start.position, target.position, NavMesh.AllAreas, path)) {
-                DrawPath(path, target);
+            if (NavMesh.CalculatePath(_start.position, _target.position, NavMesh.AllAreas, path)) {
+                DrawPath(path, _target);
             }
         }
 
@@ -32,7 +33,7 @@ namespace Game {
             for (int i = 0; i < corners.Length - 1; i++) {
                 pathLenght += Vector3.Distance(corners[i], corners[i + 1]);
             }
-            if(pathLenght < _minDistance) {
+            if (pathLenght < _minDistance) {
                 lineRenderer.enabled = false;
                 return;
             }

@@ -8,6 +8,9 @@ namespace Game {
         }
 
         public override NodeState Evaluate() {
+            if(_enemy.AttackLogic.IsAttacking) {
+                return NodeState.Running;
+            }
             if(!_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
                 return NodeState.Failure;
             }

@@ -18,6 +18,8 @@ namespace Game {
 
         private Vector3 _currentTargetPosition;
 
+        public override bool IsMoving => !_agent.isStopped;
+
         public override void MoveToPosition(Vector3 position) {
             _agent.isStopped = false;
             _navMeshPath = new NavMeshPath();

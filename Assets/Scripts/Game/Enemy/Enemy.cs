@@ -41,11 +41,27 @@ namespace Game {
 
         public EnemyData Data { get; private set; }
 
+        public IEnemyLogic[] _allLogics;
+
         private bool _isInited = false;
 
         public virtual void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
             Data = new EnemyData(player, cellsContainer, collectibleItems);
+            InitAllLogic();
             _isInited = true;
+        }
+
+        private void InitAllLogic() {
+            _allLogics = GetComponents<IEnemyLogic>();
+            for (var i = 0; i < _allLogics.Length; i++) {
+                _allLogics[i].Init(this);
+            }
+        }
+
+        private void UpdateAllLogic() {
+            for (var i = 0; i < _allLogics.Length; i++) {
+                _allLogics[i].UpdateLogic();
+            }
         }
 
         private void Update() {
@@ -56,6 +72,7 @@ namespace Game {
         }
 
         protected virtual void UpdateEnemy() {
+            UpdateAllLogic();
             NpcBehaviorTree.Evaluate();
         }
     }

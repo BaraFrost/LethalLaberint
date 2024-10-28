@@ -32,13 +32,15 @@ namespace Game {
         private float _cellSize;
 
         [SerializeField]
-        private LabyrinthCell _startCell;
-
-        [SerializeField]
-        private LabyrinthCell[] _additiveStartCells;
-
-        [SerializeField]
         private FieldOffsets _fieldOffsets;
+
+        [SerializeField]
+        private StartCellsContainer _startCellsContainer;
+
+        [SerializeField]
+        private LabyrinthCell _startCell;
+        private StartLabyrinthCells _spawnedStartCells;
+        private LabyrinthCell[] _additiveStartCells;
 
         private int LabyrinthSize => _difficultyProgressionConfig.LabyrinthSize;
         private int MaxCellsCount => _difficultyProgressionConfig.LabyrinthCellsCount;
@@ -72,12 +74,21 @@ namespace Game {
 
         public SpawnedLabyrinthCellsContainer Spawn(DifficultyProgressionConfig difficultyProgressionConfig) {
             _difficultyProgressionConfig = difficultyProgressionConfig;
+            SpawnStartCells();
             SetStartData();
-            AddCells();
+            if (_spawnedStartCells.NeedGenerateCells) {
+                AddCells();
+            }
             AddDeadEndCells();
             AddFonCells();
             AddLabyrinthToStaticBatching();
-            return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field);
+            return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field, _spawnedStartCells);
+        }
+
+        private void SpawnStartCells() {
+            var startLabyrinthCells = _startCellsContainer.GetRandomStartCells();
+            _spawnedStartCells = Instantiate(startLabyrinthCells, transform);
+            _startCell = _spawnedStartCells.StartCell;
         }
 
         private void AddLabyrinthToStaticBatching() {
@@ -92,7 +103,7 @@ namespace Game {
             _spawnedCells.Add(_startCell);
             _startCell.fieldPosition = startCellFieldPosition;
             SetFloorPosition();
-            foreach (var additiveStartCell in _additiveStartCells) {
+            foreach (var additiveStartCell in _spawnedStartCells.StartCells) {
                 var positionDifference = additiveStartCell.transform.position - _startCell.transform.position;
                 var fieldPosition = Vector2Int.RoundToInt(new Vector2(positionDifference.x, positionDifference.z) / _cellSize) + _startCell.fieldPosition;
                 _field[fieldPosition.x, fieldPosition.y] = additiveStartCell;

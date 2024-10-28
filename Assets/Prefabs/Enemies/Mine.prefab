@@ -265,7 +265,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8571747843546970402}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4705c049012ed1448978a2ac08d58b44, type: 3}
+  m_Script: {fileID: 11500000, guid: 131c20ca766b92b42a51802cb1e71e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _visionLogic: {fileID: 0}
@@ -287,13 +287,12 @@ MonoBehaviour:
   _timeBeforeExplosion: 0.55
   _activateDistance: 0.55
   _damageDistance: 5
-  _raycastLayerMask:
-    serializedVersion: 2
-    m_Bits: 10875
   _overlapEnemyLayerMask:
     serializedVersion: 2
     m_Bits: 2048
-  _visualLogic: {fileID: 5911711476580357005}
+  _raycastLayerMask:
+    serializedVersion: 2
+    m_Bits: 10312
 --- !u!114 &5911711476580357005
 MonoBehaviour:
   m_ObjectHideFlags: 0

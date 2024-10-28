@@ -48,6 +48,9 @@ namespace Game {
         private DifficultyProgressionConfig _difficultyProgressionConfig;
 
         [SerializeField]
+        private PathDrawer _pathDrawer;
+
+        [SerializeField]
         private int _currentStage;
 
         private SpawnedLabyrinthCellsContainer _cellsContainer;
@@ -70,6 +73,7 @@ namespace Game {
             _inventoryVisualizer.Init(_playerController);
             _doorsOpeningButton.Init(_cellsContainer.CellsWithDoors, _playerController.transform);
             _itemsCountVisualizer.Init(_collectibleItemsSpawner.SpawnedItems);
+            _pathDrawer.Init(_cellsContainer.StartCells.WarehouseArea.transform, _playerController.transform);
         }
 
         private void Update() {

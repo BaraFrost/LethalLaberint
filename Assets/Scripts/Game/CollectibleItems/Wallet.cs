@@ -25,6 +25,9 @@ namespace Game {
         }
 
         public void OnItemDropped(WalletCollectibleItem walletItem) {
+            if(!_items.ContainsKey(walletItem)) {
+                return;
+            }
             var item = _items[walletItem];
             _items.Remove(walletItem);
             Destroy(walletItem.gameObject);

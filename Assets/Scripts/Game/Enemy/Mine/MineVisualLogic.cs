@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class MineVisualLogic : AbstractEnemyLogic<MineEnemy> {
+    public class MineVisualLogic : AbstractVisualLogic<ZoneEnemy> {
 
         [SerializeField]
         private DestroyableEffect _effectPrefab;
@@ -14,8 +14,9 @@ namespace Game {
         [SerializeField]
         private float _lampSwitchTime;
 
-        private void Start() {
-            if(_mineLamp != null) {
+        public override void Init(Enemy enemy) {
+            base.Init(enemy);
+            if (_mineLamp != null) {
                 StartCoroutine(PlayMineLampSwitchEffect());
             }
         }
@@ -27,11 +28,13 @@ namespace Game {
             }
         }
 
-        public void PlayExplosionEffect() {
+        protected override void PlayAttackVisual() {
+            base.PlayAttackVisual();
             if (_effectPrefab == null) {
                 return;
             }
             Instantiate(_effectPrefab, transform.position, Quaternion.identity, transform.parent);
+            Destroy(gameObject);
         }
     }
 }
