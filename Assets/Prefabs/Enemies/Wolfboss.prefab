@@ -1753,6 +1753,7 @@ MonoBehaviour:
   _movementLogic: {fileID: 6120792763255573508}
   _attackLogic: {fileID: 2810525428676449396}
   _healthLogic: {fileID: 6609014021155532838}
+  _needShowArrow: 1
 --- !u!114 &6120792763255573508
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1765,6 +1766,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _walkSpeed: 6
+  _runSpeed: 6
   _agent: {fileID: 6431706848744798991}
   _stopDistance: 0.7
   _rotationSpeed: 10

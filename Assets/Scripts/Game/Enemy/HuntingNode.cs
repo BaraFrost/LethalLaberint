@@ -18,7 +18,7 @@ namespace Game {
                 return NodeState.Failure;
             }
             Debug.DrawLine(_enemy.transform.position, _lastTargetPosition.Value, Color.blue);
-            _enemy.MovementLogic.MoveToPosition(_lastTargetPosition.Value);
+            _enemy.MovementLogic.WalkToPosition(_lastTargetPosition.Value);
             if (!_enemy.MovementLogic.PositionReached(_lastTargetPosition.Value)) {
                 return NodeState.Running;
             }

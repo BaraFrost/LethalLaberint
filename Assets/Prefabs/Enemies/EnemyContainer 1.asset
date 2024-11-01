@@ -23,3 +23,5 @@ MonoBehaviour:
     _count: 1
   - _enemy: {fileID: 512186236499155996, guid: 1500e8805e69dd94d9a33c06a20d3a96, type: 3}
     _count: 1
+  - _enemy: {fileID: 5518780831880275934, guid: 731d6bed784fbf14fac5015e6f9f68d2, type: 3}
+    _count: 1

@@ -35,12 +35,14 @@ namespace Game {
 
         public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems, DifficultyProgressionConfig difficultyProgressionConfig) {
             _difficultyProgressionConfig = difficultyProgressionConfig;
-            _countMult = (float)_difficultyProgressionConfig.EnemyCount / _enemyContainer.GetEnemySum();
-            _enemyContainer.ResetCachedEnemy(_countMult);
-            _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
-            UpdateWeightsByDistance(player.transform.position);
-            for (var i = 0; i < _difficultyProgressionConfig.EnemyCount; i++) {
-                _enemies.Add(SpawnRandomEnemy());
+            if(labyrinthCells.StartCells.NeedGenerateEnemy) {
+                _countMult = (float)_difficultyProgressionConfig.EnemyCount / _enemyContainer.GetEnemySum();
+                _enemyContainer.ResetCachedEnemy(_countMult);
+                _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
+                UpdateWeightsByDistance(player.transform.position);
+                for (var i = 0; i < _difficultyProgressionConfig.EnemyCount; i++) {
+                    _enemies.Add(SpawnRandomEnemy());
+                }
             }
             _enemies.AddRange(labyrinthCells.StartCells.StartEnemies);
             foreach (var startEnemy in _enemies) {

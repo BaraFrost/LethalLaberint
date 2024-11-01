@@ -25,6 +25,9 @@ namespace Game {
         private CollectibleItem _collectedItem;
 
         private void Awake() {
+            if (_visualItem != null) {
+                _visualItem.SetActive(false);
+            }
             StartPosition = transform.position;
         }
 
@@ -68,7 +71,9 @@ namespace Game {
             item.collectedByEnemy = true;
             item.gameObject.SetActive(false);
             _collectedItem = item;
-            _visualItem.SetActive(true);
+            if(_visualItem !=  null) {
+                _visualItem.SetActive(true);
+            }
         }
 
         public void DropCollectibleItem() {
@@ -76,7 +81,9 @@ namespace Game {
             _collectedItem.transform.position = new Vector3(transform.position.x, _collectedItem.transform.position.y, transform.position.z);
             _collectedItem.gameObject.SetActive(true);
             _collectedItem = null;
-            _visualItem.SetActive(false);
+            if (_visualItem != null) {
+                _visualItem.SetActive(false);
+            }
         }
     }
 }

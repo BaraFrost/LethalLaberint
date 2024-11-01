@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 9168295069017009978}
   - component: {fileID: 7791882332685454619}
   m_Layer: 0
-  m_Name: DefaultStartCellsTest
+  m_Name: DefaultStartCellsTestSpikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -70,6 +70,8 @@ MonoBehaviour:
   - {fileID: 7333056832671838664}
   - {fileID: 1361305686731860651}
   - {fileID: 6528339086297433177}
+  _needGenerateEnemy: 1
+  _startEpoch: 0
   _startCollectibleItems: []
   _needGenerateCells: 1
 --- !u!1001 &483527785361266925

@@ -39,6 +39,10 @@ namespace Game {
 
         public abstract BehaviorTree NpcBehaviorTree { get; }
 
+        [SerializeField]
+        private bool _needShowArrow;
+        public bool NeedShowArrow => _needShowArrow;
+
         public EnemyData Data { get; private set; }
 
         public IEnemyLogic[] _allLogics;

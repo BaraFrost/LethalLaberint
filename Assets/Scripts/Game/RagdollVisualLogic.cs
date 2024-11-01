@@ -10,7 +10,9 @@ namespace Game {
         private Transform _boneRoot;
 
         [SerializeField]
-        private GameObject _ragdollPrefab;
+        private CollectibleItem _ragdollPrefab;
+
+        public List<CollectibleItem> SpawnedRagdolls { get; private set; } = new List<CollectibleItem>();
 
         private Dictionary<string, Transform> _bones = new Dictionary<string, Transform>();
 
@@ -20,6 +22,7 @@ namespace Game {
 
         public void SpawnRagdoll() {
             var ragdoll = Instantiate(_ragdollPrefab, transform.position, transform.rotation, transform.parent);
+            SpawnedRagdolls.Add(ragdoll);
             var ragdollBones = ragdoll.GetComponentsInChildren<Transform>();
             foreach(var bone in ragdollBones) {
                 if(!_bones.ContainsKey(bone.name)) {

@@ -1170,7 +1170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _boneRoot: {fileID: 4574373285790376195}
-  _ragdollPrefab: {fileID: 364868360176294073, guid: a7be6bd34ecac2648b2453830e0dda86, type: 3}
+  _ragdollPrefab: {fileID: 3432201492402224524, guid: a7be6bd34ecac2648b2453830e0dda86, type: 3}
 --- !u!114 &5632641250226812162
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,9 +20,10 @@ namespace Game {
 
         public override bool IsMoving => !_agent.isStopped;
 
-        public override void MoveToPosition(Vector3 position) {
-            _agent.isStopped = false;
+        protected override void MoveToPosition(Vector3 position, float speed) {
+            _agent.speed = speed;
             _navMeshPath = new NavMeshPath();
+            _agent.isStopped = false;
             _agent.CalculatePath(position, _navMeshPath);
             if (_navMeshPath.status != NavMeshPathStatus.PathComplete) {
                 return;

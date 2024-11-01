@@ -53,6 +53,10 @@ MonoBehaviour:
   - {fileID: 8981194013479576822}
   _startCell: {fileID: 6695427200750910451}
   _warehouseArea: {fileID: 3559586714914187572}
+  _startEnemies: []
+  _needGenerateEnemy: 1
+  _startEpoch: 0
+  _startCollectibleItems: []
   _needGenerateCells: 1
 --- !u!1001 &1332180212763898967
 PrefabInstance:

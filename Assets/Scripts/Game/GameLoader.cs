@@ -56,13 +56,13 @@ namespace Game {
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
-        private void Awake() {
+        private void Start() {
             Init();
             // Application.targetFrameRate = 30;
         }
 
         private void Init() {
-            _difficultyProgressionConfig.Init(_currentStage);
+            _difficultyProgressionConfig.Init(StageCounter.Instance.CurrentStage);
             _cellsContainer = _labyrinthSpawner.Spawn(_difficultyProgressionConfig);
             _miniMapCameraPlacer.Place(_cellsContainer);
             _navMeshSurface.BuildNavMesh();

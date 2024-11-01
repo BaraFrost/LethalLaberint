@@ -19,7 +19,7 @@ namespace Game {
             if(_enemy.MovementLogic.PositionReached(_targetPosition)) {
                 UpdateTargetCell();
             }
-            _enemy.MovementLogic.MoveToPosition(_targetPosition);
+            _enemy.MovementLogic.WalkToPosition(_targetPosition);
             return NodeState.Running;
         }
     }

@@ -14,7 +14,7 @@ namespace Game {
                 _enemy.EnemyItemsCollectionLogic.CollectItem(item);
                 return NodeState.Success;
             }
-            _enemy.MovementLogic.MoveToPosition(item.transform.position);
+            _enemy.MovementLogic.WalkToPosition(item.transform.position);
             return NodeState.Success;
         }
     }

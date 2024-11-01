@@ -289,6 +289,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _walkSpeed: 0.5
+  _runSpeed: 0.5
   _agent: {fileID: 6431706848744798991}
   _stopDistance: 0.8
   _rotationSpeed: 10
@@ -324,6 +326,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _attackDistance: 0.8
+  _timeBeforeDamage: 0
 --- !u!114 &6609014021155532838
 MonoBehaviour:
   m_ObjectHideFlags: 0

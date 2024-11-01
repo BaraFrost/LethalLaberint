@@ -183,7 +183,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 524858190253773206}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 0.47
+  m_Radius: 0.14
   m_Speed: 7.5
   m_Acceleration: 100
   avoidancePriority: 50
@@ -212,6 +212,7 @@ MonoBehaviour:
   _movementLogic: {fileID: 8693370720141734426}
   _attackLogic: {fileID: 5965128071797883368}
   _healthLogic: {fileID: 6849981111245222778}
+  _needShowArrow: 1
   _enemyItemsCollectionLogic: {fileID: 8035049046249311367}
   _availablePointSearchEnemyLogic: {fileID: 3324818313139283730}
   _distanceToDropItem: 1.5
@@ -269,6 +270,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _walkSpeed: 7.5
+  _runSpeed: 7.5
   _agent: {fileID: 3530725427752865019}
   _stopDistance: 0.4
   _rotationSpeed: 10
@@ -1071,7 +1074,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &6268003553132138582
 Transform:
   m_ObjectHideFlags: 0

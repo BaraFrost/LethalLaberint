@@ -1,5 +1,6 @@
 using Game;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace UI {
@@ -31,9 +32,9 @@ namespace UI {
 
         public void Init(List<Enemy> enemies, List<CollectibleItem> collectibleItem, PlayerController playerController) {
             _playerController = playerController;
-            _enemies = enemies;
+            _enemies = enemies.Where(enemy => enemy.NeedShowArrow).ToList();
             _collectibleItems = collectibleItem;
-            foreach (var enemy in enemies) {
+            foreach (var enemy in _enemies) {
                 _enemyPointers.Add(Instantiate(_enemyPointerPrefab, transform));
             }
             foreach (var item in collectibleItem) {

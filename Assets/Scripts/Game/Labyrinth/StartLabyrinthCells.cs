@@ -21,6 +21,14 @@ namespace Game {
         public Enemy[] StartEnemies => _startEnemies;
 
         [SerializeField]
+        private bool _needGenerateEnemy;
+        public bool NeedGenerateEnemy => _needGenerateEnemy;
+
+        [SerializeField]
+        private int _startEpoch;
+        public int StartEpoch => _startEpoch;
+
+        [SerializeField]
         private CollectibleItem[] _startCollectibleItems;
         public CollectibleItem[] StartCollectibleItems => _startCollectibleItems;
 

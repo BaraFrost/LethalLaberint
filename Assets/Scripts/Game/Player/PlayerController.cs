@@ -19,6 +19,7 @@ namespace Game {
 
         [SerializeField]
         private RagdollVisualLogic _ragdollVisualLogic;
+        public RagdollVisualLogic RagdollVisualLogic => _ragdollVisualLogic;
 
         [SerializeField]
         private PlayerAbilityLogic _playerAbilityLogic;
@@ -115,9 +116,13 @@ namespace Game {
 
                 _inputMoveVector *= _joystick.Direction.magnitude;
             }
-            if (_characterController.isGrounded) {
-                if (_inputMoveVector.x != 0 || _inputMoveVector.z != 0) _characterAnimator.SetBool("Move", true);
-                else _characterAnimator.SetBool("Move", false);
+            if (_inputMoveVector.magnitude != 0) {
+                _characterAnimator.SetTrigger("Move");
+                _characterAnimator.ResetTrigger("Stop");
+
+            } else {
+                _characterAnimator.ResetTrigger("Move");
+                _characterAnimator.SetTrigger("Stop");
             }
             _inputMoveVector.y = _gravityForce;
             _characterController.Move(_inputMoveVector);

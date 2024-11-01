@@ -86,7 +86,7 @@ namespace Game {
         }
 
         private void SpawnStartCells() {
-            var startLabyrinthCells = _startCellsContainer.GetRandomStartCells();
+            var startLabyrinthCells = _startCellsContainer.GetRandomStartCells(_difficultyProgressionConfig.CurrentDifficultyStage);
             _spawnedStartCells = Instantiate(startLabyrinthCells, transform);
             _startCell = _spawnedStartCells.StartCell;
         }
@@ -161,7 +161,7 @@ namespace Game {
 
         private void AddCells() {
             LabyrinthCell[] availableCells;
-            var epoch = 0;
+            var epoch = _spawnedStartCells.StartEpoch;
             do {
                 availableCells = _spawnedCells.Where(cell => cell.RealtimeAvailablePositions.Count > 0).ToArray();
                 foreach (var cell in availableCells) {

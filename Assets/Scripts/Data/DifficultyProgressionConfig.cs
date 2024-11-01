@@ -51,14 +51,14 @@ namespace Data {
         [SerializeField]
         private int _daysCount;
 
-        private int _currentDifficultyStage;
+        public int CurrentDifficultyStage { get; private set; }
 
         public void Init(int currentStage) {
-            _currentDifficultyStage = Math.Min(currentStage, _maxStage);
+            CurrentDifficultyStage = Math.Min(currentStage, _maxStage);
         }
 
         public float GetValue(MinMaxValue value) {
-            return value.MinValue + value.Difference * _difficultyProgressionCurve.Evaluate((float)_currentDifficultyStage / _maxStage);
+            return value.MinValue + value.Difference * _difficultyProgressionCurve.Evaluate((float)CurrentDifficultyStage / _maxStage);
         }
 
 #if UNITY_EDITOR
