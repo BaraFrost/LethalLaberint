@@ -61,7 +61,7 @@ namespace Game {
         }
 
         private Enemy SpawnRandomEnemy() {
-            var enemyToSpawn = _enemyContainer.GetRandomEnemy(_countMult);
+            var enemyToSpawn = _enemyContainer.GetRandomEnemy(_countMult, _difficultyProgressionConfig.CurrentDifficultyStage);
             var positionToSpawn = GetRandomCellPosition();
             positionToSpawn.y = enemyToSpawn.transform.position.y;
             var enemy = Instantiate(enemyToSpawn, positionToSpawn, Quaternion.identity, transform);

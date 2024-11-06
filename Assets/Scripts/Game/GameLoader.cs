@@ -2,8 +2,6 @@ using Data;
 using NaughtyAttributes;
 using System.Collections.Generic;
 using UI;
-using Unity.AI.Navigation;
-using UnityEditor;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -15,19 +13,13 @@ namespace Game {
         private LabyrinthSpawner _labyrinthSpawner;
 
         [SerializeField]
-        private NavMeshSurface _navMeshSurface;
-
-        [SerializeField]
         private EnemySpawner _enemySpawner;
 
         [SerializeField]
         private PlayerSpawner _playerSpawner;
 
         [SerializeField]
-        private PlayerController _playerController;
-
-        [SerializeField]
-        private MiniMapCameraPlacer _miniMapCameraPlacer;
+        private MiniMapLogic _miniMapLogic;
 
         [SerializeField]
         private CollectibleItemsSpawner _collectibleItemsSpawner;
@@ -50,9 +42,6 @@ namespace Game {
         [SerializeField]
         private PathDrawer _pathDrawer;
 
-        [SerializeField]
-        private int _currentStage;
-
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
@@ -62,18 +51,45 @@ namespace Game {
         }
 
         private void Init() {
-            _difficultyProgressionConfig.Init(StageCounter.Instance.CurrentStage);
             _cellsContainer = _labyrinthSpawner.Spawn(_difficultyProgressionConfig);
-            _miniMapCameraPlacer.Place(_cellsContainer);
-            _navMeshSurface.BuildNavMesh();
-            _playerSpawner.Init();
-            _enemies = _enemySpawner.Spawn(_playerController, _cellsContainer, _collectibleItemsSpawner.SpawnedItems, _difficultyProgressionConfig);
+
+            _miniMapLogic.Init(_cellsContainer);
+
+            _cellsContainer.StartCells.ShipLogic.Init(_miniMapLogic, HandleExitEvent);
+
+            _playerSpawner.Init(HandlePlayerDeadEvent);
+
+            _enemies = _enemySpawner.Spawn(_playerSpawner.PlayerController, _cellsContainer, _collectibleItemsSpawner.SpawnedItems, _difficultyProgressionConfig);
+
             _collectibleItemsSpawner.Spawn(_cellsContainer, _difficultyProgressionConfig);
-            _entityPointersSystem.Init(_enemies, _collectibleItemsSpawner.SpawnedItems, _playerController);
-            _inventoryVisualizer.Init(_playerController);
-            _doorsOpeningButton.Init(_cellsContainer.CellsWithDoors, _playerController.transform);
+
+            _entityPointersSystem.Init(_enemies, _playerSpawner.PlayerController);
+
+            _inventoryVisualizer.Init(_playerSpawner.PlayerController);
+
+            _doorsOpeningButton.Init(_cellsContainer.CellsWithDoors, _playerSpawner.PlayerController.transform);
+
             _itemsCountVisualizer.Init(_collectibleItemsSpawner.SpawnedItems);
-            _pathDrawer.Init(_cellsContainer.StartCells.WarehouseArea.transform, _playerController.transform);
+
+            _pathDrawer.Init(_cellsContainer.StartCells.ShipLogic.WarehouseArea.transform, _playerSpawner.PlayerController.transform);
+        }
+
+        private void HandlePlayerDeadEvent() {
+            Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
+                EarnedMoney = 0,
+            });
+            LoadExitScene();
+        }
+
+        private void HandleExitEvent() {
+            Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
+                EarnedMoney = _playerSpawner.PlayerController.MoneyWallet.MoneyCount,
+            });
+            LoadExitScene();
+        }
+
+        private void LoadExitScene() {
+            SceneManager.LoadScene("Menu");
         }
 
         private void Update() {
@@ -81,16 +97,5 @@ namespace Game {
                 SceneManager.LoadScene(0);
             }
         }
-
-#if UNITY_EDITOR
-        [Button]
-        private void Restart() {
-            if (!EditorApplication.isPlaying) {
-                return;
-            }
-            _labyrinthSpawner.Respawn();
-            _navMeshSurface.BuildNavMesh();
-        }
-#endif
     }
 }

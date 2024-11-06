@@ -5,6 +5,8 @@ namespace Game {
 
     public abstract class AbstractEnemyVisionLogic : AbstractEnemyLogic<Enemy> {
 
+        public abstract float Distance { get; }
+
         private bool _temporaryDisabled;
 
         public bool CanSeeTarget(PlayerController enemyTarget) {

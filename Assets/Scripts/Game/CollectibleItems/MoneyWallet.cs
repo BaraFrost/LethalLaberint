@@ -9,6 +9,7 @@ namespace Game {
         private TextMeshProUGUI _text;
 
         private int _moneyCount;
+        public int MoneyCount => _moneyCount;
 
         public void AddMoney(int count) {
             _moneyCount += count;

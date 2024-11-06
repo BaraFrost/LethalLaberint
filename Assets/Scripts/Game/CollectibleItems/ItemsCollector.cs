@@ -7,6 +7,7 @@ namespace Game {
 
         [SerializeField]
         private Wallet _wallet;
+        public Wallet Wallet => _wallet;
 
         private List<CollectibleItem> _feltCollectibleItems = new List<CollectibleItem>();
 

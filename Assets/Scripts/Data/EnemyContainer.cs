@@ -19,12 +19,16 @@ namespace Data {
             [SerializeField]
             private int _count;
             public int Count => _count;
+
+            [SerializeField]
+            private int _minStage;
+            public int MinStage => _minStage;
         }
 
         [SerializeField]
         private EnemyWithCount[] _enemies;
 
-        private List<(Enemy, int)> _cachedEnemyWithCount;
+        private List<(EnemyWithCount, int)> _cachedEnemyWithCount;
 
         public int GetEnemySum() {
             var sum = 0;
@@ -38,20 +42,21 @@ namespace Data {
             if(countMult < 1) {
                 countMult = 1;
             }
-            _cachedEnemyWithCount = _enemies.Select(e => (e.Enemy, (int)(e.Count * countMult))).ToList();
+            _cachedEnemyWithCount = _enemies.Select(e => (e, (int)(e.Count * countMult))).ToList();
         }
 
-        public Enemy GetRandomEnemy(float countMult) {
+        public Enemy GetRandomEnemy(float countMult, int stage) {
             if (_cachedEnemyWithCount == null) {
                 ResetCachedEnemy(countMult);
             }
-            var randomIndex = UnityEngine.Random.Range(0, _cachedEnemyWithCount.Count);
-            var enemyWithCache = _cachedEnemyWithCount[randomIndex];
+            var enemies = _cachedEnemyWithCount.Where(enemy => enemy.Item1.MinStage <= stage).ToArray();
+            var randomIndex = UnityEngine.Random.Range(0, enemies.Length);
+            var enemyWithCache = enemies[randomIndex];
             enemyWithCache.Item2--;
             if (enemyWithCache.Item2 <= 0) {
                 _cachedEnemyWithCount.RemoveAt(randomIndex);
             }
-            return enemyWithCache.Item1;
+            return enemyWithCache.Item1.Enemy;
         }
     }
 }

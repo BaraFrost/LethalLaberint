@@ -136,6 +136,7 @@ MonoBehaviour:
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 436834916592266769}
   _healthLogic: {fileID: 0}
+  _needShowArrow: 0
 --- !u!114 &436834916592266769
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -148,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53b68a45633be3a49aff7bef4ad51f0c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBeforeExplosion: 0.22
+  _timeBeforeExplosion: 0.25
   _reloadTime: 1
   _activateDistance: 0.9
   _damageDistance: 0.9

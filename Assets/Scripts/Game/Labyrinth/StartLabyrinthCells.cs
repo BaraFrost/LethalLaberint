@@ -1,3 +1,5 @@
+using NaughtyAttributes;
+using UnityEditor;
 using UnityEngine;
 
 namespace Game {
@@ -11,10 +13,6 @@ namespace Game {
         [SerializeField]
         private LabyrinthCell _startCell;
         public LabyrinthCell StartCell => _startCell;
-
-        [SerializeField]
-        private WarehouseArea _warehouseArea;
-        public WarehouseArea WarehouseArea => _warehouseArea;
 
         [SerializeField]
         private Enemy[] _startEnemies;
@@ -35,5 +33,20 @@ namespace Game {
         [SerializeField]
         private bool _needGenerateCells;
         public bool NeedGenerateCells => _needGenerateCells;
+
+        [SerializeField]
+        private ShipLogic _shipLogic;
+        public ShipLogic ShipLogic => _shipLogic;
+
+
+#if UNITY_EDITOR
+        [Button]
+        public void FillArrays() {
+            _startCells = gameObject.GetComponentsInChildren<LabyrinthCell>();
+            _startEnemies = gameObject.GetComponentsInChildren<Enemy>();
+            _startCollectibleItems = gameObject.GetComponentsInChildren<CollectibleItem>();
+            EditorUtility.SetDirty(gameObject);
+        }
+#endif
     }
 }

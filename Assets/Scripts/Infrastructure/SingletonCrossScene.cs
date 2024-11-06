@@ -12,10 +12,14 @@ namespace Infrastructure {
             if (_instance == null) {
                 _instance = GetComponent<T>();
                 DontDestroyOnLoad(gameObject);
+                Init();
+                return;
             }
             if (_instance != component) {
                 Destroy(gameObject);
             }
         }
+
+        protected virtual void Init() { }
     }
 }

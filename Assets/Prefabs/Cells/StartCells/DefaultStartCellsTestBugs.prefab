@@ -86,6 +86,7 @@ MonoBehaviour:
   _startEpoch: 0
   _startCollectibleItems: []
   _needGenerateCells: 1
+  _shipLogic: {fileID: 1240042654611744618}
 --- !u!1001 &229249055933375716
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -390,6 +391,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9534c26b10ada224dbe2f5129aedef3f, type: 3}
+--- !u!114 &1240042654611744618 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 236824776024232765, guid: 9534c26b10ada224dbe2f5129aedef3f, type: 3}
+  m_PrefabInstance: {fileID: 1332180212763898967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 86d518fa7354a7e4d9e8dce1dc598f7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3076043160222556229 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4092811279248217106, guid: 9534c26b10ada224dbe2f5129aedef3f, type: 3}

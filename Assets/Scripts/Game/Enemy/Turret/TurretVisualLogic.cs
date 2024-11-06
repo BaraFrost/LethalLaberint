@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class TurretVisualLogic : MonoBehaviour {
+    public class TurretVisualLogic : AbstractEnemyLogic<TurretEnemy> {
 
         [SerializeField]
         private LineRenderer _laserLineRenderer;
@@ -17,14 +17,20 @@ namespace Game {
         [SerializeField]
         private ParticleSystem[] _prepareShootParticles;
 
+        [SerializeField]
+        private LayerMask _laizerLayerMask;
+
         private Vector3[] _points = new Vector3[2];
 
         private void FixedUpdate() {
-            if(Physics.Raycast(_laserStart.position, _laserStart.forward,out var hit)) {
-                _points[0] = _laserStart.position;
+            _points[0] = _laserStart.position;
+            if (Physics.Raycast(_laserStart.position, _laserStart.forward, out var hit, Enemy.VisionLogic.Distance, _laizerLayerMask)) {
                 _points[1] = hit.point;
-                _laserLineRenderer.SetPositions(_points);
             }
+            else {
+                _points[1] = _laserStart.position + _laserStart.forward * Enemy.VisionLogic.Distance;
+            }
+            _laserLineRenderer.SetPositions(_points);
         }
 
         public void PlayShootEffects() {

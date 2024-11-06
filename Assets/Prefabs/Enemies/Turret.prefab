@@ -5398,7 +5398,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7235581820405084636}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.013, y: 0, z: -2.06}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.06205681, y: 0.06205681, z: 0.06205681}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5426,6 +5426,7 @@ MonoBehaviour:
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 5930508646931398131}
   _healthLogic: {fileID: 0}
+  _needShowArrow: 0
   _turretRotationLogic: {fileID: 3500200211914378374}
 --- !u!114 &3500200211914378374
 MonoBehaviour:
@@ -5460,8 +5461,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2717e72cc82ccb241a0f8e42ba85aaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBeforeAttack: 0.4
-  _timeBeforeDoDamage: 0.2
+  _timeBeforeAttack: 0.2
+  _timeBeforeDoDamage: 0.5
   _missProbability: 60
   _shootEffect: {fileID: 8199800330385522428}
   _turretVisualLogic: {fileID: 5224707908641957922}
@@ -5477,8 +5478,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7375164e5ae322e4b95b547511afd520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 15
-  _visionAngle: 60
+  _distance: 12
+  _visionAngle: 45
   _visionPosition: {fileID: 7774671872054848502}
   _raycastLayerMask:
     serializedVersion: 2
@@ -5504,6 +5505,9 @@ MonoBehaviour:
   - {fileID: 3188141198798805896}
   - {fileID: 3188451673008271446}
   - {fileID: 3187987801207700758}
+  _laizerLayerMask:
+    serializedVersion: 2
+    m_Bits: 8827
 --- !u!120 &1801951361375019995
 LineRenderer:
   serializedVersion: 2
@@ -5548,7 +5552,7 @@ LineRenderer:
   m_SortingOrder: 0
   m_Positions:
   - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 1}
+  - {x: 0, y: 0, z: 0}
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 1
@@ -5894,7 +5898,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.8
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -6648,7 +6652,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 10
+      scalar: 15
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9515,7 +9519,7 @@ ParticleSystem:
     m_EnergyLossOnCollision:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0
+      scalar: 0.4
       minScalar: 0
       maxCurve:
         serializedVersion: 2
@@ -9566,7 +9570,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     minKillSpeed: 0
-    maxKillSpeed: 0
+    maxKillSpeed: 150
     radiusScale: 1
     collidesWith:
       serializedVersion: 2

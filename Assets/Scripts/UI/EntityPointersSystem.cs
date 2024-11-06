@@ -27,25 +27,17 @@ namespace UI {
         private List<RectTransform> _enemyPointers = new List<RectTransform>();
 
         private List<Enemy> _enemies;
-        private List<CollectibleItem> _collectibleItems;
         private PlayerController _playerController;
 
-        public void Init(List<Enemy> enemies, List<CollectibleItem> collectibleItem, PlayerController playerController) {
+        public void Init(List<Enemy> enemies, PlayerController playerController) {
             _playerController = playerController;
             _enemies = enemies.Where(enemy => enemy.NeedShowArrow).ToList();
-            _collectibleItems = collectibleItem;
             foreach (var enemy in _enemies) {
                 _enemyPointers.Add(Instantiate(_enemyPointerPrefab, transform));
-            }
-            foreach (var item in collectibleItem) {
-                // _itemsPointers.Add(Instantiate(_itemPointerPrefab, transform));
             }
         }
 
         private void Update() {
-            for (int i = 0; i < _itemsPointers.Count; i++) {
-                //UpdateArrowPosition(_collectibleItems[i].transform, _itemsPointers[i]);
-            }
             for (int i = 0; i < _enemyPointers.Count; i++) {
                 if (_enemies[i] == null) {
                     _enemyPointers[i].gameObject.SetActive(false);

@@ -1,3 +1,4 @@
+using Data;
 using TMPro;
 using UnityEngine;
 
@@ -8,9 +9,8 @@ namespace Game {
         private TextMeshProUGUI _text;
 
         private void Update() {
-            _text.text = StageCounter.Instance.CurrentStage.ToString();
+            _text.text = Account.Instance.CurrentStage.ToString();
         }
-
     }
 }
 

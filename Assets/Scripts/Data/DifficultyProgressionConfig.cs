@@ -1,5 +1,6 @@
 using NaughtyAttributes;
 using System;
+using System.Linq;
 using System.Text;
 using UnityEngine;
 
@@ -43,32 +44,32 @@ namespace Data {
         [SerializeField]
         private MinMaxValue _requiredMoney;
         public int RequiredMoney => (int)GetValue(_requiredMoney);
-        public int RequiredMoneyInDay => (int)GetValue(_requiredMoney) / _daysCount;
+        public int RequiredMoneyInDay => (int)GetValue(_requiredMoney) / DaysCount;
 
         [SerializeField]
         private AnimationCurve _difficultyProgressionCurve;
 
+        private int DaysCount => GetDaysByStage(CurrentDifficultyStage);
+
         [SerializeField]
-        private int _daysCount;
+        private int _defaultDaysCount;
 
-        public int CurrentDifficultyStage { get; private set; }
+        [SerializeField]
+        private int[] _bonusStages;
 
-        public void Init(int currentStage) {
-            CurrentDifficultyStage = Math.Min(currentStage, _maxStage);
-        }
+        public int CurrentDifficultyStage => Math.Min(Account.Instance.CurrentStage, _maxStage);
 
         public float GetValue(MinMaxValue value) {
             return value.MinValue + value.Difference * _difficultyProgressionCurve.Evaluate((float)CurrentDifficultyStage / _maxStage);
         }
 
-#if UNITY_EDITOR
-        [BoxGroup("Test")]
-        [SerializeField]
-        private int _logStage;
+        public int GetDaysByStage(int stage) {
+            return _bonusStages.Contains(stage) ? 1 : _defaultDaysCount;
+        }
 
+#if UNITY_EDITOR
         [Button]
         public void DebugLogValues() {
-            Init(_logStage);
             var stringBuilder = new StringBuilder();
             stringBuilder.AppendLine($"LabyrinthSize:{LabyrinthSize}");
             stringBuilder.AppendLine($"LabyrinthCellsCount:{LabyrinthCellsCount}");

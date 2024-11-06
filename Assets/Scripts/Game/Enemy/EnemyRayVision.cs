@@ -6,6 +6,7 @@ namespace Game {
 
         [SerializeField]
         private float _distance;
+        public override float Distance => _distance;
 
         [SerializeField]
         private float _visionAngle;

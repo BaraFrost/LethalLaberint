@@ -14,6 +14,10 @@ namespace Game {
         public ItemsCollector ItemsCollector => _itemsCollector;
 
         [SerializeField]
+        private MoneyWallet _moneyWallet;
+        public MoneyWallet MoneyWallet => _moneyWallet;
+
+        [SerializeField]
         private Collider _collider;
         public Collider Collider => _collider;
 

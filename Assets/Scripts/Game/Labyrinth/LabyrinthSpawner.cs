@@ -3,6 +3,7 @@ using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Unity.AI.Navigation;
 using UnityEditor;
 using UnityEngine;
 using Utils;
@@ -38,6 +39,8 @@ namespace Game {
         private StartCellsContainer _startCellsContainer;
 
         [SerializeField]
+        private NavMeshSurface _navMeshSurface;
+
         private LabyrinthCell _startCell;
         private StartLabyrinthCells _spawnedStartCells;
         private LabyrinthCell[] _additiveStartCells;
@@ -82,6 +85,7 @@ namespace Game {
             AddDeadEndCells();
             AddFonCells();
             AddLabyrinthToStaticBatching();
+            _navMeshSurface.BuildNavMesh();
             return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field, _spawnedStartCells);
         }
 
