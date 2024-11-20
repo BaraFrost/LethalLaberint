@@ -15,8 +15,11 @@ namespace Game {
         private float _activateDistance;
 
         [SerializeField]
+        private bool _hasDamage = true;
+
+        [SerializeField]
         private float _damageDistance;
-        protected float DamageDistance => _damageDistance; 
+        protected float DamageDistance => _damageDistance;
 
         [SerializeField]
         private LayerMask _overlapEnemyLayerMask;
@@ -42,12 +45,12 @@ namespace Game {
         private IEnumerator AttackCoroutine(PlayerController target) {
             _isAttacking = true;
             yield return new WaitForSeconds(_timeBeforeExplosion);
-            if (CanSeeTarget(target.Collider)) {
+            if (_hasDamage && CanSeeTarget(target.Collider)) {
                 target.HealthLogic.AddDamage();
             }
             var targets = Physics.OverlapSphere(gameObject.transform.position, _damageDistance, _overlapEnemyLayerMask);
             foreach (var enemyTarget in targets) {
-                if (!enemyTarget.TryGetComponent<Enemy>(out var enemy) || enemy.HealthLogic == null || !CanSeeTarget(enemyTarget)) {
+                if (!_hasDamage || !enemyTarget.TryGetComponent<Enemy>(out var enemy) || enemy.HealthLogic == null || !CanSeeTarget(enemyTarget)) {
                     continue;
                 }
                 enemy.HealthLogic.AddDamage();
@@ -59,7 +62,7 @@ namespace Game {
         }
 
         public override bool CanAttackTarget(PlayerController target) {
-            if(target.HealthLogic.IsDamaged) {
+            if (target.HealthLogic.IsDamaged) {
                 return false;
             }
 

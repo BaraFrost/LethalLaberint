@@ -19,7 +19,7 @@ namespace Game {
             var cells = cellsContainer.AvailableCells;
             var sumMoney = 0;
             var requiredMoney = difficultyProgressionConfig.RequiredMoneyInDay;
-            while (sumMoney < requiredMoney) {
+            while (sumMoney < requiredMoney && cellsContainer.StartCells.NeedGenerateItems) {
                 var randomIndex = Random.Range(0, cells.Count);
                 var position = cells[randomIndex].gameObject.transform.position;
                 cells.RemoveAt(randomIndex);

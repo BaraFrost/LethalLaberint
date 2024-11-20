@@ -20,6 +20,12 @@ namespace Game {
         [SerializeField]
         private LayerMask _laizerLayerMask;
 
+        [SerializeField]
+        private Gradient _laserSearchColor;
+
+        [SerializeField]
+        private Gradient _laserAttackColor;
+
         private Vector3[] _points = new Vector3[2];
 
         private void FixedUpdate() {
@@ -43,12 +49,14 @@ namespace Game {
             foreach (var effect in _prepareShootParticles) {
                 effect.Play();
             }
+            _laserLineRenderer.colorGradient = _laserAttackColor;
         }
 
         public void StopShootEffects() {
             foreach (var effect in _shootParticles.Concat(_prepareShootParticles)) {
                 effect.Stop();
             }
+            _laserLineRenderer.colorGradient = _laserSearchColor;
         }
     }
 }

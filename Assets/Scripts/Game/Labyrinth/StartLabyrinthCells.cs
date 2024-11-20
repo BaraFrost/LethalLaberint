@@ -35,6 +35,10 @@ namespace Game {
         public bool NeedGenerateCells => _needGenerateCells;
 
         [SerializeField]
+        private bool _needGenerateItems;
+        public bool NeedGenerateItems => _needGenerateItems;
+
+        [SerializeField]
         private ShipLogic _shipLogic;
         public ShipLogic ShipLogic => _shipLogic;
 

@@ -30,10 +30,9 @@ namespace Game {
 
         protected override void PlayAttackVisual() {
             base.PlayAttackVisual();
-            if (_effectPrefab == null) {
-                return;
+            if (_effectPrefab != null) {
+                Instantiate(_effectPrefab, transform.position, Quaternion.identity, transform.parent);
             }
-            Instantiate(_effectPrefab, transform.position, Quaternion.identity, transform.parent);
             Destroy(gameObject);
         }
     }

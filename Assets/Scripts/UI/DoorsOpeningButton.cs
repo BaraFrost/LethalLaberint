@@ -44,6 +44,9 @@ namespace UI {
             LabyrinthCellWithDoor closestCell = null;
             var distanceToClosestCell = _distanceToPlayer;
             for (int i = 0; i < _cellsWithDoors.Count; i++) {
+                if(!_cellsWithDoors[i].enabled) {
+                    continue;
+                }
                 var distanceToCell = (_cellsWithDoors[i].transform.position - _playerTransform.position).sqrMagnitude;
                 if (distanceToCell < distanceToClosestCell) {
                     closestCell = _cellsWithDoors[i];

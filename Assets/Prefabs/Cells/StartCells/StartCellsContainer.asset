@@ -15,16 +15,8 @@ MonoBehaviour:
   _startLabyrinthCells:
   - startLabyrinthCells: {fileID: 7791882332685454619, guid: 0a2bdb5830756ef41bcf1f98f4026a4e, type: 3}
     minStage: 0
-  - startLabyrinthCells: {fileID: 7791882332685454619, guid: 37bea8f05bec2b041997b982198a8d19, type: 3}
-    minStage: 3
-  - startLabyrinthCells: {fileID: 7791882332685454619, guid: fee8c928cb7c78e43905e7749c7b7856, type: 3}
-    minStage: 5
-  - startLabyrinthCells: {fileID: 7791882332685454619, guid: da1a20ec8f39e6f44a7194a45ac06bd0, type: 3}
-    minStage: 4
-  - startLabyrinthCells: {fileID: 7791882332685454619, guid: 782257359cba80c43aef0be59f8ec80c, type: 3}
-    minStage: 6
-  - startLabyrinthCells: {fileID: 7791882332685454619, guid: ef5700da32774a64f9043cd6325c16d8, type: 3}
-    minStage: 5
   _bonusLabyrinthCells:
+  - startLabyrinthCells: {fileID: 7791882332685454619, guid: 5519a08dee644854c9f6ad13ca81ffe9, type: 3}
+    minStage: 0
   - startLabyrinthCells: {fileID: 7791882332685454619, guid: d35142b1b6ef21b4b89911c54b088cc8, type: 3}
     minStage: 2

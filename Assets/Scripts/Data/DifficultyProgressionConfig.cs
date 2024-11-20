@@ -22,6 +22,18 @@ namespace Data {
             public float Difference => _maxValue - _minValue;
         }
 
+        [Serializable]
+        public class DaysByStage {
+
+            [SerializeField]
+            private int _stage;
+            public int Stage => _stage;
+
+            [SerializeField]
+            private int _days;
+            public int Days => _days;
+        }
+
         [SerializeField]
         private int _maxStage;
 
@@ -44,7 +56,11 @@ namespace Data {
         [SerializeField]
         private MinMaxValue _requiredMoney;
         public int RequiredMoney => (int)GetValue(_requiredMoney);
-        public int RequiredMoneyInDay => (int)GetValue(_requiredMoney) / DaysCount;
+        public int RequiredMoneyInDay => (int)GetValue(_requiredMoney) / DaysCount + AdditionalSpawnMoney;
+
+        [SerializeField]
+        private MinMaxValue _additionalSpawnMoney;
+        public int AdditionalSpawnMoney => (int)GetValue(_additionalSpawnMoney);
 
         [SerializeField]
         private AnimationCurve _difficultyProgressionCurve;
@@ -55,7 +71,7 @@ namespace Data {
         private int _defaultDaysCount;
 
         [SerializeField]
-        private int[] _bonusStages;
+        private DaysByStage[] _daysByStageOverride;
 
         public int CurrentDifficultyStage => Math.Min(Account.Instance.CurrentStage, _maxStage);
 
@@ -64,7 +80,11 @@ namespace Data {
         }
 
         public int GetDaysByStage(int stage) {
-            return _bonusStages.Contains(stage) ? 1 : _defaultDaysCount;
+            var overrideDays = _daysByStageOverride.FirstOrDefault(data => data.Stage == stage);
+            if (overrideDays != null) {
+                return overrideDays.Days;
+            }
+            return _defaultDaysCount;
         }
 
 #if UNITY_EDITOR

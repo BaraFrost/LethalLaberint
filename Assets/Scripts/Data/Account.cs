@@ -85,8 +85,9 @@ namespace Data {
 #if UNITY_EDITOR
         [Button]
 #endif
-        public static void Clear() {
+        public void Clear() {
             PlayerPrefs.DeleteAll();
+            LoadAccountData();
         }
 
         public void HandleMatchDoneEvent(MatchDoneEvent matchDoneEvent) {

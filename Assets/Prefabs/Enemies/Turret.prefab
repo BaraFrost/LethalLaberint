@@ -5461,9 +5461,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2717e72cc82ccb241a0f8e42ba85aaf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _timeBeforeAttack: 0.2
-  _timeBeforeDoDamage: 0.5
-  _missProbability: 60
+  _timeBeforeAttack: 0.4
+  _timeBeforeDoDamage: 0.3
+  _missProbability: 0
   _shootEffect: {fileID: 8199800330385522428}
   _turretVisualLogic: {fileID: 5224707908641957922}
 --- !u!114 &6677740510244040178
@@ -5508,6 +5508,66 @@ MonoBehaviour:
   _laizerLayerMask:
     serializedVersion: 2
     m_Bits: 8827
+  _laserSearchColor:
+    serializedVersion: 2
+    key0: {r: 0.098713905, g: 0.7830189, b: 0, a: 0.7058824}
+    key1: {r: 0.098713905, g: 0.7830189, b: 0, a: 0.7058824}
+    key2: {r: 0, g: 0, b: 0, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  _laserAttackColor:
+    serializedVersion: 2
+    key0: {r: 0.990566, g: 0, b: 0.0375906, a: 0.7058824}
+    key1: {r: 0.99215686, g: 0, b: 0.039215688, a: 0.7058824}
+    key2: {r: 0, g: 0, b: 0, a: 1}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 65535
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_ColorSpace: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
 --- !u!120 &1801951361375019995
 LineRenderer:
   serializedVersion: 2
@@ -6069,7 +6129,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.58
+      scalar: 0.22
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -6652,7 +6712,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 15
+      scalar: 20
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -9722,7 +9782,7 @@ ParticleSystem:
     lifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.36
+      scalar: 0.21
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9852,8 +9912,8 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     widthOverTrail:
       serializedVersion: 2
-      minMaxState: 0
-      scalar: 0.12
+      minMaxState: 1
+      scalar: 0.27
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -9861,21 +9921,21 @@ ParticleSystem:
         - serializedVersion: 3
           time: 0
           value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         - serializedVersion: 3
           time: 1
-          value: 1
-          inSlope: 0
-          outSlope: 0
-          tangentMode: 0
+          value: 0
+          inSlope: -1
+          outSlope: -1
+          tangentMode: 34
           weightedMode: 0
-          inWeight: 0.33333334
-          outWeight: 0.33333334
+          inWeight: 0
+          outWeight: 0
         m_PreInfinity: 2
         m_PostInfinity: 2
         m_RotationOrder: 4
@@ -9907,7 +9967,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0, b: 0.036499977, a: 0.5058824}
+      maxColor: {r: 1, g: 0.8148148, b: 0, a: 0.84705883}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}

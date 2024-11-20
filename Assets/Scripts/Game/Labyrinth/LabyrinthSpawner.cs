@@ -90,7 +90,7 @@ namespace Game {
         }
 
         private void SpawnStartCells() {
-            var startLabyrinthCells = _startCellsContainer.GetRandomStartCells(_difficultyProgressionConfig.CurrentDifficultyStage);
+            var startLabyrinthCells = _startCellsContainer.GetRandomStartCells(Account.Instance.CurrentStage);
             _spawnedStartCells = Instantiate(startLabyrinthCells, transform);
             _startCell = _spawnedStartCells.StartCell;
         }

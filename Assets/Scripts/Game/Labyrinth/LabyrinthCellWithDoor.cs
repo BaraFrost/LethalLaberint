@@ -1,4 +1,5 @@
 using NaughtyAttributes;
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -24,6 +25,8 @@ namespace Game {
         private bool _inCoroutine;
         private bool _selected;
 
+        public Action onDoorStateChanged;
+
         [Button]
         public void ChangeDoorState() {
             if (_inCoroutine) {
@@ -44,6 +47,7 @@ namespace Game {
             }
             _door.transform.position = target.position;
             _isOpen = !_isOpen;
+            onDoorStateChanged?.Invoke();
             _inCoroutine = false;
         }
 
