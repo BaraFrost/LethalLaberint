@@ -29,7 +29,6 @@ namespace Game {
                 if (!_moveSound.isPlaying) {
                     _moveSound.Play();
                 }
-                Debug.Log("MoveSound");
                 return;
             }
             if (_moveSound.isPlaying) {
@@ -43,7 +42,6 @@ namespace Game {
                 return;
             }
             _attackSound.Play();
-            Debug.Log("AttackSound");
             return;
         }
     }
