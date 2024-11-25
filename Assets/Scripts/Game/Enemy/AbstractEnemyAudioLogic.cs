@@ -11,9 +11,8 @@ namespace Game {
 
         public override void Init(Enemy enemy) {
             base.Init(enemy);
-            if(Enemy.AttackLogic != null && _attackSound != null) {
+            if (Enemy.AttackLogic != null && _attackSound != null) {
                 Enemy.AttackLogic.OnAttack += PlayAttackSound;
-                Enemy.AttackLogic.OnAttack += PlayStopSound;
             }
         }
 
@@ -23,15 +22,19 @@ namespace Game {
         }
 
         private void PlayMoveSound() {
-            if(_moveSound == null || Enemy.MovementLogic == null) {
+            if (_moveSound == null || Enemy.MovementLogic == null) {
                 return;
             }
-            if(Enemy.MovementLogic.IsMoving) {
-                _moveSound.Play();
+            if (Enemy.MovementLogic.IsMoving) {
+                if (!_moveSound.isPlaying) {
+                    _moveSound.Play();
+                }
                 Debug.Log("MoveSound");
                 return;
             }
-            _moveSound.Stop();
+            if (_moveSound.isPlaying) {
+                _moveSound.Stop();
+            }
             return;
         }
 
@@ -41,15 +44,6 @@ namespace Game {
             }
             _attackSound.Play();
             Debug.Log("AttackSound");
-            return;
-        }
-
-        private void PlayStopSound() {
-            if (!_attackSound.isPlaying) {
-                return;
-            }
-            _attackSound.Stop();
-            Debug.Log("StopAttackSound");
             return;
         }
     }
