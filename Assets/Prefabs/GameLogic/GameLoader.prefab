@@ -929,7 +929,7 @@ Transform:
   - {fileID: 7831467639941862796}
   - {fileID: 2400265821347675559}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9077933867509478514
 MonoBehaviour:
@@ -1792,7 +1792,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Door 35
+  m_text: "\u0414\u0432\u0435\u0440\u044C \u043F\u0440\u043E\u0431\u0435\u043B"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3375,10 +3375,6 @@ PrefabInstance:
       propertyPath: _wallet
       value: 
       objectReference: {fileID: 1545822916409125035}
-    - target: {fileID: 4040637256063436440, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _moneyWallet
-      value: 
-      objectReference: {fileID: 7974535564564832697}
     - target: {fileID: 4885179736990003613, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -3423,25 +3419,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5134372529002573465, guid: e586cd813de26a84494ca19bce115050, type: 3}
+      propertyPath: _joystick
+      value: 
+      objectReference: {fileID: 6016062389663072127}
     - target: {fileID: 5224305009969720103, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _joystick
+    - target: {fileID: 5992393340830290172, guid: e586cd813de26a84494ca19bce115050, type: 3}
+      propertyPath: _text
       value: 
-      objectReference: {fileID: 6016062389663072127}
-    - target: {fileID: 8433655475274982279, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _moneyWallet
-      value: 
-      objectReference: {fileID: 7974535564564832697}
+      objectReference: {fileID: 8423850155241267055}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 5224305009969720103, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7974535564564832697}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e586cd813de26a84494ca19bce115050, type: 3}
 --- !u!114 &4675363690595260775 stripped
 MonoBehaviour:
@@ -3475,19 +3468,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5224305009969720103, guid: e586cd813de26a84494ca19bce115050, type: 3}
   m_PrefabInstance: {fileID: 3884467351914789600}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7974535564564832697
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9036494384080769479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 87c6d06256cb4194d97c55bf46c9916d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 8423850155241267055}
 --- !u!114 &9176872120045641984 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5382552434125708256, guid: e586cd813de26a84494ca19bce115050, type: 3}

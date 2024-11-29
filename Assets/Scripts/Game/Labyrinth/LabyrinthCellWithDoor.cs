@@ -21,6 +21,9 @@ namespace Game {
         [SerializeField]
         private MaterialReplacer _materialReplacer;
 
+        [SerializeField]
+        private AudioSource _openCloseSound;
+
         private bool _isOpen;
         private bool _inCoroutine;
         private bool _selected;
@@ -32,6 +35,7 @@ namespace Game {
             if (_inCoroutine) {
                 return;
             }
+            _openCloseSound.Play();
             StartCoroutine(ChangeStateCoroutine());
         }
 
