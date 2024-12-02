@@ -104,6 +104,12 @@ namespace Game {
                 _gravityForce = -1f;
             }
         }
+
+        public void Teleport(Vector3 position) {
+            _characterController.enabled = false;
+            transform.position = position;
+            _characterController.enabled = true;
+        }
     }
 }
 

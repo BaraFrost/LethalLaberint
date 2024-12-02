@@ -1,11 +1,10 @@
 using Data;
 using System;
-using System.Linq;
 using UnityEngine;
 
 namespace Game {
 
-    public class PlayerAbilityLogic : MonoBehaviour {
+    public class PlayerAbilityLogic : AbstractPlayerLogic {
 
         public class SpawnedAbility {
 
@@ -24,11 +23,12 @@ namespace Game {
             }
 
             public bool TryToActivate() {
-                if (_count <= 0) {
+                if (_count <= 0 || _ability.IsAbilityActive) {
                     return false;
                 }
                 _count--;
                 _ability.Activate();
+                Account.Instance.OnAbilityUsed(AbilityData.id);
                 return true;
             }
         }
@@ -41,9 +41,12 @@ namespace Game {
 
         public Action onAbilityActivate;
 
-        public void Init(AbilityInitData[] abilitiesInitData) {
-            _abilities = abilitiesInitData.Select(ability =>
-                new SpawnedAbility(Instantiate(ability.abilityData.AbstractAbility, gameObject.transform), ability.count, ability.abilityData)).ToArray();
+        public override void Init(PlayerController player) {
+            base.Init(player);
+            var abilityInitData = Account.Instance.CurrentAbilityInitData;
+            var spawnedAbility = new SpawnedAbility(Instantiate(abilityInitData.abilityData.AbstractAbility, gameObject.transform), abilityInitData.count, abilityInitData.abilityData);
+            spawnedAbility.Ability.Init(player);
+            _abilities = new SpawnedAbility[] { spawnedAbility };
             _playerInputLogic.onAbilityUsed += ActivateAbility;
         }
 

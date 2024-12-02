@@ -44,7 +44,7 @@ namespace Game {
         private CharacterController _characterController;
         private Animator _characterAnimator;
 
-        private void Start() {
+        public void Init() {
             _playerLogics = GetComponents<AbstractPlayerLogic>();
             foreach(var logic in _playerLogics) {
                 logic.Init(this);

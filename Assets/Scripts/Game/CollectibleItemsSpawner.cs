@@ -1,5 +1,6 @@
 using Data;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game {
@@ -16,7 +17,7 @@ namespace Game {
         public List<CollectibleItem> SpawnedItems => _items;
 
         public void Spawn(SpawnedLabyrinthCellsContainer cellsContainer, DifficultyProgressionConfig difficultyProgressionConfig) {
-            var cells = cellsContainer.AvailableCells;
+            var cells = cellsContainer.AvailableCells.Where(cell => !cell.cellBusy).ToList();
             var sumMoney = 0;
             var requiredMoney = difficultyProgressionConfig.RequiredMoneyInDay;
             while (sumMoney < requiredMoney && cellsContainer.StartCells.NeedGenerateItems) {

@@ -17,8 +17,8 @@ namespace Data {
             public Enemy Enemy => _enemy;
 
             [SerializeField]
-            private int _count;
-            public int Count => _count;
+            private float _weight;
+            public float Weight => _weight;
 
             [SerializeField]
             private int _minStage;
@@ -28,35 +28,17 @@ namespace Data {
         [SerializeField]
         private EnemyWithCount[] _enemies;
 
-        private List<(EnemyWithCount, int)> _cachedEnemyWithCount;
-
-        public int GetEnemySum() {
-            var sum = 0;
-            foreach(var enemy in _enemies) {
-                sum += enemy.Count;
+        public List<Enemy> GetRandomEnemies(float weight, int stage) {
+            var result = new List<Enemy>();
+            var enemiesByStage = _enemies.Where(enemy => enemy.MinStage <= stage).ToArray();
+            var availableEnemies = enemiesByStage.Where(enemy => enemy.Weight <= weight).ToArray();
+            while (availableEnemies.Length > 0) {
+                var randomEnemy = availableEnemies[UnityEngine.Random.Range(0, availableEnemies.Length)];
+                result.Add(randomEnemy.Enemy);
+                weight -= randomEnemy.Weight;
+                availableEnemies = enemiesByStage.Where(enemy => enemy.Weight <= weight).ToArray();
             }
-            return sum;
-        }
-
-        public void ResetCachedEnemy(float countMult) {
-            if(countMult < 1) {
-                countMult = 1;
-            }
-            _cachedEnemyWithCount = _enemies.Select(e => (e, (int)(e.Count * countMult))).ToList();
-        }
-
-        public Enemy GetRandomEnemy(float countMult, int stage) {
-            if (_cachedEnemyWithCount == null) {
-                ResetCachedEnemy(countMult);
-            }
-            var enemies = _cachedEnemyWithCount.Where(enemy => enemy.Item1.MinStage <= stage).ToArray();
-            var randomIndex = UnityEngine.Random.Range(0, enemies.Length);
-            var enemyWithCache = enemies[randomIndex];
-            enemyWithCache.Item2--;
-            if (enemyWithCache.Item2 <= 0) {
-                _cachedEnemyWithCount.RemoveAt(randomIndex);
-            }
-            return enemyWithCache.Item1.Enemy;
+            return result;
         }
     }
 }

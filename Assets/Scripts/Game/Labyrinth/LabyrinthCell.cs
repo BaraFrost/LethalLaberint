@@ -77,6 +77,8 @@ namespace Game {
         private GameObject[] _walls;
         public GameObject[] Walls => _walls;
 
+        public bool cellBusy;
+
         public void Clear() {
             _realtimeAvailablePositions = null;
             _nearestCells.Clear();

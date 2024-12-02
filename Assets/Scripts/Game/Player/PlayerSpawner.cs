@@ -1,4 +1,3 @@
-using Data;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -17,13 +16,10 @@ namespace Game {
         [SerializeField]
         private float _respawnTime;
 
-        [SerializeField]
-        private AbilityInitData[] _initData;
-
         public void Init(Action playerDeadEvent) {
+            _playerController.Init();
             _playerController.HealthLogic.onDamaged += StartRespawnCoroutine;
             _playerController.HealthLogic.onDead += playerDeadEvent;
-            _playerController.PlayerAbilityLogic.Init(_initData);
         }
 
         private void StartRespawnCoroutine() {

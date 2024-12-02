@@ -630,7 +630,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1298837259442260313, guid: bdd46d36d0fd3f64fad8fb6679c2d12d, type: 3}
-  _spawnTime: 1.5
+  _spawnTime: 1
   _useOffset: 1
   _offset: 1
 --- !u!114 &4885144320693351757
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7375164e5ae322e4b95b547511afd520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 2
+  _distance: 3
   _visionAngle: 180
   _visionPosition: {fileID: 7757028802047729021}
   _raycastLayerMask:
@@ -1028,7 +1028,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 0b33c23346332e945a53726548685a61, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1252,7 +1252,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 30528eb4aa3fd834cab05c18406e5ced, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

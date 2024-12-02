@@ -1,7 +1,6 @@
 using Data;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Game {
@@ -35,13 +34,12 @@ namespace Game {
 
         public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems, DifficultyProgressionConfig difficultyProgressionConfig) {
             _difficultyProgressionConfig = difficultyProgressionConfig;
-            if(labyrinthCells.StartCells.NeedGenerateEnemy) {
-                _countMult = (float)_difficultyProgressionConfig.EnemyCount / _enemyContainer.GetEnemySum();
-                _enemyContainer.ResetCachedEnemy(_countMult);
+            if (labyrinthCells.StartCells.NeedGenerateEnemy) {
                 _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
                 UpdateWeightsByDistance(player.transform.position);
-                for (var i = 0; i < _difficultyProgressionConfig.EnemyCount; i++) {
-                    _enemies.Add(SpawnRandomEnemy());
+                var enemiesToSpawn = _enemyContainer.GetRandomEnemies(_difficultyProgressionConfig.EnemyCount, _difficultyProgressionConfig.CurrentDifficultyStage);
+                for (var i = 0; i < enemiesToSpawn.Count; i++) {
+                    _enemies.Add(SpawnRandomEnemy(enemiesToSpawn[i]));
                 }
             }
             _enemies.AddRange(labyrinthCells.StartCells.StartEnemies);
@@ -60,8 +58,7 @@ namespace Game {
             }
         }
 
-        private Enemy SpawnRandomEnemy() {
-            var enemyToSpawn = _enemyContainer.GetRandomEnemy(_countMult, _difficultyProgressionConfig.CurrentDifficultyStage);
+        private Enemy SpawnRandomEnemy(Enemy enemyToSpawn) {
             var positionToSpawn = GetRandomCellPosition();
             positionToSpawn.y = enemyToSpawn.transform.position.y;
             var enemy = Instantiate(enemyToSpawn, positionToSpawn, Quaternion.identity, transform);
@@ -79,7 +76,8 @@ namespace Game {
             for (int i = 0; i < _cellsWithWeight.Count; i++) {
                 currentWeightSum += _cellsWithWeight[i].weight;
                 if (currentWeightSum > randomPosition) {
-                    var result = _cellsWithWeight[i].LabyrinthCell.gameObject.transform.position;
+                    var result = _cellsWithWeight[i].LabyrinthCell.transform.position;
+                    _cellsWithWeight[i].LabyrinthCell.cellBusy = true;
                     _cellsWithWeight.RemoveAt(i);
                     return result;
                 }

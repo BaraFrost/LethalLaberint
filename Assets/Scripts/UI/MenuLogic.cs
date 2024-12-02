@@ -1,4 +1,5 @@
 using Data;
+using Game;
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -17,9 +18,12 @@ namespace UI {
         private TextMeshProUGUI _quotaText;
         [SerializeField]
         private Button _playButton;
+        [SerializeField]
+        private MenuInventory _inventory;
 
         void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
+            _inventory.Init();
         }
 
         private void LoadGameScreen() {

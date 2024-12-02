@@ -20,7 +20,7 @@ namespace Game {
         public override NodeState Evaluate() {
             if (_enemy.SpawnAdditionalEnemyLogic.IsChildEnemyAttack(out var targetEnemy)) {
                 _enemy.SpawnAdditionalEnemyLogic.StopSpawnEnemy();
-                _targetPosition = targetEnemy.transform.position;
+                _targetPosition = _enemy.Data.Player.transform.position;
                 _isAttacking = true;
             }
 

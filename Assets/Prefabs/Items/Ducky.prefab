@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3426278246828405532}
   - component: {fileID: 491063037359778244}
   - component: {fileID: 6579642455938944914}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ducky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 8618567342536438280}
   - component: {fileID: 1537749000708741032}
   - component: {fileID: 3972086026579508912}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Ducky
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -116,7 +116,7 @@ Transform:
   - {fileID: 598596070976106361}
   - {fileID: 3426278246828405532}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: 0, z: -26.749}
 --- !u!65 &1537749000708741032
 BoxCollider:
