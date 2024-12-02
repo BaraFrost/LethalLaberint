@@ -5479,7 +5479,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _distance: 12
-  _visionAngle: 45
+  _visionAngle: 25
   _visionPosition: {fileID: 7774671872054848502}
   _raycastLayerMask:
     serializedVersion: 2

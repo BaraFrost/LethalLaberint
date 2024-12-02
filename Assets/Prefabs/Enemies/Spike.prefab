@@ -150,8 +150,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _timeBeforeExplosion: 0.25
-  _reloadTime: 1
+  _reloadTime: 0.01
   _activateDistance: 0.9
+  _hasDamage: 1
   _damageDistance: 0.9
   _overlapEnemyLayerMask:
     serializedVersion: 2

@@ -542,7 +542,6 @@ GameObject:
   - component: {fileID: 2208001839541530291}
   - component: {fileID: 516197872136544147}
   - component: {fileID: 5099073257333830287}
-  - component: {fileID: 4885144320693351757}
   - component: {fileID: 129937569843580307}
   - component: {fileID: 2924721466680350472}
   - component: {fileID: 4328044230251192901}
@@ -588,7 +587,7 @@ NavMeshAgent:
   m_AgentTypeID: 0
   m_Radius: 1.53
   m_Speed: 6
-  m_Acceleration: 50
+  m_Acceleration: 60
   avoidancePriority: 50
   m_AngularSpeed: 1000
   m_StoppingDistance: 0
@@ -630,21 +629,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyPrefab: {fileID: 1298837259442260313, guid: bdd46d36d0fd3f64fad8fb6679c2d12d, type: 3}
-  _spawnTime: 1
+  _spawnTime: 0.3
   _useOffset: 1
-  _offset: 1
---- !u!114 &4885144320693351757
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2613209291613002300}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 091cf5a4950b6174b8ed842ee96910e5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _offset: 0.5
 --- !u!114 &129937569843580307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,7 +645,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _walkSpeed: 8
-  _runSpeed: 15
+  _runSpeed: 16
   _agent: {fileID: 2208001839541530291}
   _stopDistance: 0.7
   _rotationSpeed: 10
@@ -674,8 +661,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7375164e5ae322e4b95b547511afd520, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _distance: 3
-  _visionAngle: 180
+  _distance: 2.5
+  _visionAngle: 360
   _visionPosition: {fileID: 7757028802047729021}
   _raycastLayerMask:
     serializedVersion: 2

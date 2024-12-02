@@ -37,7 +37,7 @@ namespace Game {
             if (_enemy.MovementLogic.PositionReached(_targetPosition)) {
                 if(_isAttacking) {
                     _isAttacking = false;
-                    UpdateTargetCell();
+                    _targetPosition = _enemy.Data.Player.transform.position;
                     return NodeState.Success;
                 }
                 _enemy.SpawnAdditionalEnemyLogic.SpawnEnemy(_targetPosition);
