@@ -138,6 +138,7 @@ MonoBehaviour:
   - {fileID: 4158130142894582716}
   - {fileID: 786786290414942429}
   - {fileID: 8889413214836283662}
+  cellBusy: 0
 --- !u!1 &758561871626762570
 GameObject:
   m_ObjectHideFlags: 0
@@ -193,6 +194,7 @@ MonoBehaviour:
   _closedCell: 1
   _walls:
   - {fileID: 4031604982638507870}
+  cellBusy: 0
 --- !u!1 &786786290414942429
 GameObject:
   m_ObjectHideFlags: 0
@@ -1963,6 +1965,7 @@ MonoBehaviour:
     _connectionType: 0
   _closedCell: 1
   _walls: []
+  cellBusy: 0
 --- !u!1 &3322742741219144487
 GameObject:
   m_ObjectHideFlags: 0
@@ -2935,6 +2938,7 @@ MonoBehaviour:
   _walls:
   - {fileID: 8773570446185709968}
   - {fileID: 3683158339718425799}
+  cellBusy: 0
 --- !u!1 &4596613986841823165
 GameObject:
   m_ObjectHideFlags: 0
@@ -3815,10 +3819,10 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4dee5ebc4b60c1f46bb6e4944bbdce16, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
-  m_Pitch: 1
+  m_Pitch: 3
   Loop: 0
   Mute: 0
   Spatialize: 0
@@ -4181,6 +4185,7 @@ MonoBehaviour:
   - {fileID: 1757424743565381083}
   - {fileID: 7052905250161275885}
   - {fileID: 2524791611858092383}
+  cellBusy: 0
 --- !u!1 &7052905250161275885
 GameObject:
   m_ObjectHideFlags: 0

@@ -93,6 +93,7 @@ MonoBehaviour:
   _walls:
   - {fileID: 8858808099596251637}
   - {fileID: 3471149615186009250}
+  cellBusy: 0
   _door: {fileID: 2312890015542958450}
   _closePosition: {fileID: 6461679917481392844}
   _openPosition: {fileID: 6971236513939127487}
@@ -126,15 +127,15 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: af97d60091e806643850dffdcb7eac1e, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.375
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
-  Priority: 128
+  Priority: 117
   DopplerLevel: 1
   MinDistance: 1
   MaxDistance: 500
