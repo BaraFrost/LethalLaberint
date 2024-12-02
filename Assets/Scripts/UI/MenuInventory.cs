@@ -23,6 +23,14 @@ namespace Game {
                 }
                 _abilityItems.Add(abilityItem);
             }
+            UpdateSelectedAbility();
+        }
+
+        private void Update() {
+            UpdateSelectedAbility();
+        }
+
+        private void UpdateSelectedAbility() {
             if (Account.Instance.AbilitiesCountData[Account.Instance.CurrentAbilityId] <= 0) {
                 var availableAbilityIds = Account.Instance.AbilitiesCountData.Where(countData => countData.Value > 0).ToArray();
                 if (availableAbilityIds.Length > 0) {
