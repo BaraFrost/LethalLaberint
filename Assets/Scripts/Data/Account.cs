@@ -146,6 +146,9 @@ namespace Data {
             if (Input.GetKeyDown(KeyCode.T)) {
                 _currentStage++;
             }
+            if (Input.GetKeyDown(KeyCode.M)) {
+                TotalMoney += 500;
+            }
         }
 
         public bool TryToSelectAbility(int abilityId) {

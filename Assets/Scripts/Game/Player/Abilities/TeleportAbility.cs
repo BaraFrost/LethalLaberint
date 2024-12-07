@@ -28,20 +28,25 @@ namespace Game {
 
         private IEnumerator TeleportCoroutine() {
             _isTeleporting = true;
-            _teleportEffect.gameObject.SetActive(true);
+            //_teleportEffect.gameObject.SetActive(true);
+            _teleportEffect.Play();
             yield return new WaitForSeconds(_teleportTime);
             _player.PlayerMoveLogic.Teleport(_startPosition);
+            _player.PlayerMoveLogic.FreezeMovement(_additionalEffectTime);
             yield return new WaitForSeconds(_additionalEffectTime);
-            _teleportEffect.gameObject.SetActive(false);
+            _teleportEffect.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+           // _teleportEffect.gameObject.SetActive(false);
             _isTeleporting = false;
         }
 
         private void OnEnable() {
-            _teleportEffect.gameObject.SetActive(false);
+            _teleportEffect.Stop();
         }
 
         private void OnDisable() {
-            _teleportEffect.gameObject.SetActive(false);
+            _teleportEffect.Stop();
+            StopAllCoroutines();
+            _isTeleporting = false;
         }
     }
 }

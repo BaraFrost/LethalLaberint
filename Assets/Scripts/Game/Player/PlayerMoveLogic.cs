@@ -1,4 +1,6 @@
 using System;
+using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -31,6 +33,7 @@ namespace Game {
         private Vector3 _inputMoveVector;
         private CharacterController _characterController;
         private bool _isMoving;
+        private bool _freeze;
 
         public override void Init(PlayerController player) {
             base.Init(player);
@@ -77,14 +80,14 @@ namespace Game {
         }
 
         private void UpdateCharacterMove() {
-            _inputMoveVector = _player.PlayerInputLogic.InputMoveVector;
+            _inputMoveVector = _freeze ? Vector3.zero : _player.PlayerInputLogic.InputMoveVector;
             _inputMoveVector = CorrectMovement(_inputMoveVector.normalized * _moveSpeed * Time.deltaTime) * _moveSpeed * Time.deltaTime;
             UpdateRotation();
             if (_inputMoveVector.magnitude != 0 && !_isMoving) {
                 onStartMove.Invoke();
                 _isMoving = true;
 
-            } else if(_inputMoveVector.magnitude == 0 && _isMoving) {
+            } else if (_inputMoveVector.magnitude == 0 && _isMoving) {
                 _isMoving = false;
                 onStopMove.Invoke();
             }
@@ -109,6 +112,35 @@ namespace Game {
             _characterController.enabled = false;
             transform.position = position;
             _characterController.enabled = true;
+        }
+
+        private void OnDisable() {
+            _freeze = false;
+            StopAllCoroutines();
+        }
+
+        public void FreezeMovement(float time) {
+            if (_freeze) {
+                return;
+            }
+            StartCoroutine(FreezeMovementCoroutine(time));
+        }
+
+        private IEnumerator FreezeMovementCoroutine(float time) {
+            _freeze = true;
+            yield return new WaitForSeconds(time);
+            _freeze = false;
+        }
+
+        [SerializeField]
+        private float _pushForce = 1f;
+
+        private void OnControllerColliderHit(ControllerColliderHit hit) {
+            var rb = hit.collider.attachedRigidbody;
+            if (rb == null || rb.isKinematic)
+                return;
+            var pushDirection = new Vector3(hit.moveDirection.x, 0.2f, hit.moveDirection.z);
+            rb.AddForce(pushDirection.normalized * _pushForce, ForceMode.Impulse);
         }
     }
 }

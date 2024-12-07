@@ -39,7 +39,8 @@ namespace Game {
                 _navMeshPath = new NavMeshPath();
                 _agent.CalculatePath(position, _navMeshPath);
             }
-            if (_navMeshPath == null || _navMeshPath.corners.Length == 0 || _navMeshPath.status != NavMeshPathStatus.PathComplete) {
+            if (_navMeshPath == null || _navMeshPath.corners.Length == 0 || _navMeshPath.status != NavMeshPathStatus.PathComplete 
+                || Enemy.Data.CellContainer.StartCells.ShipLogic.PositionInsideShip(position)) {
                 return false;
             }
             return true;
