@@ -14,8 +14,16 @@ namespace Game {
         private Vector3 _inputMoveVector;
         public Vector3 InputMoveVector => _inputMoveVector;
 
+        private bool _creativeCameraOn;
+
         public override void UpdateLogic() {
             base.UpdateLogic();
+            if(Input.GetKeyDown(KeyCode.K)) {
+                _creativeCameraOn = !_creativeCameraOn;
+            }
+            if(_creativeCameraOn) {
+                return;
+            }
             CatchAbilityInput();
             CatchDoorButton();
             CatchMoveInput();

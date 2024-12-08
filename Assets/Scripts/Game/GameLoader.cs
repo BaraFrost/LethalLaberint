@@ -42,6 +42,9 @@ namespace Game {
         [SerializeField]
         private PathDrawer _pathDrawer;
 
+        [SerializeField]
+        private EnvironmentSpawnLogic _environmentSpawnLogic;
+
         private SpawnedLabyrinthCellsContainer _cellsContainer;
         private List<Enemy> _enemies;
 
@@ -72,6 +75,8 @@ namespace Game {
             _itemsCountVisualizer.Init(_collectibleItemsSpawner.SpawnedItems);
 
             _pathDrawer.Init(_cellsContainer.StartCells.ShipLogic.WarehouseArea.transform, _playerSpawner.PlayerController.transform);
+
+            _environmentSpawnLogic.Spawn(_cellsContainer);
         }
 
         private void HandlePlayerDeadEvent() {

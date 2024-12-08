@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.UIElements;
 using Utils;
 
 namespace Game {
@@ -105,6 +106,18 @@ namespace Game {
 
         public bool AvailableOnlyThisDirections(List<Direction> directions) {
             return directions.Count == RealtimeAvailablePositions.Count && AvailableAllDirections(directions);
+        }
+
+        public bool AvailableOnlyThisDirectionsDefault(List<Direction> directions) {
+            if(directions.Count != _availablePositions.Count) {
+                return false;
+            }
+            foreach(var direction in directions) {
+                if(_availablePositions.FirstOrDefault(position => position.Direction == direction) == null) {
+                    return false;
+                }
+            }
+            return true;
         }
 
         public void SetRealtimeAvailablePositions(Dictionary<Direction, AvailablePosition> realtimeAvailablePositions) {
