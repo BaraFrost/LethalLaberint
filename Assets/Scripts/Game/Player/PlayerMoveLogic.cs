@@ -20,6 +20,8 @@ namespace Game {
 
         [SerializeField]
         private float _moveSpeed;
+        private float CurrentMoveSpeed => _moveSpeed * _player.PlayerModifierLogic.SpeedModifier;
+
         [SerializeField]
         private float _rotationSpeed;
 
@@ -76,12 +78,12 @@ namespace Game {
             } else {
                 return correctedMovement;
             }
-            return CorrectMovementOnNavMesh(correctedMovement * _moveSpeed * Time.deltaTime);
+            return CorrectMovementOnNavMesh(correctedMovement * CurrentMoveSpeed * Time.deltaTime);
         }
 
         private void UpdateCharacterMove() {
             _inputMoveVector = _freeze ? Vector3.zero : _player.PlayerInputLogic.InputMoveVector;
-            _inputMoveVector = CorrectMovement(_inputMoveVector.normalized * _moveSpeed * Time.deltaTime) * _moveSpeed * Time.deltaTime;
+            _inputMoveVector = CorrectMovement(_inputMoveVector.normalized * CurrentMoveSpeed * Time.deltaTime) * CurrentMoveSpeed * Time.deltaTime;
             UpdateRotation();
             if (_inputMoveVector.magnitude != 0 && !_isMoving) {
                 onStartMove.Invoke();

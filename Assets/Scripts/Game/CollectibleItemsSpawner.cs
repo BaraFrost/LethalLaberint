@@ -16,10 +16,11 @@ namespace Game {
         private List<CollectibleItem> _items = new List<CollectibleItem>();
         public List<CollectibleItem> SpawnedItems => _items;
 
-        public void Spawn(SpawnedLabyrinthCellsContainer cellsContainer, DifficultyProgressionConfig difficultyProgressionConfig) {
+        public void Spawn(GameEntitiesContainer gameEntitiesContainer) {
+            var cellsContainer = gameEntitiesContainer.cellsContainer;
             var cells = cellsContainer.AvailableCells.Where(cell => !cell.cellBusy).ToList();
             var sumMoney = 0;
-            var requiredMoney = difficultyProgressionConfig.RequiredMoneyInDay;
+            var requiredMoney = Account.Instance.DifficultyProgressionConfig.RequiredMoneyInDay;
             while (sumMoney < requiredMoney && cellsContainer.StartCells.NeedGenerateItems) {
                 var randomIndex = Random.Range(0, cells.Count);
                 var position = cells[randomIndex].gameObject.transform.position;
@@ -30,6 +31,7 @@ namespace Game {
                 _items.Add(Instantiate(item, new Vector3(position.x, item.transform.position.y, position.z), Quaternion.AngleAxis(randomAngle, Vector3.up), transform));
             }
             _items.AddRange(cellsContainer.StartCells.StartCollectibleItems);
+            gameEntitiesContainer.collectibleItems = _items;
         }
     }
 }

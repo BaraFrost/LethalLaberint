@@ -9,7 +9,7 @@ namespace Game {
 
         public override NodeState Evaluate() {
             if(_collectibleItem == null) {
-                _enemy.EnemyItemsCollectionLogic.TryToFindItem(_enemy.Data.CollectibleItems, out var collectibleItem);
+                _enemy.EnemyItemsCollectionLogic.TryToFindItem(_enemy.EntitiesContainer.collectibleItems, out var collectibleItem);
                 _collectibleItem = collectibleItem;
             }
             if (_collectibleItem == null) {
@@ -25,8 +25,8 @@ namespace Game {
                 _enemy.MovementLogic.WalkToPosition(_collectibleItem.transform.position);
                 return NodeState.Success;
             }
-            if (!_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
-                _enemy.MovementLogic.Rotate(_enemy.Data.Player.transform.position);
+            if (!_enemy.VisionLogic.CanSeeTarget(_enemy.EntitiesContainer.playerController)) {
+                _enemy.MovementLogic.Rotate(_enemy.EntitiesContainer.playerController.transform.position);
                 return NodeState.Success;
             }
             _enemy.EnemyItemsCollectionLogic.CollectItem(_collectibleItem);

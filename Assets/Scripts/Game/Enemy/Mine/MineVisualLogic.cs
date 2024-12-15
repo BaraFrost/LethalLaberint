@@ -24,7 +24,8 @@ namespace Game {
         private IEnumerator PlayMineLampSwitchEffect() {
             while (true) {
                 yield return new WaitForSeconds(_lampSwitchTime);
-                _mineLamp.SetActive(!_mineLamp.activeSelf);
+                var visionLogicActive = Enemy.VisionLogic.TemporaryDisabled;
+                _mineLamp.SetActive(!_mineLamp.activeSelf && !visionLogicActive);
             }
         }
 

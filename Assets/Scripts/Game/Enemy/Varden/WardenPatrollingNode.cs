@@ -14,13 +14,19 @@ namespace Game {
         }
 
         private void UpdateTargetCell() {
-            _targetPosition = _enemy.Data.CellContainer.GetRandomCellPosition();
+            _targetPosition = _enemy.EntitiesContainer.cellsContainer.GetRandomCellPosition();
         }
 
         public override NodeState Evaluate() {
+            if (_enemy.EntitiesContainer.additionalEnemyTarget != null && 
+                _enemy.MovementLogic.PositionAvailable(_enemy.EntitiesContainer.additionalEnemyTarget.transform.position) && 
+                !_enemy.MovementLogic.PositionReached(_enemy.EntitiesContainer.additionalEnemyTarget.transform.position)) {
+                _enemy.MovementLogic.WalkToPosition(_enemy.EntitiesContainer.additionalEnemyTarget.transform.position);
+                return NodeState.Success;
+            }
             if (_enemy.SpawnAdditionalEnemyLogic.IsChildEnemyAttack(out var targetEnemy)) {
                 _enemy.SpawnAdditionalEnemyLogic.StopSpawnEnemy();
-                _targetPosition = _enemy.Data.Player.transform.position;
+                _targetPosition = _enemy.EntitiesContainer.playerController.transform.position;
                 _isAttacking = true;
             }
 
@@ -37,7 +43,7 @@ namespace Game {
             if (_enemy.MovementLogic.PositionReached(_targetPosition)) {
                 if(_isAttacking) {
                     _isAttacking = false;
-                    _targetPosition = _enemy.Data.Player.transform.position;
+                    _targetPosition = _enemy.EntitiesContainer.playerController.transform.position;
                     return NodeState.Success;
                 }
                 _enemy.SpawnAdditionalEnemyLogic.SpawnEnemy(_targetPosition);

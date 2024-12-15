@@ -8,6 +8,7 @@ namespace Game {
         public abstract float Distance { get; }
 
         private bool _temporaryDisabled;
+        public bool TemporaryDisabled => _temporaryDisabled;
 
         public bool CanSeeTarget(PlayerController enemyTarget) {
             if (_temporaryDisabled) {

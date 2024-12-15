@@ -47,9 +47,9 @@ namespace Game {
                 offset = new Vector3(UnityEngine.Random.Range(-_offset, _offset), 0, UnityEngine.Random.Range(-_offset, _offset));
             }
             var enemy = Instantiate(_enemyPrefab, position + offset, Quaternion.identity, transform.parent);
-            var enemyData = Enemy.Data;
-            enemy.Init(enemyData.Player, enemyData.CellContainer, enemyData.CollectibleItems);
+            enemy.Init(Enemy.EntitiesContainer);
             _spawnedEnemies.Add(enemy);
+            Enemy.EntitiesContainer.enemies.Add(enemy);
             IsSpawning = false;
             onEnemySpawned?.Invoke();
         }

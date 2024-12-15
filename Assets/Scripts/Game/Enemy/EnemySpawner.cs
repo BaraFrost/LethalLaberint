@@ -32,21 +32,21 @@ namespace Game {
 
         private float _countMult;
 
-        public List<Enemy> Spawn(PlayerController player, SpawnedLabyrinthCellsContainer labyrinthCells, List<CollectibleItem> collectibleItems, DifficultyProgressionConfig difficultyProgressionConfig) {
-            _difficultyProgressionConfig = difficultyProgressionConfig;
-            if (labyrinthCells.StartCells.NeedGenerateEnemy) {
-                _cellsWithWeight = labyrinthCells.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
-                UpdateWeightsByDistance(player.transform.position);
+        public void Spawn(GameEntitiesContainer entitiesContainer) {
+            _difficultyProgressionConfig = Account.Instance.DifficultyProgressionConfig;
+            if (entitiesContainer.cellsContainer.StartCells.NeedGenerateEnemy) {
+                _cellsWithWeight = entitiesContainer.cellsContainer.AvailableCells.Select(cell => new CellWithWeight(cell, 1f)).ToList();
+                UpdateWeightsByDistance(entitiesContainer.playerController.transform.position);
                 var enemiesToSpawn = _enemyContainer.GetRandomEnemies(_difficultyProgressionConfig.EnemyCount, _difficultyProgressionConfig.CurrentDifficultyStage);
                 for (var i = 0; i < enemiesToSpawn.Count; i++) {
                     _enemies.Add(SpawnRandomEnemy(enemiesToSpawn[i]));
                 }
             }
-            _enemies.AddRange(labyrinthCells.StartCells.StartEnemies);
-            foreach (var startEnemy in _enemies) {
-                startEnemy.Init(player, labyrinthCells, collectibleItems);
+            _enemies.AddRange(entitiesContainer.cellsContainer.StartCells.StartEnemies);
+            foreach (var enemy in _enemies) {
+                enemy.Init(entitiesContainer);
             }
-            return _enemies;
+            entitiesContainer.enemies = _enemies;
         }
 
         private void UpdateWeightsByDistance(Vector3 position) {

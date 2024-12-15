@@ -11,7 +11,7 @@ namespace Game {
                 _enemy.MovementLogic.Stop();
                 return NodeState.Success;
             }
-            var playerRagdolls = _enemy.Data.Player.RagdollVisualLogic.SpawnedRagdolls;
+            var playerRagdolls = _enemy.EntitiesContainer.playerController.RagdollVisualLogic.SpawnedRagdolls;
             if (playerRagdolls.Count == 0) {
                 return NodeState.Failure;
             }

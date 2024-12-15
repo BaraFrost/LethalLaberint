@@ -11,19 +11,19 @@ namespace Game {
 
         [SerializeField]
         private PlayerController _playerController;
-        public PlayerController PlayerController => _playerController;
 
         [SerializeField]
         private float _respawnTime;
 
-        public void Init(Action playerDeadEvent) {
-            _playerController.Init();
+        public void Init(Action playerDeadEvent, GameEntitiesContainer gameEntitiesContainer) {
+            _playerController.Init(gameEntitiesContainer);
+            gameEntitiesContainer.playerController = _playerController;
             _playerController.HealthLogic.onDamaged += StartRespawnCoroutine;
             _playerController.HealthLogic.onDead += playerDeadEvent;
         }
 
         private void StartRespawnCoroutine() {
-            if(_playerController.HealthLogic.HealthCount <= 0) {
+            if (_playerController.HealthLogic.HealthCount <= 0) {
                 return;
             }
             StartCoroutine(RespawnCoroutine());

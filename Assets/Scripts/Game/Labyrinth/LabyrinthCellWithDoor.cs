@@ -24,6 +24,7 @@ namespace Game {
         [SerializeField]
         private AudioSource _openCloseSound;
 
+        public bool disableDoor;
         private bool _isOpen;
         private bool _inCoroutine;
         private bool _selected;
@@ -32,6 +33,9 @@ namespace Game {
 
         [Button]
         public void ChangeDoorState() {
+            if(disableDoor) {
+                return;
+            }
             if (_inCoroutine) {
                 return;
             }

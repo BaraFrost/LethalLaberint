@@ -65,8 +65,7 @@ namespace Game {
             if (target.HealthLogic.IsDamaged) {
                 return false;
             }
-
-            return Vector3.Distance(target.transform.position, gameObject.transform.position) <= _activateDistance;
+            return true;
         }
 
         private void OnDrawGizmosSelected() {

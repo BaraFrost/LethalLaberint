@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 2136321926373574721}
   - component: {fileID: 6641828935266196660}
   - component: {fileID: 436834916592266769}
+  - component: {fileID: 509312199819212939}
   - component: {fileID: 5283299353532840562}
   m_Layer: 0
   m_Name: Spike
@@ -132,7 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131c20ca766b92b42a51802cb1e71e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visionLogic: {fileID: 0}
+  _type: 1
+  _visionLogic: {fileID: 509312199819212939}
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 436834916592266769}
   _healthLogic: {fileID: 0}
@@ -157,6 +159,19 @@ MonoBehaviour:
   _overlapEnemyLayerMask:
     serializedVersion: 2
     m_Bits: 2048
+--- !u!114 &509312199819212939
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8571747843546970402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3252a16f24039c448e705d923923c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 0.9
 --- !u!114 &5283299353532840562
 MonoBehaviour:
   m_ObjectHideFlags: 0

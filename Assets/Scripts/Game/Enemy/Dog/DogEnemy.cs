@@ -8,8 +8,8 @@ namespace Game {
         private DogBehaviorTree _behaviorTree;
         public override BehaviorTree NpcBehaviorTree => _behaviorTree;
 
-        public override void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            base.Init(player, cellsContainer, collectibleItems);
+        public override void Init(GameEntitiesContainer entitiesContainer) {
+            base.Init(entitiesContainer);
             _behaviorTree = new DogBehaviorTree(this);
         }
     }

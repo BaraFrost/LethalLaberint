@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6459123766206984298}
   - component: {fileID: 966054179083261229}
   - component: {fileID: 1298837259442260313}
+  - component: {fileID: 2538909526334615798}
   - component: {fileID: 5022224741002452087}
   - component: {fileID: 1164871195521016749}
   m_Layer: 0
@@ -101,11 +102,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131c20ca766b92b42a51802cb1e71e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _visionLogic: {fileID: 0}
+  _type: 0
+  _visionLogic: {fileID: 2538909526334615798}
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 5022224741002452087}
   _healthLogic: {fileID: 0}
   _needShowArrow: 0
+--- !u!114 &2538909526334615798
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8514558310631108860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3252a16f24039c448e705d923923c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _distance: 0.7
 --- !u!114 &5022224741002452087
 MonoBehaviour:
   m_ObjectHideFlags: 0

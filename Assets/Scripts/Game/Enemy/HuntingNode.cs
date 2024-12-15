@@ -11,10 +11,10 @@ namespace Game {
         }
 
         public override NodeState Evaluate() {
-            if(_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
-                _lastTargetPosition = _enemy.Data.Player.transform.position;
+            if (_enemy.VisionLogic.CanSeeTarget(_enemy.EntitiesContainer.playerController)) {
+                _lastTargetPosition = _enemy.EntitiesContainer.playerController.transform.position;
             }
-            if(_lastTargetPosition == null) {
+            if (_lastTargetPosition == null) {
                 return NodeState.Failure;
             }
             Debug.DrawLine(_enemy.transform.position, _lastTargetPosition.Value, Color.blue);

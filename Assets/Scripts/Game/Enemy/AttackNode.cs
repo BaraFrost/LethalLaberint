@@ -11,13 +11,13 @@ namespace Game {
             if(_enemy.AttackLogic.IsAttacking) {
                 return NodeState.Running;
             }
-            if(!_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player)) {
+            if(!_enemy.VisionLogic.CanSeeTarget(_enemy.EntitiesContainer.playerController)) {
                 return NodeState.Failure;
             }
-            if(!_enemy.AttackLogic.CanAttackTarget(_enemy.Data.Player)) {
+            if(!_enemy.AttackLogic.CanAttackTarget(_enemy.EntitiesContainer.playerController)) {
                 return NodeState.Failure;
             }
-            _enemy.AttackLogic.AttackTarget(_enemy.Data.Player);
+            _enemy.AttackLogic.AttackTarget(_enemy.EntitiesContainer.playerController);
             return NodeState.Success;
         }
     }

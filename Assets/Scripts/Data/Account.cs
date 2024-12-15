@@ -62,7 +62,7 @@ namespace Data {
             }
         }
 
-        public int RequiredMoney => _difficultyProgressionConfig.RequiredMoney;
+        public int RequiredMoney => _difficultyProgressionConfig.TotalRequiredMoney;
 
         [SerializeField]
         private AbilityDataContainer _abilityDataContainer;

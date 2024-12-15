@@ -13,8 +13,8 @@ namespace Game {
         private TurretRotationLogic _turretRotationLogic;
         public TurretRotationLogic TurretRotationLogic => _turretRotationLogic;
 
-        public override void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            base.Init(player, cellsContainer, collectibleItems);
+        public override void Init(GameEntitiesContainer entitiesContainer) {
+            base.Init(entitiesContainer);
             _turretBehaviorTree = new TurretBehaviorTree(this);
         }
     }

@@ -25,8 +25,8 @@ namespace Game {
         private float _distanceToRunAway;
         public float DistanceToRunAway => _distanceToRunAway;
 
-        public override void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            base.Init(player, cellsContainer, collectibleItems);
+        public override void Init(GameEntitiesContainer entitiesContainer) {
+            base.Init(entitiesContainer);
             _behaviorTree = new BugBehaviorTree(this);
         }
     }

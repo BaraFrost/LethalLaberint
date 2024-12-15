@@ -1,5 +1,4 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Collections.Generic;
 
 namespace Game {
 
@@ -8,8 +7,8 @@ namespace Game {
         private ZoneBehaviorTree _zoneBehaviorTree;
         public override BehaviorTree NpcBehaviorTree => _zoneBehaviorTree;
 
-        public override void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            base.Init(player, cellsContainer, collectibleItems);
+        public override void Init(GameEntitiesContainer entitiesContainer) {
+            base.Init(entitiesContainer);
             _zoneBehaviorTree = new ZoneBehaviorTree(this);
         }
     }

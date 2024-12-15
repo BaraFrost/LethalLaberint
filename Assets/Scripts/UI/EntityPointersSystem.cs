@@ -26,35 +26,40 @@ namespace UI {
         private List<RectTransform> _itemsPointers = new List<RectTransform>();
         private List<RectTransform> _enemyPointers = new List<RectTransform>();
 
-        private List<Enemy> _enemies;
-        private PlayerController _playerController;
+        private GameEntitiesContainer _entitiesContainer;
+        private List<Enemy> Enemies => _entitiesContainer.enemies;
+        private PlayerController PlayerController => _entitiesContainer.playerController;
 
-        public void Init(List<Enemy> enemies, PlayerController playerController) {
-            _playerController = playerController;
-            _enemies = enemies.Where(enemy => enemy.NeedShowArrow).ToList();
-            foreach (var enemy in _enemies) {
+        public void Init(GameEntitiesContainer gameEntitiesContainer) {
+            _entitiesContainer = gameEntitiesContainer;
+            foreach (var enemy in Enemies) {
                 _enemyPointers.Add(Instantiate(_enemyPointerPrefab, transform));
             }
         }
 
         private void Update() {
+            if (Enemies.Count > _enemyPointers.Count) {
+                for (var i = _enemyPointers.Count; i < Enemies.Count; i++) {
+                    _enemyPointers.Add(Instantiate(_enemyPointerPrefab, transform));
+                }
+            }
             for (int i = 0; i < _enemyPointers.Count; i++) {
-                if (_enemies[i] == null) {
+                if (Enemies.Count <= i || Enemies[i] == null) {
                     _enemyPointers[i].gameObject.SetActive(false);
                     continue;
                 }
-                UpdateArrowPosition(_enemies[i].transform, _enemyPointers[i], _enemyPointerPrefab);
+                UpdateArrowPosition(Enemies[i].transform, _enemyPointers[i], _enemyPointerPrefab);
             }
         }
 
         private void UpdateArrowPosition(Transform entity, RectTransform pointer, RectTransform prefab) {
-            var distanceToEntity = (_playerController.transform.position - entity.position).magnitude;
+            var distanceToEntity = (PlayerController.transform.position - entity.position).magnitude;
             if (distanceToEntity > _minSizeDistance) {
                 pointer.gameObject.SetActive(false);
                 return;
             }
             var arrowSize = _enemyPointerPrefab.localScale * (1 - (distanceToEntity - _maxSizeDistance) / (_minSizeDistance - _maxSizeDistance));
-            if(arrowSize.magnitude < _minSize) {
+            if (arrowSize.magnitude < _minSize) {
                 pointer.gameObject.SetActive(false);
                 return;
             }

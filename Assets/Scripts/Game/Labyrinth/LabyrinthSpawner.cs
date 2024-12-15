@@ -54,6 +54,7 @@ namespace Game {
         private List<LabyrinthCell> _spawnedCells = new List<LabyrinthCell>();
         public List<LabyrinthCell> SpawnedCells => _spawnedCells;
         private DifficultyProgressionConfig _difficultyProgressionConfig;
+        private GameEntitiesContainer _gameEntitiesContainer;
 
 #if UNITY_EDITOR
         [Button]
@@ -71,12 +72,13 @@ namespace Game {
                 Destroy(cell.gameObject);
             }
             _spawnedCells.Clear();
-            Spawn(_difficultyProgressionConfig);
+            Spawn(_gameEntitiesContainer);
         }
 #endif
 
-        public SpawnedLabyrinthCellsContainer Spawn(DifficultyProgressionConfig difficultyProgressionConfig) {
-            _difficultyProgressionConfig = difficultyProgressionConfig;
+        public void Spawn(GameEntitiesContainer gameEntitiesContainer) {
+            _gameEntitiesContainer = gameEntitiesContainer;
+            _difficultyProgressionConfig = Account.Instance.DifficultyProgressionConfig;
             SpawnStartCells();
             SetStartData();
             if (_spawnedStartCells.NeedGenerateCells) {
@@ -86,7 +88,7 @@ namespace Game {
             AddFonCells();
             AddLabyrinthToStaticBatching();
             _navMeshSurface.BuildNavMesh();
-            return new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field, _spawnedStartCells);
+            gameEntitiesContainer.cellsContainer = new SpawnedLabyrinthCellsContainer(_spawnedCells, FullLabyrinthSize, _field, _spawnedStartCells);
         }
 
         private void SpawnStartCells() {

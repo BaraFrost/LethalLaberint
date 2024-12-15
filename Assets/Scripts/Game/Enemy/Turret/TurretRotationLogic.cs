@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class TurretRotationLogic : MonoBehaviour {
+    public class TurretRotationLogic : AbstractEnemyLogic<TurretEnemy> {
 
         [SerializeField]
         private float _rotationSpeed;
@@ -37,6 +37,9 @@ namespace Game {
         }
 
         public void Rotate(Vector3 lookAtPosition, bool usePursuitSpeed = false) {
+            if (Enemy.VisionLogic.TemporaryDisabled) {
+                return;
+            }
             if (RotationReached(lookAtPosition)) {
                 return;
             }

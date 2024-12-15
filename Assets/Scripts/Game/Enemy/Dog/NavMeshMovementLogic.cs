@@ -40,7 +40,7 @@ namespace Game {
                 _agent.CalculatePath(position, _navMeshPath);
             }
             if (_navMeshPath == null || _navMeshPath.corners.Length == 0 || _navMeshPath.status != NavMeshPathStatus.PathComplete 
-                || Enemy.Data.CellContainer.StartCells.ShipLogic.PositionInsideShip(position)) {
+                || Enemy.EntitiesContainer.cellsContainer.StartCells.ShipLogic.PositionInsideShip(position)) {
                 return false;
             }
             return true;

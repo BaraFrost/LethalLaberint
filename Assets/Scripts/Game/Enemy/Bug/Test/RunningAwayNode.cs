@@ -10,16 +10,16 @@ namespace Game {
             if (!_enemy.EnemyItemsCollectionLogic.HasItem) {
                 return NodeState.Failure;
             }
-            var directionToPlayer = _enemy.Data.Player.transform.position - _enemy.transform.position;
+            var directionToPlayer = _enemy.EntitiesContainer.playerController.transform.position - _enemy.transform.position;
             directionToPlayer.y = 0;
             var distanceToPlayer = directionToPlayer.magnitude;
             if (distanceToPlayer < _enemy.DistanceToDropItem) {
                 _enemy.EnemyItemsCollectionLogic.DropCollectibleItem();
                 return NodeState.Failure;
             }
-            if (!_enemy.VisionLogic.CanSeeTarget(_enemy.Data.Player) && _enemy.DistanceToRunAway < distanceToPlayer || 
-                !_enemy.AvailablePointSearchEnemyLogic.TryToRunAway(_enemy.Data.Player.transform.position)) {
-                _enemy.MovementLogic.Rotate(_enemy.Data.Player.transform.position);
+            if (!_enemy.VisionLogic.CanSeeTarget(_enemy.EntitiesContainer.playerController) && _enemy.DistanceToRunAway < distanceToPlayer || 
+                !_enemy.AvailablePointSearchEnemyLogic.TryToRunAway(_enemy.EntitiesContainer.playerController.transform.position)) {
+                _enemy.MovementLogic.Rotate(_enemy.EntitiesContainer.playerController.transform.position);
             }
             /* var availablePoints = _enemy.AvailablePointSearchEnemyLogic.GetAvailablePoints(directionToPlayer);
              var randomPointIndex = UnityEngine.Random.Range(0, availablePoints.Count);
@@ -31,7 +31,7 @@ namespace Game {
                  randomPointIndex = UnityEngine.Random.Range(0, availablePoints.Count);
              }
              if (availablePoints.Count == 0) {
-                 _enemy.MovementLogic.Rotate(_enemy.Data.Player.transform.position);
+                 _enemy.MovementLogic.Rotate(_enemy.EntitiesContainer.playerController.transform.position);
                  return NodeState.Success;
              }
              _enemy.MovementLogic.MoveToPosition(availablePoints[randomPointIndex]);*/

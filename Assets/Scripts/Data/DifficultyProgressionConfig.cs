@@ -32,6 +32,10 @@ namespace Data {
             [SerializeField]
             private int _days;
             public int Days => _days;
+
+            [SerializeField]
+            private int _money;
+            public int Money => _money;
         }
 
         [SerializeField]
@@ -55,8 +59,8 @@ namespace Data {
 
         [SerializeField]
         private MinMaxValue _requiredMoney;
-        public int RequiredMoney => (int)GetValue(_requiredMoney);
-        public int RequiredMoneyInDay => (int)GetValue(_requiredMoney) / DaysCount + AdditionalSpawnMoney;
+        public int TotalRequiredMoney => GetMoneyByStage(CurrentDifficultyStage);
+        public int RequiredMoneyInDay => TotalRequiredMoney / DaysCount + AdditionalSpawnMoney;
 
         [SerializeField]
         private MinMaxValue _additionalSpawnMoney;
@@ -87,6 +91,14 @@ namespace Data {
             return _defaultDaysCount;
         }
 
+        public int GetMoneyByStage(int stage) {
+            var overrideDays = _daysByStageOverride.FirstOrDefault(data => data.Stage == stage);
+            if (overrideDays != null) {
+                return overrideDays.Money;
+            }
+            return (int)GetValue(_requiredMoney);
+        }
+
 #if UNITY_EDITOR
         [Button]
         public void DebugLogValues() {
@@ -95,7 +107,7 @@ namespace Data {
             stringBuilder.AppendLine($"LabyrinthCellsCount:{LabyrinthCellsCount}");
             stringBuilder.AppendLine($"LabyrinthEpoch:{LabyrinthEpoch}");
             stringBuilder.AppendLine($"EnemyCount:{EnemyCount}");
-            stringBuilder.AppendLine($"RequiredMoney:{RequiredMoney}");
+            stringBuilder.AppendLine($"RequiredMoney:{TotalRequiredMoney}");
             stringBuilder.AppendLine($"RequiredMoneyInDay:{RequiredMoneyInDay}");
             Debug.Log(stringBuilder.ToString());
         }

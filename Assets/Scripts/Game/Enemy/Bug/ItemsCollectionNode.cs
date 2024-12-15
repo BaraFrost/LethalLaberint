@@ -7,7 +7,7 @@ namespace Game {
         public ItemsCollectionNode(BugEnemy enemy) : base(enemy) { }
 
         public override NodeState Evaluate() {
-            if (_enemy.EnemyItemsCollectionLogic.HasItem || !_enemy.EnemyItemsCollectionLogic.TryToFindItem(_enemy.Data.CollectibleItems, out var item)) {
+            if (_enemy.EnemyItemsCollectionLogic.HasItem || !_enemy.EnemyItemsCollectionLogic.TryToFindItem(_enemy.EntitiesContainer.collectibleItems, out var item)) {
                 return NodeState.Failure;
             }
             if (_enemy.MovementLogic.PositionReached(item.transform.position)) {

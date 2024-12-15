@@ -36,6 +36,17 @@ namespace Game {
         private PlayerMoveLogic _playerMoveLogic;
         public PlayerMoveLogic PlayerMoveLogic => _playerMoveLogic;
 
+        [SerializeField]
+        private PlayerModifierLogic _playerModifierLogic;
+        public PlayerModifierLogic PlayerModifierLogic => _playerModifierLogic;
+
+        [SerializeField]
+        private PlayerVisualLogic _playerVisualLogic;
+        public PlayerVisualLogic PlayerVisualLogic => _playerVisualLogic;
+
+        private GameEntitiesContainer _gameEntitiesContainer;
+        public GameEntitiesContainer GameEntitiesContainer => _gameEntitiesContainer;
+
         private AbstractPlayerLogic[] _playerLogics;
 
         private float _gravityForce;
@@ -44,7 +55,8 @@ namespace Game {
         private CharacterController _characterController;
         private Animator _characterAnimator;
 
-        public void Init() {
+        public void Init(GameEntitiesContainer gameEntitiesContainer) {
+            _gameEntitiesContainer = gameEntitiesContainer;
             _playerLogics = GetComponents<AbstractPlayerLogic>();
             foreach(var logic in _playerLogics) {
                 logic.Init(this);

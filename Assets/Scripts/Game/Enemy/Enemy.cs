@@ -6,20 +6,14 @@ namespace Game {
 
     public abstract class Enemy : MonoBehaviour, ILabyrinthEntity {
 
-        public class EnemyData {
-
-            public PlayerController Player { get; private set; }
-
-            public SpawnedLabyrinthCellsContainer CellContainer { get; private set; }
-
-            public List<CollectibleItem> CollectibleItems { get; private set; }
-
-            public EnemyData(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-                Player = player;
-                CellContainer = cellsContainer;
-                CollectibleItems = collectibleItems;
-            }
+        public enum EnemyType {
+            Default,
+            Electric,
         }
+
+        [SerializeField]
+        private EnemyType _type;
+        public EnemyType Type => _type;
 
         [SerializeField]
         private AbstractEnemyVisionLogic _visionLogic;
@@ -43,14 +37,14 @@ namespace Game {
         private bool _needShowArrow;
         public bool NeedShowArrow => _needShowArrow;
 
-        public EnemyData Data { get; private set; }
+        public GameEntitiesContainer EntitiesContainer  { get; private set; }
 
         public IEnemyLogic[] _allLogics;
 
         private bool _isInited = false;
 
-        public virtual void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            Data = new EnemyData(player, cellsContainer, collectibleItems);
+        public virtual void Init(GameEntitiesContainer entitiesContainer) {
+            EntitiesContainer = entitiesContainer;
             InitAllLogic();
             _isInited = true;
         }

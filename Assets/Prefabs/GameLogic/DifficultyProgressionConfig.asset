@@ -23,7 +23,7 @@ MonoBehaviour:
     _minValue: 12
     _maxValue: 25
   _enemyCount:
-    _minValue: 2
+    _minValue: 1.5
     _maxValue: 8
   _requiredMoney:
     _minValue: 170
@@ -59,7 +59,10 @@ MonoBehaviour:
   _daysByStageOverride:
   - _stage: 0
     _days: 1
+    _money: 150
   - _stage: 1
     _days: 2
+    _money: 600
   - _stage: 2
     _days: 1
+    _money: 400

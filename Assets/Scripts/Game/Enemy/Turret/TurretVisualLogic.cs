@@ -28,12 +28,17 @@ namespace Game {
 
         private Vector3[] _points = new Vector3[2];
 
-        private void FixedUpdate() {
+        public override void UpdateLogic() {
+            base.UpdateLogic();
+            if(Enemy.VisionLogic.TemporaryDisabled) {
+                _laserLineRenderer.enabled = false;
+                return;
+            }
+            _laserLineRenderer.enabled = true;
             _points[0] = _laserStart.position;
             if (Physics.Raycast(_laserStart.position, _laserStart.forward, out var hit, Enemy.VisionLogic.Distance, _laizerLayerMask)) {
                 _points[1] = hit.point;
-            }
-            else {
+            } else {
                 _points[1] = _laserStart.position + _laserStart.forward * Enemy.VisionLogic.Distance;
             }
             _laserLineRenderer.SetPositions(_points);

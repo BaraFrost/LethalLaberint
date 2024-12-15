@@ -1,5 +1,4 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
@@ -13,8 +12,8 @@ namespace Game {
         private SpawnAdditionalEnemyLogic _spawnAdditionalEnemyLogic;
         public SpawnAdditionalEnemyLogic SpawnAdditionalEnemyLogic => _spawnAdditionalEnemyLogic;
 
-        public override void Init(PlayerController player, SpawnedLabyrinthCellsContainer cellsContainer, List<CollectibleItem> collectibleItems) {
-            base.Init(player, cellsContainer, collectibleItems);
+        public override void Init(GameEntitiesContainer entitiesContainer) {
+            base.Init(entitiesContainer);
             _behaviorTree = new WardenBehaviorTree(this);
         }
     }
