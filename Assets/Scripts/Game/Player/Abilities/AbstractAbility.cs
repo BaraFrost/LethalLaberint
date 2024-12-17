@@ -6,11 +6,15 @@ namespace Game {
 
         protected PlayerController _player;
 
-        public virtual bool IsAbilityActive => false;
+        protected virtual bool IsAbilityActive => false;
+        public bool CanUseAbility => !IsAbilityActive && !_player.HealthLogic.IsDamaged;
         public abstract void Activate();
 
         public virtual void Init(PlayerController playerController) {
             _player = playerController;
+            _player.HealthLogic.onDamaged += OnPlayerDamaged;
         }
+
+        protected virtual void OnPlayerDamaged() { }
     }
 }

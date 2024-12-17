@@ -9,7 +9,7 @@ namespace Game {
         private float _effectTime;
 
         private bool _isActive;
-        public override bool IsAbilityActive => _isActive;
+        protected override bool IsAbilityActive => _isActive;
 
         public override void Activate() {
             if (_isActive) {

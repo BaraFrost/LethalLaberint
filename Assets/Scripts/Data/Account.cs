@@ -1,5 +1,6 @@
 using Infrastructure;
 using NaughtyAttributes;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,6 +87,7 @@ namespace Data {
         public int CurrentAbilityId => _currentAbilityId;
         public AbilityData CurrentAbility => _abilityDataContainer.GetAbility(_currentAbilityId);
         public AbilityInitData CurrentAbilityInitData => new AbilityInitData() { abilityData = CurrentAbility, count = _abilitiesCountData[_currentAbilityId] };
+        public Action onCurrentAbilityChanged;
 
         [SerializeField]
         private ShopItemsContainer _shopItemsContainer;
@@ -156,11 +158,16 @@ namespace Data {
                 return false;
             }
             _currentAbilityId = abilityId;
+            onCurrentAbilityChanged?.Invoke();
             return true;
         }
 
         public int GetShopItemPrice(ShopItem.Type type) {
             return _shopItemsContainer.GetShopItemByType(type).Price;
+        }
+
+        public Sprite GetShopItemSprite(ShopItem.Type type) {
+            return _shopItemsContainer.GetShopItemByType(type).Sprite;
         }
 
         public bool TryToByItem(ShopItem.Type type) {

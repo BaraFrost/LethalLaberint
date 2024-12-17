@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace Game {
@@ -18,12 +17,12 @@ namespace Game {
         private LayerMask _layerMask;
 
         public override void Activate() {
-            if(_explosionEffect != null) {
-                Instantiate(_explosionEffect, transform.position, Quaternion.identity);
+            if (_explosionEffect != null) {
+                Instantiate(_explosionEffect, _player.transform.position, Quaternion.identity, transform);
             }
-            var colliders = Physics.OverlapSphere(transform.position, _distance, _layerMask);
+            var colliders = Physics.OverlapSphere(_player.transform.position, _distance, _layerMask);
             foreach (var collider in colliders) {
-                if(!collider.TryGetComponent<Enemy>(out var enemy) || enemy.VisionLogic == null) {
+                if (!collider.TryGetComponent<Enemy>(out var enemy) || enemy.VisionLogic == null) {
                     continue;
                 }
                 enemy.VisionLogic.TemporarilyDisable(_flashTime);

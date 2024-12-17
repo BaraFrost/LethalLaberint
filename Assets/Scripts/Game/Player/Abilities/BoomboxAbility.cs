@@ -12,17 +12,14 @@ namespace Game {
         private float _time;
 
         private AdditionalEnemyTarget _additionalEnemyTarget;
-        public override bool IsAbilityActive => _additionalEnemyTarget != null;
+        protected override bool IsAbilityActive => _additionalEnemyTarget != null;
 
         public override void Activate() {
-            if (IsAbilityActive) {
-                return;
-            }
             StartCoroutine(BoomboxCoroutine());
         }
 
         private IEnumerator BoomboxCoroutine() {
-            _additionalEnemyTarget = Instantiate(_additionalEnemyTargetPrefab, transform.position, _additionalEnemyTargetPrefab.transform.rotation, transform.parent.parent);
+            _additionalEnemyTarget = Instantiate(_additionalEnemyTargetPrefab, _player.transform.position, _additionalEnemyTargetPrefab.transform.rotation, transform.parent.parent);
             _player.GameEntitiesContainer.additionalEnemyTarget = _additionalEnemyTarget;
             yield return new WaitForSeconds(_time);
             _player.GameEntitiesContainer.additionalEnemyTarget = null;

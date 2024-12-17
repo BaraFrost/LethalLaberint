@@ -12,21 +12,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4cae267a3029e8458776c1094090325, type: 3}
   m_Name: EnvironmentContainer
   m_EditorClassIdentifier: 
-  _maxEnvironmentPercent: 0.3
+  _maxEnvironmentPercent: 0.15
   _cellsEnvironments:
-  - percent: 0.02
+  - percent: 0.03
     environment: {fileID: 5808708171983573833, guid: 8429753bde710d54891ccae690333666, type: 3}
   - percent: 0.01
     environment: {fileID: 6918099805011699825, guid: 4666b1c5216873c41ae57563fc0d3373, type: 3}
-  - percent: 0.02
+  - percent: 0.03
     environment: {fileID: 3259078418892376541, guid: dc1778cbd4eb09c44bcc78016c009422, type: 3}
-  - percent: 0.1
+  - percent: 0.02
     environment: {fileID: 7483021022278855021, guid: 24cf5a994b25a2e4296ffb41f6713a7b, type: 3}
   - percent: 0.02
     environment: {fileID: 6016102896314795824, guid: 1606ef72c6ef8544ebde5f78de11bb78, type: 3}
-  - percent: 0.1
+  - percent: 0.02
     environment: {fileID: 5440789128382038943, guid: 8f8059eecf76b9b4fafc52f2c5ec0078, type: 3}
-  - percent: 0.02
+  - percent: 0.03
     environment: {fileID: 2373776588832811041, guid: 2d478096be2567c4a9ef866ad229e488, type: 3}
-  - percent: 0.02
+  - percent: 0.03
     environment: {fileID: 5696126766685313342, guid: 43fda0c316a401047b67112527e1f496, type: 3}

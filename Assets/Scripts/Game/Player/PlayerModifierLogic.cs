@@ -1,5 +1,6 @@
 using Data;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Game {
@@ -57,6 +58,19 @@ namespace Game {
             }
         }
 
+        public void RemoveModifier(AbstractModifier modifier) {
+            if (!IsModifierActive(modifier)) {
+                return;
+            }
+            _activeModifiers.Remove(modifier);
+            if (modifier.Temporary) {
+                var temporaryModifier = _temporaryModifiers.First(temporaryModifier => temporaryModifier.modifier == modifier);
+                _temporaryModifiers.Remove(temporaryModifier);
+            } else {
+                _constantModifiers.Remove(modifier);
+            }
+        }
+
         private void ApplyModifier(AbstractModifier modifier) {
             switch (modifier.Type) {
                 case ModifierType.Speed:
@@ -67,7 +81,7 @@ namespace Game {
 
         public bool ShowModifierEffect() {
             foreach (var modifier in _temporaryModifiers) {
-                if(modifier.modifier.ShowModifierEffect) {
+                if (modifier.modifier.ShowModifierEffect) {
                     return true;
                 }
             }

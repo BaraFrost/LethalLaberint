@@ -7,6 +7,11 @@ namespace Data {
 
         public enum Type {
             Chest,
+            Boombox,
+            FlashLight,
+            Blackout,
+            Adrenaline,
+            Teleport,
         }
 
         [SerializeField]
@@ -16,6 +21,10 @@ namespace Data {
         [SerializeField]
         private int _price;
         public int Price => _price;
+
+        [SerializeField]
+        private Sprite _sprite;
+        public Sprite Sprite => _sprite;
 
         [SerializeField]
         private AbstractReward _reward;

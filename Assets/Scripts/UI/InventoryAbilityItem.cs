@@ -6,7 +6,7 @@ using UnityEngine.UI;
 
 namespace UI {
 
-    public class InventoryMenuItem : MonoBehaviour {
+    public class InventoryAbilityItem : MonoBehaviour {
 
         [SerializeField]
         private GameObject _selectionBackGround;
@@ -23,7 +23,7 @@ namespace UI {
         private int _abilityId;
         public int AbilityId => _abilityId;
 
-        public Action<InventoryMenuItem> onButtonClicked;
+        public Action<InventoryAbilityItem> onButtonClicked;
 
         private int _index;
 

@@ -533,10 +533,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 5917040878805774259, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
+    - target: {fileID: 8735322940141028438, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _abilityItemPrefab
+      value: 
+      objectReference: {fileID: 8355618207190099093, guid: 792241c899ef1ef49a1c1a48539b86f2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

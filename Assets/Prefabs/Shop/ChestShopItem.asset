@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: ChestShopItem
   m_EditorClassIdentifier: 
   _type: 0
-  _price: 500
+  _price: 400
+  _sprite: {fileID: 21300000, guid: 7b623c26436bf1e4a9e5b3924a80c5e0, type: 3}
   _reward: {fileID: 11400000, guid: 099804254b772c04d85b87c03ee8303d, type: 2}

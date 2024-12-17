@@ -1,5 +1,4 @@
 using Game;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI {
@@ -12,14 +11,22 @@ namespace UI {
         [SerializeField]
         private Transform _contentRoot;
 
-        private List<InventoryItem> _spawnedButtons = new List<InventoryItem>();
+        [SerializeField]
+        private SelectAbilityInventory _menuInventory;
 
-        private PlayerAbilityLogic _playerAbilityLogic;
-        private PlayerInputLogic _playerInputLogic;
+        private InventoryItem _spawnedButtons;
 
-        public void Init(PlayerController playerController) {
-            _playerAbilityLogic = playerController.PlayerAbilityLogic;
-            _playerInputLogic = playerController.PlayerInputLogic;
+        private PlayerController _playerController;
+        private StartLabyrinthCells _startLabyrinthCells;
+
+        public void Init(PlayerController playerController, StartLabyrinthCells startLabyrinthCells) {
+            _startLabyrinthCells = startLabyrinthCells;
+            _playerController = playerController;
+            _menuInventory.onAbilitySwitched += InitAbilityVisual;
+            _menuInventory.Init();
+            _spawnedButtons = Instantiate(_buttonPrefab, _contentRoot);
+            InitAbilityVisual();
+            /*
             var spawnedAbilities = _playerAbilityLogic.Abilities;
             for (int i = 0; i < spawnedAbilities.Length; i++) {
                 var spawnedButton = Instantiate(_buttonPrefab, _contentRoot);
@@ -28,7 +35,17 @@ namespace UI {
                 spawnedButton.onButtonClicked += _playerInputLogic.AbilityButtonActivate;
                 _playerAbilityLogic.onAbilityActivate += () => spawnedButton.UpdateItem(spawnedAbility);
                 _spawnedButtons.Add(spawnedButton);
-            }
+            }*/
+        }
+
+        private void Update() {
+            _menuInventory.gameObject.SetActive(_startLabyrinthCells.ShipLogic.PositionInsideShip(_playerController.transform.position));
+        }
+
+        private void InitAbilityVisual() {
+            _spawnedButtons.Init(0, _playerController.PlayerAbilityLogic.CurrentAbility);
+            _spawnedButtons.onButtonClicked += _playerController.PlayerInputLogic.AbilityButtonActivate;
+            _playerController.PlayerAbilityLogic.onAbilityActivate += () => _spawnedButtons.UpdateItem(_playerController.PlayerAbilityLogic.CurrentAbility);
         }
     }
 }

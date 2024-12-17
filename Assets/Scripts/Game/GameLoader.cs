@@ -61,7 +61,7 @@ namespace Game {
 
             _entityPointersSystem.Init(_gameEntitiesContainer);
 
-            _inventoryVisualizer.Init(_gameEntitiesContainer.playerController);
+            _inventoryVisualizer.Init(_gameEntitiesContainer.playerController, _gameEntitiesContainer.cellsContainer.StartCells);
 
             _doorsOpeningButton.Init(_gameEntitiesContainer);
 

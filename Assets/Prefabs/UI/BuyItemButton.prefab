@@ -263,7 +263,7 @@ GameObject:
   - component: {fileID: 8856452674148509072}
   - component: {fileID: 6759130257169089148}
   m_Layer: 5
-  m_Name: ByItemButton
+  m_Name: BuyItemButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -313,6 +313,7 @@ MonoBehaviour:
   _shopItemType: 0
   _button: {fileID: 6759130257169089148}
   _text: {fileID: 2878413563084853120}
+  _image: {fileID: 8856452674148509072}
 --- !u!114 &8856452674148509072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -356,7 +357,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_WrapAround: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}

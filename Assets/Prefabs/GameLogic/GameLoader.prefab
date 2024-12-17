@@ -581,6 +581,83 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyContainer: {fileID: 11400000, guid: bcfb32ce8afe92849b6722cec7fbb329, type: 2}
   _maxLabyrinthSize: 5000
+--- !u!1 &1950165321743247218
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6046415592604152286}
+  - component: {fileID: 2381832121351022037}
+  - component: {fileID: 8735322940141028438}
+  m_Layer: 5
+  m_Name: AbilityContent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6046415592604152286
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950165321743247218}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6325513046234719535}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 286, y: 131.19}
+  m_SizeDelta: {x: 1234.3, y: 180.2}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2381832121351022037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950165321743247218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 0
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
+--- !u!114 &8735322940141028438
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1950165321743247218}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6537b790d35f94649aaba779d35b3a7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _abilityItemPrefab: {fileID: 6221683777156377602, guid: 792241c899ef1ef49a1c1a48539b86f2, type: 3}
 --- !u!1 &2211915623108895331
 GameObject:
   m_ObjectHideFlags: 0
@@ -979,7 +1056,7 @@ Transform:
   - {fileID: 810998635224250057}
   - {fileID: 5870709686371344403}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9077933867509478514
 MonoBehaviour:
@@ -2434,7 +2511,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &312182707308264224
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2939,6 +3016,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3676613800286629271}
+  - {fileID: 6046415592604152286}
   m_Father: {fileID: 6893679740146699478}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2961,6 +3039,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _buttonPrefab: {fileID: 5847109953222371529, guid: 9dddefff713e1e44b94d6835445545b1, type: 3}
   _contentRoot: {fileID: 3676613800286629271}
+  _menuInventory: {fileID: 8735322940141028438}
 --- !u!1 &7709893133190989955
 GameObject:
   m_ObjectHideFlags: 0
@@ -3749,6 +3828,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5632641250226812162, guid: e586cd813de26a84494ca19bce115050, type: 3}
+      propertyPath: _menuInventory
+      value: 
+      objectReference: {fileID: 8735322940141028438}
     - target: {fileID: 5992393340830290172, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: _text
       value: 

@@ -16,13 +16,17 @@ namespace UI {
         [SerializeField]
         private TextMeshProUGUI _text;
 
+        [SerializeField]
+        private Image _image;
+
         public void Start() {
             _button.onClick.AddListener(TryToBuyItem);
             UpdateMoneyText();
         }
 
-        private void UpdateMoneyText() {
+        protected virtual void UpdateMoneyText() {
             _text.text = $"{Account.Instance.GetShopItemPrice(_shopItemType).ToString()}$";
+            _image.sprite = Account.Instance.GetShopItemSprite(_shopItemType);
         }
 
         public void TryToBuyItem() {

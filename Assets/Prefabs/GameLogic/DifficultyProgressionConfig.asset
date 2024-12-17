@@ -24,7 +24,7 @@ MonoBehaviour:
     _maxValue: 25
   _enemyCount:
     _minValue: 1.5
-    _maxValue: 8
+    _maxValue: 10
   _requiredMoney:
     _minValue: 170
     _maxValue: 4000
@@ -37,18 +37,27 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
+      time: 0.40557575
+      value: 0.37425226
+      inSlope: 2.6157603
+      outSlope: 2.6157603
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.0711597
+    - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1
-      outSlope: 1
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0

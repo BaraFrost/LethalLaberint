@@ -45,4 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _additionalEnemyTargetPrefab: {fileID: 3571592015957339403, guid: b13cc9cb7f9661d4e8d03ba1e698f9fd, type: 3}
-  _time: 10
+  _time: 15
