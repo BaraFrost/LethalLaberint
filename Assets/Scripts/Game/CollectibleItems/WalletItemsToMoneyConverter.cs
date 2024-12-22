@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class WalletItemsToMoneyConverter : MonoBehaviour {
+    public class WalletItemsToMoneyConverter : AbstractPlayerLogic {
 
         [SerializeField]
         private Wallet _wallet;
@@ -15,7 +15,7 @@ namespace Game {
                 var money = _wallet.GetItemsMoney();
                 var items = _wallet.TakeAllItems();
                 warehouseArea.AddItems(items);
-                _moneyWallet.AddMoney(money);
+                _moneyWallet.AddMoney((int)(money * _player.PlayerModifierLogic.MoneyModifier));
             }
         }
     }

@@ -72,6 +72,21 @@ namespace Data {
         [SerializeField]
         private int _currentAbilityId = 1;
 
+        private Dictionary<ModifierType, int> _modifiersCountData = new Dictionary<ModifierType, int>();
+        public Dictionary<ModifierType, int> ModifiersCountData {
+            get {
+                return _modifiersCountData;
+            }
+            private set {
+                _modifiersCountData = value;
+                SaveAccountData();
+            }
+        }
+
+        [SerializeField]
+        private LevelsModifiersContainer _levelsModifiersContainer;
+        public LevelsModifiersContainer LevelsModifiersContainer => _levelsModifiersContainer;
+
         private Dictionary<int, int> _abilitiesCountData;
 
         public Dictionary<int, int> AbilitiesCountData {
@@ -104,7 +119,10 @@ namespace Data {
             _currentStage = PlayerPrefs.GetInt(nameof(CurrentStage), _currentStage);
             _abilitiesCountData = new Dictionary<int, int>();
             foreach (var abilityId in _abilityDataContainer.GetAllAbilityIds()) {
-                _abilitiesCountData.Add(abilityId, PlayerPrefs.GetInt(nameof(AbilityData) + abilityId, 1));
+                _abilitiesCountData.Add(abilityId, PlayerPrefs.GetInt(nameof(AbilitiesCountData) + abilityId, 0));
+            }
+            foreach (var modifier in LevelsModifiersContainer.Modifiers) {
+                _modifiersCountData.Add(modifier.Key, PlayerPrefs.GetInt(nameof(ModifiersCountData) + modifier.Key, 0));
             }
         }
 
@@ -114,7 +132,10 @@ namespace Data {
             PlayerPrefs.SetInt(nameof(CurrentStageMoney), CurrentStageMoney);
             PlayerPrefs.SetInt(nameof(CurrentStage), CurrentStage);
             foreach (var abilityCountData in _abilitiesCountData) {
-                PlayerPrefs.SetInt(nameof(AbilityData) + abilityCountData.Key, abilityCountData.Value);
+                PlayerPrefs.SetInt(nameof(AbilitiesCountData) + abilityCountData.Key, abilityCountData.Value);
+            }
+            foreach (var modifier in _modifiersCountData) {
+                PlayerPrefs.SetInt(nameof(ModifiersCountData) + modifier.Key, modifier.Value);
             }
             PlayerPrefs.Save();
         }
@@ -181,7 +202,7 @@ namespace Data {
         }
 
         public void AddAbility(int id) {
-            AbilitiesCountData[id] ++;
+            AbilitiesCountData[id]++;
         }
 
         public void OnAbilityUsed(int id) {

@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f03d06cc8c71ce43823b13e769f19ce, type: 3}
-  m_Name: AdrenalineSpeedModifier
+  m_Script: {fileID: 11500000, guid: f9b536a405ad7a14389a452111286f06, type: 3}
+  m_Name: WalletModifierReward
   m_EditorClassIdentifier: 
-  _type: 0
-  _value: 0.3
-  _temporary: 1
-  _modifierTime: 15
-  _showModifierEffect: 1
+  _modifierType: 1

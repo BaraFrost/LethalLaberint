@@ -55,6 +55,7 @@ MonoBehaviour:
   _walls:
   - {fileID: 8858808099596251637}
   - {fileID: 3471149615186009250}
+  cellBusy: 0
 --- !u!1001 &1055153656020257941
 PrefabInstance:
   m_ObjectHideFlags: 0

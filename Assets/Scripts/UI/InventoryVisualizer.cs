@@ -22,9 +22,9 @@ namespace UI {
         public void Init(PlayerController playerController, StartLabyrinthCells startLabyrinthCells) {
             _startLabyrinthCells = startLabyrinthCells;
             _playerController = playerController;
-            _menuInventory.onAbilitySwitched += InitAbilityVisual;
             _menuInventory.Init();
             _spawnedButtons = Instantiate(_buttonPrefab, _contentRoot);
+            _menuInventory.onAbilitySwitched += InitAbilityVisual;
             InitAbilityVisual();
             /*
             var spawnedAbilities = _playerAbilityLogic.Abilities;

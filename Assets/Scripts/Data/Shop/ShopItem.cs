@@ -12,6 +12,9 @@ namespace Data {
             Blackout,
             Adrenaline,
             Teleport,
+            SpeedModifier,
+            WalletModifier,
+            MoneyModifier,
         }
 
         [SerializeField]

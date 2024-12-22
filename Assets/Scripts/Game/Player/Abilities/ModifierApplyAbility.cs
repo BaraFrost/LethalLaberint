@@ -6,7 +6,7 @@ namespace Game {
     public class ModifierApplyAbility : AbstractAbility {
 
         [SerializeField]
-        private AbstractModifier _modifier;
+        private Modifier _modifier;
 
         protected override bool IsAbilityActive => _player.PlayerModifierLogic.IsModifierActive(_modifier);
 

@@ -5,10 +5,12 @@ namespace Data {
 
     public enum ModifierType {
         Speed,
+        Wallet,
+        Money
     }
 
-    [CreateAssetMenu(fileName = nameof(AbstractModifier), menuName = "Data/AbstractModifier")]
-    public class AbstractModifier : ScriptableObject {
+    [CreateAssetMenu(fileName = nameof(Modifier), menuName = "Data/Modifier")]
+    public class Modifier : ScriptableObject {
 
         [SerializeField]
         private ModifierType _type;
@@ -16,7 +18,7 @@ namespace Data {
 
         [SerializeField]
         private float _value;
-        public float Value => _value;
+        public virtual float Value => _value;
 
         [SerializeField]
         private bool _temporary;

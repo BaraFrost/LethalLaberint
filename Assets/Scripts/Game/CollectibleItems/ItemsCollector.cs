@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Game {
 
-    public class ItemsCollector : MonoBehaviour {
+    public class ItemsCollector : AbstractPlayerLogic {
 
         [SerializeField]
         private Wallet _wallet;
@@ -17,6 +17,11 @@ namespace Game {
 
         private void OnDisable() {
             _wallet.onItemFellOut -= DropItemCollectibleItem;
+        }
+
+        public override void UpdateLogic() {
+            base.UpdateLogic();
+            Wallet.ModifyWalletSize(_player.PlayerModifierLogic.WalletModifier);
         }
 
         public void DropAllItems() {

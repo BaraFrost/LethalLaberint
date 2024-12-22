@@ -44,7 +44,7 @@ namespace UI {
                 }
             }
             for (int i = 0; i < _enemyPointers.Count; i++) {
-                if (Enemies.Count <= i || Enemies[i] == null) {
+                if (Enemies.Count <= i || Enemies[i] == null || !Enemies[i].NeedShowArrow) {
                     _enemyPointers[i].gameObject.SetActive(false);
                     continue;
                 }

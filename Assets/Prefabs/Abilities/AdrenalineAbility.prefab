@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &898804561737844185
+--- !u!1 &8563499329520384938
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6209822375388018839}
-  - component: {fileID: 7429503976763066398}
+  - component: {fileID: 3151481730832418206}
+  - component: {fileID: 5711205328488920124}
   m_Layer: 0
   m_Name: AdrenalineAbility
   m_TagString: Untagged
@@ -17,13 +17,13 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6209822375388018839
+--- !u!4 &3151481730832418206
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898804561737844185}
+  m_GameObject: {fileID: 8563499329520384938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,16 +32,16 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7429503976763066398
+--- !u!114 &5711205328488920124
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 898804561737844185}
+  m_GameObject: {fileID: 8563499329520384938}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0a00e187fece93b40bffca44b0bd4c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _modifier: {fileID: 11400000, guid: 30790ff19d553b34481679fe899ac276, type: 2}
+  _modifier: {fileID: 11400000, guid: af8b00618476ca240b7698e8fb6572b7, type: 2}

@@ -9,9 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3379a48cdc8203a41b0977aceb701ca7, type: 3}
-  m_Name: AdrenalineAbilityData
+  m_Script: {fileID: 11500000, guid: 353af96b70486b64b814dc2f6ee7c726, type: 3}
+  m_Name: AdrenalineAbilityModifier
   m_EditorClassIdentifier: 
-  id: 3
-  _abstractAbility: {fileID: 5711205328488920124, guid: d062c2f2476295e45be4aa6d080308c5, type: 3}
-  _sprite: {fileID: 21300000, guid: ff212bec9338009439928185b5f5d799, type: 3}
+  _type: 0
+  _value: 0.3
+  _temporary: 0
+  _modifierTime: 10
+  _showModifierEffect: 0

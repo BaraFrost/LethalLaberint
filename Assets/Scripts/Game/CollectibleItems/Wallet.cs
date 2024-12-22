@@ -12,12 +12,21 @@ namespace Game {
         [SerializeField]
         private WalletItemDropPanel _dropPanel;
 
+        [SerializeField]
+        private Camera _camera;
+
+        [SerializeField]
+        private GameObject _walletRoot;
+
+        private float _startCameraSize;
+
         private Dictionary<WalletCollectibleItem, CollectibleItem> _items = new Dictionary<WalletCollectibleItem, CollectibleItem>();
 
         public Action<CollectibleItem> onItemFellOut;
 
         private void OnEnable() {
             _dropPanel.onItemDropped += OnItemDropped;
+            _startCameraSize = _camera.orthographicSize;
         }
 
         private void OnDisable() {
@@ -25,7 +34,7 @@ namespace Game {
         }
 
         public void OnItemDropped(WalletCollectibleItem walletItem) {
-            if(!_items.ContainsKey(walletItem)) {
+            if (!_items.ContainsKey(walletItem)) {
                 return;
             }
             var item = _items[walletItem];
@@ -56,6 +65,14 @@ namespace Game {
             }
             _items.Clear();
             return result;
+        }
+
+        public void ModifyWalletSize(float multiplier) {
+            if (_walletRoot.transform.localScale.x == multiplier) {
+                return;
+            }
+            _walletRoot.transform.localScale = Vector3.one * multiplier;
+            _camera.orthographicSize = _startCameraSize * multiplier;
         }
     }
 }

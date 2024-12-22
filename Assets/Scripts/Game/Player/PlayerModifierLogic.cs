@@ -8,20 +8,30 @@ namespace Game {
     public class PlayerModifierLogic : AbstractPlayerLogic {
 
         private class TemporaryModifier {
-            public AbstractModifier modifier;
+            public Modifier modifier;
             public float remainingTime;
         }
 
-        private List<AbstractModifier> _constantModifiers = new List<AbstractModifier>();
+        private List<Modifier> _constantModifiers = new List<Modifier>();
         private List<TemporaryModifier> _temporaryModifiers = new List<TemporaryModifier>();
 
-        private HashSet<AbstractModifier> _activeModifiers = new HashSet<AbstractModifier>();
+        private HashSet<Modifier> _activeModifiers = new HashSet<Modifier>();
 
         public float SpeedModifier { get; private set; } = 1f;
+        public float WalletModifier { get; private set; } = 1f;
+        public float MoneyModifier { get; private set; } = 1f;
 
-        public bool IsModifierActive(AbstractModifier modifier) => _activeModifiers.Contains(modifier);
+        public bool IsModifierActive(Modifier modifier) => _activeModifiers.Contains(modifier);
 
-        public bool TryToAddModifier(AbstractModifier modifier) {
+        public override void Init(PlayerController player) {
+            base.Init(player);
+            var levelModifiers = Account.Instance.LevelsModifiersContainer.Modifiers;
+            foreach (var levelModifier in levelModifiers) {
+                TryToAddModifier(levelModifier.Value);
+            }
+        }
+
+        public bool TryToAddModifier(Modifier modifier) {
             if (IsModifierActive(modifier)) {
                 return false;
             }
@@ -39,6 +49,8 @@ namespace Game {
 
         private void ResetModifierValues() {
             SpeedModifier = 1f;
+            WalletModifier = 1f;
+            MoneyModifier = 1f;
         }
 
         public override void UpdateLogic() {
@@ -58,7 +70,7 @@ namespace Game {
             }
         }
 
-        public void RemoveModifier(AbstractModifier modifier) {
+        public void RemoveModifier(Modifier modifier) {
             if (!IsModifierActive(modifier)) {
                 return;
             }
@@ -71,10 +83,16 @@ namespace Game {
             }
         }
 
-        private void ApplyModifier(AbstractModifier modifier) {
+        private void ApplyModifier(Modifier modifier) {
             switch (modifier.Type) {
                 case ModifierType.Speed:
                     SpeedModifier += modifier.Value;
+                    break;
+                case ModifierType.Wallet:
+                    WalletModifier += modifier.Value;
+                    break;
+                case ModifierType.Money:
+                    MoneyModifier += modifier.Value;
                     break;
             }
         }

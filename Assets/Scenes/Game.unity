@@ -367,6 +367,7 @@ MonoBehaviour:
   _difficultyProgressionConfig: {fileID: 11400000, guid: 8fe85b75fd57b03469d0209f10a422e5, type: 2}
   _abilityDataContainer: {fileID: 11400000, guid: fe48232e08a082b44a155a95365565fe, type: 2}
   _currentAbilityId: 2
+  _levelsModifiersContainer: {fileID: 11400000, guid: 96151905262448a468b25c362c6647e9, type: 2}
   _shopItemsContainer: {fileID: 11400000, guid: d82bbe565a3c9194f9945f8b36111591, type: 2}
 --- !u!23 &481330498586712037
 MeshRenderer:
@@ -533,10 +534,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 8735322940141028438, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: _abilityItemPrefab
-      value: 
-      objectReference: {fileID: 8355618207190099093, guid: 792241c899ef1ef49a1c1a48539b86f2, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
