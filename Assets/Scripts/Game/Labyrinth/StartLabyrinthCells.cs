@@ -42,6 +42,13 @@ namespace Game {
         private ShipLogic _shipLogic;
         public ShipLogic ShipLogic => _shipLogic;
 
+        [SerializeField]
+        private bool _overrideSize;
+        public bool OverrideSize => _overrideSize;
+
+        [SerializeField]
+        private int _additionalSize;
+        public int AdditionalSize => _additionalSize;
 
 #if UNITY_EDITOR
         [Button]

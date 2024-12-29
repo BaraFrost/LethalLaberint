@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BoomboxShopItem
   m_EditorClassIdentifier: 
   _type: 1
-  _price: 100
+  _price: 40
   _sprite: {fileID: 21300000, guid: 2404162889793ef40bf9bdbf424ca985, type: 3}
   _reward: {fileID: 11400000, guid: 0abdf624ddc14de4abb4580a59368e49, type: 2}

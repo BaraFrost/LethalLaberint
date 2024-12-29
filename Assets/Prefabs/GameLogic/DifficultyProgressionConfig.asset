@@ -12,19 +12,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2babe3bea065fc5449ee0a4ba86fe24c, type: 3}
   m_Name: DifficultyProgressionConfig
   m_EditorClassIdentifier: 
-  _maxStage: 15
+  _maxStage: 25
   _labyrinthSize:
     _minValue: 12
-    _maxValue: 25
+    _maxValue: 50
   _labyrinthCellsCount:
     _minValue: 120
-    _maxValue: 950
+    _maxValue: 1300
   _labyrinthEpoch:
     _minValue: 12
-    _maxValue: 25
+    _maxValue: 50
   _enemyCount:
     _minValue: 1.5
-    _maxValue: 15
+    _maxValue: 30
   _requiredMoney:
     _minValue: 170
     _maxValue: 4000
@@ -37,17 +37,17 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.46533993
-      outSlope: 0.46533993
+      inSlope: 0.5028973
+      outSlope: 0.5028973
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.12727273
-      value: 0.059225082
-      inSlope: 0.77165556
-      outSlope: 0.77165556
+      time: 0.32864296
+      value: 0.16527367
+      inSlope: 0.8731196
+      outSlope: 0.8731196
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -55,8 +55,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.0779712
-      outSlope: 1.0779712
+      inSlope: 1.2433419
+      outSlope: 1.2433419
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -75,3 +75,6 @@ MonoBehaviour:
   - _stage: 2
     _days: 1
     _money: 400
+  - _stage: 4
+    _days: 1
+    _money: 900

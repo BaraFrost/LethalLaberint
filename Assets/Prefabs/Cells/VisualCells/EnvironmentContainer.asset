@@ -30,5 +30,9 @@ MonoBehaviour:
     environment: {fileID: 2373776588832811041, guid: 2d478096be2567c4a9ef866ad229e488, type: 3}
   - percent: 0.03
     environment: {fileID: 5696126766685313342, guid: 43fda0c316a401047b67112527e1f496, type: 3}
-  - percent: 0.001
+  - percent: 0.006
     environment: {fileID: 9154357184745303445, guid: f8aa16916934db743bfd5586bf803f12, type: 3}
+  - percent: 0.006
+    environment: {fileID: 6236107365312006034, guid: 87955fb0e525ce34c917b606965c7516, type: 3}
+  - percent: 0.006
+    environment: {fileID: 5392336483009773433, guid: 2d841c269d1f91240b0153e760ed0aa2, type: 3}

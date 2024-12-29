@@ -13,6 +13,13 @@ namespace Game {
     public class LabyrinthSpawner : MonoBehaviour {
 
         [Serializable]
+        private struct LabyrinthVariant {
+            public LabyrinthCellsContainer cellsContainer;
+            public int weight;
+            public GameObject floor;
+        }
+
+        [Serializable]
         private struct FieldOffsets {
             public int startCellYPosition;
             public int additionalFieldSize;
@@ -23,11 +30,10 @@ namespace Game {
         private LabyrinthCell _fonCellPrefab;
 
         [SerializeField]
-        private LabyrinthCellsContainer _labyrinthCellsContainer;
+        private LabyrinthVariant[] _labyrinthVariants;
 
         [SerializeField]
         private GameObject _floor;
-
 
         [SerializeField]
         private float _cellSize;
@@ -48,13 +54,16 @@ namespace Game {
         private int LabyrinthSize => _difficultyProgressionConfig.LabyrinthSize;
         private int MaxCellsCount => _difficultyProgressionConfig.LabyrinthCellsCount;
         private int MaxEpoch => _difficultyProgressionConfig.LabyrinthEpoch;
-        private int FullLabyrinthSize => LabyrinthSize + _fieldOffsets.additionalFieldSize;
+        private int FullLabyrinthSize => _spawnedStartCells.OverrideSize ? _spawnedStartCells.AdditionalSize : LabyrinthSize + _fieldOffsets.additionalFieldSize;
 
         private LabyrinthCell[,] _field;
         private List<LabyrinthCell> _spawnedCells = new List<LabyrinthCell>();
         public List<LabyrinthCell> SpawnedCells => _spawnedCells;
         private DifficultyProgressionConfig _difficultyProgressionConfig;
         private GameEntitiesContainer _gameEntitiesContainer;
+
+        private LabyrinthVariant _currentLabyrinthVariant;
+        private LabyrinthCellsContainer LabyrinthCellsContainer => _currentLabyrinthVariant.cellsContainer;
 
 #if UNITY_EDITOR
         [Button]
@@ -76,15 +85,33 @@ namespace Game {
         }
 #endif
 
+        private void UpdateCurrentLabyrinthVariant() {
+            var weightSum = 0;
+            foreach (var cellsVariant in _labyrinthVariants) {
+                weightSum += cellsVariant.weight;
+            }
+            var randomWeight = UnityEngine.Random.Range(0, weightSum);
+            var currentWeight = 0;
+            foreach (var cellsVariant in _labyrinthVariants) {
+                currentWeight += cellsVariant.weight;
+                if(randomWeight <= currentWeight) {
+                    _currentLabyrinthVariant = cellsVariant;
+                    break;
+                }
+            }
+            _currentLabyrinthVariant.floor.SetActive(true);
+        }
+
         public void Spawn(GameEntitiesContainer gameEntitiesContainer) {
+            UpdateCurrentLabyrinthVariant();
             _gameEntitiesContainer = gameEntitiesContainer;
             _difficultyProgressionConfig = Account.Instance.DifficultyProgressionConfig;
             SpawnStartCells();
             SetStartData();
             if (_spawnedStartCells.NeedGenerateCells) {
                 AddCells();
+                AddDeadEndCells();
             }
-            AddDeadEndCells();
             AddFonCells();
             AddLabyrinthToStaticBatching();
             _navMeshSurface.BuildNavMesh();
@@ -154,7 +181,7 @@ namespace Game {
                         continue;
                     }
                     var requiredDirections = GetAllRequiredDirections(fieldPosition);
-                    var deadEndPrefab = _labyrinthCellsContainer.GetRandomDeadEndCell(requiredDirections);
+                    var deadEndPrefab = LabyrinthCellsContainer.GetRandomDeadEndCell(requiredDirections);
                     var deadEndInstance = deadEndPrefab.InstantiateCell(cell, positions.Value.GetDirectionVector(), transform, _cellSize);
                     deadEndInstance.fieldPosition = fieldPosition;
                     _field[fieldPosition.x, fieldPosition.y] = deadEndInstance;
@@ -178,7 +205,7 @@ namespace Game {
                             continue;
                         }
                         var requiredDirections = GetAllRequiredDirections(newFieldCellPosition);
-                        var randomCellToSpawn = _labyrinthCellsContainer.GetRandomCell(requiredDirections, epoch);
+                        var randomCellToSpawn = LabyrinthCellsContainer.GetRandomCell(requiredDirections, epoch);
                         var newCellInstance = randomCellToSpawn.InstantiateCell(cell, positionDirection, transform, _cellSize);
                         newCellInstance.fieldPosition = newFieldCellPosition;
                         _spawnedCells.Add(newCellInstance);

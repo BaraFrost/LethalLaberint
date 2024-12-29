@@ -1,0 +1,45 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 859bdbf5e5e7009408d0f7ff131faeab, type: 3}
+  m_Name: LabyrinthCellsContainer
+  m_EditorClassIdentifier: 
+  _cellsEpochs:
+  - _labyrinthCells:
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
+      _weight: 100
+    _maxEpoch: 2
+  - _labyrinthCells:
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 3094a46e80809174481d9dc8c428d0fb, type: 3}
+      _weight: 18
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
+      _weight: 8
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 66f768df62165044b8707c3c1339b388, type: 3}
+      _weight: 12
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
+      _weight: 20
+    - _labyrinthCell: {fileID: 8411927632492007985, guid: 29bd5690e55010148a52751f5f69379c, type: 3}
+      _weight: 4
+    _maxEpoch: 5
+  _allCells:
+    _labyrinthCells:
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 66f768df62165044b8707c3c1339b388, type: 3}
+      _weight: 5
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 0292fa854b7beb048a7ee9a4cf98be21, type: 3}
+      _weight: 5
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: d2880a8949f11934a80d8571e90fcb18, type: 3}
+      _weight: 1
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 3094a46e80809174481d9dc8c428d0fb, type: 3}
+      _weight: 5
+    - _labyrinthCell: {fileID: 6512197731316312124, guid: 295c4f48621195b40ab9beac8aca2c81, type: 3}
+      _weight: 5
+    - _labyrinthCell: {fileID: 8411927632492007985, guid: 29bd5690e55010148a52751f5f69379c, type: 3}
+      _weight: 1

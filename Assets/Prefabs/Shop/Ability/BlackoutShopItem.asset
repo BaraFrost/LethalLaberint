@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BlackoutShopItem
   m_EditorClassIdentifier: 
   _type: 3
-  _price: 70
+  _price: 60
   _sprite: {fileID: 21300000, guid: 44ca242b4b92ea14987cab266c2d8724, type: 3}
   _reward: {fileID: 11400000, guid: 77e75bc5b4146cf4383032aa49b12522, type: 2}

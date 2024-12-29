@@ -363,7 +363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f00f2ae790e2944f8e85c5fd9049567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentStage: 1
+  _currentStage: 3
   _difficultyProgressionConfig: {fileID: 11400000, guid: 8fe85b75fd57b03469d0209f10a422e5, type: 2}
   _abilityDataContainer: {fileID: 11400000, guid: fe48232e08a082b44a155a95365565fe, type: 2}
   _currentAbilityId: 2
@@ -530,15 +530,92 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 889324423270060020, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1725474087283997936, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2976252546593004155, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_Name
       value: GameLoader
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659186592739850770, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659186592739850770, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3659186592739850770, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2ee098f23c727b946abb826878d83516, type: 2}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[2].floor
+      value: 
+      objectReference: {fileID: 4013633158675233968}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[0].weight
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[1].weight
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[2].weight
+      value: 60
+      objectReference: {fileID: 0}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[2].cellsContainer
+      value: 
+      objectReference: {fileID: 11400000, guid: bf5d0e9200055ed4dbce570d828818b1, type: 2}
+    - target: {fileID: 6791674297205756585, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Color.b
+      value: 0.8011926
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Color.g
+      value: 0.9302238
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Color.r
+      value: 0.9716981
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Lightmapping
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Shadows.m_Strength
+      value: 0.717
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+--- !u!1 &4013633158675233968 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6791674297205756585, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+  m_PrefabInstance: {fileID: 4013633158675233967}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4271992784819261523
 Transform:
   m_ObjectHideFlags: 0

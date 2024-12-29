@@ -40,6 +40,7 @@ namespace Data {
 
         [SerializeField]
         private int _maxStage;
+        public int MaxStage => _maxStage;
 
         [SerializeField]
         private MinMaxValue _labyrinthSize;
