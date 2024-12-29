@@ -534,6 +534,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1474711032110646046, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1474711032110646046, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1725474087283997936, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_LocalPosition.y
       value: 0
@@ -556,7 +564,7 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 2ee098f23c727b946abb826878d83516, type: 2}
     - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: _labyrinthVariants.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: _labyrinthVariants.Array.data[2].floor
@@ -574,6 +582,10 @@ PrefabInstance:
       propertyPath: _labyrinthVariants.Array.data[2].weight
       value: 60
       objectReference: {fileID: 0}
+    - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _labyrinthVariants.Array.data[0].cellsContainer
+      value: 
+      objectReference: {fileID: 11400000, guid: 299900a2134c01341bff577866df71df, type: 2}
     - target: {fileID: 3958104186256160999, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: _labyrinthVariants.Array.data[2].cellsContainer
       value: 
@@ -604,7 +616,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_Shadows.m_Strength
-      value: 0.717
+      value: 0.534
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226926592446482730, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_CastShadows
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8226926592446482730, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_ReceiveShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
