@@ -1293,6 +1293,7 @@ MonoBehaviour:
   _playerInputLogic: {fileID: 5134372529002573465}
   _playerMoveLogic: {fileID: 9113958015102423524}
   _playerModifierLogic: {fileID: 4940662480882468196}
+  _playerVisualLogic: {fileID: 0}
 --- !u!95 &1525464365149744103
 Animator:
   serializedVersion: 5
@@ -1480,6 +1481,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _modifierEffect: {fileID: 8044355909336306259}
+  _environmentVisualLogic: {fileID: 0}
 --- !u!114 &4940662480882468196
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7210,7 +7212,7 @@ SkinnedMeshRenderer:
   m_Quality: 0
   m_UpdateWhenOffscreen: 0
   m_SkinnedMotionVectors: 1
-  m_Mesh: {fileID: -5523277661179574252, guid: 1d7af70a28a19064f851ee982bb27929, type: 3}
+  m_Mesh: {fileID: 4300000, guid: d107ea28d5de8574aa1fb3bead32d24b, type: 2}
   m_Bones:
   - {fileID: 5108127452243798069}
   - {fileID: 113447872497787049}

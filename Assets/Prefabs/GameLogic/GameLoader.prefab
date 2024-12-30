@@ -3895,6 +3895,10 @@ PrefabInstance:
       propertyPath: _environmentVisualLogic
       value: 
       objectReference: {fileID: 7143751550854334490}
+    - target: {fileID: 2591558444362036994, guid: e586cd813de26a84494ca19bce115050, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: d107ea28d5de8574aa1fb3bead32d24b, type: 2}
     - target: {fileID: 4040637256063436440, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: _wallet
       value: 

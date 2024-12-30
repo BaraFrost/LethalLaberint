@@ -55,3 +55,4 @@ MonoBehaviour:
     _connectionType: 0
   _closedCell: 0
   _walls: []
+  cellBusy: 0
