@@ -1,6 +1,7 @@
 using Data;
 using Game;
 using Infrastructure;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace UI {
@@ -11,7 +12,7 @@ namespace UI {
         private LocalizationText _startHintText;
 
         [SerializeField]
-        private LocalizationText[] _deathHintsHintText;
+        private List<LocalizationText> _deathHintsHintText;
 
         private PlayerController _playerController;
 
@@ -36,10 +37,11 @@ namespace UI {
         }
 
         public void ShowDeathHint() {
-            if(_playerController.HealthLogic.IsDead) {
+            if(_playerController.HealthLogic.IsDead || _deathHintsHintText.Count == 0) {
                 return;
             }
-            var randomText = _deathHintsHintText[Random.Range(0, _deathHintsHintText.Length)];
+            var randomText = _deathHintsHintText[Random.Range(0, _deathHintsHintText.Count)];
+            _deathHintsHintText.Remove(randomText);
             if (PopupManager.Instance != null) {
                 PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                     text = randomText.GetText(),

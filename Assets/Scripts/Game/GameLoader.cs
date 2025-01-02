@@ -98,12 +98,16 @@ namespace Game {
         }
 
         private void LoadExitScene() {
-            SceneManager.LoadScene("Menu");
+            PopupManager.Instance.ShowFadePopup(() => {
+                SceneManager.LoadScene("Menu");
+            });
         }
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.R)) {
-                SceneManager.LoadScene(0);
+                PopupManager.Instance.ShowFadePopup(() => {
+                    SceneManager.LoadScene("Menu");
+                });
             }
         }
     }

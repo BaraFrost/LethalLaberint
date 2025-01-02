@@ -159,7 +159,6 @@ namespace Data {
                 CurrentStageMoney = 0;
                 CurrentDay = 1;
             }
-            SceneManager.LoadScene(0);
         }
 
         private void Update() {

@@ -1,4 +1,5 @@
 using Infrastructure;
+using System;
 using UnityEngine;
 
 namespace UI {
@@ -13,10 +14,14 @@ namespace UI {
         private DeathPopup _deathPopupPrefab;
         private DeathPopup _deathPopup;
 
+        [SerializeField]
+        private FadePopup _fadePopupPrefab;
+        private FadePopup _fadePopup;
+
         private AbstractPopup _currentPopup;
 
         private void ShowPopup(AbstractPopup popup) {
-            if(_currentPopup != null && _currentPopup.IsActive) {
+            if (_currentPopup != null && _currentPopup.IsActive) {
                 _currentPopup.HidePopup(immediately: true);
             }
             _currentPopup = popup;
@@ -24,7 +29,7 @@ namespace UI {
         }
 
         public void ShowTextPopup(TextPopup.Data data) {
-            if(_textPopup == null) {
+            if (_textPopup == null) {
                 _textPopup = Instantiate(_textPopupPrefab, gameObject.transform);
             }
             _textPopup.SetData(data);
@@ -37,6 +42,14 @@ namespace UI {
             }
             _deathPopup.SetData(data);
             ShowPopup(_deathPopup);
+        }
+
+        public void ShowFadePopup(Action onShowedCallback) {
+            if (_fadePopup == null) {
+                _fadePopup = Instantiate(_fadePopupPrefab, gameObject.transform);
+            }
+            _fadePopup.SetData(onShowedCallback);
+            ShowPopup(_fadePopup);
         }
     }
 }

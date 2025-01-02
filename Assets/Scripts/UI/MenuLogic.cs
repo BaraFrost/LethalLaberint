@@ -26,7 +26,9 @@ namespace UI {
         }
 
         private void LoadGameScreen() {
-            SceneManager.LoadScene("Game");
+            PopupManager.Instance.ShowFadePopup(() => {
+                SceneManager.LoadScene("Game");
+            });
         }
 
         void Update() {

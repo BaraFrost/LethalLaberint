@@ -1,11 +1,10 @@
 using System;
-using System.Collections;
 using TMPro;
 using UnityEngine;
 
 namespace UI {
 
-    public class TextPopup : AbstractPopup {
+    public class TextPopup : AbstractTemporaryPopup {
 
         public enum Type {
             middle,
@@ -27,11 +26,6 @@ namespace UI {
         [SerializeField]
         private TextByType[] _texts;
 
-        [SerializeField]
-        private float _showTime;
-
-        private Coroutine _hideCoroutine;
-
         public void SetData(Data data) {
             DisableTexts();
             foreach (var textWithType in _texts) {
@@ -46,21 +40,6 @@ namespace UI {
             foreach (var text in _texts) {
                 text.textGroup.SetActive(false);
             }
-        }
-
-        public override void ShowPopup() {
-            base.ShowPopup();
-            _hideCoroutine = StartCoroutine(HideCoroutine());
-        }
-
-        public override void HidePopup(bool immediately = false) {
-            base.HidePopup();
-            StopCoroutine(_hideCoroutine);
-        }
-
-        private IEnumerator HideCoroutine() {
-            yield return new WaitForSeconds(_showTime);
-            HidePopup();
         }
     }
 }

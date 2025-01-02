@@ -1,10 +1,10 @@
+using System;
 using System.Collections;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace UI {
 
-    public class AbstractPopup : MonoBehaviour {
+    public abstract class AbstractPopup : MonoBehaviour {
 
         [SerializeField]
         private CanvasGroup _group;
@@ -16,8 +16,12 @@ namespace UI {
 
         public bool IsActive { get; private set; }
 
+        public Action OnShowed;
+
+        public Action OnHided;
+
         public virtual void ShowPopup() {
-            if(IsActive) {
+            if (IsActive) {
                 return;
             }
             IsActive = true;
@@ -30,9 +34,10 @@ namespace UI {
             if (!IsActive) {
                 return;
             }
-            if(immediately) {
+            if (immediately) {
                 gameObject.SetActive(false);
                 _group.alpha = 0;
+                OnHided?.Invoke();
                 return;
             }
             _group.alpha = 1;
@@ -61,6 +66,15 @@ namespace UI {
             _group.alpha = targetAlpha;
             gameObject.SetActive(enable);
             IsActive = enable;
+            if (enable) {
+                OnPopupShowed();
+            } else {
+                OnHided?.Invoke();
+            }
+        }
+
+        protected virtual void OnPopupShowed() {
+            OnShowed?.Invoke();
         }
     }
 }

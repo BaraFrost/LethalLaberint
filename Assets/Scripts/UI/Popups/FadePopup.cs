@@ -1,18 +1,19 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using System;
 
-public class FadePopup : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+namespace UI {
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+    public class FadePopup : AbstractTemporaryPopup {
+
+        private Action _onShowedCallback;
+
+        public void SetData(Action onShowedCallback) {
+            _onShowedCallback = onShowedCallback;
+        }
+
+        protected override void OnPopupShowed() {
+            base.OnPopupShowed();
+            _onShowedCallback();
+        }
     }
 }
+

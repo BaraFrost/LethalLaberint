@@ -135,10 +135,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PopupManager
       objectReference: {fileID: 0}
-    - target: {fileID: 7225307741685391378, guid: 5e71e68b4e8523447a07552ede443285, type: 3}
-      propertyPath: _deathPopupPrefab
-      value: 
-      objectReference: {fileID: 25009065811693733, guid: ccc7fa6ab4ded3b4699de8c272669afb, type: 3}
     - target: {fileID: 7774909270991829024, guid: 5e71e68b4e8523447a07552ede443285, type: 3}
       propertyPath: m_Pivot.x
       value: 0
@@ -665,6 +661,18 @@ PrefabInstance:
       value: "<i>\"\u0411\u0443\u043C\u0431\u043E\u043A\u0441\"</i> \u0437\u043D\u0430\u0442\u043D\u043E
         \u043A\u043E\u043B\u0431\u0430\u0441\u0438\u0442"
       objectReference: {fileID: 0}
+    - target: {fileID: 8423850155241267055, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_fontSize
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 8423850155241267055, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
+    - target: {fileID: 8423850155241267055, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2665477660160160022, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
