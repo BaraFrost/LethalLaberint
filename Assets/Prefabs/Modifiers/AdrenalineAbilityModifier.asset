@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _value: 0.3
-  _temporary: 0
+  _temporary: 1
   _modifierTime: 10
-  _showModifierEffect: 0
+  _showModifierEffect: 1

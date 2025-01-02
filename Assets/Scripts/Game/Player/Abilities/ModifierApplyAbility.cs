@@ -8,9 +8,10 @@ namespace Game {
         [SerializeField]
         private Modifier _modifier;
 
-        protected override bool IsAbilityActive => _player.PlayerModifierLogic.IsModifierActive(_modifier);
+        public override float AbilityTime => _modifier.ModifierTime;
 
         public override void Activate() {
+            base.Activate();
             _player.PlayerModifierLogic.TryToAddModifier(_modifier);
         }
 

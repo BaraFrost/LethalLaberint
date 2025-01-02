@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: WalletModifierShopItem
   m_EditorClassIdentifier: 
   _type: 7
-  _price: 300
+  _price: 2000
   _sprite: {fileID: 21300000, guid: 5c0978c0d7672aa4fa4ea3bffc7d78d3, type: 3}
   _reward: {fileID: 11400000, guid: ba520ecf8b65b0f48baf5c114c9f9fa8, type: 2}

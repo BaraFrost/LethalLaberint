@@ -1,10 +1,9 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using UnityMeshSimplifier;
 using System.IO;
-using UnityEditor.Formats.Fbx.Exporter;
 using System.Collections.Generic;
-using System.Linq;
 using UnityEditor.SceneManagement;
 
 namespace Infrastructure {
@@ -221,3 +220,4 @@ namespace Infrastructure {
         }
     }
 }
+#endif

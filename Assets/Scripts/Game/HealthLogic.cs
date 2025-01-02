@@ -16,19 +16,21 @@ namespace Game {
         private bool _isDamaged;
         public bool IsDamaged => _isDamaged;
 
+        public bool IsDead => HealthCount <= 0;
+
         public void Awake() {
             _currentHealthCount = _startHealthCount;
         }
 
         public void AddDamage() {
-            if(_isDamaged || _currentHealthCount <= 0) {
+            if (_isDamaged || _currentHealthCount <= 0) {
                 return;
             }
             gameObject.SetActive(false);
             _isDamaged = true;
             _currentHealthCount--;
             onDamaged?.Invoke();
-            if(_currentHealthCount<= 0) {
+            if (_currentHealthCount <= 0) {
                 onDead?.Invoke();
             }
         }

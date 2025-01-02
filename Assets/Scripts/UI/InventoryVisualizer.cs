@@ -26,20 +26,13 @@ namespace UI {
             _spawnedButtons = Instantiate(_buttonPrefab, _contentRoot);
             _menuInventory.onAbilitySwitched += InitAbilityVisual;
             InitAbilityVisual();
-            /*
-            var spawnedAbilities = _playerAbilityLogic.Abilities;
-            for (int i = 0; i < spawnedAbilities.Length; i++) {
-                var spawnedButton = Instantiate(_buttonPrefab, _contentRoot);
-                var spawnedAbility = spawnedAbilities[i];
-                spawnedButton.Init(i, spawnedAbility);
-                spawnedButton.onButtonClicked += _playerInputLogic.AbilityButtonActivate;
-                _playerAbilityLogic.onAbilityActivate += () => spawnedButton.UpdateItem(spawnedAbility);
-                _spawnedButtons.Add(spawnedButton);
-            }*/
         }
 
         private void Update() {
             _menuInventory.gameObject.SetActive(_startLabyrinthCells.ShipLogic.PositionInsideShip(_playerController.transform.position));
+            if(_spawnedButtons != null && _playerController.PlayerAbilityLogic.CurrentAbility != null) {
+           //     _spawnedButtons.UpdateProgress(_playerController.PlayerAbilityLogic.CurrentAbility);
+            }
         }
 
         private void InitAbilityVisual() {

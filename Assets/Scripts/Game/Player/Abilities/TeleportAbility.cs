@@ -1,4 +1,3 @@
-using System.Collections;
 using UnityEngine;
 
 namespace Game {
@@ -6,13 +5,10 @@ namespace Game {
     public class TeleportAbility : AbstractAbility {
 
         [SerializeField]
-        private float _teleportTime;
-        [SerializeField]
         private ParticleSystem _teleportEffectPrefab;
         private ParticleSystem _teleportEffect;
         [SerializeField]
         private float _additionalEffectTime;
-        private bool _isTeleporting;
         private Vector3 _startPosition;
 
         public override void Init(PlayerController playerController) {
@@ -22,28 +18,19 @@ namespace Game {
         }
 
         public override void Activate() {
-            if (_isTeleporting) {
-                return;
-            }
-            StartCoroutine(TeleportCoroutine());
+            _teleportEffect.Play();
         }
 
-        private IEnumerator TeleportCoroutine() {
-            _isTeleporting = true;
-            _teleportEffect.Play();
-            yield return new WaitForSeconds(_teleportTime);
+        protected override void Stop() {
+            base.Stop();
             _player.PlayerMoveLogic.Teleport(_startPosition);
             _player.PlayerMoveLogic.FreezeMovement(_additionalEffectTime);
-            yield return new WaitForSeconds(_additionalEffectTime);
             _teleportEffect.Stop(false, ParticleSystemStopBehavior.StopEmitting);
-            _isTeleporting = false;
         }
 
         protected override void OnPlayerDamaged() {
             base.OnPlayerDamaged();
             _teleportEffect.Stop();
-            StopAllCoroutines();
-            _isTeleporting = false;
         }
     }
 }

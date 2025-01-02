@@ -1,37 +1,24 @@
-using System.Collections;
-using UnityEngine;
 
 namespace Game {
 
     public class BlackoutAbility : AbstractAbility {
 
-        [SerializeField]
-        private float _effectTime;
-
-        private bool _isActive;
-        protected override bool IsAbilityActive => _isActive;
-
         public override void Activate() {
-            if (_isActive) {
-                return;
-            }
-            StartCoroutine(BlackoutCoroutine());
-        }
-
-        private IEnumerator BlackoutCoroutine() {
-            _isActive = true;
+            base.Activate();
             var enemies = _player.GameEntitiesContainer.enemies;
             foreach (var enemy in enemies) {
                 if (enemy.Type == Enemy.EnemyType.Electric && enemy.VisionLogic != null) {
-                    enemy.VisionLogic.TemporarilyDisable(_effectTime);
+                    enemy.VisionLogic.TemporarilyDisable(AbilityTime);
                 }
             }
             _player.PlayerVisualLogic.EnvironmentVisualLogic.LightLogic.ActivateDarkLight();
             ChangeDoorActiveState(false);
-            yield return new WaitForSeconds(_effectTime);
+        }
+
+        protected override void Stop() {
+            base.Stop();
             ChangeDoorActiveState(true);
             _player.PlayerVisualLogic.EnvironmentVisualLogic.LightLogic.ActivateDefaultLight();
-            _isActive = false;
         }
 
         private void ChangeDoorActiveState(bool enabled) {

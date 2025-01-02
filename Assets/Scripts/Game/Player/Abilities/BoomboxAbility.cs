@@ -7,21 +7,16 @@ namespace Game {
 
         [SerializeField]
         private AdditionalEnemyTarget _additionalEnemyTargetPrefab;
-
-        [SerializeField]
-        private float _time;
-
         private AdditionalEnemyTarget _additionalEnemyTarget;
-        protected override bool IsAbilityActive => _additionalEnemyTarget != null;
 
         public override void Activate() {
-            StartCoroutine(BoomboxCoroutine());
-        }
-
-        private IEnumerator BoomboxCoroutine() {
+            base.Activate();
             _additionalEnemyTarget = Instantiate(_additionalEnemyTargetPrefab, _player.transform.position, _additionalEnemyTargetPrefab.transform.rotation, transform.parent.parent);
             _player.GameEntitiesContainer.additionalEnemyTarget = _additionalEnemyTarget;
-            yield return new WaitForSeconds(_time);
+        }
+
+        protected override void Stop() {
+            base.Stop();
             _player.GameEntitiesContainer.additionalEnemyTarget = null;
             _additionalEnemyTarget.DestroyAdditionalTarget();
         }

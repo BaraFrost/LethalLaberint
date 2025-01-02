@@ -12,10 +12,13 @@ namespace UI {
         private Button _button;
 
         [SerializeField]
-        private TextMeshProUGUI _textMeshPro;
+        private TextMeshProUGUI _countText;
 
         [SerializeField]
         private Image _iconImage;
+
+        [SerializeField]
+        private Image _progressImage;
 
         public Action<int> onButtonClicked;
 
@@ -28,7 +31,7 @@ namespace UI {
         }
 
         public void UpdateItem(PlayerAbilityLogic.SpawnedAbility ability) {
-            _textMeshPro.text = ability.Count.ToString();
+            _countText.text = ability.Count.ToString();
             _iconImage.sprite = ability.AbilityData.Sprite;
         }
     }

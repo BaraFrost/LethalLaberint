@@ -8,15 +8,13 @@ namespace Game {
         private float _distance;
 
         [SerializeField]
-        private float _flashTime;
-
-        [SerializeField]
         private DestroyableEffect _explosionEffect;
 
         [SerializeField]
         private LayerMask _layerMask;
 
         public override void Activate() {
+            base.Activate();
             if (_explosionEffect != null) {
                 Instantiate(_explosionEffect, _player.transform.position, Quaternion.identity, transform);
             }
@@ -25,7 +23,7 @@ namespace Game {
                 if (!collider.TryGetComponent<Enemy>(out var enemy) || enemy.VisionLogic == null) {
                     continue;
                 }
-                enemy.VisionLogic.TemporarilyDisable(_flashTime);
+                enemy.VisionLogic.TemporarilyDisable(AbilityTime);
             }
         }
     }

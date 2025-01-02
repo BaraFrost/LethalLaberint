@@ -1,4 +1,3 @@
-using System.IO;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,39 +9,45 @@ namespace Game {
         private NavMeshAgent _agent;
         [SerializeField]
         private float _stopDistance;
-
         [SerializeField]
         private float _rotationSpeed = 10f;
 
-        private NavMeshPath _navMeshPath;
-
         private Vector3 _currentTargetPosition;
+        private NavMeshPath _cachedPath;
 
         public override bool IsMoving => !_agent.isStopped;
 
+        private bool TryCalculatePath(Vector3 position, out NavMeshPath path) {
+            path = new NavMeshPath();
+            _agent.CalculatePath(position, path);
+            return path.status == NavMeshPathStatus.PathComplete;
+        }
+
         protected override void MoveToPosition(Vector3 position, float speed) {
-            _agent.speed = speed;
-            _navMeshPath = new NavMeshPath();
-            _agent.isStopped = false;
-            _agent.CalculatePath(position, _navMeshPath);
-            if (_navMeshPath.status != NavMeshPathStatus.PathComplete) {
+            if (position == _currentTargetPosition) {
                 return;
             }
-            if (_currentTargetPosition != position) {
-                _agent.SetPath(_navMeshPath);
+
+            _agent.speed = speed;
+
+            if (TryCalculatePath(position, out var path)) {
+                _agent.isStopped = false;
+                _agent.SetPath(path);
                 _currentTargetPosition = position;
             }
         }
 
         public override bool PositionAvailable(Vector3 position) {
-            if (position != _currentTargetPosition) {
-                _navMeshPath = new NavMeshPath();
-                _agent.CalculatePath(position, _navMeshPath);
+            if (position == _currentTargetPosition) {
+                return true;
             }
-            if (_navMeshPath == null || _navMeshPath.corners.Length == 0 || _navMeshPath.status != NavMeshPathStatus.PathComplete 
+
+            if (!TryCalculatePath(position, out var path)
+                || path.corners.Length == 0
                 || Enemy.EntitiesContainer.cellsContainer.StartCells.ShipLogic.PositionInsideShip(position)) {
                 return false;
             }
+
             return true;
         }
 
@@ -56,12 +61,11 @@ namespace Game {
         }
 
         public override void Rotate(Vector3 lookAtPosition) {
-            var direction = Vector3.RotateTowards(transform.forward, -transform.position + lookAtPosition, _rotationSpeed * Time.deltaTime, 0.0f);
-            transform.rotation = Quaternion.LookRotation(direction);
-            /*lookAtPosition.y = transform.position.y;
-            _agent.transform.LookAt(lookAtPosition);*/
+            Vector3 direction = (lookAtPosition - transform.position).normalized;
+            direction.y = 0;
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, _rotationSpeed * Time.deltaTime);
         }
-
 
         public override void Stop() {
             _agent.isStopped = true;

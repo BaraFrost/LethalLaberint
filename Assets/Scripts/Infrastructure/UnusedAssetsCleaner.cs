@@ -1,3 +1,4 @@
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEngine;
 using System.Collections.Generic;
@@ -5,7 +6,6 @@ using System.IO;
 
 
 namespace Infrastructure {
-
     public class UnusedAssetsCleaner : EditorWindow {
 
         [MenuItem("Tools/Clean Unused Assets")]
@@ -76,3 +76,4 @@ namespace Infrastructure {
         }
     }
 }
+#endif

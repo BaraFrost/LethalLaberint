@@ -40,7 +40,11 @@ namespace Game {
         [SerializeField]
         private EnvironmentSpawnLogic _environmentSpawnLogic;
 
-        private GameEntitiesContainer _gameEntitiesContainer = new GameEntitiesContainer();
+        [SerializeField]
+        private GameEntitiesContainer _gameEntitiesContainer;
+
+        [SerializeField]
+        private HintManager _hintManager;
 
         private void Start() {
             Init();
@@ -70,13 +74,20 @@ namespace Game {
             _pathDrawer.Init(_gameEntitiesContainer.cellsContainer.StartCells.ShipLogic.WarehouseArea.transform, _gameEntitiesContainer.playerController.transform);
 
             _environmentSpawnLogic.Spawn(_gameEntitiesContainer.cellsContainer);
+
+            _hintManager.Init(_gameEntitiesContainer.playerController);
         }
 
         private void HandlePlayerDeadEvent() {
-            Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                EarnedMoney = 0,
-            });
-            LoadExitScene();
+            PopupManager.Instance.ShowDeathPopup(new DeathPopup.Data {
+                continueCallback = () => {
+                    Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
+                        EarnedMoney = 0,
+                    });
+                    LoadExitScene();
+                }
+            }
+            );
         }
 
         private void HandleExitEvent() {

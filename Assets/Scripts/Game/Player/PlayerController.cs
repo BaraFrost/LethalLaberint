@@ -65,7 +65,10 @@ namespace Game {
             HealthLogic.onDamaged += _ragdollVisualLogic.SpawnRagdoll;
         }
 
-        private void Update() {
+        public void UpdateLogics() {
+            if(!gameObject.activeSelf) {
+                return;
+            }
             foreach (var logic in _playerLogics) {
                 logic.UpdateLogic();
             }

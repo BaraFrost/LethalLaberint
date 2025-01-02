@@ -1,5 +1,4 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
@@ -62,14 +61,10 @@ namespace Game {
             }
         }
 
-        private void Update() {
+        public virtual void UpdateEnemy() {
             if (!_isInited) {
                 return;
             }
-            UpdateEnemy();
-        }
-
-        protected virtual void UpdateEnemy() {
             UpdateAllLogic();
             NpcBehaviorTree.Evaluate();
         }

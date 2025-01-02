@@ -14,14 +14,14 @@ namespace Game {
         }
 
         private void StartMoveAnimation() {
-            if(_moveSound == null) {
+            if (_moveSound == null || _moveSound.isPlaying) {
                 return;
             }
             _moveSound.Play();
         }
 
         private void StopMoveAnimation() {
-            if (_moveSound == null) {
+            if (_moveSound == null || !_moveSound.isPlaying) {
                 return;
             }
             _moveSound.Stop();
