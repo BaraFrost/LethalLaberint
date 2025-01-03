@@ -24,7 +24,7 @@ namespace Game {
         }
 
         protected override void MoveToPosition(Vector3 position, float speed) {
-            if (position == _currentTargetPosition) {
+            if (position == _currentTargetPosition || !PositionAvailable(position)) {
                 return;
             }
 

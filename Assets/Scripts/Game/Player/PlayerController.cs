@@ -54,6 +54,7 @@ namespace Game {
 
         private CharacterController _characterController;
         private Animator _characterAnimator;
+        private bool _disable;
 
         public void Init(GameEntitiesContainer gameEntitiesContainer) {
             _gameEntitiesContainer = gameEntitiesContainer;
@@ -66,12 +67,16 @@ namespace Game {
         }
 
         public void UpdateLogics() {
-            if(!gameObject.activeSelf) {
+            if(!gameObject.activeSelf || _disable) {
                 return;
             }
             foreach (var logic in _playerLogics) {
                 logic.UpdateLogic();
             }
+        }
+
+        public void DisablePlayer() {
+            _disable = true;
         }
     }
 }

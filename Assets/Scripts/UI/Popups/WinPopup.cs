@@ -24,7 +24,7 @@ namespace UI {
             _continueButton.onClick.AddListener(OnContinueButtonClicked);
         }
 
-        private void SetData(Action continueCallback, int money) {
+        public void SetData(Action continueCallback, int money) {
             _textLabel.text = string.Format(_text.GetText(), money, Account.Instance.RequiredMoney);
             _continueCallback = continueCallback;
         }

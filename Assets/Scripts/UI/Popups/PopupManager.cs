@@ -18,6 +18,10 @@ namespace UI {
         private FadePopup _fadePopupPrefab;
         private FadePopup _fadePopup;
 
+        [SerializeField]
+        private WinPopup _winPopupPrefab;
+        private WinPopup _winPopup;
+
         private AbstractPopup _currentPopup;
 
         private void ShowPopup(AbstractPopup popup) {
@@ -50,6 +54,14 @@ namespace UI {
             }
             _fadePopup.SetData(onShowedCallback);
             ShowPopup(_fadePopup);
+        }
+
+        public void ShowWinPopup(Action continueCallback, int money) {
+            if (_winPopup == null) {
+                _winPopup = Instantiate(_winPopupPrefab, gameObject.transform);
+            }
+            _winPopup.SetData(continueCallback, money);
+            ShowPopup(_winPopup);
         }
     }
 }

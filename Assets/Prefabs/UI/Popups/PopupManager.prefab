@@ -117,3 +117,4 @@ MonoBehaviour:
   _textPopupPrefab: {fileID: 5900206233470917089, guid: ed60c1070b5a8b74c8cf3b684c21e9b8, type: 3}
   _deathPopupPrefab: {fileID: 25009065811693733, guid: ccc7fa6ab4ded3b4699de8c272669afb, type: 3}
   _fadePopupPrefab: {fileID: 1431090248825985106, guid: 2e041743ece8ce24885daf90734b622c, type: 3}
+  _winPopupPrefab: {fileID: 2840933587573610004, guid: 4746c29f25245ac43b82d50aea467fd4, type: 3}

@@ -30,8 +30,8 @@ namespace UI {
 
         private void Update() {
             _menuInventory.gameObject.SetActive(_startLabyrinthCells.ShipLogic.PositionInsideShip(_playerController.transform.position));
-            if(_spawnedButtons != null && _playerController.PlayerAbilityLogic.CurrentAbility != null) {
-           //     _spawnedButtons.UpdateProgress(_playerController.PlayerAbilityLogic.CurrentAbility);
+            if (_spawnedButtons != null && _playerController.PlayerAbilityLogic.CurrentAbility != null) {
+                _spawnedButtons.UpdateProgress(_playerController.PlayerAbilityLogic.CurrentAbility);
             }
         }
 

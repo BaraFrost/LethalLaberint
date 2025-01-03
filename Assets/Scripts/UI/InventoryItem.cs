@@ -34,6 +34,12 @@ namespace UI {
             _countText.text = ability.Count.ToString();
             _iconImage.sprite = ability.AbilityData.Sprite;
         }
+
+        public void UpdateProgress(PlayerAbilityLogic.SpawnedAbility spawnedAbility) {
+            _progressImage.gameObject.SetActive(spawnedAbility.Ability.IsAbilityActive);
+            if (spawnedAbility.Ability.IsAbilityActive) {
+                _progressImage.fillAmount = 1 - spawnedAbility.Ability.Progress;
+            }
+        }
     }
 }
-

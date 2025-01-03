@@ -18,6 +18,7 @@ namespace Game {
         }
 
         public override void Activate() {
+            base.Activate();
             _teleportEffect.Play();
         }
 

@@ -35,8 +35,12 @@ namespace UI {
                 return;
             }
             if (immediately) {
+                if (_fadeCoroutine != null) {
+                    StopCoroutine(_fadeCoroutine);
+                }
                 gameObject.SetActive(false);
                 _group.alpha = 0;
+                IsActive = false;
                 OnHided?.Invoke();
                 return;
             }

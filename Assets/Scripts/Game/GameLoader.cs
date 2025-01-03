@@ -91,10 +91,15 @@ namespace Game {
         }
 
         private void HandleExitEvent() {
-            Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                EarnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount,
-            });
-            LoadExitScene();
+            var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount;
+            _gameEntitiesContainer.playerController.DisablePlayer();
+            PopupManager.Instance.ShowWinPopup(() => {
+                Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
+                    EarnedMoney = earnedMoney,
+                });
+                LoadExitScene();
+            },
+            earnedMoney);
         }
 
         private void LoadExitScene() {

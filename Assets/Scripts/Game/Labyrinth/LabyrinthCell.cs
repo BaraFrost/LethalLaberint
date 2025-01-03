@@ -1,6 +1,8 @@
+using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.UIElements;
 using Utils;
@@ -17,7 +19,7 @@ namespace Game {
         }
 
         public enum ConnectionType {
-            
+
         }
 
         [Serializable]
@@ -96,8 +98,8 @@ namespace Game {
         }
 
         public bool AvailableAllDirections(List<Direction> directions) {
-            foreach(var direction in directions) {
-                if(!RealtimeAvailablePositions.ContainsKey(direction)) {
+            foreach (var direction in directions) {
+                if (!RealtimeAvailablePositions.ContainsKey(direction)) {
                     return false;
                 }
             }
@@ -109,11 +111,11 @@ namespace Game {
         }
 
         public bool AvailableOnlyThisDirectionsDefault(List<Direction> directions) {
-            if(directions.Count != _availablePositions.Count) {
+            if (directions.Count != _availablePositions.Count) {
                 return false;
             }
-            foreach(var direction in directions) {
-                if(_availablePositions.FirstOrDefault(position => position.Direction == direction) == null) {
+            foreach (var direction in directions) {
+                if (_availablePositions.FirstOrDefault(position => position.Direction == direction) == null) {
                     return false;
                 }
             }
@@ -123,5 +125,28 @@ namespace Game {
         public void SetRealtimeAvailablePositions(Dictionary<Direction, AvailablePosition> realtimeAvailablePositions) {
             _realtimeAvailablePositions = realtimeAvailablePositions;
         }
+
+#if UNITY_EDITOR
+        [Button]
+        private void RotateLeft() {
+            CalculateAvailablePositions(-90);
+        }
+
+        [Button]
+        private void RotateRight() {
+            CalculateAvailablePositions(90);
+        }
+
+        private void CalculateAvailablePositions(int rotation) {
+            gameObject.transform.rotation *= Quaternion.Euler(0, rotation, 0);
+            var availablePositions = new List<AvailablePosition>();
+            foreach (var position in _availablePositions) {
+                var rotatedAvailablePosition = position.GetRotatedClone(rotation);
+                availablePositions.Add(rotatedAvailablePosition);
+            }
+            _availablePositions = availablePositions;
+            EditorUtility.SetDirty(this);
+        }
+#endif
     }
 }

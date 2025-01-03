@@ -16,8 +16,8 @@ namespace UI {
         }
 
         public override void HidePopup(bool immediately = false) {
-            base.HidePopup();
             StopCoroutine(_hideCoroutine);
+            base.HidePopup(immediately);
         }
 
         private IEnumerator HideCoroutine() {
