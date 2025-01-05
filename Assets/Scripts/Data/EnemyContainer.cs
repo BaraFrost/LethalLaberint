@@ -45,14 +45,14 @@ namespace Data {
         }
 
         private EnemyWithCount[] GetAvailableEnemies(float weight, int stage) {
-            var stagePercent = Account.Instance.DifficultyProgressionConfig.CurrentDifficultyStage / Account.Instance.DifficultyProgressionConfig.MaxStage;
+            var stagePercent = Account.Instance.DifficultyProgressionConfig.CurrentDifficultyStage;
             var enemiesByStage = _enemies.Where(enemy => enemy.MinStage <= stage
             && enemy.ProbabilityByStage.Evaluate(stagePercent) > 0).ToArray();
             return enemiesByStage.Where(enemy => enemy.Weight <= weight).ToArray();
         }
 
         private EnemyWithCount GetRandomEnemy(EnemyWithCount[] enemies) {
-            var stagePercent = Account.Instance.DifficultyProgressionConfig.CurrentDifficultyStage / Account.Instance.DifficultyProgressionConfig.MaxStage;
+            var stagePercent = Account.Instance.DifficultyProgressionConfig.CurrentDifficultyStage;
             var probabilitySum = 0f;
             foreach (var enemy in enemies) {
                 probabilitySum += enemy.ProbabilityByStage.Evaluate(stagePercent);

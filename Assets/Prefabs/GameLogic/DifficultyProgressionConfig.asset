@@ -27,36 +27,45 @@ MonoBehaviour:
     _maxValue: 25
   _requiredMoney:
     _minValue: 170
-    _maxValue: 4000
+    _maxValue: 5000
   _additionalSpawnMoney:
-    _minValue: 100
-    _maxValue: 200
+    _minValue: 50
+    _maxValue: 100
   _difficultyProgressionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.45100704
-      outSlope: 0.45100704
+      inSlope: 0.8519419
+      outSlope: 0.8519419
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.5545646
-      value: 0.25011253
-      inSlope: 1.0672501
-      outSlope: 1.0672501
-      tangentMode: 34
+      time: 0.49848133
+      value: 0.42467713
+      inSlope: 2.3980436
+      outSlope: 2.3980436
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
+      outWeight: 0.39982426
+    - serializedVersion: 3
+      time: 0.81486136
+      value: 0.631138
+      inSlope: 0.2654863
+      outSlope: 0.2654863
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.71999645
       outWeight: 0.33333334
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.6834931
-      outSlope: 1.6834931
+      inSlope: 1.9923553
+      outSlope: 1.9923553
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -64,17 +73,14 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _defaultDaysCount: 3
+  _defaultDaysCount: 2
   _daysByStageOverride:
   - _stage: 0
     _days: 1
     _money: 150
-  - _stage: 1
-    _days: 2
-    _money: 300
   - _stage: 2
     _days: 1
-    _money: 400
+    _money: 300
   - _stage: 4
     _days: 1
-    _money: 600
+    _money: 400

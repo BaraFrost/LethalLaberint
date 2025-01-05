@@ -57,7 +57,7 @@ namespace Data {
             get {
                 return _currentStageMoney;
             }
-            private set {
+            set {
                 _currentStageMoney = value;
                 SaveAccountData();
             }
@@ -119,7 +119,7 @@ namespace Data {
             _currentStage = PlayerPrefs.GetInt(nameof(CurrentStage), _currentStage);
             _abilitiesCountData = new Dictionary<int, int>();
             foreach (var abilityId in _abilityDataContainer.GetAllAbilityIds()) {
-                _abilitiesCountData.Add(abilityId, PlayerPrefs.GetInt(nameof(AbilitiesCountData) + abilityId, 0));
+                _abilitiesCountData.Add(abilityId, PlayerPrefs.GetInt(nameof(AbilitiesCountData) + abilityId, 1));
             }
             foreach (var modifier in LevelsModifiersContainer.Modifiers) {
                 _modifiersCountData.Add(modifier.Key, PlayerPrefs.GetInt(nameof(ModifiersCountData) + modifier.Key, 0));

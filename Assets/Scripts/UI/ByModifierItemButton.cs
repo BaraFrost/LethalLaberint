@@ -14,7 +14,7 @@ namespace UI {
 
         protected override void UpdateMoneyText() {
             base.UpdateMoneyText();
-            _modifierLevelText.text = Account.Instance.ModifiersCountData[_modifierType].ToString();
+            _modifierLevelText.text = $"+{Account.Instance.LevelsModifiersContainer.Modifiers[_modifierType].Value * 100}%";// Account.Instance.ModifiersCountData[_modifierType].ToString();
         }
     }
 }

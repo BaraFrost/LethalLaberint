@@ -14,6 +14,7 @@ namespace UI {
         public struct Data {
             public string text;
             public Type type;
+            public Action onPopupShowedCallback;
         }
 
         [Serializable]
@@ -26,7 +27,10 @@ namespace UI {
         [SerializeField]
         private TextByType[] _texts;
 
+        private Data _data;
+
         public void SetData(Data data) {
+            _data = data;
             DisableTexts();
             foreach (var textWithType in _texts) {
                 if(data.type == textWithType.type) {
@@ -34,6 +38,11 @@ namespace UI {
                     textWithType.text.text = data.text;
                 }
             }
+        }
+
+        protected override void OnPopupShowed() {
+            base.OnPopupShowed();
+            _data.onPopupShowedCallback?.Invoke();
         }
 
         private void DisableTexts() {

@@ -213,7 +213,7 @@ MonoBehaviour:
   _movementLogic: {fileID: 8693370720141734426}
   _attackLogic: {fileID: 5965128071797883368}
   _healthLogic: {fileID: 6849981111245222778}
-  _needShowArrow: 1
+  _needShowArrow: 0
   _enemyItemsCollectionLogic: {fileID: 8035049046249311367}
   _availablePointSearchEnemyLogic: {fileID: 3324818313139283730}
   _distanceToDropItem: 1.5

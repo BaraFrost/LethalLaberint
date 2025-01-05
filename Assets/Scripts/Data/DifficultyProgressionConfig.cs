@@ -78,6 +78,7 @@ namespace Data {
         [SerializeField]
         private DaysByStage[] _daysByStageOverride;
 
+        public bool IsBonusStage => _daysByStageOverride.FirstOrDefault(data => data.Stage == Account.Instance.CurrentStage) != null;
         public int CurrentDifficultyStage => Math.Min(Account.Instance.CurrentStage, _maxStage);
 
         public float GetValue(MinMaxValue value) {

@@ -1270,7 +1270,7 @@ Transform:
   - {fileID: 1212618699349763574}
   - {fileID: 589737280273207778}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8433655475274982279
 MonoBehaviour:
@@ -1293,7 +1293,7 @@ MonoBehaviour:
   _playerInputLogic: {fileID: 5134372529002573465}
   _playerMoveLogic: {fileID: 9113958015102423524}
   _playerModifierLogic: {fileID: 4940662480882468196}
-  _playerVisualLogic: {fileID: 0}
+  _playerVisualLogic: {fileID: 964458704731692967}
 --- !u!95 &1525464365149744103
 Animator:
   serializedVersion: 5
@@ -1436,12 +1436,12 @@ MonoBehaviour:
   _correctionDistance: 2
   _correctionForce: 3
   _rayDistance: 6
-  _moveSpeed: 8
+  _moveSpeed: 9
   _rotationSpeed: 15
   _wallLayer:
     serializedVersion: 2
     m_Bits: 8256
-  _pushForce: 0.1
+  _pushForce: 0.3
 --- !u!114 &4264434458147863614
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6590,7 +6590,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &9091978142166124638
 Transform:
   m_ObjectHideFlags: 0

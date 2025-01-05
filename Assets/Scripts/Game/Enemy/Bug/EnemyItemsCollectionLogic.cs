@@ -35,7 +35,7 @@ namespace Game {
             availableItem = null;
             _itemsInZone.Clear();
             foreach (var item in collectibleItems) {
-                if(item.collectedByEnemy) {
+                if (item.collectedByEnemy || item.Collected || !item.gameObject.activeSelf) {
                     continue;
                 }
                 if (Vector3.Distance(item.transform.position, transform.position) <= _searchDistance) {
@@ -68,10 +68,13 @@ namespace Game {
         }
 
         public void CollectItem(CollectibleItem item) {
+            if(!item.gameObject.activeSelf || item.Collected) {
+                return;
+            }
             item.collectedByEnemy = true;
             item.gameObject.SetActive(false);
             _collectedItem = item;
-            if(_visualItem !=  null) {
+            if (_visualItem != null) {
                 _visualItem.SetActive(true);
             }
         }

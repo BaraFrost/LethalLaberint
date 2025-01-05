@@ -18,17 +18,13 @@ namespace UI {
         private TextMeshProUGUI _quotaText;
         [SerializeField]
         private Button _playButton;
-       /* [SerializeField]
-        private MenuInventory _inventory;*/
 
         void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
         }
 
         private void LoadGameScreen() {
-            PopupManager.Instance.ShowFadePopup(() => {
-                SceneManager.LoadScene("Game");
-            });
+            ScenesSwitchManager.Instance.LoadGameScene();
         }
 
         void Update() {

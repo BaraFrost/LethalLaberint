@@ -22,6 +22,10 @@ namespace UI {
         private WinPopup _winPopupPrefab;
         private WinPopup _winPopup;
 
+        [SerializeField]
+        private TimerPopup _timerPopupPrefab;
+        private TimerPopup _timerPopup;
+
         private AbstractPopup _currentPopup;
 
         private void ShowPopup(AbstractPopup popup) {
@@ -62,6 +66,14 @@ namespace UI {
             }
             _winPopup.SetData(continueCallback, money);
             ShowPopup(_winPopup);
+        }
+
+        public void ShowTimerPopup(TimerPopup.Data data) {
+            if (_timerPopup == null) {
+                _timerPopup = Instantiate(_timerPopupPrefab, gameObject.transform);
+            }
+            _timerPopup.SetData(data);
+            ShowPopup(_timerPopup);
         }
     }
 }

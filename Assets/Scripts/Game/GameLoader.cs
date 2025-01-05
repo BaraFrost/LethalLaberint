@@ -1,7 +1,6 @@
 using Data;
 using UI;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Game {
 
@@ -84,7 +83,7 @@ namespace Game {
                     Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
                         EarnedMoney = 0,
                     });
-                    LoadExitScene();
+                    ScenesSwitchManager.Instance.LoadMiniGameScene();
                 }
             }
             );
@@ -94,24 +93,24 @@ namespace Game {
             var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount;
             _gameEntitiesContainer.playerController.DisablePlayer();
             PopupManager.Instance.ShowWinPopup(() => {
-                Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                    EarnedMoney = earnedMoney,
-                });
-                LoadExitScene();
+                if(Account.Instance.DifficultyProgressionConfig.IsBonusStage) {
+                    Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
+                        EarnedMoney = earnedMoney,
+                    });
+                    ScenesSwitchManager.Instance.LoadMenuScene();
+                }
+                else {
+                    Account.Instance.CurrentStageMoney = earnedMoney;
+                    ScenesSwitchManager.Instance.LoadMiniGameScene();
+                }
             },
             earnedMoney);
-        }
-
-        private void LoadExitScene() {
-            PopupManager.Instance.ShowFadePopup(() => {
-                SceneManager.LoadScene("Menu");
-            });
         }
 
         private void Update() {
             if (Input.GetKeyDown(KeyCode.R)) {
                 PopupManager.Instance.ShowFadePopup(() => {
-                    SceneManager.LoadScene("Menu");
+                    ScenesSwitchManager.Instance.LoadMiniGameScene();
                 });
             }
         }
