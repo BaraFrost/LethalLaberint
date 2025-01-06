@@ -46,14 +46,14 @@ namespace Game {
             _isAttacking = true;
             yield return new WaitForSeconds(_timeBeforeExplosion);
             if (_hasDamage && CanSeeTarget(target.Collider)) {
-                target.HealthLogic.AddDamage();
+                target.HealthLogic.AddDamage(Enemy.Type);
             }
             var targets = Physics.OverlapSphere(gameObject.transform.position, _damageDistance, _overlapEnemyLayerMask);
             foreach (var enemyTarget in targets) {
                 if (!_hasDamage || !enemyTarget.TryGetComponent<Enemy>(out var enemy) || enemy.HealthLogic == null || !CanSeeTarget(enemyTarget)) {
                     continue;
                 }
-                enemy.HealthLogic.AddDamage();
+                enemy.HealthLogic.AddDamage(Enemy.Type);
             }
             OnAttack?.Invoke();
             yield return new WaitForSeconds(_reloadTime);

@@ -1848,7 +1848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a144c47c230fbcd44bbea99477ead3fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 2
   _visionLogic: {fileID: 7446011376617307055}
   _movementLogic: {fileID: 6120792763255573508}
   _attackLogic: {fileID: 2810525428676449396}

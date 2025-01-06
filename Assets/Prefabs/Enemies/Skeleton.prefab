@@ -534,7 +534,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ceeec09d9973634399f0ab39b13f767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 4
   _visionLogic: {fileID: 8913129406180318615}
   _movementLogic: {fileID: 6972976003576726812}
   _attackLogic: {fileID: 6445434085717816143}

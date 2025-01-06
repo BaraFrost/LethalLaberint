@@ -22,7 +22,7 @@ namespace Game {
             _playerController.HealthLogic.onDead += playerDeadEvent;
         }
 
-        private void StartRespawnCoroutine() {
+        private void StartRespawnCoroutine(Enemy.EnemyType type) {
             if (_playerController.HealthLogic.HealthCount <= 0) {
                 return;
             }

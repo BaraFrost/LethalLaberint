@@ -287,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 512
+      value: 491.51202
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -699,7 +699,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 512
+      value: 491.51202
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1328,7 +1328,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 512
+      value: 491.51202
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1625,7 +1625,7 @@ RectTransform:
   m_GameObject: {fileID: 942137185}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.80555, y: 0.80555, z: 0.80555}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3346211735914168748}
@@ -1638,8 +1638,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: -123.85, y: 131.19}
-  m_SizeDelta: {x: 1234.3, y: 180.2}
+  m_AnchoredPosition: {x: -221.14996, y: 132}
+  m_SizeDelta: {x: 1787.2, y: 261.8698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &942137187
 MonoBehaviour:
@@ -1659,7 +1659,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 4
-  m_Spacing: 51.38
+  m_Spacing: 118.3
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0
   m_ChildControlWidth: 0
@@ -2634,7 +2634,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 512
+      value: 491.51202
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4150,14 +4150,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 942137186}
     m_Modifications:
-    - target: {fileID: 264581127138967081, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
-      propertyPath: _abilityId
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 264581127138967081, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
-      propertyPath: _shopItemType
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 478467469311684212, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_Name
       value: BuyAbilityItemButton
@@ -4192,7 +4184,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 512
+      value: 491.51202
       objectReference: {fileID: 0}
     - target: {fileID: 3984776758931912744, guid: ff956f07a284f6b43a3d0b16e69b56d4, type: 3}
       propertyPath: m_SizeDelta.y

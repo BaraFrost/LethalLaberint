@@ -6,7 +6,12 @@ namespace Game {
     public abstract class Enemy : MonoBehaviour, ILabyrinthEntity {
 
         public enum EnemyType {
-            Default,
+            Spider,
+            Dog,
+            Mask,
+            Jester,
+            Skeleton,
+            Bug,
             Electric,
         }
 
@@ -36,7 +41,7 @@ namespace Game {
         private bool _needShowArrow;
         public bool NeedShowArrow => _needShowArrow;
 
-        public GameEntitiesContainer EntitiesContainer  { get; private set; }
+        public GameEntitiesContainer EntitiesContainer { get; private set; }
 
         public IEnemyLogic[] _allLogics;
 

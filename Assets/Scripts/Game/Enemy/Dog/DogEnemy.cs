@@ -1,5 +1,4 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Collections.Generic;
 
 namespace Game {
 

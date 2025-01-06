@@ -26,7 +26,7 @@ namespace UI {
             _healthLogic.onDamaged += UpdateHealth;
         }
 
-        private void UpdateHealth() {
+        private void UpdateHealth(Enemy.EnemyType type) {
             for (var i = 0; i < _healthImages.Count - _healthLogic.HealthCount; i++) {
                 _healthImages[i].gameObject.SetActive(false);
             }

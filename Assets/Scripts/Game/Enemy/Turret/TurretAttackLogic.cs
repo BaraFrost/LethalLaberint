@@ -54,7 +54,7 @@ namespace Game {
             if (!shoot) {
                 return false;
             }
-            target.HealthLogic.AddDamage();
+            target.HealthLogic.AddDamage(Enemy.Type);
             return true;
         }
 

@@ -83,7 +83,7 @@ namespace Game {
                     Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
                         EarnedMoney = 0,
                     });
-                    ScenesSwitchManager.Instance.LoadMiniGameScene();
+                    ScenesSwitchManager.Instance.LoadMenuScene();
                 }
             }
             );
@@ -109,7 +109,7 @@ namespace Game {
         private void Update() {
             if (Input.GetKeyDown(KeyCode.R)) {
                 PopupManager.Instance.ShowFadePopup(() => {
-                    ScenesSwitchManager.Instance.LoadMiniGameScene();
+                    ScenesSwitchManager.Instance.LoadMenuScene();
                 });
             }
         }

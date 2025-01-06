@@ -29,8 +29,8 @@ namespace Game {
             _teleportEffect.Stop(false, ParticleSystemStopBehavior.StopEmitting);
         }
 
-        protected override void OnPlayerDamaged() {
-            base.OnPlayerDamaged();
+        protected override void OnPlayerDamaged(Enemy.EnemyType enemyType) {
+            base.OnPlayerDamaged(enemyType);
             _teleportEffect.Stop();
         }
     }

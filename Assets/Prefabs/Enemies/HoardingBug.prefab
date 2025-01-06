@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f51b3010c63089b4fa1286eae8eef5e7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 5
   _visionLogic: {fileID: 1920188603428501275}
   _movementLogic: {fileID: 8693370720141734426}
   _attackLogic: {fileID: 5965128071797883368}

@@ -425,7 +425,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2ceeec09d9973634399f0ab39b13f767, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 0
+  _type: 3
   _visionLogic: {fileID: 8196848265792755348}
   _movementLogic: {fileID: 5150575616200752694}
   _attackLogic: {fileID: 3871532624635625033}
@@ -446,8 +446,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 12
-  _runSpeed: 12
+  _walkSpeed: 9
+  _runSpeed: 9
   _agent: {fileID: 6607467583905154735}
   _stopDistance: 0.4
   _rotationSpeed: 10
@@ -1042,7 +1042,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7625792911388732976}
-  m_LocalRotation: {x: 0.025373587, y: 0.0007180683, z: 0.012737538, w: 0.99959666}
+  m_LocalRotation: {x: -0.10020768, y: 0.0001898883, z: 0.013277599, w: 0.99487793}
   m_LocalPosition: {x: 0.00016888186, y: 0.0006925319, z: -0.0003374982}
   m_LocalScale: {x: 1.0000001, y: 1.0000002, z: 0.99999994}
   m_ConstrainProportionsScale: 0
@@ -1050,7 +1050,7 @@ Transform:
   - {fileID: 8480555066973361045}
   m_Father: {fileID: 6859134010105497834}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 27.47245, y: 3.5876365, z: 17.486916}
+  m_LocalEulerAnglesHint: {x: -11.502, y: -0.133, z: 1.543}
 --- !u!1 &7820536180110547536
 GameObject:
   m_ObjectHideFlags: 0

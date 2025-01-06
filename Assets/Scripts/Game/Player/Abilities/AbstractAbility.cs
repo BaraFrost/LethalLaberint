@@ -43,6 +43,6 @@ namespace Game {
             _abilityActive = false;
         }
 
-        protected virtual void OnPlayerDamaged() { }
+        protected virtual void OnPlayerDamaged(Enemy.EnemyType type) { }
     }
 }

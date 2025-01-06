@@ -25,7 +25,7 @@ namespace Game {
         private IEnumerator DoDamageCoroutine(PlayerController target) {
             _isAttacking = true;
             yield return new WaitForSeconds(_timeBeforeDamage);
-            target.HealthLogic.AddDamage();
+            target.HealthLogic.AddDamage(Enemy.Type);
             _isAttacking = false;
         }
 

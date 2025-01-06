@@ -1,4 +1,5 @@
 using Game;
+using Infrastructure;
 using NaughtyAttributes;
 using UnityEngine;
 
@@ -17,6 +18,10 @@ namespace Data {
         [SerializeField]
         private Sprite _sprite;
         public Sprite Sprite => _sprite;
+
+        [SerializeField]
+        private LocalizationText _abilityName;
+        public LocalizationText AbilityName => _abilityName;
 
 #if UNITY_EDITOR
         [Button]

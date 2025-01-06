@@ -15,8 +15,8 @@ namespace Game {
             _player.PlayerModifierLogic.TryToAddModifier(_modifier);
         }
 
-        protected override void OnPlayerDamaged() {
-            base.OnPlayerDamaged();
+        protected override void OnPlayerDamaged(Enemy.EnemyType enemyType) {
+            base.OnPlayerDamaged(enemyType);
             _player.PlayerModifierLogic.RemoveModifier(_modifier);
         }
     }

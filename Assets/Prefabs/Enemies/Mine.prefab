@@ -283,7 +283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 131c20ca766b92b42a51802cb1e71e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 6
   _visionLogic: {fileID: 5930749058006043288}
   _movementLogic: {fileID: 0}
   _attackLogic: {fileID: 3431991226794376618}

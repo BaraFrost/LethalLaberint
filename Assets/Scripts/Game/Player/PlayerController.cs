@@ -62,8 +62,8 @@ namespace Game {
             foreach(var logic in _playerLogics) {
                 logic.Init(this);
             }
-            HealthLogic.onDamaged += ItemsCollector.DropAllItems;
-            HealthLogic.onDamaged += _ragdollVisualLogic.SpawnRagdoll;
+            HealthLogic.onDamaged += (Enemy.EnemyType type) => { ItemsCollector.DropAllItems(); };
+            HealthLogic.onDamaged += (Enemy.EnemyType type) => { _ragdollVisualLogic.SpawnRagdoll(); };
         }
 
         public void UpdateLogics() {
