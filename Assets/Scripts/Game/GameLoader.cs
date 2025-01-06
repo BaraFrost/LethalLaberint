@@ -93,13 +93,12 @@ namespace Game {
             var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount;
             _gameEntitiesContainer.playerController.DisablePlayer();
             PopupManager.Instance.ShowWinPopup(() => {
-                if(Account.Instance.DifficultyProgressionConfig.IsBonusStage) {
+                if (Account.Instance.DifficultyProgressionConfig.IsBonusStage || Account.Instance.TotalDays != Account.Instance.CurrentDay) {
                     Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
                         EarnedMoney = earnedMoney,
                     });
                     ScenesSwitchManager.Instance.LoadMenuScene();
-                }
-                else {
+                } else {
                     Account.Instance.CurrentStageMoney = earnedMoney;
                     ScenesSwitchManager.Instance.LoadMiniGameScene();
                 }

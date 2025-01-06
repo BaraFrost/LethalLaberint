@@ -6,6 +6,7 @@ namespace Game {
 
         [SerializeField]
         private Animator _animator;
+        public Animator Animator => _animator;
 
         [SerializeField]
         private string _attackTriggerName = "Attack";

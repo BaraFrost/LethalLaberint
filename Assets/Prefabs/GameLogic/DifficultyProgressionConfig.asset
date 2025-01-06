@@ -84,3 +84,6 @@ MonoBehaviour:
   - _stage: 4
     _days: 1
     _money: 400
+  - _stage: 6
+    _days: 1
+    _money: 600

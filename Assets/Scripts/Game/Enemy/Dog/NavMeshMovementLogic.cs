@@ -69,6 +69,7 @@ namespace Game {
 
         public override void Stop() {
             _agent.isStopped = true;
+            _currentTargetPosition = transform.position;
         }
     }
 }
