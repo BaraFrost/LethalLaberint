@@ -13,6 +13,10 @@ namespace Game {
         private PlayerStayWatcher _exitPlayerWatcher;
 
         [SerializeField]
+        private PlayerStayWatcher _playerInShipWatcher;
+        public PlayerStayWatcher PlayerInShipWatcher;
+
+        [SerializeField]
         private WarehouseArea _warehouseArea;
         public WarehouseArea WarehouseArea => _warehouseArea;
 

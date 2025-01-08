@@ -23,7 +23,7 @@ namespace Game {
                 playerController.UpdateLogics();
             }
             for (int i = 0; i < enemies.Count; i++) {
-                if (enemies[i] != null) {
+                if (enemies[i] != null && enemies[i].gameObject.activeSelf) {
                     enemies[i].UpdateEnemy();
                 }
             }

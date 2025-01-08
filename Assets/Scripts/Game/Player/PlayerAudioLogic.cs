@@ -18,6 +18,7 @@ namespace Game {
                 return;
             }
             _moveSound.Play();
+            Debug.Log("moveSound.Play()");
         }
 
         private void StopMoveAnimation() {
@@ -25,6 +26,7 @@ namespace Game {
                 return;
             }
             _moveSound.Stop();
+            Debug.Log("moveSound.Stop()");
         }
     }
 }

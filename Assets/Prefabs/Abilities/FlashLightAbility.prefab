@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4459479490428146231
 MonoBehaviour:
@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _time: 4
   _distance: 8
-  _explosionEffect: {fileID: -2367198053712461187, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
+  _explosionEffect: {fileID: 0}
+  _explosionEffectPrefab: {fileID: 8171043827697264409, guid: 96730f8640590934eacb6f860058e7f9, type: 3}
   _layerMask:
     serializedVersion: 2
     m_Bits: 2048

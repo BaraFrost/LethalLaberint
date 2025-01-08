@@ -645,7 +645,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 8
+  _walkSpeed: 9
   _runSpeed: 16
   _agent: {fileID: 2208001839541530291}
   _stopDistance: 0.7
@@ -1015,7 +1015,7 @@ AudioSource:
   m_GameObject: {fileID: 3383740588068941736}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 4038212284932306068, guid: a12db1ad69aa0fa439848925c55b9f16, type: 2}
   m_audioClip: {fileID: 8300000, guid: b3a1b71bdb175ae40a2dff46c05acb61, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.41
@@ -1027,9 +1027,9 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 29.62
+  MaxDistance: 20
   Pan2D: 0
-  rolloffMode: 2
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0

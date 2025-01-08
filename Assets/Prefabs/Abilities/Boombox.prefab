@@ -299,7 +299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e14095525207da04d8b6d3c9ab40b28b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _destroyEffect: {fileID: 4183341571068208959, guid: 64891a0eb28db934898420d80ca07cb3, type: 3}
+  _destroyEffectPrefab: {fileID: 676350310772288128, guid: a4fe3dbf3a40b8e44b1439bc8b6600cb, type: 3}
 --- !u!82 &222261612839174232
 AudioSource:
   m_ObjectHideFlags: 0
@@ -309,7 +309,7 @@ AudioSource:
   m_GameObject: {fileID: 7025000569855725215}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5857371518856168716, guid: a12db1ad69aa0fa439848925c55b9f16, type: 2}
   m_audioClip: {fileID: 8300000, guid: 8b7dec5e68d5c414a800b76e2eeb5720, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

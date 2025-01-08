@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f00f2ae790e2944f8e85c5fd9049567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentStage: 0
+  _currentStage: 1
   _difficultyProgressionConfig: {fileID: 11400000, guid: 8fe85b75fd57b03469d0209f10a422e5, type: 2}
   _abilityDataContainer: {fileID: 11400000, guid: fe48232e08a082b44a155a95365565fe, type: 2}
   _currentAbilityId: 2

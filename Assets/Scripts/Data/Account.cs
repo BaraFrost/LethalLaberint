@@ -1,9 +1,9 @@
+using Game;
 using Infrastructure;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 namespace Data {
 
@@ -103,6 +103,7 @@ namespace Data {
         public AbilityData CurrentAbility => _abilityDataContainer.GetAbility(_currentAbilityId);
         public AbilityInitData CurrentAbilityInitData => new AbilityInitData() { abilityData = CurrentAbility, count = _abilitiesCountData[_currentAbilityId] };
         public Action onCurrentAbilityChanged;
+        public bool GameStarted { get; private set; }
 
         [SerializeField]
         private ShopItemsContainer _shopItemsContainer;
@@ -146,6 +147,27 @@ namespace Data {
         public void Clear() {
             PlayerPrefs.DeleteAll();
             LoadAccountData();
+        }
+
+        public void StartGame() {
+            GameStarted = true;
+            ScenesSwitchManager.Instance.LoadGameScene();
+        }
+
+        public bool TryToSwitchStage() {
+            var success = false;
+            GameStarted = false;
+            TotalMoney += CurrentStageMoney;
+            CurrentDay++;
+            if (CurrentDay > _difficultyProgressionConfig.GetDaysByStage(CurrentStage)) {
+                if (CurrentStageMoney >= RequiredMoney) {
+                    CurrentStage++;
+                    success = true;
+                }
+                CurrentStageMoney = 0;
+                CurrentDay = 1;
+            }
+            return success;
         }
 
         public void HandleMatchDoneEvent(MatchDoneEvent matchDoneEvent) {

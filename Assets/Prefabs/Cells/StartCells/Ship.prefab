@@ -8986,6 +8986,7 @@ GameObject:
   - component: {fileID: 236824776024232765}
   - component: {fileID: 5998872521404251734}
   - component: {fileID: 7680469735441199119}
+  - component: {fileID: 8346012329883281405}
   m_Layer: 0
   m_Name: Ship
   m_TagString: Untagged
@@ -9034,6 +9035,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _miniMapStayWatcher: {fileID: 171906039646071868}
   _exitPlayerWatcher: {fileID: 1281349219540446072}
+  _playerInShipWatcher: {fileID: 8346012329883281405}
+  PlayerInShipWatcher: {fileID: 8346012329883281405}
   _warehouseArea: {fileID: 2529593185755225443}
   _shipColliders:
   - {fileID: 5998872521404251734}
@@ -9080,6 +9083,18 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 7.730465, y: 2.2952406, z: 2.538001}
   m_Center: {x: -0.075968266, y: 0.3672223, z: -4.937314}
+--- !u!114 &8346012329883281405
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6416168502048523421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b0b22dcd76abb46807210156160b59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6452224109776169270
 GameObject:
   m_ObjectHideFlags: 0

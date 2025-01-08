@@ -45,6 +45,9 @@ namespace Game {
         [SerializeField]
         private HintManager _hintManager;
 
+        [SerializeField]
+        private InShipInfoShower _inShipInfoShower;
+
         private void Start() {
             Init();
         }
@@ -75,14 +78,13 @@ namespace Game {
             _environmentSpawnLogic.Spawn(_gameEntitiesContainer.cellsContainer);
 
             _hintManager.Init(_gameEntitiesContainer.playerController);
+
+            _inShipInfoShower.Init(_gameEntitiesContainer.cellsContainer, _gameEntitiesContainer.playerController);
         }
 
         private void HandlePlayerDeadEvent() {
             PopupManager.Instance.ShowDeathPopup(new DeathPopup.Data {
                 continueCallback = () => {
-                    Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                        EarnedMoney = 0,
-                    });
                     ScenesSwitchManager.Instance.LoadMenuScene();
                 }
             }
@@ -93,13 +95,10 @@ namespace Game {
             var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount;
             _gameEntitiesContainer.playerController.DisablePlayer();
             PopupManager.Instance.ShowWinPopup(() => {
+                Account.Instance.CurrentStageMoney += earnedMoney;
                 if (Account.Instance.DifficultyProgressionConfig.IsBonusStage || Account.Instance.TotalDays != Account.Instance.CurrentDay) {
-                    Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                        EarnedMoney = earnedMoney,
-                    });
                     ScenesSwitchManager.Instance.LoadMenuScene();
                 } else {
-                    Account.Instance.CurrentStageMoney = earnedMoney;
                     ScenesSwitchManager.Instance.LoadMiniGameScene();
                 }
             },

@@ -209,8 +209,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 8.5
-  _runSpeed: 8.5
+  _walkSpeed: 9
+  _runSpeed: 9
   _agent: {fileID: 6431706848744798991}
   _stopDistance: 0.4
   _rotationSpeed: 10

@@ -119,3 +119,4 @@ MonoBehaviour:
   _fadePopupPrefab: {fileID: 1431090248825985106, guid: 2e041743ece8ce24885daf90734b622c, type: 3}
   _winPopupPrefab: {fileID: 2840933587573610004, guid: 4746c29f25245ac43b82d50aea467fd4, type: 3}
   _timerPopupPrefab: {fileID: 2665932183294130895, guid: 562f32352b1799b469bb580481eddf37, type: 3}
+  _closablePopupPrefab: {fileID: 5653936166651820399, guid: 1f62bc4e9eb70a04cb9d818f3ca56ee5, type: 3}

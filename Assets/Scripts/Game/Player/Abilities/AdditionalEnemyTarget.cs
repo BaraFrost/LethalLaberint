@@ -5,11 +5,17 @@ namespace Game {
     public class AdditionalEnemyTarget : MonoBehaviour {
 
         [SerializeField]
-        private DestroyableEffect _destroyEffect;
+        private DisableEffect _destroyEffectPrefab;
+        private DisableEffect _destroyEffectInstance;
 
-        public void DestroyAdditionalTarget() {
-            Instantiate(_destroyEffect, gameObject.transform.position, Quaternion.identity, transform.parent);
-            Destroy(gameObject);
+        private void Awake() {
+            _destroyEffectInstance = Instantiate(_destroyEffectPrefab, transform.position, Quaternion.identity, transform.parent);
+            _destroyEffectInstance.gameObject.SetActive(false);
+        }
+
+        public void ActivateAdditionalTargetDestroyEffect() {
+            _destroyEffectInstance.transform.position = transform.position;
+            _destroyEffectInstance.gameObject.SetActive(true);
         }
     }
 }

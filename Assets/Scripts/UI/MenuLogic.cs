@@ -1,8 +1,7 @@
 using Data;
-using Game;
+using Infrastructure;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace UI {
@@ -19,12 +18,38 @@ namespace UI {
         [SerializeField]
         private Button _playButton;
 
-        void Start() {
+        [SerializeField]
+        private LocalizationText _winPopupText;
+        [SerializeField]
+        private LocalizationText _losePopupText;
+
+        private void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
+            ChangeStage();
+        }
+
+        public void ChangeStage() {
+            if (!Account.Instance.GameStarted) {
+                return;
+            }
+            if (Account.Instance.TotalDays - Account.Instance.CurrentDay > 0) {
+                Account.Instance.TryToSwitchStage();
+                return;
+            }
+            var targetMoneyPercent = Account.Instance.CurrentStageMoney * 100 / Account.Instance.RequiredMoney;
+            if (Account.Instance.TryToSwitchStage()) {
+                PopupManager.Instance.ShowClosablePopup(new ClosablePopup.Data {
+                    text = string.Format(_winPopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
+                });
+            } else {
+                PopupManager.Instance.ShowClosablePopup(new ClosablePopup.Data {
+                    text = string.Format(_losePopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
+                });
+            }
         }
 
         private void LoadGameScreen() {
-            ScenesSwitchManager.Instance.LoadGameScene();
+            Account.Instance.StartGame();
         }
 
         void Update() {

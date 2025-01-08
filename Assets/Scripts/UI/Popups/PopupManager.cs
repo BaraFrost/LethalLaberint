@@ -1,5 +1,6 @@
 using Infrastructure;
 using System;
+using System.Net.NetworkInformation;
 using UnityEngine;
 
 namespace UI {
@@ -25,6 +26,10 @@ namespace UI {
         [SerializeField]
         private TimerPopup _timerPopupPrefab;
         private TimerPopup _timerPopup;
+
+        [SerializeField]
+        private ClosablePopup _closablePopupPrefab;
+        private ClosablePopup _closablePopup;
 
         private AbstractPopup _currentPopup;
 
@@ -74,6 +79,14 @@ namespace UI {
             }
             _timerPopup.SetData(data);
             ShowPopup(_timerPopup);
+        }
+
+        public void ShowClosablePopup(ClosablePopup.Data data) {
+            if (_closablePopup == null) {
+                _closablePopup = Instantiate(_closablePopupPrefab, gameObject.transform);
+            }
+            _closablePopup.SetData(data);
+            ShowPopup(_closablePopup);
         }
     }
 }

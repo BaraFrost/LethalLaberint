@@ -1,8 +1,6 @@
 using Data;
 using Game;
 using Infrastructure;
-using System.Collections;
-using System.Collections.Generic;
 using UI;
 using UnityEngine;
 
@@ -53,9 +51,7 @@ namespace MiniGames.FlappyBird {
                 text = string.Format(_endGameText.GetText(), _player.Wallet.Value),
                 type = TextPopup.Type.middle,
                 onPopupShowedCallback = () => {
-                    Account.Instance.HandleMatchDoneEvent(new Account.MatchDoneEvent() {
-                        EarnedMoney = Account.Instance.CurrentStageMoney + _player.Wallet.Value,
-                    });
+                    Account.Instance.CurrentStageMoney += _player.Wallet.Value;
                     ScenesSwitchManager.Instance.LoadMenuScene();
                 }
             });

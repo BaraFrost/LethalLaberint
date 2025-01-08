@@ -1,4 +1,5 @@
 using Game;
+using TMPro;
 using UnityEngine;
 
 namespace UI {
@@ -13,6 +14,9 @@ namespace UI {
 
         [SerializeField]
         private SelectAbilityInventory _menuInventory;
+
+        [SerializeField]
+        private TextMeshProUGUI _abilityDescriptionText;
 
         private InventoryItem _spawnedButtons;
 
@@ -29,7 +33,6 @@ namespace UI {
         }
 
         private void Update() {
-            _menuInventory.gameObject.SetActive(_startLabyrinthCells.ShipLogic.PositionInsideShip(_playerController.transform.position));
             if (_spawnedButtons != null && _playerController.PlayerAbilityLogic.CurrentAbility != null) {
                 _spawnedButtons.UpdateProgress(_playerController.PlayerAbilityLogic.CurrentAbility);
             }
@@ -38,6 +41,8 @@ namespace UI {
         private void InitAbilityVisual() {
             _spawnedButtons.Init(0, _playerController.PlayerAbilityLogic.CurrentAbility);
             _spawnedButtons.onButtonClicked += _playerController.PlayerInputLogic.AbilityButtonActivate;
+            var abilityData = _playerController.PlayerAbilityLogic.CurrentAbility.AbilityData;
+            _abilityDescriptionText.text = abilityData.AbilityDescription.GetText();
             _playerController.PlayerAbilityLogic.onAbilityActivate += () => _spawnedButtons.UpdateItem(_playerController.PlayerAbilityLogic.CurrentAbility);
         }
     }

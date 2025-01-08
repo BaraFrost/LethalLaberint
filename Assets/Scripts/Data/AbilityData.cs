@@ -23,6 +23,10 @@ namespace Data {
         private LocalizationText _abilityName;
         public LocalizationText AbilityName => _abilityName;
 
+        [SerializeField]
+        private LocalizationText _abilityDescription;
+        public LocalizationText AbilityDescription => _abilityDescription;
+
 #if UNITY_EDITOR
         [Button]
         private void ResetId() {
