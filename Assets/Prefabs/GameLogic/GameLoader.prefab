@@ -369,7 +369,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 9036494384080769479}
-  _smooth: 0.3
+  _smooth: 0.15
 --- !u!20 &542068314500621356
 Camera:
   m_ObjectHideFlags: 0
@@ -1252,7 +1252,7 @@ Transform:
   - {fileID: 4657434025158059833}
   - {fileID: 1355565659405978802}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9077933867509478514
 MonoBehaviour:
@@ -4035,26 +4035,6 @@ PrefabInstance:
       propertyPath: _environmentVisualLogic
       value: 
       objectReference: {fileID: 7143751550854334490}
-    - target: {fileID: 2881144001785777253, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_Pitch
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881144001785777253, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_Volume
-      value: 0.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2881144001785777253, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: a110d8e09b629034bb11d6f190b37bf7, type: 3}
-    - target: {fileID: 2881144001785777253, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: OutputAudioMixerGroup
-      value: 
-      objectReference: {fileID: 4038212284932306068, guid: a12db1ad69aa0fa439848925c55b9f16, type: 2}
-    - target: {fileID: 2881144001785777253, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4040637256063436440, guid: e586cd813de26a84494ca19bce115050, type: 3}
       propertyPath: _wallet
       value: 
@@ -4115,12 +4095,6 @@ PrefabInstance:
       propertyPath: _text
       value: 
       objectReference: {fileID: 8423850155241267055}
-    - target: {fileID: 5992393340830290172, guid: e586cd813de26a84494ca19bce115050, type: 3}
-      propertyPath: _moneyText._defaultText
-      value: "\u0421\u043E\u0431\u0440\u0430\u043D\u043E: {0}$\n\u0426\u0435\u043B\u044C:
-        {1}$\n\u0414\u043D\u0435\u0439 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C:
-        {2}"
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
