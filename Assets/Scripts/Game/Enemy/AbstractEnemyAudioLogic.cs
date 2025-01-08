@@ -13,6 +13,7 @@ namespace Game {
             base.Init(enemy);
             if (Enemy.AttackLogic != null && _attackSound != null) {
                 Enemy.AttackLogic.OnAttack += PlayAttackSound;
+                _attackSound.Stop();
             }
         }
 
@@ -28,11 +29,13 @@ namespace Game {
             if (Enemy.MovementLogic.IsMoving) {
                 if (!_moveSound.isPlaying) {
                     _moveSound.Play();
+                    Debug.Log("moveSound.Play()");
                 }
                 return;
             }
             if (_moveSound.isPlaying) {
                 _moveSound.Stop();
+                Debug.Log("moveSound.Stop()");
             }
             return;
         }
@@ -42,6 +45,7 @@ namespace Game {
                 return;
             }
             _attackSound.Play();
+            Debug.Log("attackSound.Play()");
             return;
         }
     }
