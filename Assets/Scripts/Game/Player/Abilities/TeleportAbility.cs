@@ -19,14 +19,14 @@ namespace Game {
 
         public override void Activate() {
             base.Activate();
-            _teleportEffect.Play();
+            _teleportEffect.Play(withChildren: true);
         }
 
         protected override void Stop() {
             base.Stop();
             _player.PlayerMoveLogic.Teleport(_startPosition);
             _player.PlayerMoveLogic.FreezeMovement(_additionalEffectTime);
-            _teleportEffect.Stop(false, ParticleSystemStopBehavior.StopEmitting);
+            _teleportEffect.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
         }
 
         protected override void OnPlayerDamaged(Enemy.EnemyType enemyType) {

@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _time: 0.7
-  _teleportEffectPrefab: {fileID: 73452581102276345, guid: 9dc99adb76a2edf499b85526a2a9f0c1, type: 3}
+  _teleportEffectPrefab: {fileID: 4021475157562756343, guid: 8e576f6367433e540ad7b7d75543b3d1, type: 3}
   _additionalEffectTime: 1

@@ -493,6 +493,7 @@ MonoBehaviour:
   _walletCollectibleItemPrefab: {fileID: 2783115476669827012, guid: 3a179ecdbc767be42b5461f51f4a6171, type: 3}
   _collider: {fileID: 8432526253894870725}
   _miniMapImage: {fileID: 1417878441688949811}
+  _dropSoundPrefab: {fileID: 7368243604809113591, guid: 0ce4361824f3f594d9867092db598510, type: 3}
   collectedByEnemy: 0
 --- !u!1 &7278936042140422824
 GameObject:

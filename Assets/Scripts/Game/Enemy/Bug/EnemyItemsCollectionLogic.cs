@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -23,6 +24,7 @@ namespace Game {
         private int _collectedItemsCount;
         private List<CollectibleItem> _itemsInZone = new List<CollectibleItem>();
         private CollectibleItem _collectedItem;
+        public Action OnItemDropped;
 
         private void Awake() {
             if (_visualItem != null) {
@@ -83,10 +85,12 @@ namespace Game {
             _collectedItemsCount++;
             _collectedItem.transform.position = new Vector3(transform.position.x, _collectedItem.transform.position.y, transform.position.z);
             _collectedItem.gameObject.SetActive(true);
+            _collectedItem.Drop();
             _collectedItem = null;
             if (_visualItem != null) {
                 _visualItem.SetActive(false);
             }
+            OnItemDropped?.Invoke();
         }
     }
 }

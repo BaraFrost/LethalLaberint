@@ -38,6 +38,7 @@ namespace Game {
         private void DropItemCollectibleItem(CollectibleItem collectibleItem, bool addToIgnoreColliderEnter) {
             collectibleItem.transform.position = new Vector3(gameObject.transform.position.x, collectibleItem.transform.position.y, gameObject.transform.position.z);
             collectibleItem.gameObject.SetActive(true);
+            collectibleItem.Drop();
             if (addToIgnoreColliderEnter) {
                 _feltCollectibleItems.Add(collectibleItem);
             }
