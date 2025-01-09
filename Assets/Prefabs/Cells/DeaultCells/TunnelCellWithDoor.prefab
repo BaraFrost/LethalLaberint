@@ -100,6 +100,7 @@ MonoBehaviour:
   _openingTime: 0.1
   _materialReplacer: {fileID: 134801431544958813}
   _openCloseSound: {fileID: 2667950723569039295}
+  disableDoor: 0
 --- !u!114 &134801431544958813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,7 +130,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: af97d60091e806643850dffdcb7eac1e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.375
+  m_Volume: 0.1
   m_Pitch: 1
   Loop: 0
   Mute: 0
