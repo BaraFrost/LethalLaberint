@@ -28,8 +28,12 @@ namespace UI {
         private TimerPopup _timerPopup;
 
         [SerializeField]
-        private ClosablePopup _closablePopupPrefab;
-        private ClosablePopup _closablePopup;
+        private ClosableTextPopup _closableTextPopupPrefab;
+        private ClosableTextPopup _closableTextPopup;
+
+        [SerializeField]
+        private AudioSettingsPopup _audioSettingsPopupPrefab;
+        private AudioSettingsPopup _audioSettingsPopup;
 
         private AbstractPopup _currentPopup;
 
@@ -81,12 +85,19 @@ namespace UI {
             ShowPopup(_timerPopup);
         }
 
-        public void ShowClosablePopup(ClosablePopup.Data data) {
-            if (_closablePopup == null) {
-                _closablePopup = Instantiate(_closablePopupPrefab, gameObject.transform);
+        public void ShowClosableTextPopup(ClosableTextPopup.Data data) {
+            if (_closableTextPopup == null) {
+                _closableTextPopup = Instantiate(_closableTextPopupPrefab, gameObject.transform);
             }
-            _closablePopup.SetData(data);
-            ShowPopup(_closablePopup);
+            _closableTextPopup.SetData(data);
+            ShowPopup(_closableTextPopup);
+        }
+
+        public void ShowAudioSettingsPopup() {
+            if (_audioSettingsPopup == null) {
+                _audioSettingsPopup = Instantiate(_audioSettingsPopupPrefab, gameObject.transform);
+            }
+            ShowPopup(_audioSettingsPopup);
         }
     }
 }

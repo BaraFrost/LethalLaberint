@@ -424,7 +424,7 @@ GameObject:
   - component: {fileID: 5653936166651820399}
   - component: {fileID: 6855420654018132934}
   m_Layer: 5
-  m_Name: ClosablePopup
+  m_Name: ClosableTextPopup
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

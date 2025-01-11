@@ -19,13 +19,21 @@ namespace UI {
         private Button _playButton;
 
         [SerializeField]
+        private Button _audioSettingsButton;
+
+        [SerializeField]
         private LocalizationText _winPopupText;
         [SerializeField]
         private LocalizationText _losePopupText;
 
         private void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
+            _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
             ChangeStage();
+        }
+
+        private void ShowAudioSettings() {
+            PopupManager.Instance.ShowAudioSettingsPopup();
         }
 
         public void ChangeStage() {
@@ -38,11 +46,11 @@ namespace UI {
             }
             var targetMoneyPercent = Account.Instance.CurrentStageMoney * 100 / Account.Instance.RequiredMoney;
             if (Account.Instance.TryToSwitchStage()) {
-                PopupManager.Instance.ShowClosablePopup(new ClosablePopup.Data {
+                PopupManager.Instance.ShowClosableTextPopup(new ClosableTextPopup.Data {
                     text = string.Format(_winPopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
                 });
             } else {
-                PopupManager.Instance.ShowClosablePopup(new ClosablePopup.Data {
+                PopupManager.Instance.ShowClosableTextPopup(new ClosableTextPopup.Data {
                     text = string.Format(_losePopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
                 });
             }
