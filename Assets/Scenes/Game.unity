@@ -711,6 +711,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1992777473301420011, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992777473301420011, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 393.0624
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992777473301420011, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 137.1228
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992777473301420011, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1992777473301420011, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -110.5614
+      objectReference: {fileID: 0}
     - target: {fileID: 2976252546593004155, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_Name
       value: GameLoader

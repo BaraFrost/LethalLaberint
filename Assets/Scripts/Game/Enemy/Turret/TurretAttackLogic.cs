@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 
@@ -22,6 +23,10 @@ namespace Game {
 
         private Coroutine _coroutine;
 
+        public Action onTargetFound;
+        public Action onTargetLost;
+        public Action onShoot;
+
         private bool _isAttack = false;
         public override bool IsAttacking => _isAttack;
 
@@ -35,7 +40,9 @@ namespace Game {
         private IEnumerator AttackCoroutine(PlayerController target) {
             _isAttack = true;
             _turretVisualLogic.PlayPrepareShootEffects();
+            onTargetFound?.Invoke();
             yield return new WaitForSeconds(_timeBeforeAttack);
+            onShoot?.Invoke();
             _turretVisualLogic.PlayShootEffects();
             yield return new WaitForSeconds(_timeBeforeDoDamage);
             while (true) {
@@ -49,7 +56,7 @@ namespace Game {
         }
 
         private bool TryToAttack(PlayerController target) {
-            var shoot = Random.Range(0,_missProbability) == 0;
+            var shoot = UnityEngine.Random.Range(0,_missProbability) == 0;
             OnAttack?.Invoke();
             if (!shoot) {
                 return false;
@@ -68,6 +75,7 @@ namespace Game {
             }
             OnAttackStopped?.Invoke();
             _isAttack = false;
+            onTargetLost?.Invoke();
             _turretVisualLogic.StopShootEffects();
             StopCoroutine(_coroutine);
         }

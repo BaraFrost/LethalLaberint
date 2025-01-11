@@ -13,10 +13,6 @@ namespace Game {
         public AbstractEnemyVisionLogic SkeltonHideVisionLogic => _skeletonHideVisonLogic;
 
         [SerializeField]
-        private SkeletonVisualLogic _skeletonVisualLogic;
-        public SkeletonVisualLogic SkeletonVisualLogic => _skeletonVisualLogic;
-
-        [SerializeField]
         private SkeletonHideLogic _skeletonHideLogic;
         public SkeletonHideLogic SkeletonHideLogic => _skeletonHideLogic;
 

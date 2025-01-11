@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 793167721140552686}
   - component: {fileID: 2783115476669827012}
   m_Layer: 9
-  m_Name: WalletTestItem
+  m_Name: AxelWalletItem
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

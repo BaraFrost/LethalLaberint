@@ -48,7 +48,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 1
+    _minStage: 2
   - _enemy: {fileID: 6641828935266196660, guid: f02a1efe06a446a4d95a6970c7245392, type: 3}
     _weight: 0.1
     _probabilityByStage:
@@ -77,7 +77,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 2
   - _enemy: {fileID: 512186236499155996, guid: 026afc9d315d3894194b6b70ccf15618, type: 3}
-    _weight: 1.2
+    _weight: 1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -228,7 +228,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 4
+    _minStage: 6
   - _enemy: {fileID: 516197872136544147, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
     _weight: 1.4
     _probabilityByStage:
@@ -264,9 +264,9 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 4
+    _minStage: 6
   - _enemy: {fileID: 3269179596967389405, guid: 2d173d772c23bdc428287b08ebe71295, type: 3}
-    _weight: 0.2
+    _weight: 0.4
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -291,7 +291,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 1
+    _minStage: 2
   - _enemy: {fileID: 5938124499448241381, guid: 20a71ce219ac89443bb717a24e6292ed, type: 3}
     _weight: 1
     _probabilityByStage:

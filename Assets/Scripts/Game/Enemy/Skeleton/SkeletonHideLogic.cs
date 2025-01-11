@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace Game {
@@ -18,6 +19,9 @@ namespace Game {
 
         private bool _isHided;
         public bool IsHided => _isHided;
+
+        public Action onHide;
+        public Action onStandUp;
 
         public override void Init(Enemy enemy) {
             base.Init(enemy);
@@ -42,7 +46,7 @@ namespace Game {
                 return;
             }
             _isHided = true;
-            Enemy.SkeletonVisualLogic.Hide();
+            onHide?.Invoke();
             Enemy.MovementLogic.Stop();
             _currentHideTime = _hideTime;
         }
@@ -52,7 +56,7 @@ namespace Game {
                 return;
             }
             _isHided = false;
-            Enemy.SkeletonVisualLogic.StandUp();
+            onStandUp?.Invoke();
             _currentStandUpTime = _standUpTime;
             _currentTimeBeforeHide = _timeBeforeHide + _standUpTime;
             Enemy.MovementLogic.Stop();

@@ -22,6 +22,14 @@ namespace Game {
         [SerializeField]
         private string _stopTriggerName = "Stop";
 
+        public override void Init(Enemy enemy) {
+            base.Init(enemy);
+            if (Enemy.SkeletonHideLogic) {
+                Enemy.SkeletonHideLogic.onHide += Hide;
+                Enemy.SkeletonHideLogic.onStandUp += StandUp;
+            }
+        }
+
         public void Hide() {
             if (string.IsNullOrEmpty(_hideTriggerName)) {
                 return;

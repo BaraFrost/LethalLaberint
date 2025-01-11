@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -23,10 +24,13 @@ namespace Game {
 
         private Queue<Transform> _rotationTargetsQueue;
 
+        public Action onRotation;
+        public Action onStopRotation;
+
         private void Start() {
-            var randomRotation = Random.Range(0, 360);
+            var randomRotation = UnityEngine.Random.Range(0, 360);
             gameObject.transform.rotation = Quaternion.AngleAxis(randomRotation, Vector3.up);
-            if (Random.Range(0, 2) == 1) {
+            if (UnityEngine.Random.Range(0, 2) == 1) {
                 _rotationTargets = _rotationTargets.Reverse().ToArray();
             }
         }
@@ -41,8 +45,10 @@ namespace Game {
                 return;
             }
             if (RotationReached(lookAtPosition)) {
+                onStopRotation?.Invoke();
                 return;
             }
+            onRotation?.Invoke();
             var currentRotation = _rotationRoot.transform.rotation.eulerAngles.y;
             var differenceAngle = GetAngle(lookAtPosition);
             var rotation = Mathf.Lerp(currentRotation, differenceAngle + currentRotation, usePursuitSpeed ? _pursuitSpeed : _rotationSpeed * Time.deltaTime);

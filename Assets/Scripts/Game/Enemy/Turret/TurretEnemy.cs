@@ -1,5 +1,4 @@
 using Scripts.Infrastructure.BehaviorTree;
-using System.Collections.Generic;
 using UnityEngine;
 
 namespace Game {
@@ -12,6 +11,10 @@ namespace Game {
         [SerializeField]
         private TurretRotationLogic _turretRotationLogic;
         public TurretRotationLogic TurretRotationLogic => _turretRotationLogic;
+
+        [SerializeField]
+        private TurretAttackLogic _turretAttackLogic;
+        public TurretAttackLogic TurretAttackLogic => _turretAttackLogic;
 
         public override void Init(GameEntitiesContainer entitiesContainer) {
             base.Init(entitiesContainer);

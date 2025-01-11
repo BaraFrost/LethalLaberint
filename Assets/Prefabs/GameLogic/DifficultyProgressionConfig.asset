@@ -14,20 +14,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxStage: 20
   _labyrinthSize:
-    _minValue: 12
+    _minValue: 15
     _maxValue: 30
   _labyrinthCellsCount:
     _minValue: 120
     _maxValue: 800
   _labyrinthEpoch:
-    _minValue: 12
+    _minValue: 15
     _maxValue: 40
   _enemyCount:
     _minValue: 1
-    _maxValue: 25
+    _maxValue: 20
   _requiredMoney:
     _minValue: 170
-    _maxValue: 5000
+    _maxValue: 4200
   _additionalSpawnMoney:
     _minValue: 50
     _maxValue: 100
@@ -37,24 +37,24 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.71826255
-      outSlope: 0.71826255
+      inSlope: 0.62702465
+      outSlope: 0.62702465
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
-      time: 0.2527538
-      value: 0.18154359
-      inSlope: 2.3980436
-      outSlope: 2.3980436
+      time: 0.38896942
+      value: 0.24389341
+      inSlope: 1.4877807
+      outSlope: 1.4877807
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.39982426
+      outWeight: 0.37145323
     - serializedVersion: 3
-      time: 0.7400628
-      value: 0.699711
+      time: 0.673289
+      value: 0.45657313
       inSlope: 0.2654863
       outSlope: 0.2654863
       tangentMode: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.1552365
-      outSlope: 1.1552365
+      inSlope: 1.6633259
+      outSlope: 1.6633259
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
