@@ -44,6 +44,10 @@ namespace Game {
         private PlayerVisualLogic _playerVisualLogic;
         public PlayerVisualLogic PlayerVisualLogic => _playerVisualLogic;
 
+        [SerializeField]
+        private WalletItemsToMoneyConverter _walletItemsToMoneyConverter;
+        public WalletItemsToMoneyConverter WalletItemsToMoneyConverter => _walletItemsToMoneyConverter;
+
         private GameEntitiesContainer _gameEntitiesContainer;
         public GameEntitiesContainer GameEntitiesContainer => _gameEntitiesContainer;
 
@@ -77,6 +81,10 @@ namespace Game {
 
         public void DisablePlayer() {
             _disable = true;
+        }
+
+        public void EnablePlayer() {
+            _disable = false;
         }
     }
 }

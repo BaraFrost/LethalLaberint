@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2babe3bea065fc5449ee0a4ba86fe24c, type: 3}
   m_Name: DifficultyProgressionConfig
   m_EditorClassIdentifier: 
-  _maxStage: 20
+  _maxStage: 26
   _labyrinthSize:
     _minValue: 15
     _maxValue: 30
@@ -53,8 +53,8 @@ MonoBehaviour:
       inWeight: 0.33333334
       outWeight: 0.37145323
     - serializedVersion: 3
-      time: 0.673289
-      value: 0.45657313
+      time: 0.67597455
+      value: 0.38800013
       inSlope: 0.2654863
       outSlope: 0.2654863
       tangentMode: 0
@@ -64,8 +64,8 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.6633259
-      outSlope: 1.6633259
+      inSlope: 1.8887401
+      outSlope: 1.8887401
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334

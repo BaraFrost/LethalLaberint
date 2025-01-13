@@ -20,6 +20,8 @@ namespace MiniGames.FlappyBird {
         private DestroyableEffect _destroyEffect;
         [SerializeField]
         private FlappyBirdWallet _wallet;
+        [SerializeField]
+        private AudioSource _jumpSound;
         public FlappyBirdWallet Wallet => _wallet;
 
         public Action onPlayerDead;
@@ -31,6 +33,7 @@ namespace MiniGames.FlappyBird {
         public void UpdateLogic() {
             if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0)) {
                 _rb.velocity = new Vector3(_rb.velocity.x, _jumpForce, _rb.velocity.z);
+                _jumpSound.Play();
             }
 
             ApplyCustomFallSpeed();

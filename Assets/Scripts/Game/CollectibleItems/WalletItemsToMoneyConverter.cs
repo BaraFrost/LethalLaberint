@@ -12,11 +12,15 @@ namespace Game {
 
         private void OnTriggerEnter(Collider other) {
             if (other.gameObject.TryGetComponent<WarehouseArea>(out var warehouseArea)) {
-                var money = _wallet.GetItemsMoney();
+                var money = GetWalletMoney();
                 var items = _wallet.TakeAllItems();
                 warehouseArea.AddItems(items);
-                _moneyWallet.AddMoney((int)(money * _player.PlayerModifierLogic.MoneyModifier));
+                _moneyWallet.AddMoney((int)(money));
             }
+        }
+
+        public int GetWalletMoney() {
+            return (int)(_wallet.GetItemsMoney() * _player.PlayerModifierLogic.MoneyModifier);
         }
     }
 }

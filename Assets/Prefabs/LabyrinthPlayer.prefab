@@ -1270,7 +1270,7 @@ Transform:
   - {fileID: 1212618699349763574}
   - {fileID: 589737280273207778}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8433655475274982279
 MonoBehaviour:
@@ -1294,6 +1294,7 @@ MonoBehaviour:
   _playerMoveLogic: {fileID: 9113958015102423524}
   _playerModifierLogic: {fileID: 4940662480882468196}
   _playerVisualLogic: {fileID: 964458704731692967}
+  _walletItemsToMoneyConverter: {fileID: 4040637256063436440}
 --- !u!95 &1525464365149744103
 Animator:
   serializedVersion: 5

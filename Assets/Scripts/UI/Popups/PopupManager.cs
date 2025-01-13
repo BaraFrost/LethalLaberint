@@ -69,11 +69,11 @@ namespace UI {
             ShowPopup(_fadePopup);
         }
 
-        public void ShowWinPopup(Action continueCallback, int money) {
+        public void ShowWinPopup(WinPopup.Data data) {
             if (_winPopup == null) {
                 _winPopup = Instantiate(_winPopupPrefab, gameObject.transform);
             }
-            _winPopup.SetData(continueCallback, money);
+            _winPopup.SetData(data);
             ShowPopup(_winPopup);
         }
 

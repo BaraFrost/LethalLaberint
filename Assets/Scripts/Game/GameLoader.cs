@@ -1,4 +1,5 @@
 using Data;
+using System.Linq;
 using UI;
 using UnityEngine;
 
@@ -92,17 +93,23 @@ namespace Game {
         }
 
         private void HandleExitEvent() {
-            var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount;
+            var earnedMoney = _gameEntitiesContainer.playerController.MoneyWallet.MoneyCount
+                + _gameEntitiesContainer.playerController.WalletItemsToMoneyConverter.GetWalletMoney();
+            var totalLevelMoney = _gameEntitiesContainer.collectibleItems.Select(item => item.WalletCollectibleItem.Price).Sum();
             _gameEntitiesContainer.playerController.DisablePlayer();
-            PopupManager.Instance.ShowWinPopup(() => {
-                Account.Instance.CurrentStageMoney += earnedMoney;
-                if (Account.Instance.DifficultyProgressionConfig.IsBonusStage || Account.Instance.TotalDays != Account.Instance.CurrentDay) {
-                    ScenesSwitchManager.Instance.LoadMenuScene();
-                } else {
-                    ScenesSwitchManager.Instance.LoadMiniGameScene();
-                }
-            },
-            earnedMoney);
+            PopupManager.Instance.ShowWinPopup(new WinPopup.Data {
+                menuButtonCallback = () => {
+                    Account.Instance.CurrentStageMoney += earnedMoney;
+                    if (Account.Instance.DifficultyProgressionConfig.IsBonusStage || Account.Instance.TotalDays != Account.Instance.CurrentDay) {
+                        ScenesSwitchManager.Instance.LoadMenuScene();
+                    } else {
+                        ScenesSwitchManager.Instance.LoadMiniGameScene();
+                    }
+                },
+                collectedMoney = earnedMoney,
+                totalLevelMoney = totalLevelMoney,
+                continueButtonCallback = _gameEntitiesContainer.playerController.EnablePlayer,
+            });
         }
 
         private void Update() {
