@@ -21,26 +21,26 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0.15961596
-        outSlope: -0.15961596
+        inSlope: -0.0936189
+        outSlope: -0.0936189
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 4.3589783
-        value: 0.30423746
-        inSlope: -0.05555426
-        outSlope: -0.05555426
+        time: 7.289734
+        value: 0.31754312
+        inSlope: -0.037481293
+        outSlope: -0.037481293
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.14480855
+        outWeight: 0.07651723
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.071950085
-        inSlope: -0.014851164
-        outSlope: -0.014851164
+        inSlope: -0.01386727
+        outSlope: -0.01386727
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -64,7 +64,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -77,33 +77,33 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 2
   - _enemy: {fileID: 512186236499155996, guid: 026afc9d315d3894194b6b70ccf15618, type: 3}
-    _weight: 1
+    _weight: 0.9
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
         value: 1
-        inSlope: -0.15961596
-        outSlope: -0.15961596
+        inSlope: -0.09774442
+        outSlope: -0.09774442
         tangentMode: 34
         weightedMode: 0
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 4.3589783
-        value: 0.30423746
-        inSlope: -0.05555426
-        outSlope: -0.05555426
+        time: 4.8272085
+        value: 0.5281673
+        inSlope: -0.08978158
+        outSlope: -0.08978158
         tangentMode: 0
         weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0.14480855
+        inWeight: 0.18044564
+        outWeight: 0.016027479
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.071950085
-        inSlope: -0.014851164
-        outSlope: -0.014851164
+        inSlope: -0.022615474
+        outSlope: -0.022615474
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -113,7 +113,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 1
   - _enemy: {fileID: 7927490639160668387, guid: e2af911845394424ca16e6c096b4e8ef, type: 3}
-    _weight: 0.3
+    _weight: 0.2
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -129,17 +129,17 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 9.989324
         value: 0.48752904
-        inSlope: -0.0055301087
-        outSlope: -0.0055301087
+        inSlope: -0.0010537407
+        outSlope: -0.0010537407
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.33333334
-        outWeight: 0.2330291
+        outWeight: 0.30963778
       - serializedVersion: 3
         time: 20.160248
-        value: 0.48254395
-        inSlope: -0.00049013185
-        outSlope: -0.00049013185
+        value: 0.47880554
+        inSlope: -0.00085768977
+        outSlope: -0.00085768977
         tangentMode: 34
         weightedMode: 0
         inWeight: 0.33333334
@@ -163,7 +163,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -176,7 +176,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 2
   - _enemy: {fileID: 1972887871381213514, guid: 67959371dab98a441b792f942fe550e5, type: 3}
-    _weight: 0.7
+    _weight: 0.6
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -190,7 +190,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.5
         inSlope: 0
         outSlope: 0
@@ -219,14 +219,14 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 5.545822
         value: 0.75218856
-        inSlope: 0.04438938
-        outSlope: 0.04438938
+        inSlope: 0.03448207
+        outSlope: 0.03448207
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.26004687
-        outWeight: 0.21133028
+        outWeight: 0.049473647
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 1
         inSlope: 0
         outSlope: 0
@@ -255,14 +255,14 @@ MonoBehaviour:
       - serializedVersion: 3
         time: 5.545822
         value: 0.75218856
-        inSlope: 0.04438938
-        outSlope: 0.04438938
+        inSlope: 0.03448207
+        outSlope: 0.03448207
         tangentMode: 0
         weightedMode: 0
         inWeight: 0.26004687
-        outWeight: 0.21133028
+        outWeight: 0.049473647
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 1
         inSlope: 0
         outSlope: 0
@@ -274,35 +274,8 @@ MonoBehaviour:
       m_PostInfinity: 2
       m_RotationOrder: 4
     _minStage: 6
-  - _enemy: {fileID: 1972887871381213514, guid: 67959371dab98a441b792f942fe550e5, type: 3}
-    _weight: 0.4
-    _probabilityByStage:
-      serializedVersion: 2
-      m_Curve:
-      - serializedVersion: 3
-        time: 0
-        value: 0.5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0
-        outWeight: 0.33333334
-      - serializedVersion: 3
-        time: 20
-        value: 0.5
-        inSlope: 0
-        outSlope: 0
-        tangentMode: 34
-        weightedMode: 0
-        inWeight: 0.33333334
-        outWeight: 0
-      m_PreInfinity: 2
-      m_PostInfinity: 2
-      m_RotationOrder: 4
-    _minStage: 2
   - _enemy: {fileID: 5938124499448241381, guid: 20a71ce219ac89443bb717a24e6292ed, type: 3}
-    _weight: 0.9
+    _weight: 0.8
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -316,7 +289,7 @@ MonoBehaviour:
         inWeight: 0
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 20
+        time: 25
         value: 0.5
         inSlope: 0
         outSlope: 0

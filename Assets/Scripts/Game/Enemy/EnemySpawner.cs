@@ -46,6 +46,13 @@ namespace Game {
             foreach (var enemy in _enemies) {
                 enemy.Init(entitiesContainer);
             }
+            foreach (var enemy in _enemies) {
+                if(!Account.Instance.OpenedEnemies[enemy.Type]) {
+                    Account.Instance.OpenedEnemies[enemy.Type] = true;
+                    Account.Instance.newEnemyOpened = true;
+                    Account.Instance.newEnemyType = enemy.Type;
+                }
+            }
             entitiesContainer.enemies = _enemies;
         }
 

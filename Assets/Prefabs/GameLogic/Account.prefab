@@ -50,6 +50,8 @@ MonoBehaviour:
   _abilityDataContainer: {fileID: 11400000, guid: fe48232e08a082b44a155a95365565fe, type: 2}
   _currentAbilityId: 2
   _levelsModifiersContainer: {fileID: 11400000, guid: 96151905262448a468b25c362c6647e9, type: 2}
+  newEnemyOpened: 0
+  newEnemyType: 0
   _shopItemsContainer: {fileID: 11400000, guid: d82bbe565a3c9194f9945f8b36111591, type: 2}
 --- !u!1001 &4362036663697079060
 PrefabInstance:

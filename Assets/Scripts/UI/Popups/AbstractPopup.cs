@@ -41,7 +41,7 @@ namespace UI {
                 gameObject.SetActive(false);
                 _group.alpha = 0;
                 IsActive = false;
-                OnHided?.Invoke();
+                OnPopupClosed();
                 return;
             }
             _group.alpha = 1;
@@ -73,8 +73,12 @@ namespace UI {
             if (enable) {
                 OnPopupShowed();
             } else {
-                OnHided?.Invoke();
+                OnPopupClosed();
             }
+        }
+
+        protected virtual void OnPopupClosed() {
+            OnHided?.Invoke();
         }
 
         protected virtual void OnPopupShowed() {

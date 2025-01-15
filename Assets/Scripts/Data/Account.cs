@@ -3,15 +3,13 @@ using Infrastructure;
 using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
+using System.Linq;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Data {
 
     public class Account : SingletonCrossScene<Account> {
-
-        public struct MatchDoneEvent {
-            public int EarnedMoney;
-        }
 
         [SerializeField]
         private int _currentStage;
@@ -88,7 +86,6 @@ namespace Data {
         public LevelsModifiersContainer LevelsModifiersContainer => _levelsModifiersContainer;
 
         private Dictionary<int, int> _abilitiesCountData;
-
         public Dictionary<int, int> AbilitiesCountData {
             get {
                 return _abilitiesCountData;
@@ -98,6 +95,20 @@ namespace Data {
                 SaveAccountData();
             }
         }
+
+        private Dictionary<Enemy.EnemyType, bool> _openedEnemies;
+        public Dictionary<Enemy.EnemyType, bool> OpenedEnemies {
+            get {
+                return _openedEnemies;
+            }
+            private set {
+                _openedEnemies = value;
+                SaveAccountData();
+            }
+        }
+
+        public bool newEnemyOpened;
+        public Enemy.EnemyType newEnemyType;
 
         public int CurrentAbilityId => _currentAbilityId;
         public AbilityData CurrentAbility => _abilityDataContainer.GetAbility(_currentAbilityId);
@@ -119,11 +130,16 @@ namespace Data {
             _currentStageMoney = PlayerPrefs.GetInt(nameof(CurrentStageMoney), 0);
             _currentStage = PlayerPrefs.GetInt(nameof(CurrentStage), _currentStage);
             _abilitiesCountData = new Dictionary<int, int>();
+            _modifiersCountData = new Dictionary<ModifierType, int>();
+            _openedEnemies = new Dictionary<Enemy.EnemyType, bool>();
             foreach (var abilityId in _abilityDataContainer.GetAllAbilityIds()) {
                 _abilitiesCountData.Add(abilityId, PlayerPrefs.GetInt(nameof(AbilitiesCountData) + abilityId, 1));
             }
             foreach (var modifier in LevelsModifiersContainer.Modifiers) {
                 _modifiersCountData.Add(modifier.Key, PlayerPrefs.GetInt(nameof(ModifiersCountData) + modifier.Key, 0));
+            }
+            foreach (var enemyType in Enum.GetValues(typeof(Enemy.EnemyType)).Cast<Enemy.EnemyType>()) {
+                _openedEnemies.Add(enemyType, Convert.ToBoolean(PlayerPrefs.GetInt(nameof(OpenedEnemies) + enemyType)));
             }
         }
 
@@ -137,6 +153,9 @@ namespace Data {
             }
             foreach (var modifier in _modifiersCountData) {
                 PlayerPrefs.SetInt(nameof(ModifiersCountData) + modifier.Key, modifier.Value);
+            }
+            foreach (var enemy in _openedEnemies) {
+                PlayerPrefs.SetInt(nameof(OpenedEnemies) + enemy.Key, Convert.ToInt32(enemy.Value));
             }
             PlayerPrefs.Save();
         }
@@ -168,19 +187,6 @@ namespace Data {
                 CurrentDay = 1;
             }
             return success;
-        }
-
-        public void HandleMatchDoneEvent(MatchDoneEvent matchDoneEvent) {
-            TotalMoney += matchDoneEvent.EarnedMoney;
-            CurrentStageMoney += matchDoneEvent.EarnedMoney;
-            CurrentDay++;
-            if (CurrentDay > _difficultyProgressionConfig.GetDaysByStage(CurrentStage)) {
-                if (CurrentStageMoney >= RequiredMoney) {
-                    CurrentStage++;
-                }
-                CurrentStageMoney = 0;
-                CurrentDay = 1;
-            }
         }
 
         private void Update() {

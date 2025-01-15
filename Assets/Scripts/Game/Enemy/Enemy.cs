@@ -13,6 +13,10 @@ namespace Game {
             Skeleton,
             Bug,
             Electric,
+            None,
+            Slime,
+            BigSpider,
+            EyelessDog,
         }
 
         [SerializeField]

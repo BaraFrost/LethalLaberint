@@ -523,7 +523,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3dbec03469dae3478e7f525226baa7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 10
   _visionLogic: {fileID: 7446011376617307055}
   _movementLogic: {fileID: 6120792763255573508}
   _attackLogic: {fileID: 2810525428676449396}
@@ -541,8 +541,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e9cba42ea913894e9ece7e15eee4f1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _walkSpeed: 9
-  _runSpeed: 9
+  _walkSpeed: 10
+  _runSpeed: 10
   _agent: {fileID: 6431706848744798991}
   _stopDistance: 0.4
   _rotationSpeed: 10

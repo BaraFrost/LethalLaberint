@@ -1,3 +1,4 @@
+using Game;
 using Infrastructure;
 using System;
 using System.Net.NetworkInformation;
@@ -34,6 +35,10 @@ namespace UI {
         [SerializeField]
         private AudioSettingsPopup _audioSettingsPopupPrefab;
         private AudioSettingsPopup _audioSettingsPopup;
+
+        [SerializeField]
+        private BookPopup _bookPopupPrefab;
+        private BookPopup _bookPopup;
 
         private AbstractPopup _currentPopup;
 
@@ -98,6 +103,14 @@ namespace UI {
                 _audioSettingsPopup = Instantiate(_audioSettingsPopupPrefab, gameObject.transform);
             }
             ShowPopup(_audioSettingsPopup);
+        }
+
+        public void ShowBookPopup(Enemy.EnemyType enemyType = Enemy.EnemyType.None) {
+            if (_bookPopup == null) {
+                _bookPopup = Instantiate(_bookPopupPrefab, gameObject.transform);
+            }
+            _bookPopup.SetData(enemyType);
+            ShowPopup(_bookPopup);
         }
     }
 }
