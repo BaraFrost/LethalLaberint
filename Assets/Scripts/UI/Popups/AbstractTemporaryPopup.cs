@@ -7,6 +7,7 @@ namespace UI {
 
         [SerializeField]
         private float _showTime;
+        protected float _overrideShowTime;
 
         private Coroutine _hideCoroutine;
 
@@ -16,14 +17,14 @@ namespace UI {
         }
 
         public override void HidePopup(bool immediately = false) {
-            if(_hideCoroutine != null) {
+            if (_hideCoroutine != null) {
                 StopCoroutine(_hideCoroutine);
             }
             base.HidePopup(immediately);
         }
 
         private IEnumerator HideCoroutine() {
-            yield return new WaitForSeconds(_showTime);
+            yield return new WaitForSeconds(_overrideShowTime != 0 ? _overrideShowTime : _showTime);
             HidePopup();
         }
     }

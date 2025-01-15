@@ -43,7 +43,7 @@ namespace UI {
             if (PopupManager.Instance != null) {
                 PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                     text = text,
-                    type = TextPopup.Type.middle,
+                    type = TextPopup.Type.Upper,
                 }
                 );
             }
@@ -57,7 +57,7 @@ namespace UI {
             if (PopupManager.Instance != null) {
                 PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                     text = text.GetText(),
-                    type = TextPopup.Type.rightDown,
+                    type = TextPopup.Type.Middle,
                 }
                 );
             }

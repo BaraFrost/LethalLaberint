@@ -43,9 +43,7 @@ namespace UI {
         private AbstractPopup _currentPopup;
 
         private void ShowPopup(AbstractPopup popup) {
-            if (_currentPopup != null && _currentPopup.IsActive) {
-                _currentPopup.HidePopup(immediately: true);
-            }
+            CloseCurrentPopup(immediately: true);
             _currentPopup = popup;
             popup.ShowPopup();
         }
@@ -111,6 +109,12 @@ namespace UI {
             }
             _bookPopup.SetData(enemyType);
             ShowPopup(_bookPopup);
+        }
+
+        public void CloseCurrentPopup(bool immediately) {
+            if (_currentPopup != null && _currentPopup.IsActive) {
+                _currentPopup.HidePopup(immediately);
+            }
         }
     }
 }

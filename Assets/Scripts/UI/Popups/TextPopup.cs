@@ -7,14 +7,16 @@ namespace UI {
     public class TextPopup : AbstractTemporaryPopup {
 
         public enum Type {
-            middle,
-            rightDown,
+            Upper,
+            Middle,
+            MiddleBig,
         }
 
         public struct Data {
             public string text;
             public Type type;
             public Action onPopupShowedCallback;
+            public float time;
         }
 
         [Serializable]
@@ -31,6 +33,7 @@ namespace UI {
 
         public void SetData(Data data) {
             _data = data;
+            _overrideShowTime = _data.time;
             DisableTexts();
             foreach (var textWithType in _texts) {
                 if(data.type == textWithType.type) {

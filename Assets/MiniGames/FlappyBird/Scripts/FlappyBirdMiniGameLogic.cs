@@ -26,10 +26,10 @@ namespace MiniGames.FlappyBird {
         private bool _isInitialized;
 
         private void Start() {
-            PopupManager.Instance.ShowTimerPopup(new TimerPopup.Data {
+            PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                 time = _time,
-                additionalText = _startTimerText.GetText(),
-                onTimerEnd = Init,
+                type = TextPopup.Type.MiddleBig,
+                text = _startTimerText.GetText(),
             });
             _player.onPlayerDead += OnGameEnd;
         }
@@ -39,6 +39,10 @@ namespace MiniGames.FlappyBird {
         }
 
         private void Update() {
+            if (!_isInitialized && (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))) {
+                Init();
+                PopupManager.Instance.CloseCurrentPopup(immediately: false);
+            }
             if (!_isInitialized) {
                 return;
             }
@@ -49,7 +53,7 @@ namespace MiniGames.FlappyBird {
         private void OnGameEnd() {
             PopupManager.Instance.ShowTextPopup(new TextPopup.Data() {
                 text = string.Format(_endGameText.GetText(), _player.Wallet.Value),
-                type = TextPopup.Type.middle,
+                type = TextPopup.Type.Upper,
                 onPopupShowedCallback = () => {
                     Account.Instance.CurrentStageMoney += _player.Wallet.Value;
                     ScenesSwitchManager.Instance.LoadMenuScene();
