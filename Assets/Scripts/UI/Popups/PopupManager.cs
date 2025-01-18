@@ -40,6 +40,9 @@ namespace UI {
         private BookPopup _bookPopupPrefab;
         private BookPopup _bookPopup;
 
+        [SerializeField]
+        private AudioSource _popupSound;
+
         private AbstractPopup _currentPopup;
 
         private void ShowPopup(AbstractPopup popup) {
@@ -115,6 +118,13 @@ namespace UI {
             if (_currentPopup != null && _currentPopup.IsActive) {
                 _currentPopup.HidePopup(immediately);
             }
+        }
+
+        public void PlayPopupSound() {
+            if(_popupSound == null) {
+                return;
+            }
+            _popupSound.Play();
         }
     }
 }

@@ -542,7 +542,6 @@ MonoBehaviour:
   _group: {fileID: 6855420654018132934}
   _fadeTime: 0.1
   _closeButton: {fileID: 2837125584566627315}
-  _popupAudio: {fileID: 7347842809927752599}
   _scrollView: {fileID: 4414815451353747072}
   _itemPrefab: {fileID: 6451220848120913025, guid: ba1e93c7064961a48bef1740fea3bced, type: 3}
   _bookItemsData: {fileID: 11400000, guid: 8e3b6961b948dc74989fb68c2072eab1, type: 2}
@@ -622,7 +621,8 @@ MonoBehaviour:
   _scrollRect: {fileID: 6397907723996132766}
   _content: {fileID: 8642672317143482818}
   _layoutGroup: {fileID: 550702601603479761}
-  _scrollSpeed: 2
+  _scrollSpeed: 3
+  _distanceToStopScroll: 15
 --- !u!114 &6397907723996132766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -642,7 +642,7 @@ MonoBehaviour:
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
-  m_ScrollSensitivity: 2
+  m_ScrollSensitivity: 70
   m_Viewport: {fileID: 7696583299848630777}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 3348596623478393922}
@@ -878,10 +878,5 @@ PrefabInstance:
 --- !u!224 &103236368589158742 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 4042263104016590906, guid: cedda7f21e5ecf14a920488208f2fde8, type: 3}
-  m_PrefabInstance: {fileID: 4140993948782678380}
-  m_PrefabAsset: {fileID: 0}
---- !u!82 &7347842809927752599 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 6669562855632472827, guid: cedda7f21e5ecf14a920488208f2fde8, type: 3}
   m_PrefabInstance: {fileID: 4140993948782678380}
   m_PrefabAsset: {fileID: 0}

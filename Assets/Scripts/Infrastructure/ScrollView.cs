@@ -14,18 +14,23 @@ namespace Infrastructure {
         private VerticalLayoutGroup _layoutGroup;
         [SerializeField]
         private float _scrollSpeed = 10f;
+        [SerializeField]
+        private float _distanceToStopScroll;
 
         private List<T> _spawnedItems = new List<T>();
         public List<T> SpawnedItems => _spawnedItems;
         private Vector2 _targetPosition;
         private bool _isScrolling = false;
 
+        private void Awake() {
+        }
+
         private void Update() {
             if (_isScrolling) {
                 _content.anchoredPosition = Vector2.Lerp(_content.anchoredPosition, _targetPosition, Time.deltaTime * _scrollSpeed);
 
-                if (Vector2.Distance(_content.anchoredPosition, _targetPosition) < 0.1f) {
-                    _content.anchoredPosition = _targetPosition;
+                if (Vector2.Distance(_content.anchoredPosition, _targetPosition) < _distanceToStopScroll) {
+                  //  _content.anchoredPosition = _targetPosition;
                     _isScrolling = false;
                 }
             }
@@ -56,6 +61,10 @@ namespace Infrastructure {
                 Destroy(item);
             }
             _spawnedItems.Clear();
+        }
+
+        private void OnDisable() {
+            _isScrolling = false;
         }
     }
 }

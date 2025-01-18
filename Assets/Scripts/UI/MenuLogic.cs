@@ -30,10 +30,14 @@ namespace UI {
         [SerializeField]
         private LocalizationText _losePopupText;
 
+        [SerializeField]
+        private PlanetsVisualSetter _planetsVisualSetter;
+
         private void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
             _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
             _bookButton.onClick.AddListener(ShowBookPopup);
+            _planetsVisualSetter.UpdatePlanet();
             ChangeStage();
         }
 
@@ -60,6 +64,7 @@ namespace UI {
                     text = string.Format(_winPopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
                     onPopupClosed = TryToShowNewEnemyPopup,
                 });
+                _planetsVisualSetter.UpdatePlanet();
             } else {
                 PopupManager.Instance.ShowClosableTextPopup(new ClosableTextPopup.Data {
                     text = string.Format(_losePopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
