@@ -16,8 +16,6 @@ MonoBehaviour:
   _cellsEnvironments:
   - percent: 0.03
     environment: {fileID: 5808708171983573833, guid: 8429753bde710d54891ccae690333666, type: 3}
-  - percent: 0.01
-    environment: {fileID: 6918099805011699825, guid: 4666b1c5216873c41ae57563fc0d3373, type: 3}
   - percent: 0.03
     environment: {fileID: 3259078418892376541, guid: dc1778cbd4eb09c44bcc78016c009422, type: 3}
   - percent: 0.01
