@@ -50,4 +50,39 @@ public class WebGLOptimizer : EditorWindow
         }
         Debug.Log("Textures optimized.");
     }
+
+    [MenuItem("Tools/Optimize Audio Clips for Web")]
+    public static void OptimizeAudioClips() {
+        string[] guids = AssetDatabase.FindAssets("t:AudioClip");
+        int totalClips = guids.Length;
+
+        if (totalClips == 0) {
+            Debug.Log("No AudioClips found in the project.");
+            return;
+        }
+
+        for (int i = 0; i < totalClips; i++) {
+            string path = AssetDatabase.GUIDToAssetPath(guids[i]);
+            AudioImporter importer = AssetImporter.GetAtPath(path) as AudioImporter;
+
+            if (importer == null)
+                continue;
+
+            // Настройки импорта
+            importer.forceToMono = true; // Преобразование в моно для экономии памяти
+            importer.loadInBackground = true; // Загружаем аудио в фоне
+
+            AudioImporterSampleSettings settings = importer.defaultSampleSettings;
+            settings.loadType = AudioClipLoadType.CompressedInMemory; // Сжатие в памяти
+            settings.compressionFormat = AudioCompressionFormat.Vorbis; // Формат Vorbis
+            settings.quality = 0.1f; // Качество (оптимальное значение)
+
+            importer.defaultSampleSettings = settings;
+
+            AssetDatabase.ImportAsset(path, ImportAssetOptions.ForceUpdate);
+            Debug.Log($"Optimized: {path} ({i + 1}/{totalClips})");
+        }
+
+        Debug.Log("Audio optimization complete.");
+    }
 }
