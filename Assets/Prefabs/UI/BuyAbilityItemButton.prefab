@@ -105,6 +105,7 @@ MonoBehaviour:
   _button: {fileID: 3039295039577918132}
   _text: {fileID: 1384023086755468143}
   _image: {fileID: 153037253238293531}
+  _nameTextLabel: {fileID: 7441952349065983868}
   _abilityCounter: {fileID: 1713886528026707922}
   _abilityId: 1
   _abilityName: {fileID: 7441952349065983868}

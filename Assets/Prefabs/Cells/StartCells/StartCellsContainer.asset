@@ -24,3 +24,5 @@ MonoBehaviour:
     minStage: 4
   - startLabyrinthCells: {fileID: 7791882332685454619, guid: 5ac22f127c731084bbb0ea0568866616, type: 3}
     minStage: 6
+  - startLabyrinthCells: {fileID: 2886461600652389488, guid: 8b814df40d08c2f41a43ffea71456c50, type: 3}
+    minStage: 8

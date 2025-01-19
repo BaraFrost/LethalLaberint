@@ -38,7 +38,7 @@ namespace UI {
         public void SetData(Data data) {
             _data = data;
             _textLabel.text = string.Format(_text.GetText(), data.collectedMoney, data.totalLevelMoney,
-                Account.Instance.RequiredMoney - Account.Instance.CurrentStageMoney - data.collectedMoney);
+               Mathf.Max(0, Account.Instance.RequiredMoney - Account.Instance.CurrentStageMoney - data.collectedMoney));
         }
 
         private void OnMenuButtonClicked() {

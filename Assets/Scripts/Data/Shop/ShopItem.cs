@@ -1,3 +1,4 @@
+using Infrastructure;
 using UnityEngine;
 
 namespace Data {
@@ -28,6 +29,10 @@ namespace Data {
         [SerializeField]
         private Sprite _sprite;
         public Sprite Sprite => _sprite;
+
+        [SerializeField]
+        private LocalizationText _name;
+        public LocalizationText Name => _name;
 
         [SerializeField]
         private AbstractReward _reward;

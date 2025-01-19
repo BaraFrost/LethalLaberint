@@ -1,5 +1,7 @@
 using Game;
+using Infrastructure;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,6 +18,12 @@ namespace UI {
         [SerializeField]
         private float _distanceToPlayer;
 
+        [SerializeField]
+        private TextMeshProUGUI _buttonLabel;
+
+        [SerializeField]
+        private LocalizationText _buttonText;
+
         private List<LabyrinthCellWithDoor> CellsWithDoors => _entitiesContainer.cellsContainer.CellsWithDoors;
 
         private LabyrinthCellWithDoor _currentCell;
@@ -24,6 +32,7 @@ namespace UI {
 
         public void Init(GameEntitiesContainer entitiesContainer) {
             _entitiesContainer = entitiesContainer;
+            _buttonLabel.text = _buttonText.GetText();
             _button.onClick.AddListener(ChangeDoorState);
             _playerInputLogic.onDoorButtonClicked += ChangeDoorState;
             _button.gameObject.SetActive(false);

@@ -588,11 +588,9 @@ MonoBehaviour:
   _button: {fileID: 8165469853959315888}
   _text: {fileID: 464274346899588517}
   _image: {fileID: 4906457076851377341}
+  _nameTextLabel: {fileID: 8132588937439949296}
   _modifierLevelText: {fileID: 1093494109153515093}
   _modifierType: 0
-  _nameLabel: {fileID: 8132588937439949296}
-  _nameText:
-    _defaultText: 
 --- !u!114 &4906457076851377341
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -494,6 +494,8 @@ MonoBehaviour:
   _collider: {fileID: 8432526253894870725}
   _miniMapImage: {fileID: 1417878441688949811}
   _dropSoundPrefab: {fileID: 7368243604809113591, guid: 0ce4361824f3f594d9867092db598510, type: 3}
+  _meshRenderer: {fileID: 196166235363914151}
+  _meshFilter: {fileID: 5104451158994200492}
   collectedByEnemy: 0
 --- !u!1 &7278936042140422824
 GameObject:

@@ -38,10 +38,6 @@ namespace Game {
         }
 
         public override bool PositionAvailable(Vector3 position) {
-            if (position == _currentTargetPosition) {
-                return true;
-            }
-
             if (!TryCalculatePath(position, out var path)
                 || path.corners.Length == 0
                 || Enemy.EntitiesContainer.cellsContainer.StartCells.ShipLogic.PositionInsideShip(position)) {
@@ -52,9 +48,6 @@ namespace Game {
         }
 
         public override bool PositionReached(Vector3 position) {
-            if (!PositionAvailable(position)) {
-                return true;
-            }
             var distance = transform.position - position;
             distance.y = 0;
             return distance.magnitude <= _stopDistance;

@@ -218,6 +218,10 @@ namespace Data {
             return _shopItemsContainer.GetShopItemByType(type).Sprite;
         }
 
+        public LocalizationText GetShopItemName(ShopItem.Type type) {
+            return _shopItemsContainer.GetShopItemByType(type).Name;
+        }
+
         public bool TryToByItem(ShopItem.Type type) {
             var shopItem = _shopItemsContainer.GetShopItemByType(type);
             if (TotalMoney < shopItem.Price) {

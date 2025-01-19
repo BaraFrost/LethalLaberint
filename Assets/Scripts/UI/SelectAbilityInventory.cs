@@ -15,12 +15,23 @@ namespace Game {
 
         public Action onAbilitySwitched;
 
+        private bool IsTutorial => TutorialLogic.Instance != null;
+
         public void Init() {
+
             var abilityIds = Account.Instance.AbilityDataContainer.GetAllAbilityIds();
             foreach (var abilityId in abilityIds) {
                 var abilityItem = Instantiate(_abilityItemPrefab, transform);
                 abilityItem.onButtonClicked += SelectAbility;
-                abilityItem.Init(abilityId);
+                if (IsTutorial) {
+                    if (abilityId == TutorialLogic.Instance.TutorialAbilityId) {
+                        abilityItem.Init(abilityId, canSelectOnlyThis: true);
+                    } else {
+                        abilityItem.Init(abilityId, cantSelect: true);
+                    }
+                } else {
+                    abilityItem.Init(abilityId);
+                }
                 if (abilityId == Account.Instance.CurrentAbilityId) {
                     abilityItem.Select();
                 }
@@ -49,6 +60,9 @@ namespace Game {
         }
 
         private bool TryToSelectAbility(InventoryAbilityItem inventoryMenuItem) {
+            if (IsTutorial && inventoryMenuItem.AbilityId != TutorialLogic.Instance.TutorialAbilityId) {
+                return false;
+            }
             if (Account.Instance.AbilitiesCountData[inventoryMenuItem.AbilityId] <= 0) {
                 return false;
             }
@@ -56,6 +70,9 @@ namespace Game {
                 DeselectAll();
                 inventoryMenuItem.Select();
                 onAbilitySwitched?.Invoke();
+                if(IsTutorial) {
+                    TutorialLogic.Instance.OnAbilitySelected?.Invoke();
+                }
                 return true;
             }
             return false;

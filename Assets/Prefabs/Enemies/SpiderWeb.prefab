@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 2538909526334615798}
   - component: {fileID: 5022224741002452087}
   - component: {fileID: 1164871195521016749}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: SpiderWeb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -171,6 +171,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spiderweb_B
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 24a554931518e554e840e201b7907122, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 24a554931518e554e840e201b7907122, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -249,6 +253,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: spiderweb_C
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: b771e8dfc7eb515479171fb99bbf6c81, type: 3}
+      propertyPath: m_Layer
+      value: 11
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: b771e8dfc7eb515479171fb99bbf6c81, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -326,6 +334,10 @@ PrefabInstance:
     - target: {fileID: 100000, guid: ec5cb2e3dff903f478a552f37540398c, type: 3}
       propertyPath: m_Name
       value: spiderweb_A
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ec5cb2e3dff903f478a552f37540398c, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: ec5cb2e3dff903f478a552f37540398c, type: 3}
       propertyPath: m_RootOrder

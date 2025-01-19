@@ -19,6 +19,9 @@ namespace UI {
         [SerializeField]
         private Image _image;
 
+        [SerializeField]
+        private TextMeshProUGUI _nameTextLabel;
+
         public void Start() {
             _button.onClick.AddListener(TryToBuyItem);
             UpdateMoneyText();
@@ -27,6 +30,7 @@ namespace UI {
         protected virtual void UpdateMoneyText() {
             _text.text = $"{Account.Instance.GetShopItemPrice(_shopItemType).ToString()}$";
             _image.sprite = Account.Instance.GetShopItemSprite(_shopItemType);
+            _nameTextLabel.text = Account.Instance.GetShopItemName(_shopItemType).GetText();
         }
 
         public void TryToBuyItem() {

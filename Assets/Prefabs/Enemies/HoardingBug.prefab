@@ -262,6 +262,8 @@ MonoBehaviour:
   _visionPosition: {fileID: 2408816841856386439}
   _maxItemsToCollectCount: 3
   _visualItem: {fileID: 4221743429139008994}
+  _visualItemRenderer: {fileID: 6010471900644985112}
+  _visualItemFilter: {fileID: 6315362327791741741}
 --- !u!114 &8693370720141734426
 MonoBehaviour:
   m_ObjectHideFlags: 0

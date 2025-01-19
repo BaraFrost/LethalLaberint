@@ -10,7 +10,7 @@ namespace Game {
             if (!_enemy.EnemyItemsCollectionLogic.MaxItemsCollected) {
                 return NodeState.Failure;
             }
-            if (!_enemy.MovementLogic.PositionReached(_enemy.EnemyItemsCollectionLogic.StartPosition)) {
+            if (_enemy.MovementLogic.PositionAvailable(_enemy.EnemyItemsCollectionLogic.StartPosition) && !_enemy.MovementLogic.PositionReached(_enemy.EnemyItemsCollectionLogic.StartPosition)) {
                 _enemy.MovementLogic.WalkToPosition(_enemy.EnemyItemsCollectionLogic.StartPosition);
                 return NodeState.Success;
             }

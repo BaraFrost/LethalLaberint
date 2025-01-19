@@ -20,6 +20,10 @@ namespace Game {
         private int _maxItemsToCollectCount;
         [SerializeField]
         private GameObject _visualItem;
+        [SerializeField]
+        private MeshRenderer _visualItemRenderer;
+        [SerializeField]
+        private MeshFilter _visualItemFilter;
 
         private int _collectedItemsCount;
         private List<CollectibleItem> _itemsInZone = new List<CollectibleItem>();
@@ -70,7 +74,7 @@ namespace Game {
         }
 
         public void CollectItem(CollectibleItem item) {
-            if(!item.gameObject.activeSelf || item.Collected) {
+            if (!item.gameObject.activeSelf || item.Collected) {
                 return;
             }
             item.collectedByEnemy = true;
@@ -78,6 +82,9 @@ namespace Game {
             _collectedItem = item;
             if (_visualItem != null) {
                 _visualItem.SetActive(true);
+                _visualItemRenderer.material = item.MeshRenderer.sharedMaterial;
+                _visualItemFilter.mesh = item.MeshFilter.sharedMesh;
+                _visualItem.transform.localScale = item.transform.localScale;
             }
         }
 

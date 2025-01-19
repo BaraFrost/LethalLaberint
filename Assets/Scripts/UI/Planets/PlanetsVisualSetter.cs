@@ -1,5 +1,6 @@
 using Data;
 using Infrastructure;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,8 +23,11 @@ namespace UI {
 
         public void UpdatePlanet() {
             var planetIndex = Account.Instance.CurrentStage % _planetsVisualData.Planets.Length;
+            var planetsNameRandom = new System.Random(235 + Account.Instance.CurrentStage);
+            var randomLetter = (char)planetsNameRandom.Next(65, 90);
+            var randomNumber = planetsNameRandom.Next(100, 1000);
             _planetImage.sprite = _planetsVisualData.Planets[planetIndex].sprite;
-            _planetNameLabel.text = string.Format(_planetText.GetText(), _planetsVisualData.Planets[planetIndex].name.GetText());
+            _planetNameLabel.text = string.Format(_planetText.GetText(), $"{randomLetter}{randomNumber}");
         }
     }
 }

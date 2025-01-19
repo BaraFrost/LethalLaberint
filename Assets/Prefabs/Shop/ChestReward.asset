@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0ab128ff1d81914aae997888e2f8b91, type: 3}
   m_Name: ChestReward
   m_EditorClassIdentifier: 
-  _abilitiesCount: 2
+  _abilitiesCount: 10

@@ -24,6 +24,9 @@ namespace Game {
             if(_creativeCameraOn) {
                 return;
             }
+            if(TutorialLogic.Instance != null && !TutorialLogic.Instance.CanMove) {
+                return;
+            }
             CatchAbilityInput();
             CatchDoorButton();
             CatchMoveInput();

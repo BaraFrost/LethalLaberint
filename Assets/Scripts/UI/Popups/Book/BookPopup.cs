@@ -21,7 +21,7 @@ namespace UI {
         protected override void Awake() {
             base.Awake();
             foreach (var itemData in _bookItemsData.BooksData) {
-                var item = Instantiate(_itemPrefab);
+                var item = Instantiate(_itemPrefab, _scrollView.Content);
                 item.SetData(itemData);
                 _scrollView.AddItem(item);
             }

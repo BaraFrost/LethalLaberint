@@ -18,6 +18,14 @@ namespace Game {
         private AudioSource _dropSoundPrefab;
         private AudioSource _dropSoundInstance;
 
+        [SerializeField]
+        private MeshRenderer _meshRenderer;
+        public MeshRenderer MeshRenderer => _meshRenderer;
+
+        [SerializeField]
+        private MeshFilter _meshFilter;
+        public MeshFilter MeshFilter => _meshFilter;
+
         public bool Collected { get; private set; }
 
         public bool collectedByEnemy;

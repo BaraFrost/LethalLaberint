@@ -20,6 +20,12 @@ namespace UI {
         [SerializeField]
         private Image _iconImage;
 
+        [SerializeField]
+        private GameObject _canSelectOnlyThisGroup;
+
+        [SerializeField]
+        private GameObject _cantSelectThisGroup;
+
         private int _abilityId;
         public int AbilityId => _abilityId;
 
@@ -27,8 +33,10 @@ namespace UI {
 
         private int _index;
 
-        public void Init(int abilityId) {
+        public void Init(int abilityId, bool cantSelect = false, bool canSelectOnlyThis = false) {
             _abilityId = abilityId;
+            _cantSelectThisGroup.gameObject.SetActive(cantSelect);
+            _canSelectOnlyThisGroup.gameObject.SetActive(canSelectOnlyThis);
             _button.onClick.AddListener(() => onButtonClicked?.Invoke(this));
             SetItemData();
         }
@@ -45,6 +53,7 @@ namespace UI {
 
         public void Select() {
             _selectionBackGround.gameObject.SetActive(true);
+            _canSelectOnlyThisGroup.gameObject.SetActive(false);
         }
 
         public void Deselect() {

@@ -28,7 +28,7 @@ namespace Game {
             }
             var colliders = Physics.OverlapSphere(_player.transform.position, _distance, _layerMask);
             foreach (var collider in colliders) {
-                if (!collider.TryGetComponent<Enemy>(out var enemy) || enemy.VisionLogic == null) {
+                if (!collider.TryGetComponent<Enemy>(out var enemy) || enemy.VisionLogic == null || enemy.Type == Enemy.EnemyType.Electric) {
                     continue;
                 }
                 enemy.VisionLogic.TemporarilyDisable(AbilityTime);

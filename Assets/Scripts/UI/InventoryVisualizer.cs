@@ -18,6 +18,9 @@ namespace UI {
         [SerializeField]
         private TextMeshProUGUI _abilityDescriptionText;
 
+        [SerializeField]
+        private GameObject _useAbilityArrow;
+
         private InventoryItem _spawnedButtons;
 
         private PlayerController _playerController;
@@ -33,6 +36,11 @@ namespace UI {
         }
 
         private void Update() {
+            if(TutorialLogic.Instance != null && TutorialLogic.Instance.CanUseAbility) {
+                _useAbilityArrow.gameObject.SetActive(true);
+            } else if(TutorialLogic.Instance != null) {
+                _useAbilityArrow.gameObject.SetActive(false);
+            }
             if (_spawnedButtons != null && _playerController.PlayerAbilityLogic.CurrentAbility != null) {
                 _spawnedButtons.UpdateProgress(_playerController.PlayerAbilityLogic.CurrentAbility);
             }

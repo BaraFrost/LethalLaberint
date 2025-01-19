@@ -24,12 +24,18 @@ namespace Game {
             }
 
             public bool TryToActivate() {
+                if (TutorialLogic.Instance != null && !TutorialLogic.Instance.CanUseAbility) {
+                    return false;
+                }
                 if (_count <= 0 || !_ability.CanUseAbility) {
                     return false;
                 }
                 _count--;
                 _ability.Activate();
                 Account.Instance.OnAbilityUsed(AbilityData.id);
+                if (TutorialLogic.Instance != null) {
+                    TutorialLogic.Instance.OnAbilityUsed();
+                }
                 return true;
             }
         }

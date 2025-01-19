@@ -10,6 +10,7 @@ namespace Infrastructure {
         private ScrollRect _scrollRect;
         [SerializeField]
         private RectTransform _content;
+        public RectTransform Content => _content;
         [SerializeField]
         private VerticalLayoutGroup _layoutGroup;
         [SerializeField]
@@ -37,7 +38,6 @@ namespace Infrastructure {
         }
 
         public void AddItem(T item) {
-            item.transform.SetParent(_content.transform);
             _spawnedItems.Add(item);
 
             LayoutRebuilder.ForceRebuildLayoutImmediate(_content);

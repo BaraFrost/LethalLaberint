@@ -8,7 +8,5 @@ namespace Data {
 
         private int _value;
         public int Value { get { return _value; } }
-
-
     }
 }
