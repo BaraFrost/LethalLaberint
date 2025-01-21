@@ -43,7 +43,7 @@ public class WebGLOptimizer : EditorWindow
             if (textureImporter != null) {
                 textureImporter.textureCompression = TextureImporterCompression.Compressed;
                 textureImporter.crunchedCompression = true;
-                textureImporter.compressionQuality = 50; // Баланс между качеством и размером
+                textureImporter.compressionQuality = 20; // Баланс между качеством и размером
                 textureImporter.mipmapEnabled = false; // Отключаем MipMap
                 AssetDatabase.ImportAsset(assetPath);
             }
@@ -84,5 +84,38 @@ public class WebGLOptimizer : EditorWindow
         }
 
         Debug.Log("Audio optimization complete.");
+    }
+
+    [MenuItem("Tools/Mesh Optimizer/Optimize All Meshes")]
+    public static void OptimizeAllMeshes() {
+        string[] allMeshPaths = AssetDatabase.FindAssets("t:Model"); // Находим все модели
+        int count = allMeshPaths.Length;
+
+        for (int i = 0; i < count; i++) {
+            string assetPath = AssetDatabase.GUIDToAssetPath(allMeshPaths[i]);
+            ModelImporter modelImporter = AssetImporter.GetAtPath(assetPath) as ModelImporter;
+
+            if (modelImporter != null) {
+                // Применяем оптимизированные настройки
+                modelImporter.importNormals = ModelImporterNormals.Import; // Импорт нормалей
+                modelImporter.importTangents = ModelImporterTangents.None; // Отключить тангенсы (если не нужен PBR)
+                modelImporter.importBlendShapes = false; // Отключить Blend Shapes
+                modelImporter.importCameras = false; // Отключить камеры
+                modelImporter.importLights = false; // Отключить источники света
+                modelImporter.optimizeMeshPolygons = true; // Оптимизация полигонов
+                modelImporter.optimizeMeshVertices = true; // Оптимизация вершин
+                modelImporter.weldVertices = true; // Объединение вершин
+                modelImporter.meshCompression = ModelImporterMeshCompression.Medium; // Компрессия мешей
+                modelImporter.materialImportMode = ModelImporterMaterialImportMode.None; // Отключить материалы
+
+                AssetDatabase.WriteImportSettingsIfDirty(assetPath);
+            }
+
+            EditorUtility.DisplayProgressBar("Optimizing Meshes", $"Processing {i + 1}/{count}", (float)(i + 1) / count);
+        }
+
+        EditorUtility.ClearProgressBar();
+        AssetDatabase.Refresh();
+        Debug.Log("Mesh optimization completed!");
     }
 }

@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 248714533372317635}
   - {fileID: 3471149615186009250}
   - {fileID: 4727288541968334193}
+  cellBusy: 0
 --- !u!1 &5132650959173665083
 GameObject:
   m_ObjectHideFlags: 0
@@ -205,6 +206,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0.49
       objectReference: {fileID: 0}
+    - target: {fileID: 7309559122452934394, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 59995144e071ec045bcdaf928bbcda03, type: 2}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
       value: 1.3154837
@@ -283,11 +288,11 @@ PrefabInstance:
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7e89b44ba3401f74c87655283e6fc554, type: 2}
+      objectReference: {fileID: 2100000, guid: 5efa56be8d2fea843b069aab049f6e61, type: 2}
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 424f108c2e1ef074aa68c7bce8440d8e, type: 2}
+      objectReference: {fileID: 2100000, guid: f0444265d7ee2b04e9be4a1e94e5a261, type: 2}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Name
       value: Wall (5)
@@ -303,7 +308,7 @@ PrefabInstance:
     - target: {fileID: 7309559122452934394, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -633945100355014200, guid: a59f6548c14dfa84ba2ca07e21ce1543, type: 3}
+      objectReference: {fileID: 4300000, guid: 764f615345eef2540aa060fe81890fff, type: 2}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
       value: 1.3154837
@@ -382,11 +387,11 @@ PrefabInstance:
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: cf58f84ee9998e143b02cf34bf54bffe, type: 2}
+      objectReference: {fileID: 2100000, guid: 5efa56be8d2fea843b069aab049f6e61, type: 2}
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 4ed124cb1b8b430488f12fd5cbfb2b23, type: 2}
+      objectReference: {fileID: 2100000, guid: f0444265d7ee2b04e9be4a1e94e5a261, type: 2}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Name
       value: Wall (4)
@@ -410,7 +415,7 @@ PrefabInstance:
     - target: {fileID: 7309559122452934394, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: 7330034458930965837, guid: a59f6548c14dfa84ba2ca07e21ce1543, type: 3}
+      objectReference: {fileID: 4300000, guid: ee22bd4ffdc8d7543ab4a514bfe8116d, type: 2}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
       value: 1.3154837
@@ -489,11 +494,11 @@ PrefabInstance:
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 7e89b44ba3401f74c87655283e6fc554, type: 2}
+      objectReference: {fileID: 2100000, guid: 5efa56be8d2fea843b069aab049f6e61, type: 2}
     - target: {fileID: 1195084784453992176, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: 424f108c2e1ef074aa68c7bce8440d8e, type: 2}
+      objectReference: {fileID: 2100000, guid: f0444265d7ee2b04e9be4a1e94e5a261, type: 2}
     - target: {fileID: 4506036729218568247, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Name
       value: Wall (7)
@@ -509,7 +514,7 @@ PrefabInstance:
     - target: {fileID: 7309559122452934394, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Mesh
       value: 
-      objectReference: {fileID: -633945100355014200, guid: a59f6548c14dfa84ba2ca07e21ce1543, type: 3}
+      objectReference: {fileID: 4300000, guid: 764f615345eef2540aa060fe81890fff, type: 2}
     - target: {fileID: 7929220207289579182, guid: 99c73eb89ecfc4642ae496ecaaa5735f, type: 3}
       propertyPath: m_Size.y
       value: 1.3154837

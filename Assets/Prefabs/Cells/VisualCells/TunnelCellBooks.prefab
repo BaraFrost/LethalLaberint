@@ -33,7 +33,7 @@ Transform:
   - {fileID: 5049699771252043114}
   - {fileID: 6474735172315673020}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6016102896314795824
 MonoBehaviour:
@@ -128,6 +128,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book Parent 004
       objectReference: {fileID: 0}
+    - target: {fileID: 6373087305806639457, guid: d9ba3d2c925ed38428d1dc575e2c4294, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 93ee5820b5b498245b237ed93513fdd4, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -217,6 +221,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Book Parent 003
       objectReference: {fileID: 0}
+    - target: {fileID: 2883350967364482547, guid: 25e506ac1b928c04b9670bc84a1bde3d, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: f37e788708280f5488feff182911d1c7, type: 2}
     - target: {fileID: 5614694006104929415, guid: 25e506ac1b928c04b9670bc84a1bde3d, type: 3}
       propertyPath: m_RootOrder
       value: -1
@@ -402,6 +410,10 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -0.06
       objectReference: {fileID: 0}
+    - target: {fileID: 7822342268286422503, guid: 25ddc0a83982f2943b35c45ce588ce57, type: 3}
+      propertyPath: m_Mesh
+      value: 
+      objectReference: {fileID: 4300000, guid: 0adbd237c3233d645a1271732f0c8c6d, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
