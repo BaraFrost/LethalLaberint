@@ -711,6 +711,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
