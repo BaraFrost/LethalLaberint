@@ -126,7 +126,7 @@ namespace Game {
 
         private void AddLabyrinthToStaticBatching() {
             var objectsToCombine = _spawnedCells.SelectMany(cell => cell.Walls).ToArray();
-            StaticBatchingUtility.Combine(objectsToCombine, _floor.gameObject);
+            StaticBatchingUtility.Combine(objectsToCombine, gameObject);
         }
 
         private void SetStartData() {

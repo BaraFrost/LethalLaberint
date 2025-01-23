@@ -58,6 +58,7 @@ MonoBehaviour:
   - {fileID: 248714533372317635}
   - {fileID: 3471149615186009250}
   - {fileID: 4727288541968334193}
+  - {fileID: 5132650959173665083}
   cellBusy: 0
 --- !u!1 &5132650959173665083
 GameObject:
@@ -75,7 +76,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &4452948836926983471
 Transform:

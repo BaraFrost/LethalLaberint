@@ -40,13 +40,16 @@ public class WebGLOptimizer : EditorWindow
         string[] allAssets = AssetDatabase.GetAllAssetPaths();
         foreach (string assetPath in allAssets) {
             TextureImporter textureImporter = AssetImporter.GetAtPath(assetPath) as TextureImporter;
-            if (textureImporter != null) {
+            if(textureImporter != null && textureImporter.maxTextureSize == 2048 && !assetPath.Contains("Packages")) {
+                Debug.Log(assetPath);
+            }
+            /*if (textureImporter != null) {
                 textureImporter.textureCompression = TextureImporterCompression.Compressed;
                 textureImporter.crunchedCompression = true;
                 textureImporter.compressionQuality = 20; // Баланс между качеством и размером
                 textureImporter.mipmapEnabled = false; // Отключаем MipMap
                 AssetDatabase.ImportAsset(assetPath);
-            }
+            }*/
         }
         Debug.Log("Textures optimized.");
     }

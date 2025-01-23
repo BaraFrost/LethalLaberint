@@ -15,10 +15,12 @@ namespace Game {
         }
 
         public void ActivateMiniMap() {
+            _miniMapCameraPlacer.gameObject.SetActive(true);
             _miniMapImage.SetActive(true);
         }
 
         public void DeactivateMiniMap() {
+            _miniMapCameraPlacer.gameObject.SetActive(false);
             _miniMapImage.SetActive(false);
         }
     }
