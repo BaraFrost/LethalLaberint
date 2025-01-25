@@ -37,6 +37,14 @@ namespace Data {
         [SerializeField]
         private AbstractReward _reward;
 
+        [SerializeField]
+        private bool _canBuyByMoney;
+        public bool CanBuyByMoney => _canBuyByMoney;
+
+        [SerializeField]
+        private bool _canBuyByAdd;
+        public bool CanBuyByAdd => _canBuyByAdd;
+
         public void GiveReward() {
             _reward.GiveReward();
         }

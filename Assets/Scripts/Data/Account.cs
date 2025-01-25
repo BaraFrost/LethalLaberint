@@ -210,21 +210,17 @@ namespace Data {
             return true;
         }
 
-        public int GetShopItemPrice(ShopItem.Type type) {
-            return _shopItemsContainer.GetShopItemByType(type).Price;
-        }
-
-        public Sprite GetShopItemSprite(ShopItem.Type type) {
-            return _shopItemsContainer.GetShopItemByType(type).Sprite;
-        }
-
-        public LocalizationText GetShopItemName(ShopItem.Type type) {
-            return _shopItemsContainer.GetShopItemByType(type).Name;
+        public ShopItem GetShopItemByType(ShopItem.Type type) {
+            return _shopItemsContainer.GetShopItemByType(type);
         }
 
         public bool TryToByItem(ShopItem.Type type) {
             var shopItem = _shopItemsContainer.GetShopItemByType(type);
-            if (TotalMoney < shopItem.Price) {
+            var canBuyByMoney = Account.Instance.TotalMoney >= shopItem.Price && shopItem.CanBuyByMoney;
+            if(!canBuyByMoney && shopItem.CanBuyByAdd) {
+                shopItem.GiveReward();
+            }
+            if (TotalMoney < shopItem.Price || !shopItem.CanBuyByMoney) {
                 return false;
             }
             TotalMoney -= shopItem.Price;

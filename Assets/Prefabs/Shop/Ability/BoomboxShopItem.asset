@@ -17,4 +17,7 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 2404162889793ef40bf9bdbf424ca985, type: 3}
   _name:
     _defaultText: "\u0411\u0443\u043C\u0431\u043E\u043A\u0441"
+    _localizations: []
   _reward: {fileID: 11400000, guid: 0abdf624ddc14de4abb4580a59368e49, type: 2}
+  _canBuyByMoney: 1
+  _canBuyByAdd: 0
