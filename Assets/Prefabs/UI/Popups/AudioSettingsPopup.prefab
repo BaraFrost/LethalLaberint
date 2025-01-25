@@ -512,6 +512,14 @@ PrefabInstance:
       propertyPath: _titleText._defaultText
       value: "\u042D\u0444\u0444\u0435\u043A\u0442\u044B"
       objectReference: {fileID: 0}
+    - target: {fileID: 7747658826720356682, guid: d046d70fb8fdfa4479205d6936ed531b, type: 3}
+      propertyPath: _titleText._localizations.Array.data[0].text
+      value: "\u042D\u0444\u0444\u0435\u043A\u0442\u044B"
+      objectReference: {fileID: 0}
+    - target: {fileID: 7747658826720356682, guid: d046d70fb8fdfa4479205d6936ed531b, type: 3}
+      propertyPath: _titleText._localizations.Array.data[1].text
+      value: Effects
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

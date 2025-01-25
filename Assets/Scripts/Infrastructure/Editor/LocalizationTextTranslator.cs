@@ -11,11 +11,11 @@ namespace Infrastructure {
         [MenuItem("Tools/Translate All LocalizationText")]
         public static void TranslateAllLocalizationText() {
             // Перебираем все сцены в проекте
-            foreach (var scenePath in AssetDatabase.FindAssets("t:Scene").Select(AssetDatabase.GUIDToAssetPath)) {
+          /*  foreach (var scenePath in AssetDatabase.FindAssets("t:Scene").Select(AssetDatabase.GUIDToAssetPath)) {
                 EditorSceneManager.OpenScene(scenePath);
                 TranslateLocalizationTextInScene();
                 EditorSceneManager.SaveScene(EditorSceneManager.GetActiveScene());
-            }
+            }*/
 
             // Перебираем все ассеты в проекте
             foreach (var prefabPath in AssetDatabase.FindAssets("t:Prefab").Select(AssetDatabase.GUIDToAssetPath)) {

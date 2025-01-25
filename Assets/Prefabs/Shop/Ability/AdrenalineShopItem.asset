@@ -17,7 +17,11 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: ff212bec9338009439928185b5f5d799, type: 3}
   _name:
     _defaultText: "\u0410\u0434\u0440\u0435\u043D\u0430\u043B\u0438\u043D"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "\u0410\u0434\u0440\u0435\u043D\u0430\u043B\u0438\u043D"
+    - language: 1
+      text: Adrenalin
   _reward: {fileID: 11400000, guid: c8cecb8b87237224c914ba66a62f2284, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 0

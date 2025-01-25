@@ -17,6 +17,17 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 44ca242b4b92ea14987cab266c2d8724, type: 3}
   _abilityName:
     _defaultText: "\u0411\u043B\u044D\u043A\u0430\u0443\u0442"
+    _localizations:
+    - language: 0
+      text: "\u0411\u043B\u044D\u043A\u0430\u0443\u0442"
+    - language: 1
+      text: Blackout
   _abilityDescription:
     _defaultText: "\u0411\u043B\u0435\u043A\u0430\u0443\u0442 \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442
       \u043B\u043E\u0432\u0443\u0448\u043A\u0438"
+    _localizations:
+    - language: 0
+      text: "\u0411\u043B\u0435\u043A\u0430\u0443\u0442 \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442
+        \u043B\u043E\u0432\u0443\u0448\u043A\u0438"
+    - language: 1
+      text: Blackout disables traps

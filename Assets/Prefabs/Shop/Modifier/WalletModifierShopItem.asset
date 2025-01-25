@@ -17,7 +17,11 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 5c0978c0d7672aa4fa4ea3bffc7d78d3, type: 3}
   _name:
     _defaultText: "\u0420\u0430\u0437\u043C\u0435\u0440 \u043C\u0435\u0448\u043A\u0430"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "\u0420\u0430\u0437\u043C\u0435\u0440 \u043C\u0435\u0448\u043A\u0430"
+    - language: 1
+      text: Bag size
   _reward: {fileID: 11400000, guid: ba520ecf8b65b0f48baf5c114c9f9fa8, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 1

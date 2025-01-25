@@ -338,6 +338,11 @@ MonoBehaviour:
   _closedSprite: {fileID: 21300000, guid: d98a176d5de6d094ca7b930085f02b1c, type: 3}
   _closedText:
     _defaultText: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
+    _localizations:
+    - language: 0
+      text: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
+    - language: 1
+      text: Unknown
 --- !u!114 &9214371921172996100
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1378,6 +1378,15 @@ MonoBehaviour:
     _defaultText: "\u0421\u043E\u0431\u0440\u0430\u043D\u043E: {0}$\n\u0426\u0435\u043B\u044C:
       {1}$\n\u0414\u043D\u0435\u0439 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C:
       {2}"
+    _localizations:
+    - language: 0
+      text: "\u0421\u043E\u0431\u0440\u0430\u043D\u043E: {0}$\n\u0426\u0435\u043B\u044C:
+        {1}$\n\u0414\u043D\u0435\u0439 \u043E\u0441\u0442\u0430\u043B\u043E\u0441\u044C:
+        {2}"
+    - language: 1
+      text: 'Collected: {0}$
+
+'
 --- !u!114 &964458704731692967
 MonoBehaviour:
   m_ObjectHideFlags: 0

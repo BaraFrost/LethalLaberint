@@ -17,7 +17,11 @@ MonoBehaviour:
   _sprite: {fileID: 21300000, guid: 776449778aa676d468397827b689a9f6, type: 3}
   _name:
     _defaultText: "\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442"
+    - language: 1
+      text: Teleport
   _reward: {fileID: 11400000, guid: 1eb990663ce54c84dbb40b74090f96e0, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 0

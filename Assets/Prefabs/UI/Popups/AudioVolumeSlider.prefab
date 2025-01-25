@@ -98,6 +98,11 @@ MonoBehaviour:
   _mixer: {fileID: 24100000, guid: a12db1ad69aa0fa439848925c55b9f16, type: 2}
   _titleText:
     _defaultText: "\u041C\u0443\u0437\u044B\u043A\u0430"
+    _localizations:
+    - language: 0
+      text: "\u041C\u0443\u0437\u044B\u043A\u0430"
+    - language: 1
+      text: Music
   _titleLabel: {fileID: 6514164446046798185}
 --- !u!114 &8350390788520984567
 MonoBehaviour:
