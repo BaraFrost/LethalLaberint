@@ -402,7 +402,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 1000
+  far clip plane: 18
   field of view: 60
   orthographic: 0
   orthographic size: 3.96
@@ -522,7 +522,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 63.4
+  m_fontSize: 64.3
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -919,7 +919,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4
   m_IsActive: 1
 --- !u!4 &7232471887304880481
 Transform:
@@ -1727,68 +1727,155 @@ MonoBehaviour:
       text: 'Collect <i>junk</i> to meet your <i>quota</i> <color=yellow>{0}$</color>.
 
 '
+    _overrideLocalization: 0
   _deathHintsHintText:
   - _defaultText: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439 <color=green>\u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438</color>
       \u043E\u043D\u0438 \u043C\u043E\u0433\u0443\u0442 <color=green>\u0441\u043F\u0430\u0441\u0442\u0438</color>."
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "\u0418\u0441\u043F\u043E\u043B\u044C\u0437\u0443\u0439 <color=green>\u0441\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0438</color>
+        \u043E\u043D\u0438 \u043C\u043E\u0433\u0443\u0442 <color=green>\u0441\u043F\u0430\u0441\u0442\u0438</color>."
+    - language: 1
+      text: Use <color=green>abilities</color> they can <color=green>save</color>.
+    _overrideLocalization: 0
   - _defaultText: "<color=green>\u0410\u0434\u0440\u0435\u043D\u0430\u043B\u0438\u043D</color>
       \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0443\u0431\u0435\u0436\u0430\u0442\u044C
       \u043E\u0442 \u043B\u044E\u0431\u043E\u0433\u043E"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0410\u0434\u0440\u0435\u043D\u0430\u043B\u0438\u043D</color>
+        \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0443\u0431\u0435\u0436\u0430\u0442\u044C
+        \u043E\u0442 \u043B\u044E\u0431\u043E\u0433\u043E"
+    - language: 1
+      text: <color=green>Adrenaline</color> will help you escape from anyone
+    _overrideLocalization: 0
   - _defaultText: "<color=green>\u0424\u043B\u0435\u0448\u043A\u0430</color> \u0441\u043F\u0430\u0441\u0451\u0442
       \u043A\u043E\u0433\u0434\u0430 \u0442\u0435\u0431\u044F \u043F\u043E\u0447\u0442\u0438
       \u043F\u043E\u0439\u043C\u0430\u043B\u0438"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0424\u043B\u0435\u0448\u043A\u0430</color> \u0441\u043F\u0430\u0441\u0451\u0442
+        \u043A\u043E\u0433\u0434\u0430 \u0442\u0435\u0431\u044F \u043F\u043E\u0447\u0442\u0438
+        \u043F\u043E\u0439\u043C\u0430\u043B\u0438"
+    - language: 1
+      text: <color=green>Flash drive</color> will save you when you are almost caught
+    _overrideLocalization: 0
   - _defaultText: "<color=green>\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>
       \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0434\u043E\u043D\u0435\u0441\u0442\u0438
       \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>
+        \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0434\u043E\u043D\u0435\u0441\u0442\u0438
+        \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B"
+    - language: 1
+      text: <color=green>Teleport</color> will help deliver items
+    _overrideLocalization: 0
   - _defaultText: "<color=green>\u0411\u0443\u043C\u0431\u043E\u043A\u0441</color>
       \u0437\u043D\u0430\u0442\u043D\u043E \u043A\u043E\u043B\u0431\u0430\u0441\u0438\u0442
       \u0438 \u043F\u0440\u0438\u0432\u043B\u0435\u043A\u0430\u0435\u0442 \u0432\u0440\u0430\u0433\u043E\u0432"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0411\u0443\u043C\u0431\u043E\u043A\u0441</color> \u0437\u043D\u0430\u0442\u043D\u043E
+        \u043A\u043E\u043B\u0431\u0430\u0441\u0438\u0442 \u0438 \u043F\u0440\u0438\u0432\u043B\u0435\u043A\u0430\u0435\u0442
+        \u0432\u0440\u0430\u0433\u043E\u0432"
+    - language: 1
+      text: <color=green>Boombox</color> makes great noise and attracts enemies
+    _overrideLocalization: 0
   - _defaultText: "<color=green>\u0411\u043B\u044D\u043A\u0430\u0443\u0442</color>
       \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442 \u0432\u0441\u044E \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u0438\u043A\u0443
       \u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0438 \u0434\u0432\u0435\u0440\u0438"
-    _localizations: []
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0411\u043B\u044D\u043A\u0430\u0443\u0442</color> \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442
+        \u0432\u0441\u044E \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u0438\u043A\u0443
+        \u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0438 \u0434\u0432\u0435\u0440\u0438"
+    - language: 1
+      text: <color=green>Blackout</color> turns off all electronics including doors
+    _overrideLocalization: 0
   _hintByEnemyTypes:
   - enemyType: 0
     hint:
       _defaultText: "<color=red>\u041F\u0430\u0443\u043A</color> \u043E\u0447\u0435\u043D\u044C
         \u0431\u044B\u0441\u0442\u0440\u044B\u0439.\n\u041D\u0435 \u043D\u0430\u0441\u0442\u0443\u043F\u0430\u0439
         \u0432 <color=red>\u043F\u0430\u0443\u0442\u0438\u043D\u0443</color>"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "<color=red>\u041F\u0430\u0443\u043A</color> \u043E\u0447\u0435\u043D\u044C
+          \u0431\u044B\u0441\u0442\u0440\u044B\u0439.\n\u041D\u0435 \u043D\u0430\u0441\u0442\u0443\u043F\u0430\u0439
+          \u0432 <color=red>\u043F\u0430\u0443\u0442\u0438\u043D\u0443</color>"
+      - language: 1
+        text: '<color=red>The spider</color> is very fast.
+
+          Don''t step
+          in the <color=red>web</color>'
+      _overrideLocalization: 0
   - enemyType: 2
     hint:
       _defaultText: "\u0420\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0438 \u0432
         \u043C\u0430\u0441\u043A\u0430\u0445 \u0443\u043C\u0435\u044E\u0442 \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u0442\u044C
         \u0442\u0435\u043B\u0430"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "\u0420\u0430\u0431\u043E\u0442\u043D\u0438\u043A\u0438 \u0432 \u043C\u0430\u0441\u043A\u0430\u0445
+          \u0443\u043C\u0435\u044E\u0442 \u0437\u0430\u0445\u0432\u0430\u0442\u044B\u0432\u0430\u0442\u044C
+          \u0442\u0435\u043B\u0430"
+      - language: 0
+        text: Masked workers are skilled at body grabbing
+      _overrideLocalization: 0
   - enemyType: 1
     hint:
       _defaultText: "\u041E\u0442 <color=red>\u0441\u043E\u0431\u0430\u043A</color>
         \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0443\u0431\u0435\u0436\u0430\u0442\u044C
         <color=green>\u0444\u043B\u0435\u0448\u043A\u0430</color> \u0438\u043B\u0438
         <color=green>\u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "\u041E\u0442 <color=red>\u0441\u043E\u0431\u0430\u043A</color> \u043F\u043E\u043C\u043E\u0436\u0435\u0442
+          \u0443\u0431\u0435\u0436\u0430\u0442\u044C <color=green>\u0444\u043B\u0435\u0448\u043A\u0430</color>
+          \u0438\u043B\u0438 <color=green>\u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>"
+      - language: 1
+        text: <color=red>dogs</color> can be escaped with a <color=green>flash</color>
+          or a <color=green>teleporter</color>
+      _overrideLocalization: 0
   - enemyType: 3
     hint:
       _defaultText: "\u041D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u0438 \u0431\u043B\u0438\u0437\u043A\u043E
         \u043A <color=red>\u0448\u0443\u0442\u0443</color> \u0438 \u043E\u043D \u0442\u0435\u0431\u044F
         \u043D\u0435 \u0442\u0440\u043E\u043D\u0435\u0442"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "\u041D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u0438 \u0431\u043B\u0438\u0437\u043A\u043E
+          \u043A <color=red>\u0448\u0443\u0442\u0443</color> \u0438 \u043E\u043D
+          \u0442\u0435\u0431\u044F \u043D\u0435 \u0442\u0440\u043E\u043D\u0435\u0442"
+      - language: 1
+        text: Don't go near the <color=red>jester</color> and he won't hurt you
+      _overrideLocalization: 0
   - enemyType: 4
     hint:
       _defaultText: "<color=red>\u0421\u043A\u0435\u043B\u0435\u0442\u044B</color>
         \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u044B\u0435 \u043D\u043E \u043C\u043E\u0433\u0443\u0442
         \u0437\u0430\u0433\u043D\u0430\u0442\u044C \u0432 \u0443\u0433\u043E\u043B"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "<color=red>\u0421\u043A\u0435\u043B\u0435\u0442\u044B</color> \u043C\u0435\u0434\u043B\u0435\u043D\u043D\u044B\u0435,
+          \u043D\u043E \u043C\u043E\u0433\u0443\u0442 \u0437\u0430\u0433\u043D\u0430\u0442\u044C
+          \u0432 \u0443\u0433\u043E\u043B"
+      - language: 1
+        text: <color=red>Skeletons</color> are slow, but can corner you
+      _overrideLocalization: 0
   - enemyType: 6
     hint:
       _defaultText: "<color=green>\u0411\u043B\u0435\u043A\u0430\u0443\u0442</color>
         \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C
         \u043B\u043E\u0432\u0443\u0448\u043A\u0438"
-      _localizations: []
+      _localizations:
+      - language: 0
+        text: "<color=green>\u0411\u043B\u0435\u043A\u0430\u0443\u0442</color> \u043F\u043E\u043C\u043E\u0436\u0435\u0442
+          \u043E\u0442\u043A\u043B\u044E\u0447\u0438\u0442\u044C \u043B\u043E\u0432\u0443\u0448\u043A\u0438"
+      - language: 1
+        text: <color=green>Blackout</color> will help to disable traps
+      _overrideLocalization: 0
 --- !u!1 &4081515584913902343
 GameObject:
   m_ObjectHideFlags: 0
@@ -2452,7 +2539,7 @@ Camera:
     width: 1
     height: 1
   near clip plane: 0.3
-  far clip plane: 30
+  far clip plane: 12
   field of view: 60
   orthographic: 1
   orthographic size: 1
@@ -3173,7 +3260,7 @@ MeshRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6791674297205756585}
   m_Enabled: 1
-  m_CastShadows: 1
+  m_CastShadows: 0
   m_ReceiveShadows: 1
   m_DynamicOccludee: 0
   m_StaticShadowCaster: 0
@@ -3884,6 +3971,7 @@ MonoBehaviour:
       text: "\u0414\u0432\u0435\u0440\u044C"
     - language: 1
       text: Door
+    _overrideLocalization: 0
 --- !u!1 &8834159900100654348
 GameObject:
   m_ObjectHideFlags: 0
@@ -4318,7 +4406,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5034293702358483365, guid: 6432e2aac8f40cd43a50b37a79b8d7c9, type: 3}
       propertyPath: m_CastShadows
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5034293702358483365, guid: 6432e2aac8f40cd43a50b37a79b8d7c9, type: 3}
       propertyPath: m_ReceiveShadows
@@ -4337,7 +4425,8 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 6718910798507103195, guid: 6432e2aac8f40cd43a50b37a79b8d7c9, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 4726746413908860368, guid: 6432e2aac8f40cd43a50b37a79b8d7c9, type: 3}
       insertIndex: -1

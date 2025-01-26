@@ -22,6 +22,7 @@ MonoBehaviour:
       text: "\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442"
     - language: 1
       text: Teleport
+    _overrideLocalization: 0
   _reward: {fileID: 11400000, guid: 1eb990663ce54c84dbb40b74090f96e0, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 0

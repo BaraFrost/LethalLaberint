@@ -1387,6 +1387,7 @@ MonoBehaviour:
       text: 'Collected: {0}$
 
 '
+    _overrideLocalization: 0
 --- !u!114 &964458704731692967
 MonoBehaviour:
   m_ObjectHideFlags: 0

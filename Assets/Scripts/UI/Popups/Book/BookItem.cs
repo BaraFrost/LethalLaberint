@@ -30,6 +30,7 @@ namespace UI {
             if (!Account.Instance.OpenedEnemies[data.enemyType]) {
                 _image.sprite = _closedSprite;
                 _textLabel.text = _closedText.GetText();
+                _titleTextLabel.text = _closedText.GetText();
                 return;
             }
             _image.sprite = _data.enemyImage;

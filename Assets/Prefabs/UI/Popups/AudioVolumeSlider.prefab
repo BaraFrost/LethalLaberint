@@ -103,6 +103,7 @@ MonoBehaviour:
       text: "\u041C\u0443\u0437\u044B\u043A\u0430"
     - language: 1
       text: Music
+    _overrideLocalization: 0
   _titleLabel: {fileID: 6514164446046798185}
 --- !u!114 &8350390788520984567
 MonoBehaviour:

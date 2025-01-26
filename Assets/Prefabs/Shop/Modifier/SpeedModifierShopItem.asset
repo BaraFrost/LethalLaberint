@@ -22,6 +22,7 @@ MonoBehaviour:
       text: "\u0421\u043A\u043E\u0440\u043E\u0441\u0442\u044C"
     - language: 1
       text: Speed
+    _overrideLocalization: 0
   _reward: {fileID: 11400000, guid: e0f9966900341bb41abf4a2d8f055be7, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 1

@@ -343,6 +343,7 @@ MonoBehaviour:
       text: "\u041D\u0435\u0438\u0437\u0432\u0435\u0441\u0442\u043D\u043E"
     - language: 1
       text: Unknown
+    _overrideLocalization: 0
 --- !u!114 &9214371921172996100
 MonoBehaviour:
   m_ObjectHideFlags: 0

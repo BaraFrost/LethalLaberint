@@ -96,7 +96,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.65
+  m_fontSize: 80.55
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -319,6 +319,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5519805339529866730}
   - component: {fileID: 8136097572457929277}
+  - component: {fileID: 5623135319321654033}
   - component: {fileID: 4471195348660407916}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -355,6 +356,28 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1499105540128643459}
   m_CullTransparentMesh: 1
+--- !u!114 &5623135319321654033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1499105540128643459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14715b02527e6e246a32922245817ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 4471195348660407916}
+  _localization:
+    _defaultText: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432
+      \u0438\u0433\u0440\u0443"
+    _localizations:
+    - language: 0
+      text: "\u0412\u0435\u0440\u043D\u0443\u0442\u044C\u0441\u044F \u0432 \u0438\u0433\u0440\u0443"
+    - language: 1
+      text: Return to game
+    _overrideLocalization: 0
 --- !u!114 &4471195348660407916
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -402,7 +425,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 70
+  m_fontSize: 69.85
   m_fontSizeBase: 24
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -652,6 +675,7 @@ GameObject:
   m_Component:
   - component: {fileID: 129690357802171959}
   - component: {fileID: 4134679440785558477}
+  - component: {fileID: 5317913627219207649}
   - component: {fileID: 8605781777102835424}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -688,6 +712,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4965909328603442316}
   m_CullTransparentMesh: 1
+--- !u!114 &5317913627219207649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4965909328603442316}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14715b02527e6e246a32922245817ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 8605781777102835424}
+  _localization:
+    _defaultText: "\u0423\u043B\u0435\u0442\u0435\u0442\u044C"
+    _localizations:
+    - language: 0
+      text: "\u0423\u043B\u0435\u0442\u0435\u0442\u044C"
+    - language: 1
+      text: Fly away
+    _overrideLocalization: 0
 --- !u!114 &8605781777102835424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -846,6 +891,7 @@ MonoBehaviour:
       text: 'Compiled <color=yellow>{0}</color> from <color=yellow>{1}</color>
 
 '
+    _overrideLocalization: 0
   _menuButton: {fileID: 2837125584566627315}
   _continueButton: {fileID: 4329089881414839236}
 --- !u!225 &6855420654018132934

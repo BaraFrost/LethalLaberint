@@ -533,10 +533,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7093720937137387904, guid: fb306c106cb81484db14de54e31a423d, type: 3}
-      propertyPath: _currentStage
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 7306005904806804925, guid: fb306c106cb81484db14de54e31a423d, type: 3}
       propertyPath: m_Name
       value: Account
@@ -546,6 +542,32 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb306c106cb81484db14de54e31a423d, type: 3}
+--- !u!1 &1752828148 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4544355512251884202, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+  m_PrefabInstance: {fileID: 4013633158675233967}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1752828152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752828148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14715b02527e6e246a32922245817ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 4013633158675233968}
+  _localization:
+    _defaultText: "\u0414\u0432\u0435\u0440\u044C"
+    _localizations:
+    - language: 0
+      text: "\u0414\u0432\u0435\u0440\u044C"
+    - language: 1
+      text: Door
+    _overrideLocalization: 0
 --- !u!23 &481330498586712037
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -663,18 +685,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 542068314500621356, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_FOVAxisMode
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 542068314500621356, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: far clip plane
-      value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 542068314500621356, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_OcclusionCulling
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 777068285019488023, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -719,52 +729,29 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 889324423270060020, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 906353170250404192, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1474711032110646046, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2295644000127818134, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 2610162608893123572, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: far clip plane
-      value: 12
-      objectReference: {fileID: 0}
     - target: {fileID: 2976252546593004155, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
-    - target: {fileID: 3659186592739850770, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6791674297205756585, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8207813592587059997, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_Shadows.m_Type
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8226926592446482730, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 906353170250404192, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4544355512251884202, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 1752828152}
   m_SourcePrefab: {fileID: 100100000, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+--- !u!114 &4013633158675233968 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3562325350575879435, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+  m_PrefabInstance: {fileID: 4013633158675233967}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1752828148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &4271992784819261523
 Transform:
   m_ObjectHideFlags: 0

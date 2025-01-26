@@ -34,6 +34,9 @@ namespace Infrastructure {
         [SerializeField]
         private List<TextWithLanguage> _localizations;
 
+        [SerializeField]
+        private bool _overrideLocalization;
+
         private Dictionary<Language, string> _cashedLocalizations;
         private Dictionary<Language, string> CashedLocalizations {
             get {
@@ -45,7 +48,26 @@ namespace Infrastructure {
         }
 
         public string GetText() {
-            return _defaultText;
+            var lan = Language.ru; //StringToLanguage(YandexGame.EnvironmentData.language);
+            if (!CashedLocalizations.ContainsKey(lan)) {
+                Debug.Log($"Don t have localization for /{_defaultText}/");
+                return _defaultText;
+            }
+            return CashedLocalizations[lan];
+        }
+
+        public string GetTextFormatted(params string[] args) {
+            return string.Format(GetText(), args);
+        }
+
+        private Language StringToLanguage(string lang) {
+            switch(lang) {
+                case "en":
+                    return Language.en;
+                case "ru":
+                    return Language.ru;
+            }
+            return Language.en;
         }
 
 #if UNITY_EDITOR
@@ -54,6 +76,9 @@ namespace Infrastructure {
 
         [Button]
         public void Translate() {
+            if (_overrideLocalization) {
+                return;
+            }
             _localizations = new List<TextWithLanguage>();
             foreach (var lang in (Language[])Enum.GetValues(typeof(Language))) {
                 var text = TranslateGoogle(_defaultText, lang.ToString());
@@ -65,7 +90,6 @@ namespace Infrastructure {
         }
 
         private string TranslateGoogle(string text, string translationTo = "en") {
-
             var url = String.Format("https://translate.google." + DomainAutoLocalization + LocalizationURL,
                 "auto", translationTo, WebUtility.UrlEncode(text));
             UnityWebRequest www = UnityWebRequest.Get(url);

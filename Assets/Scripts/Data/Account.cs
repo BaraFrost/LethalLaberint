@@ -4,7 +4,6 @@ using NaughtyAttributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Data {
@@ -218,7 +217,7 @@ namespace Data {
             var shopItem = _shopItemsContainer.GetShopItemByType(type);
             var canBuyByMoney = Account.Instance.TotalMoney >= shopItem.Price && shopItem.CanBuyByMoney;
             if(!canBuyByMoney && shopItem.CanBuyByAdd) {
-                shopItem.GiveReward();
+              //  shopItem.GiveReward();
             }
             if (TotalMoney < shopItem.Price || !shopItem.CanBuyByMoney) {
                 return false;
