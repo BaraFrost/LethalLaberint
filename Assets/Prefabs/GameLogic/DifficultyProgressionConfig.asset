@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2babe3bea065fc5449ee0a4ba86fe24c, type: 3}
   m_Name: DifficultyProgressionConfig
   m_EditorClassIdentifier: 
-  _maxStage: 26
+  _maxStage: 40
   _labyrinthSize:
     _minValue: 15
     _maxValue: 30
@@ -24,7 +24,7 @@ MonoBehaviour:
     _maxValue: 40
   _enemyCount:
     _minValue: 1.5
-    _maxValue: 18
+    _maxValue: 16
   _requiredMoney:
     _minValue: 170
     _maxValue: 4500
@@ -73,20 +73,20 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
-  _defaultDaysCount: 2
+  _defaultDaysCount: 1
   _daysByStageOverride:
   - _stage: 0
     _days: 1
     _money: 150
-  - _stage: 2
+  - _stage: 3
     _days: 1
     _money: 300
-  - _stage: 4
-    _days: 1
-    _money: 400
   - _stage: 6
     _days: 1
+    _money: 400
+  - _stage: 9
+    _days: 1
     _money: 600
-  - _stage: 8
+  - _stage: 12
     _days: 1
     _money: 800

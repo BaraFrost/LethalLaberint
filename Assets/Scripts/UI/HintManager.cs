@@ -21,10 +21,16 @@ namespace UI {
         private LocalizationText _startHintText;
 
         [SerializeField]
+        private float _startHintTime;
+
+        [SerializeField]
         private List<LocalizationText> _deathHintsHintText;
 
         [SerializeField]
         private List<HintByEnemyType> _hintByEnemyTypes;
+
+        [SerializeField]
+        private float _deathHintTime;
 
         private PlayerController _playerController;
 
@@ -35,15 +41,15 @@ namespace UI {
         }
 
         public void ShowStartHint() {
-            if (_startHintText == null) {
+            if (_startHintText == null || TutorialLogic.Instance != null) {
                 return;
             }
-            return;
-            var text = string.Format(_startHintText.GetText(), Account.Instance.RequiredMoney, Account.Instance.CurrentStageMoney, Account.Instance.TotalDays - Account.Instance.CurrentDay);
+            var text = string.Format(_startHintText.GetText());
             if (PopupManager.Instance != null) {
                 PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                     text = text,
                     type = TextPopup.Type.Upper,
+                    time = _startHintTime,
                 }
                 );
             }
@@ -58,6 +64,7 @@ namespace UI {
                 PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                     text = text.GetText(),
                     type = TextPopup.Type.Middle,
+                    time = _deathHintTime,
                 }
                 );
             }

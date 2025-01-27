@@ -10,6 +10,9 @@ namespace Game {
         [SerializeField]
         private float _fadeTime;
 
+        [SerializeField]
+        private GameObject[] _childrens;
+
         private Coroutine _fadeCoroutine;
 
         private StartLabyrinthCells _startLabyrinthCells;
@@ -64,6 +67,9 @@ namespace Game {
                 _group.alpha = Mathf.Lerp(_startAlpha, targetAlpha, t);
             } else {
                 _group.alpha = targetAlpha;
+                for (var i = 0; i < _childrens.Length; i++) {
+                    _childrens[i].SetActive(enable);
+                }
             }
         }
     }

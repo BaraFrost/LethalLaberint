@@ -30,7 +30,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!114 &852643755528870814
 MonoBehaviour:
@@ -45,14 +45,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   obstaclePrefabs:
-  - {fileID: 3167677065042005013, guid: baf8c2b108d011649969647e60c7c814, type: 3}
-  - {fileID: 3953132237580587386, guid: 06653dfd2aff8aa41940fe5ab3cb7725, type: 3}
-  - {fileID: 5399998196935477890, guid: b7268e7a53d14ec4eb29155c67ad0d4a, type: 3}
-  - {fileID: 6384897479598630291, guid: 50f62fead22191b48a0b1744bb9a0e1f, type: 3}
-  - {fileID: 3766662525873888780, guid: 671fb9fe1f833f14797a09bc01b3a367, type: 3}
+  - {fileID: 113425852258037882, guid: baf8c2b108d011649969647e60c7c814, type: 3}
+  - {fileID: 2070381926592965909, guid: 06653dfd2aff8aa41940fe5ab3cb7725, type: 3}
+  - {fileID: 6960176919769937645, guid: b7268e7a53d14ec4eb29155c67ad0d4a, type: 3}
+  - {fileID: 8285664377384196604, guid: 50f62fead22191b48a0b1744bb9a0e1f, type: 3}
+  - {fileID: -1636372214056663052, guid: 671fb9fe1f833f14797a09bc01b3a367, type: 3}
   poolSize: 3
   spawnRate: 1.5
   minY: -26
   maxY: 26
   spawnXPosition: 100
   despawnXPosition: -60
+  _maxSpeedTime: 30
+  _maxSpeedModifier: 2.5

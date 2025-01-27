@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1182766866446472732}
   - component: {fileID: 846088198709114594}
+  - component: {fileID: 2024725403493121228}
   - component: {fileID: 991836557529862255}
   m_Layer: 0
   m_Name: Text (TMP)
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  - {fileID: -5399546164493080179, guid: 422ec141a3429794fa93dbb4b85778f1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,6 +81,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &2024725403493121228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4676286262212651131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 14715b02527e6e246a32922245817ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _label: {fileID: 991836557529862255}
+  _localization:
+    _defaultText: "\u0425\u041E\u0419"
+    _localizations:
+    - language: 0
+      text: "\u041F\u0420\u0418\u0412\u0415\u0422"
+    - language: 1
+      text: HEY
+    _overrideLocalization: 0
 --- !u!114 &991836557529862255
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -102,8 +124,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u0425\u041E\u0419"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 422ec141a3429794fa93dbb4b85778f1, type: 2}
+  m_sharedMaterial: {fileID: -5399546164493080179, guid: 422ec141a3429794fa93dbb4b85778f1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -127,7 +149,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 6.1
+  m_fontSize: 6.85
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1

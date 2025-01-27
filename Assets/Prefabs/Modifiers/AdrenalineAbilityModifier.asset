@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AdrenalineAbilityModifier
   m_EditorClassIdentifier: 
   _type: 0
-  _value: 0.3
+  _value: 0.2
   _temporary: 1
   _modifierTime: 10
   _showModifierEffect: 1

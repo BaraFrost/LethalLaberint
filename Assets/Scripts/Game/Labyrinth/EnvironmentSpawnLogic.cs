@@ -9,6 +9,7 @@ namespace Game {
         [SerializeField]
         private EnvironmentContainer _environmentContainer;
 
+
         public void Spawn(SpawnedLabyrinthCellsContainer labyrinthCellsContainer) {
             var cells = labyrinthCellsContainer.AvailableCells;
             var environmentCount = cells.Count * _environmentContainer.MaxEnvironmentPercent;
@@ -36,8 +37,8 @@ namespace Game {
         }
 
         private List<EnvironmentContainer.CellsEnvironmentWithPercent> GetAvailableEnvironment(List<EnvironmentContainer.CellsEnvironmentWithPercent> cellsEnvironment, List<LabyrinthCell> cells, Dictionary<EnvironmentContainer.CellsEnvironmentWithPercent, int> spawnedEnvironmentCount) {
-            return cellsEnvironment.Where(cellsWithPercent => !spawnedEnvironmentCount.ContainsKey(cellsWithPercent)
-            || Mathf.Ceil(cellsWithPercent.percent * cells.Count) > spawnedEnvironmentCount[cellsWithPercent]).ToList();
+            return cellsEnvironment.Where(cellsWithPercent => Account.Instance.CurrentStage >= cellsWithPercent.minStage && (!spawnedEnvironmentCount.ContainsKey(cellsWithPercent)
+            || Mathf.Ceil(cellsWithPercent.percent * cells.Count) > spawnedEnvironmentCount[cellsWithPercent])).ToList();
         }
     }
 }

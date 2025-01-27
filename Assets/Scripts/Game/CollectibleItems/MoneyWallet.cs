@@ -28,7 +28,11 @@ namespace Game {
 
         private void UpdateMoneyText() {
             var requiredMoney = Mathf.Max(0, Account.Instance.RequiredMoney - Account.Instance.CurrentStageMoney - _moneyCount);
-            _text.text = string.Format(_moneyText.GetText(), _moneyCount, requiredMoney, Account.Instance.TotalDays - Account.Instance.CurrentDay);
+            var text = _moneyText.GetTextFormatted(_moneyCount.ToString(), requiredMoney.ToString());
+            if (requiredMoney == 0) {
+                text = $"<color=green>{text}</color>";
+            }
+            _text.text = text;
         }
 
     }

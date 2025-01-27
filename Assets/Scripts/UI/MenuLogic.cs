@@ -56,13 +56,13 @@ namespace UI {
             var targetMoneyPercent = Account.Instance.CurrentStageMoney * 100 / Account.Instance.RequiredMoney;
             if (Account.Instance.TryToSwitchStage()) {
                 PopupManager.Instance.ShowClosableTextPopup(new ClosableTextPopup.Data {
-                    text = string.Format(_winPopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
+                    text = string.Format(_winPopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney),
                     onPopupClosed = TryToShowNewEnemyPopup,
                 });
                 _planetsVisualSetter.UpdatePlanet();
             } else {
                 PopupManager.Instance.ShowClosableTextPopup(new ClosableTextPopup.Data {
-                    text = string.Format(_losePopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney, Account.Instance.TotalDays),
+                    text = string.Format(_losePopupText.GetText(), targetMoneyPercent, Account.Instance.RequiredMoney),
                     onPopupClosed = TryToShowNewEnemyPopup,
                 });
             }

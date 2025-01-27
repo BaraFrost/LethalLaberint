@@ -106,7 +106,9 @@ namespace Data {
             }
         }
 
+        [NonSerialized]
         public bool newEnemyOpened;
+        [NonSerialized]
         public Enemy.EnemyType newEnemyType;
 
         public int CurrentAbilityId => _currentAbilityId;

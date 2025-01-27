@@ -11,6 +11,7 @@ namespace Data {
         public struct CellsEnvironmentWithPercent {
             public float percent;
             public CellEnvironment environment;
+            public int minStage;
         }
 
         [SerializeField]

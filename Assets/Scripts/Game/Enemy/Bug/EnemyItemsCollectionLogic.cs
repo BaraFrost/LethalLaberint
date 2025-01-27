@@ -84,7 +84,7 @@ namespace Game {
                 _visualItem.SetActive(true);
                 _visualItemRenderer.material = item.MeshRenderer.sharedMaterial;
                 _visualItemFilter.mesh = item.MeshFilter.sharedMesh;
-                _visualItem.transform.localScale = item.transform.localScale;
+                _visualItemRenderer.transform.localScale = item.transform.localScale;
             }
         }
 

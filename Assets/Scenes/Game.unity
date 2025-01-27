@@ -542,32 +542,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb306c106cb81484db14de54e31a423d, type: 3}
---- !u!1 &1752828148 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4544355512251884202, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-  m_PrefabInstance: {fileID: 4013633158675233967}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1752828152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752828148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14715b02527e6e246a32922245817ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _label: {fileID: 4013633158675233968}
-  _localization:
-    _defaultText: "\u0414\u0432\u0435\u0440\u044C"
-    _localizations:
-    - language: 0
-      text: "\u0414\u0432\u0435\u0440\u044C"
-    - language: 1
-      text: Door
-    _overrideLocalization: 0
 --- !u!23 &481330498586712037
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -736,22 +710,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4544355512251884202, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-      insertIndex: 2
-      addedObject: {fileID: 1752828152}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
---- !u!114 &4013633158675233968 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 3562325350575879435, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
-  m_PrefabInstance: {fileID: 4013633158675233967}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1752828148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &4271992784819261523
 Transform:
   m_ObjectHideFlags: 0
