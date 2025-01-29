@@ -28,12 +28,16 @@ namespace UI {
         [SerializeField]
         private MenuInfoSetter _menuInfoSetter;
 
+        [SerializeField]
+        private RequiredAbilityInfo _requiredAbilityInfo;
+
         private void Start() {
             _playButton.onClick.AddListener(LoadGameScreen);
             _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
             _bookButton.onClick.AddListener(ShowBookPopup);
             _planetsVisualSetter.UpdatePlanet();
             ChangeStage();
+          //  _requiredAbilityInfo.Init();
         }
 
         private void ShowBookPopup() {

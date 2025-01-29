@@ -26,6 +26,9 @@ namespace UI {
         [SerializeField]
         private GameObject _cantSelectThisGroup;
 
+        [SerializeField]
+        private GameObject _alertImage;
+
         private int _abilityId;
         public int AbilityId => _abilityId;
 
@@ -38,6 +41,7 @@ namespace UI {
             _cantSelectThisGroup.gameObject.SetActive(cantSelect);
             _canSelectOnlyThisGroup.gameObject.SetActive(canSelectOnlyThis);
             _button.onClick.AddListener(() => onButtonClicked?.Invoke(this));
+            _alertImage.gameObject.SetActive(Account.Instance.DifficultyProgressionConfig.RequiredAbility(Account.Instance.CurrentStage) == _abilityId);
             SetItemData();
         }
 

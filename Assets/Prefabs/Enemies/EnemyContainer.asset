@@ -237,7 +237,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 6
+    _minStage: 8
   - _enemy: {fileID: 516197872136544147, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
     _weight: 1.6
     _probabilityByStage:
@@ -300,7 +300,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-    _minStage: 3
+    _minStage: 6
   - _enemy: {fileID: 3269179596967389405, guid: 2d173d772c23bdc428287b08ebe71295, type: 3}
     _weight: 0.4
     _probabilityByStage:

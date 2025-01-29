@@ -631,7 +631,7 @@ MonoBehaviour:
   _attackTriggerName: Attack
   _stopAttackTriggerName: 
   _moveTriggerName: Move
-  _stopTriggerName: 
+  _stopTriggerName: Stop
 --- !u!114 &6862057438076811127
 MonoBehaviour:
   m_ObjectHideFlags: 0

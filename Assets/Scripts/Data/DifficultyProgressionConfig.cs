@@ -36,6 +36,10 @@ namespace Data {
             [SerializeField]
             private int _money;
             public int Money => _money;
+
+            [SerializeField]
+            private int _requiredAbility;
+            public int RequiredAbility => _requiredAbility;
         }
 
         [SerializeField]
@@ -99,6 +103,14 @@ namespace Data {
                 return overrideDays.Money;
             }
             return (int)GetValue(_requiredMoney);
+        }
+
+        public int RequiredAbility(int stage) {
+            var overrideDays = _daysByStageOverride.FirstOrDefault(data => data.Stage == stage);
+            if (overrideDays == null) {
+                return -1;
+            }
+            return overrideDays.RequiredAbility;
         }
 
 #if UNITY_EDITOR

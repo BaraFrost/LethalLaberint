@@ -23,52 +23,34 @@ MonoBehaviour:
     _minValue: 15
     _maxValue: 40
   _enemyCount:
-    _minValue: 1.5
+    _minValue: 1.4
     _maxValue: 16
   _requiredMoney:
-    _minValue: 170
-    _maxValue: 4500
+    _minValue: 200
+    _maxValue: 3000
   _additionalSpawnMoney:
     _minValue: 50
-    _maxValue: 100
+    _maxValue: 50
   _difficultyProgressionCurve:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
       time: 0
       value: 0
-      inSlope: 0.6882991
-      outSlope: 0.6882991
-      tangentMode: 34
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.15522024
-      value: 0.10683795
-      inSlope: 2.0185056
-      outSlope: 2.0185056
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.047767747
-    - serializedVersion: 3
-      time: 0.5206476
-      value: 0.31804332
-      inSlope: 0.2654863
-      outSlope: 0.2654863
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.71999645
-      outWeight: 0.33333334
+      outWeight: 0
     - serializedVersion: 3
       time: 1
       value: 1
-      inSlope: 1.4226624
-      outSlope: 1.4226624
-      tangentMode: 34
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
+      inWeight: 0
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
@@ -78,15 +60,24 @@ MonoBehaviour:
   - _stage: 0
     _days: 1
     _money: 150
+    _requiredAbility: 0
   - _stage: 3
     _days: 1
     _money: 300
+    _requiredAbility: 4
   - _stage: 6
     _days: 1
-    _money: 400
+    _money: 250
+    _requiredAbility: 2
   - _stage: 9
     _days: 1
-    _money: 600
+    _money: 400
+    _requiredAbility: 5
   - _stage: 12
     _days: 1
     _money: 800
+    _requiredAbility: 3
+  - _stage: 15
+    _days: 1
+    _money: 800
+    _requiredAbility: 1

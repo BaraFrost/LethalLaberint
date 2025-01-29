@@ -17,6 +17,11 @@ namespace Game {
 
         public override bool IsMoving => !_agent.isStopped;
 
+        public override void Init(Enemy enemy) {
+            base.Init(enemy);
+            _agent.isStopped = true;
+        }
+
         private bool TryCalculatePath(Vector3 position, out NavMeshPath path) {
             path = new NavMeshPath();
             _agent.CalculatePath(position, path);

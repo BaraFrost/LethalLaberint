@@ -122,7 +122,7 @@ namespace Game {
         }
 
         public void FreezeMovement(float time) {
-            if (_freeze) {
+            if (_freeze || _player.HealthLogic.IsDamaged) {
                 return;
             }
             StartCoroutine(FreezeMovementCoroutine(time));

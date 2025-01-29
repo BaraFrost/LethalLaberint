@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1177338332427395536}
   - component: {fileID: 1631953816226261907}
-  - component: {fileID: 8889650465832284715}
   - component: {fileID: -1636372214056663052}
+  - component: {fileID: 8292627096233507503}
   m_Layer: 0
   m_Name: Money
   m_TagString: Untagged
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3766662525873888780}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.593126, y: 7.593126, z: 7.593126}
+  m_LocalScale: {x: 12.761007, y: 12.761007, z: 12.761007}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,7 +75,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 5a9c461034ab4db468e76d49ffb7e67e, type: 3}
+  m_Sprite: {fileID: -63742084, guid: 7985a629aca098140bc745b1710f56b4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -86,8 +86,23 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!65 &8889650465832284715
-BoxCollider:
+--- !u!114 &-1636372214056663052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3766662525873888780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3277841dfa63a374d86e72597d12a6c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 30
+  _needMove: 1
+  _needRotate: 0
+--- !u!135 &8292627096233507503
+SphereCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -105,20 +120,5 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1.8000001, y: 1.8302364, z: 0.2}
+  m_Radius: 0.445
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-1636372214056663052
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3766662525873888780}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3277841dfa63a374d86e72597d12a6c0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 30
-  _needMove: 1
-  _needRotate: 0

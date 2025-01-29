@@ -26,6 +26,7 @@ namespace Game {
 
         public bool disableDoor;
         private bool _isOpen;
+        public bool IsOpened => _isOpen;
         private bool _inCoroutine;
         private bool _selected;
 
