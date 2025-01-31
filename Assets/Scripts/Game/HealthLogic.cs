@@ -11,6 +11,7 @@ namespace Game {
         public int HealthCount => _currentHealthCount;
 
         public Action<Enemy.EnemyType> onDamaged;
+        public Action onRevive;
         public Action onDead;
 
         private bool _isDamaged;
@@ -33,6 +34,11 @@ namespace Game {
             if (_currentHealthCount <= 0) {
                 onDead?.Invoke();
             }
+        }
+
+        public void AddHealth() {
+            _currentHealthCount++;
+            onRevive?.Invoke();
         }
 
         public void Revive() {

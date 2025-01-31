@@ -880,6 +880,7 @@ MonoBehaviour:
   _group: {fileID: 6855420654018132934}
   _fadeTime: 2
   _continueButton: {fileID: 2837125584566627315}
+  _respawnButton: {fileID: 1315918039633516503}
 --- !u!225 &6855420654018132934
 CanvasGroup:
   m_ObjectHideFlags: 0

@@ -50,7 +50,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 3
   - _enemy: {fileID: 6641828935266196660, guid: f02a1efe06a446a4d95a6970c7245392, type: 3}
-    _weight: 0.1
+    _weight: 0.05
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -113,7 +113,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 1
   - _enemy: {fileID: 7927490639160668387, guid: e2af911845394424ca16e6c096b4e8ef, type: 3}
-    _weight: 0.2
+    _weight: 0.1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -149,7 +149,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 1
   - _enemy: {fileID: 6641828935266196660, guid: 69011b7cb416c904e8be9379944f558f, type: 3}
-    _weight: 0.1
+    _weight: 0.05
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -203,7 +203,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 3
   - _enemy: {fileID: 5518780831880275934, guid: 731d6bed784fbf14fac5015e6f9f68d2, type: 3}
-    _weight: 1.8
+    _weight: 2.1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -239,7 +239,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 8
   - _enemy: {fileID: 516197872136544147, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
-    _weight: 1.6
+    _weight: 2.1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -275,7 +275,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 9
   - _enemy: {fileID: 5938124499448241381, guid: 20a71ce219ac89443bb717a24e6292ed, type: 3}
-    _weight: 0.8
+    _weight: 1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -302,13 +302,13 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 6
   - _enemy: {fileID: 3269179596967389405, guid: 2d173d772c23bdc428287b08ebe71295, type: 3}
-    _weight: 0.4
+    _weight: 0.2
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
       - serializedVersion: 3
         time: 0
-        value: 0.5
+        value: 0.3
         inSlope: 0
         outSlope: 0
         tangentMode: 34
@@ -317,7 +317,7 @@ MonoBehaviour:
         outWeight: 0.33333334
       - serializedVersion: 3
         time: 40
-        value: 0.5
+        value: 0.3
         inSlope: 0
         outSlope: 0
         tangentMode: 34
@@ -329,7 +329,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 3
   - _enemy: {fileID: 5938124499448241381, guid: 86b3699a06391de46bcaf2e4758cef64, type: 3}
-    _weight: 0.8
+    _weight: 1
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:

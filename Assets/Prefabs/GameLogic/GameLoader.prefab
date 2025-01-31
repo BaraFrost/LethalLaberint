@@ -1069,7 +1069,7 @@ RectTransform:
   m_GameObject: {fileID: 2463197659589198677}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 3.8675473, y: 3.8675473, z: 3.8675473}
+  m_LocalScale: {x: 4.9129424, y: 4.9129424, z: 4.9129424}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 6893679740146699478}
@@ -1793,6 +1793,17 @@ MonoBehaviour:
       \u0441\u043E\u0431\u0438\u0440\u0430\u0442\u044C \u0432\u0435\u0441\u044C <color=green>\u0445\u043B\u0430\u043C</color>,
       \u0434\u043E\u0441\u0442\u0430\u0442\u043E\u0447\u043D\u043E \u0432\u044B\u043F\u043E\u043B\u043D\u0438\u0442\u044C
       <color=green>\u043A\u0432\u043E\u0442\u0443</color>"
+    _localizations:
+    - language: 0
+      text: "<color=green>\u0411\u043B\u044D\u043A\u0430\u0443\u0442</color> \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442
+        \u0432\u0441\u044E \u044D\u043B\u0435\u043A\u0442\u0440\u043E\u043D\u0438\u043A\u0443
+        \u0432 \u0442\u043E\u043C \u0447\u0438\u0441\u043B\u0435 \u0438 \u0434\u0432\u0435\u0440\u0438"
+    - language: 1
+      text: <color=green>Blackout</color> turns off all electronics including doors
+    _overrideLocalization: 0
+  - _defaultText: "\u041F\u0440\u043E\u043A\u0430\u0447\u0430\u0439 <color=green>\u0441\u0443\u043C\u043A\u0443</color>,
+      \u0447\u0442\u043E\u0431\u044B \u0441\u043E\u0431\u0438\u0440\u0430\u0442\u044C
+      <color=green>\u0431\u043E\u043B\u044C\u0448\u0435</color> \u0445\u043B\u0430\u043C\u0430."
     _localizations:
     - language: 0
       text: "<color=green>\u0411\u043B\u044D\u043A\u0430\u0443\u0442</color> \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442

@@ -9,19 +9,29 @@ namespace UI {
         [Serializable]
         public struct Data {
             public Action continueCallback;
+            public Action respawnCallback;
         }
 
         [SerializeField]
         private Button _continueButton;
 
+        [SerializeField]
+        private Button _respawnButton;
+
         private Data _data;
 
         private void Awake() {
             _continueButton.onClick.AddListener(OnContinueButtonPressed);
+            _respawnButton.onClick.AddListener(OnRespawnButtonClicked);
         }
 
         public void SetData(Data data) {
             _data = data;
+        }
+
+        private void OnRespawnButtonClicked() {
+            _data.respawnCallback?.Invoke();
+            HidePopup(immediately: true);
         }
 
         private void OnContinueButtonPressed() {

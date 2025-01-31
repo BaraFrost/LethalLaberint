@@ -87,6 +87,9 @@ namespace Game {
             PopupManager.Instance.ShowDeathPopup(new DeathPopup.Data {
                 continueCallback = () => {
                     ScenesSwitchManager.Instance.LoadMenuScene();
+                },
+                respawnCallback = () => {
+                    _playerSpawner.RevivePlayer();
                 }
             }
             );

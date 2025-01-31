@@ -17,8 +17,8 @@ Mesh:
     firstVertex: 0
     vertexCount: 1198
     localAABB:
-      m_Center: {x: -0.0013027191, y: 1.3990622, z: -0.009460688}
-      m_Extent: {x: 0.32330894, y: 1.1000133, z: 2.323541}
+      m_Center: {x: -0.0013003498, y: 1.3990445, z: -0.009473801}
+      m_Extent: {x: 0.32334703, y: 1.1000321, z: 2.3235328}
   - serializedVersion: 2
     firstByte: 3984
     indexCount: 1248
@@ -27,8 +27,8 @@ Mesh:
     firstVertex: 1198
     vertexCount: 702
     localAABB:
-      m_Center: {x: -0.0026988983, y: 1.3998739, z: -0.011137724}
-      m_Extent: {x: 0.5100727, y: 1.490538, z: 2.509033}
+      m_Center: {x: -0.0027038753, y: 1.39987, z: -0.0111249685}
+      m_Extent: {x: 0.5100982, y: 1.4905418, z: 2.5090456}
   m_Shapes:
     vertices: []
     shapes: []

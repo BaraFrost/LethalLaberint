@@ -22,6 +22,12 @@ namespace Game {
             _playerController.HealthLogic.onDead += playerDeadEvent;
         }
 
+        public void RevivePlayer() {
+            _playerController.HealthLogic.AddHealth();
+            _playerController.transform.position = _spawnPoint.transform.position;
+            _playerController.HealthLogic.Revive();
+        }
+
         private void StartRespawnCoroutine(Enemy.EnemyType type) {
             if (_playerController.HealthLogic.HealthCount <= 0) {
                 return;

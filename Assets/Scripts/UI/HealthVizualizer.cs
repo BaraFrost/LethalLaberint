@@ -24,11 +24,16 @@ namespace UI {
                 _healthImages.Add(healthImage);
             }
             _healthLogic.onDamaged += UpdateHealth;
+            _healthLogic.onRevive += UpdateHealth;
         }
 
         private void UpdateHealth(Enemy.EnemyType type) {
-            for (var i = 0; i < _healthImages.Count - _healthLogic.HealthCount; i++) {
-                _healthImages[i].gameObject.SetActive(false);
+            UpdateHealth();
+        }
+
+        private void UpdateHealth() {
+            for (var i = 0; i < _healthImages.Count; i++) {
+                _healthImages[i].gameObject.SetActive(i < _healthLogic.HealthCount);
             }
         }
     }

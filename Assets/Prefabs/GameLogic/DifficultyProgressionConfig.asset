@@ -24,7 +24,7 @@ MonoBehaviour:
     _maxValue: 40
   _enemyCount:
     _minValue: 1.4
-    _maxValue: 16
+    _maxValue: 18
   _requiredMoney:
     _minValue: 200
     _maxValue: 3000
