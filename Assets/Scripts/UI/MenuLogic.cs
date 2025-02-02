@@ -3,6 +3,7 @@ using Game;
 using Infrastructure;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace UI {
 
@@ -32,6 +33,7 @@ namespace UI {
         private RequiredAbilityInfo _requiredAbilityInfo;
 
         private void Start() {
+            YG2.GameplayStop();
             _playButton.onClick.AddListener(LoadGameScreen);
             _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
             _bookButton.onClick.AddListener(ShowBookPopup);

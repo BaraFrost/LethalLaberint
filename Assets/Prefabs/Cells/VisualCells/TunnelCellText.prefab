@@ -98,10 +98,10 @@ MonoBehaviour:
     _defaultText: "\u0425\u041E\u0419"
     _localizations:
     - language: 0
-      text: "\u041F\u0420\u0418\u0412\u0415\u0422"
+      text: "\u0425\u041E\u0419"
     - language: 1
-      text: HEY
-    _overrideLocalization: 0
+      text: Punks not dead
+    _overrideLocalization: 1
 --- !u!114 &991836557529862255
 MonoBehaviour:
   m_ObjectHideFlags: 0

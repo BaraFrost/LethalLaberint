@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 250$
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
+  m_sharedMaterial: {fileID: 2665477660160160022, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 158.45
+  m_fontSize: 177
   m_fontSizeBase: 232.62
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -316,6 +316,8 @@ MonoBehaviour:
   _text: {fileID: 2878413563084853120}
   _image: {fileID: 8856452674148509072}
   _nameTextLabel: {fileID: 3506605291849049077}
+  _cantBuyGroup: {fileID: 0}
+  _addImage: {fileID: 0}
 --- !u!114 &8856452674148509072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -458,8 +460,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: "\u041A\u0435\u0439\u0441"
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
-  m_sharedMaterial: {fileID: 2665477660160160022, guid: 388c5cd57e72ba946b55172986ff9cf8, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 422ec141a3429794fa93dbb4b85778f1, type: 2}
+  m_sharedMaterial: {fileID: -5399546164493080179, guid: 422ec141a3429794fa93dbb4b85778f1, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

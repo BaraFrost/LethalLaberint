@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using YG;
+using PlayerPrefs = RedefineYG.PlayerPrefs;
 
 namespace Data {
 
@@ -106,6 +108,15 @@ namespace Data {
             }
         }
 
+        private int _gamesPlayed;
+        public int GamesPlayed {
+            get { return _gamesPlayed; }
+            private set {
+                _gamesPlayed = value;
+                SaveAccountData();
+            }
+        }
+
         [NonSerialized]
         public bool newEnemyOpened;
         [NonSerialized]
@@ -126,6 +137,7 @@ namespace Data {
         }
 
         private void LoadAccountData() {
+            _gamesPlayed = PlayerPrefs.GetInt(nameof(GamesPlayed), 0);
             _currentDay = PlayerPrefs.GetInt(nameof(CurrentDay), 1);
             _totalMoney = PlayerPrefs.GetInt(nameof(TotalMoney), 0);
             _currentStageMoney = PlayerPrefs.GetInt(nameof(CurrentStageMoney), 0);
@@ -145,6 +157,7 @@ namespace Data {
         }
 
         private void SaveAccountData() {
+            PlayerPrefs.SetInt(nameof(GamesPlayed), GamesPlayed);
             PlayerPrefs.SetInt(nameof(CurrentDay), CurrentDay);
             PlayerPrefs.SetInt(nameof(TotalMoney), TotalMoney);
             PlayerPrefs.SetInt(nameof(CurrentStageMoney), CurrentStageMoney);
@@ -170,6 +183,7 @@ namespace Data {
         }
 
         public void StartGame() {
+            GamesPlayed++;
             GameStarted = true;
             ScenesSwitchManager.Instance.LoadGameScene();
         }
@@ -179,6 +193,7 @@ namespace Data {
             GameStarted = false;
             TotalMoney += CurrentStageMoney;
             CurrentDay++;
+            var currentStageMoney = CurrentStageMoney;
             if (CurrentDay > _difficultyProgressionConfig.GetDaysByStage(CurrentStage)) {
                 if (CurrentStageMoney >= RequiredMoney) {
                     CurrentStage++;
@@ -187,6 +202,13 @@ namespace Data {
                 CurrentStageMoney = 0;
                 CurrentDay = 1;
             }
+            var eventData = new Dictionary<string, object> {
+                {"games_played", GamesPlayed},
+                {"current_stage", CurrentStage},
+                {"current_stage_money", currentStageMoney},
+                {"win", success },
+            };
+            YG2.MetricaSend("game_end", eventData);
             return success;
         }
 
@@ -218,8 +240,10 @@ namespace Data {
         public bool TryToByItem(ShopItem.Type type) {
             var shopItem = _shopItemsContainer.GetShopItemByType(type);
             var canBuyByMoney = Account.Instance.TotalMoney >= shopItem.Price && shopItem.CanBuyByMoney;
-            if(!canBuyByMoney && shopItem.CanBuyByAdd) {
-              //  shopItem.GiveReward();
+            if (!canBuyByMoney && shopItem.CanBuyByAdd) {
+                YG2.RewardedAdvShow(type.ToString(), () => {
+                    shopItem.GiveReward();
+                });
             }
             if (TotalMoney < shopItem.Price || !shopItem.CanBuyByMoney) {
                 return false;

@@ -7,6 +7,7 @@ using System.Net;
 using UnityEngine;
 using UnityEngine.Networking;
 using UnityEngine.UIElements;
+using YG;
 
 namespace Infrastructure {
 
@@ -48,7 +49,7 @@ namespace Infrastructure {
         }
 
         public string GetText() {
-            var lan = Language.ru; //StringToLanguage(YandexGame.EnvironmentData.language);
+            var lan = StringToLanguage(YG2.envir.language);// Language.ru; //StringToLanguage(YandexGame.EnvironmentData.language);
             if (!CashedLocalizations.ContainsKey(lan)) {
                 Debug.Log($"Don t have localization for /{_defaultText}/");
                 return _defaultText;

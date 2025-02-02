@@ -2,6 +2,7 @@ using Data;
 using System.Linq;
 using UI;
 using UnityEngine;
+using YG;
 
 namespace Game {
 
@@ -50,6 +51,7 @@ namespace Game {
         private InShipInfoShower _inShipInfoShower;
 
         private void Start() {
+            YG2.GameplayStart();
             Init();
         }
 

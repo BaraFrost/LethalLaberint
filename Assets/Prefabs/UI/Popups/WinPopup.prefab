@@ -96,7 +96,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 80.55
+  m_fontSize: 80.2
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
@@ -888,10 +888,11 @@ MonoBehaviour:
         \u0434\u043B\u044F \u0432\u044B\u043F\u043E\u043B\u043D\u0435\u043D\u0438\u044F
         \u043A\u0432\u043E\u0442\u044B: <color=yellow>{2}</color>"
     - language: 1
-      text: 'Compiled <color=yellow>{0}</color> from <color=yellow>{1}</color>
+      text: 'Collected <color=yellow>{0}</color> of <color=yellow>{1}</color>
 
-'
-    _overrideLocalization: 0
+        left
+        to fulfill quota: <color=yellow>{2}</color>'
+    _overrideLocalization: 1
   _menuButton: {fileID: 2837125584566627315}
   _continueButton: {fileID: 4329089881414839236}
 --- !u!225 &6855420654018132934

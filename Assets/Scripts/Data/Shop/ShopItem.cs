@@ -1,5 +1,6 @@
 using Infrastructure;
 using UnityEngine;
+using YG;
 
 namespace Data {
 
@@ -46,6 +47,7 @@ namespace Data {
         public bool CanBuyByAdd => _canBuyByAdd;
 
         public void GiveReward() {
+            YG2.MetricaSend("shop_item", "type", _type.ToString());
             _reward.GiveReward();
         }
     }

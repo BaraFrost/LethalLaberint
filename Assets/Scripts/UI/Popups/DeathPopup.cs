@@ -1,6 +1,7 @@
 using System;
 using UnityEngine;
 using UnityEngine.UI;
+using YG;
 
 namespace UI {
 
@@ -30,8 +31,10 @@ namespace UI {
         }
 
         private void OnRespawnButtonClicked() {
-            _data.respawnCallback?.Invoke();
-            HidePopup(immediately: true);
+            YG2.RewardedAdvShow("Respawn", () => {
+                _data.respawnCallback?.Invoke();
+                HidePopup(immediately: true);
+            });
         }
 
         private void OnContinueButtonPressed() {
