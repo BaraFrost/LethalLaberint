@@ -59,7 +59,7 @@ namespace Game {
         private void UpdateWeightsByDistance(Vector3 position) {
             foreach (var cell in _cellsWithWeight) {
                 if (_maxLabyrinthSize - Vector3.SqrMagnitude(position - cell.LabyrinthCell.transform.position) < 0) {
-                    Debug.Log(_maxLabyrinthSize - Vector3.SqrMagnitude(position - cell.LabyrinthCell.transform.position));
+                   // Debug.Log(_maxLabyrinthSize - Vector3.SqrMagnitude(position - cell.LabyrinthCell.transform.position));
                 }
                 cell.weight += 1 / Vector3.SqrMagnitude(position - cell.LabyrinthCell.transform.position);
             }
