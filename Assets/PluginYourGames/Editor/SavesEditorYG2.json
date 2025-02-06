@@ -4,6 +4,7 @@
   "floatKeys": [],
   "floatValues": [],
   "intKeys": [
+    "TotalEarnedMoney",
     "GamesPlayed",
     "CurrentDay",
     "TotalMoney",
@@ -31,21 +32,22 @@
     "OpenedEnemiesJesterPresent"
   ],
   "intValues": [
-    3,
+    10352,
+    18,
     1,
-    4324,
+    12,
     0,
-    41,
     19,
-    14,
-    13,
-    23,
-    15,
+    0,
+    1,
+    6,
+    5,
+    5,
+    5,
+    1,
     4,
-    3,
-    4,
     1,
-    0,
+    1,
     1,
     1,
     1,
@@ -53,9 +55,9 @@
     1,
     0,
     0,
-    0,
-    0,
+    1,
+    1,
     1
   ],
-  "idSave": 46
+  "idSave": 183
 }

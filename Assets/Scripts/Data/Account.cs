@@ -117,6 +117,16 @@ namespace Data {
             }
         }
 
+        [SerializeField]
+        private int _totalEarnedMoney;
+        private int TotalEarnedMoney {
+            get { return _totalEarnedMoney; }
+            set {
+                _totalEarnedMoney = value;
+                SaveAccountData();
+            }
+        }
+
         [NonSerialized]
         public bool newEnemyOpened;
         [NonSerialized]
@@ -137,6 +147,7 @@ namespace Data {
         }
 
         private void LoadAccountData() {
+            _totalEarnedMoney = PlayerPrefs.GetInt(nameof(TotalEarnedMoney), 0);
             _gamesPlayed = PlayerPrefs.GetInt(nameof(GamesPlayed), 0);
             _currentDay = PlayerPrefs.GetInt(nameof(CurrentDay), 1);
             _totalMoney = PlayerPrefs.GetInt(nameof(TotalMoney), 0);
@@ -157,6 +168,7 @@ namespace Data {
         }
 
         private void SaveAccountData() {
+            PlayerPrefs.SetInt(nameof(TotalEarnedMoney), TotalEarnedMoney);
             PlayerPrefs.SetInt(nameof(GamesPlayed), GamesPlayed);
             PlayerPrefs.SetInt(nameof(CurrentDay), CurrentDay);
             PlayerPrefs.SetInt(nameof(TotalMoney), TotalMoney);
@@ -178,7 +190,22 @@ namespace Data {
         [Button]
 #endif
         public void Clear() {
-            PlayerPrefs.DeleteAll();
+            PlayerPrefs.SetInt(nameof(TotalEarnedMoney), 0);
+            PlayerPrefs.SetInt(nameof(GamesPlayed), 0);
+            PlayerPrefs.SetInt(nameof(CurrentDay), 0);
+            PlayerPrefs.SetInt(nameof(TotalMoney), 0);
+            PlayerPrefs.SetInt(nameof(CurrentStageMoney), 0);
+            PlayerPrefs.SetInt(nameof(CurrentStage), 0);
+            foreach (var abilityCountData in _abilitiesCountData) {
+                PlayerPrefs.SetInt(nameof(AbilitiesCountData) + abilityCountData.Key, 1);
+            }
+            foreach (var modifier in _modifiersCountData) {
+                PlayerPrefs.SetInt(nameof(ModifiersCountData) + modifier.Key, 0);
+            }
+            foreach (var enemy in _openedEnemies) {
+                PlayerPrefs.SetInt(nameof(OpenedEnemies) + enemy.Key, 0);
+            }
+            PlayerPrefs.Save();
             LoadAccountData();
         }
 
@@ -193,6 +220,8 @@ namespace Data {
             GameStarted = false;
             TotalMoney += CurrentStageMoney;
             CurrentDay++;
+            TotalEarnedMoney += CurrentStageMoney;
+            YG2.SetLeaderboard("TotalEarnedMoneyLeaderboard", TotalEarnedMoney);
             var currentStageMoney = CurrentStageMoney;
             if (CurrentDay > _difficultyProgressionConfig.GetDaysByStage(CurrentStage)) {
                 if (CurrentStageMoney >= RequiredMoney) {
@@ -205,7 +234,7 @@ namespace Data {
             var eventData = new Dictionary<string, object> {
                 {"games_played", GamesPlayed},
                 {"current_stage", CurrentStage},
-                {"current_stage_money", currentStageMoney},
+                {"total_earned_money", TotalEarnedMoney},
                 {"win", success },
             };
             YG2.MetricaSend("game_end", eventData);

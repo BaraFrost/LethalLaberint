@@ -39,7 +39,13 @@ namespace UI {
             _bookButton.onClick.AddListener(ShowBookPopup);
             _planetsVisualSetter.UpdatePlanet();
             ChangeStage();
-          //  _requiredAbilityInfo.Init();
+            if (YG2.envir.isMobile) {
+                QualitySettings.SetQualityLevel(1);
+                Application.targetFrameRate = 30;
+            } else { 
+                QualitySettings.SetQualityLevel(0);
+            }
+            //  _requiredAbilityInfo.Init();
         }
 
         private void ShowBookPopup() {
