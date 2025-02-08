@@ -502,7 +502,7 @@ MonoBehaviour:
     - language: 0
       text: "\u0412\u043E\u0437\u0440\u043E\u0434\u0438\u0442\u044C\u0441\u044F"
     - language: 1
-      text: Reborn
+      text: Revive
     _overrideLocalization: 0
 --- !u!114 &8870669393362522115
 MonoBehaviour:

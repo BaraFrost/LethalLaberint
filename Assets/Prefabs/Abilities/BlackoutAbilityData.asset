@@ -31,5 +31,5 @@ MonoBehaviour:
       text: "\u0411\u043B\u0435\u043A\u0430\u0443\u0442 \u043E\u0442\u043A\u043B\u044E\u0447\u0430\u0435\u0442
         \u043B\u043E\u0432\u0443\u0448\u043A\u0438"
     - language: 1
-      text: Blackout disables traps
+      text: Blacks turns off the traps
     _overrideLocalization: 0

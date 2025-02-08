@@ -18,6 +18,9 @@ namespace Game {
         [SerializeField]
         private GameObject _walletRoot;
 
+        [SerializeField]
+        private Animator _bagAnimation;
+
         private float _startCameraSize;
 
         private Dictionary<WalletCollectibleItem, CollectibleItem> _items = new Dictionary<WalletCollectibleItem, CollectibleItem>();
@@ -37,6 +40,7 @@ namespace Game {
             if (!_items.ContainsKey(walletItem)) {
                 return;
             }
+            _bagAnimation.Play("BagAnimation");
             var item = _items[walletItem];
             _items.Remove(walletItem);
             Destroy(walletItem.gameObject);
@@ -44,6 +48,7 @@ namespace Game {
         }
 
         public void AddItem(CollectibleItem item) {
+            _bagAnimation.Play("BagAnimation");
             var randomAngle = UnityEngine.Random.Range(0, 360);
             var spawnedItem = Instantiate(item.WalletCollectibleItem, _dropPoint.transform.position, Quaternion.AngleAxis(randomAngle, Vector3.forward), _dropPoint);
             _items.Add(spawnedItem, item);
@@ -65,6 +70,9 @@ namespace Game {
             }
             _items.Clear();
             return result;
+        }
+
+        private void OnCollisionEnter2D(Collision2D collision) {
         }
 
         public void ModifyWalletSize(float multiplier) {

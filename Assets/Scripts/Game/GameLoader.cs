@@ -118,11 +118,13 @@ namespace Game {
         }
 
         private void Update() {
+#if DEV_BUILD
             if (Input.GetKeyDown(KeyCode.R)) {
                 PopupManager.Instance.ShowFadePopup(() => {
                     ScenesSwitchManager.Instance.LoadMenuScene();
                 });
             }
+#endif
         }
     }
 }

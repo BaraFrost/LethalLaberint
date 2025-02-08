@@ -33,6 +33,9 @@ namespace UI {
         private RequiredAbilityInfo _requiredAbilityInfo;
 
         private void Start() {
+            if(!Account.Instance.GameStarted) {
+                YG2.GameReadyAPI();
+            }
             YG2.GameplayStop();
             _playButton.onClick.AddListener(LoadGameScreen);
             _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
@@ -42,10 +45,10 @@ namespace UI {
             if (YG2.envir.isMobile) {
                 QualitySettings.SetQualityLevel(1);
                 Application.targetFrameRate = 30;
-            } else { 
+            } else {
                 QualitySettings.SetQualityLevel(0);
             }
-            //  _requiredAbilityInfo.Init();
+            //_requiredAbilityInfo.Init();
         }
 
         private void ShowBookPopup() {
@@ -89,6 +92,10 @@ namespace UI {
         }
 
         private void LoadGameScreen() {
+            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow) {
+                YG2.InterstitialAdvShow();
+            }
+            
             Account.Instance.StartGame();
         }
 

@@ -27,6 +27,7 @@ namespace Game {
 
         void Update() {
             // Переключение режима свободного полета при нажатии клавиши 'K'
+#if DEV_BUILD
             if (Input.GetKeyDown(KeyCode.K)) {
                 _isFreeFlightMode = !_isFreeFlightMode;
 
@@ -37,6 +38,7 @@ namespace Game {
                     _initialPosition = transform.position;  // Сохраняем начальную позицию камеры
                 }
             }
+#endif
 
             // Обновление позиции камеры в зависимости от режима
             if (_isFreeFlightMode) {

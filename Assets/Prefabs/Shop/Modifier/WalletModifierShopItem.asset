@@ -21,7 +21,7 @@ MonoBehaviour:
     - language: 0
       text: "\u0420\u0430\u0437\u043C\u0435\u0440 \u043C\u0435\u0448\u043A\u0430"
     - language: 1
-      text: Bag size
+      text: The size of the bag
     _overrideLocalization: 0
   _reward: {fileID: 11400000, guid: ba520ecf8b65b0f48baf5c114c9f9fa8, type: 2}
   _canBuyByMoney: 1

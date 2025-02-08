@@ -18,12 +18,14 @@ namespace Game {
 
         public override void UpdateLogic() {
             base.UpdateLogic();
+#if DEV_BUILD
             if(Input.GetKeyDown(KeyCode.K)) {
                 _creativeCameraOn = !_creativeCameraOn;
             }
             if(_creativeCameraOn) {
                 return;
             }
+#endif
             if(TutorialLogic.Instance != null && !TutorialLogic.Instance.CanMove) {
                 return;
             }

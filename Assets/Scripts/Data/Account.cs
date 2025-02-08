@@ -242,6 +242,7 @@ namespace Data {
         }
 
         private void Update() {
+#if DEV_BUILD
             if (Input.GetKeyDown(KeyCode.C)) {
                 Clear();
             }
@@ -251,6 +252,7 @@ namespace Data {
             if (Input.GetKeyDown(KeyCode.M)) {
                 TotalMoney += 500;
             }
+#endif
         }
 
         public bool TryToSelectAbility(int abilityId) {
