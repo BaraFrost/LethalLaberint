@@ -19,10 +19,10 @@ MonoBehaviour:
     _defaultText: "\u0424\u043B\u0435\u0448\u043A\u0430"
     _localizations:
     - language: 0
-      text: "\u0424\u043B\u0430\u0431\u043E\u0448\u043A\u0430"
+      text: "\u0424\u043B\u0435\u0448\u043A\u0430"
     - language: 1
-      text: Flaboshka
-    _overrideLocalization: 0
+      text: Flashbang
+    _overrideLocalization: 1
   _reward: {fileID: 11400000, guid: 559aa2dd325d19f43bc02dae5b533e87, type: 2}
   _canBuyByMoney: 1
   _canBuyByAdd: 0

@@ -1779,8 +1779,8 @@ MonoBehaviour:
         \u043A\u043E\u0433\u0434\u0430 \u0442\u0435\u0431\u044F \u043F\u043E\u0447\u0442\u0438
         \u043F\u043E\u0439\u043C\u0430\u043B\u0438"
     - language: 1
-      text: <color=green>Flash drive</color> will save you when you are almost caught
-    _overrideLocalization: 0
+      text: <color=green>Flashbang</color> will save you when you are almost caught
+    _overrideLocalization: 1
   - _defaultText: "<color=green>\u0422\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>
       \u043F\u043E\u043C\u043E\u0436\u0435\u0442 \u0434\u043E\u043D\u0435\u0441\u0442\u0438
       \u043F\u0440\u0435\u0434\u043C\u0435\u0442\u044B"
@@ -1879,9 +1879,9 @@ MonoBehaviour:
           \u0443\u0431\u0435\u0436\u0430\u0442\u044C <color=green>\u0444\u043B\u0435\u0448\u043A\u0430</color>
           \u0438\u043B\u0438 <color=green>\u0442\u0435\u043B\u0435\u043F\u043E\u0440\u0442</color>"
       - language: 1
-        text: <color=red>dogs</color> can be escaped with a <color=green>flash</color>
+        text: <color=red>dogs</color> can be escaped with a <color=green>Flashbang</color>
           or a <color=green>teleporter</color>
-      _overrideLocalization: 0
+      _overrideLocalization: 1
   - enemyType: 3
     hint:
       _defaultText: "\u041D\u0435 \u043F\u043E\u0434\u0445\u043E\u0434\u0438 \u0431\u043B\u0438\u0437\u043A\u043E
@@ -3221,7 +3221,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &312182707308264224
 RectTransform:
   m_ObjectHideFlags: 0

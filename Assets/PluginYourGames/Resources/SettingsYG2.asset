@@ -22,7 +22,7 @@ MonoBehaviour:
     payingStatus: 0
   InterstitialAdv:
     showFirstAdv: 1
-    interAdvInterval: 60
+    interAdvInterval: 70
     postponeCallByFail: 0
     postponeCallTimer: 10
     labelAdvSimLabel: 0
@@ -216,7 +216,7 @@ MonoBehaviour:
     testFailAds: 0
   Templates:
     logoImageFormat: 3
-    backgroundImgFormat: 0
+    backgroundImgFormat: 3
     gradientBackgroundByLoadGame:
       radial: 0
       angleInclination: 140
