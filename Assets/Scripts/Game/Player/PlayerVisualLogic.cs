@@ -22,13 +22,17 @@ namespace Game {
 
         public override void UpdateLogic() {
             base.UpdateLogic();
+            if (_player.PlayerMoveLogic.IsMoving) {
+                StartMoveAnimation();
+            } else {
+                StopMoveAnimation();
+            }
             var showModifierEffect = _player.PlayerModifierLogic.ShowModifierEffect();
             if (showModifierEffect && !_modifierEffect.isPlaying) {
                 _modifierEffect.Play();
             } else if (!showModifierEffect && _modifierEffect.isPlaying) {
                 _modifierEffect.Stop(withChildren: true, ParticleSystemStopBehavior.StopEmitting);
             }
-
         }
 
         private void StartMoveAnimation() {

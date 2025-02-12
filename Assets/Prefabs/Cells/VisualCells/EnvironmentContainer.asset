@@ -35,7 +35,7 @@ MonoBehaviour:
   - percent: 0.03
     environment: {fileID: 5696126766685313342, guid: 43fda0c316a401047b67112527e1f496, type: 3}
     minStage: 0
-  - percent: 0.006
+  - percent: 0.001
     environment: {fileID: 9154357184745303445, guid: f8aa16916934db743bfd5586bf803f12, type: 3}
     minStage: 0
   - percent: 0.006
@@ -44,6 +44,6 @@ MonoBehaviour:
   - percent: 0.006
     environment: {fileID: 6236107365312006034, guid: 87955fb0e525ce34c917b606965c7516, type: 3}
     minStage: 0
-  - percent: 0.006
+  - percent: 0.001
     environment: {fileID: 6236107365312006034, guid: 973753e8aa6c0c04d8dc2b1743d94507, type: 3}
     minStage: 0

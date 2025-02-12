@@ -203,7 +203,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 3
   - _enemy: {fileID: 5518780831880275934, guid: 731d6bed784fbf14fac5015e6f9f68d2, type: 3}
-    _weight: 2.1
+    _weight: 2.3
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -239,7 +239,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 8
   - _enemy: {fileID: 516197872136544147, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
-    _weight: 2.1
+    _weight: 2.3
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -275,7 +275,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 9
   - _enemy: {fileID: 5938124499448241381, guid: 20a71ce219ac89443bb717a24e6292ed, type: 3}
-    _weight: 1
+    _weight: 1.3
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:
@@ -329,7 +329,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 3
   - _enemy: {fileID: 5938124499448241381, guid: 86b3699a06391de46bcaf2e4758cef64, type: 3}
-    _weight: 1
+    _weight: 1.3
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:

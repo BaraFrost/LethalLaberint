@@ -10,13 +10,19 @@ namespace Game {
         [SerializeField]
         private LabyrinthCellWithDoor[] _doors;
 
+        private bool _opened;
+
         private void Start() {
             _playerStayWatcher.onPlayerEnter += OpenAllDoors;
         }
 
         private void OpenAllDoors() {
+            if(_opened) {
+                return;
+            }
             foreach (var door in _doors) {
-                if(!door.IsOpened) {
+                _opened = true;
+                if (!door.IsOpened) {
                     door.ChangeDoorState();
                 }
             }

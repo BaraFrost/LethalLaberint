@@ -35,6 +35,7 @@ namespace Game {
         private Vector3 _inputMoveVector;
         private CharacterController _characterController;
         private bool _isMoving;
+        public bool IsMoving => _isMoving;
         private bool _freeze;
 
         public override void Init(PlayerController player) {

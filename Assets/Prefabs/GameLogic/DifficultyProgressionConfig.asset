@@ -75,7 +75,7 @@ MonoBehaviour:
     _requiredAbility: 5
   - _stage: 12
     _days: 1
-    _money: 800
+    _money: 700
     _requiredAbility: 3
   - _stage: 15
     _days: 1
