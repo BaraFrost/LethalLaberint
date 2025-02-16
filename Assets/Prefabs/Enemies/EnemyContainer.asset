@@ -239,7 +239,7 @@ MonoBehaviour:
       m_RotationOrder: 4
     _minStage: 8
   - _enemy: {fileID: 516197872136544147, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
-    _weight: 2.3
+    _weight: 2.5
     _probabilityByStage:
       serializedVersion: 2
       m_Curve:

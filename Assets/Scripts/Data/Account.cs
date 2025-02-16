@@ -126,6 +126,15 @@ namespace Data {
                 SaveAccountData();
             }
         }
+        [SerializeField]
+        private int _miniGameRecord;
+        public int MiniGameRecord {
+            get { return _miniGameRecord; }
+            private set {
+                _miniGameRecord = value;
+                SaveAccountData();
+            }
+        }
 
         [NonSerialized]
         public bool newEnemyOpened;
@@ -137,6 +146,8 @@ namespace Data {
         public AbilityInitData CurrentAbilityInitData => new AbilityInitData() { abilityData = CurrentAbility, count = _abilitiesCountData[_currentAbilityId] };
         public Action onCurrentAbilityChanged;
         public bool GameStarted { get; private set; }
+        public bool MiniGameStarted { get; private set; }
+        public bool CanShowInterAdd { get; set; } = true;
 
         [SerializeField]
         private ShopItemsContainer _shopItemsContainer;
@@ -144,9 +155,16 @@ namespace Data {
         protected override void Init() {
             base.Init();
             LoadAccountData();
+            YG2.onCloseAnyAdv += StopPause;
+            YG2.onErrorAnyAdv += StopPause;
+        }
+
+        private void StopPause() {
+            YG2.PauseGame(false);
         }
 
         private void LoadAccountData() {
+            _miniGameRecord = PlayerPrefs.GetInt(nameof(MiniGameRecord), 0);
             _totalEarnedMoney = PlayerPrefs.GetInt(nameof(TotalEarnedMoney), 0);
             _gamesPlayed = PlayerPrefs.GetInt(nameof(GamesPlayed), 0);
             _currentDay = PlayerPrefs.GetInt(nameof(CurrentDay), 1);
@@ -168,6 +186,7 @@ namespace Data {
         }
 
         private void SaveAccountData() {
+            PlayerPrefs.SetInt(nameof(MiniGameRecord), MiniGameRecord);
             PlayerPrefs.SetInt(nameof(TotalEarnedMoney), TotalEarnedMoney);
             PlayerPrefs.SetInt(nameof(GamesPlayed), GamesPlayed);
             PlayerPrefs.SetInt(nameof(CurrentDay), CurrentDay);
@@ -190,6 +209,7 @@ namespace Data {
         [Button]
 #endif
         public void Clear() {
+            PlayerPrefs.SetInt(nameof(MiniGameRecord), 0);
             PlayerPrefs.SetInt(nameof(TotalEarnedMoney), 0);
             PlayerPrefs.SetInt(nameof(GamesPlayed), 0);
             PlayerPrefs.SetInt(nameof(CurrentDay), 0);
@@ -213,6 +233,24 @@ namespace Data {
             GamesPlayed++;
             GameStarted = true;
             ScenesSwitchManager.Instance.LoadGameScene();
+        }
+
+        public void StartMiniGame() {
+            MiniGameStarted = true;
+            ScenesSwitchManager.Instance.LoadMiniGameScene();
+        }
+
+        public void HandleMiniGameEnd(int earnedMoney) {
+            MiniGameStarted = false;
+            if(earnedMoney > MiniGameRecord) {
+                MiniGameRecord = earnedMoney;
+            }
+            if(GameStarted) {
+                CurrentStageMoney += earnedMoney;
+            }
+            else {
+                TotalMoney += earnedMoney;
+            }
         }
 
         public bool TryToSwitchStage() {

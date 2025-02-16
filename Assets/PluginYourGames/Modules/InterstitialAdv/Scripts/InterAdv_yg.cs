@@ -1,6 +1,7 @@
 ﻿using System;
 using YG.Insides;
 using UnityEngine;
+using Data;
 
 namespace YG
 {
@@ -123,6 +124,10 @@ namespace YG.Insides
 
         public static void OpenInterAdv()
         {
+            if(Account.Instance != null && (Account.Instance.GameStarted || Account.Instance.MiniGameStarted)) {
+                Account.Instance.CanShowInterAdd = false;
+                return;
+            }
             YG2.PauseGame(true);
             YG2.onOpenInterAdv?.Invoke();
             YG2.onOpenAnyAdv?.Invoke();
@@ -175,6 +180,7 @@ namespace YG.Insides
             ResetTimerInterAdv();
             YG2.onErrorInterAdv?.Invoke();
             YG2.onErrorAnyAdv?.Invoke();
+            YG2.PauseGame(false);
         }
 
         public static void ResetTimerInterAdv()

@@ -50,6 +50,9 @@ namespace Game {
         [SerializeField]
         private InShipInfoShower _inShipInfoShower;
 
+        [SerializeField]
+        private StartBonusLogic _startBonusLogic;
+
         private void Start() {
             YG2.GameplayStart();
             Init();
@@ -83,6 +86,8 @@ namespace Game {
             _hintManager.Init(_gameEntitiesContainer.playerController);
 
             _inShipInfoShower.Init(_gameEntitiesContainer.cellsContainer, _gameEntitiesContainer.playerController);
+
+            _startBonusLogic.Init(_gameEntitiesContainer, () => _hintManager.ShowStartHint());
         }
 
         private void HandlePlayerDeadEvent() {
@@ -105,7 +110,9 @@ namespace Game {
             PopupManager.Instance.ShowWinPopup(new WinPopup.Data {
                 menuButtonCallback = () => {
                     Account.Instance.CurrentStageMoney += earnedMoney;
-                    if (Account.Instance.DifficultyProgressionConfig.IsBonusStage || Account.Instance.TotalDays != Account.Instance.CurrentDay) {
+                    //ScenesSwitchManager.Instance.LoadMiniGameScene();
+                    
+                    if (/*Account.Instance.DifficultyProgressionConfig.IsBonusStage ||*/ Account.Instance.TotalDays != Account.Instance.CurrentDay) {
                         ScenesSwitchManager.Instance.LoadMenuScene();
                     } else {
                         ScenesSwitchManager.Instance.LoadMiniGameScene();

@@ -124,6 +124,7 @@ MonoBehaviour:
   _audioSettingsPopupPrefab: {fileID: 7939433801771077422, guid: a8f0d8056a2b0db46aeea158b809523e, type: 3}
   _bookPopupPrefab: {fileID: 1395050280813793076, guid: eb28abe0593592b498e558e201175a8a, type: 3}
   _popupSound: {fileID: 4812065813683093086}
+  _startBonusPopupPrefab: {fileID: 1218222791902122694, guid: c1e325a2bba11c9418d44e26abe35971, type: 3}
 --- !u!1001 &2182249416025224357
 PrefabInstance:
   m_ObjectHideFlags: 0

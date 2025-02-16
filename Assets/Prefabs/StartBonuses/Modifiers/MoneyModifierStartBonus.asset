@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c875641aab04f80408bbeaaaf316e924, type: 3}
+  m_Name: MoneyModifierStartBonus
+  m_EditorClassIdentifier: 
+  _name:
+    _defaultText: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u043D\u044B\u0439
+      \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A"
+    _localizations:
+    - language: 0
+      text: "\u0423\u0432\u0435\u043B\u0438\u0447\u0435\u043D\u043D\u044B\u0439 \u0437\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A"
+    - language: 1
+      text: Increased earnings
+    _overrideLocalization: 0
+  _icon: {fileID: 21300000, guid: 133e6ad373266d849ac083379dc3ffbc, type: 3}
+  _modifier: {fileID: 11400000, guid: 0632743d3dc1ed942b3e778abe9f02a6, type: 2}

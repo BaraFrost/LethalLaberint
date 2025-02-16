@@ -36,8 +36,8 @@ namespace Game {
             }
         }
 
-        public void AddHealth() {
-            _currentHealthCount++;
+        public void AddHealth(int additionalHealth = 1) {
+            _currentHealthCount += additionalHealth;
             onRevive?.Invoke();
         }
 

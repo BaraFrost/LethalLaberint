@@ -55,7 +55,7 @@ namespace MiniGames.FlappyBird {
                 text = string.Format(_endGameText.GetText(), _player.Wallet.Value),
                 type = TextPopup.Type.Upper,
                 onPopupShowedCallback = () => {
-                    Account.Instance.CurrentStageMoney += _player.Wallet.Value;
+                    Account.Instance.HandleMiniGameEnd(_player.Wallet.Value);
                     ScenesSwitchManager.Instance.LoadMenuScene();
                 }
             });

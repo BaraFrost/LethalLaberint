@@ -30,7 +30,11 @@ namespace UI {
         private MenuInfoSetter _menuInfoSetter;
 
         [SerializeField]
+        private Button _miniGamesButton;
+
+        [SerializeField]
         private RequiredAbilityInfo _requiredAbilityInfo;
+
 
         private void Start() {
             if(!Account.Instance.GameStarted) {
@@ -40,6 +44,7 @@ namespace UI {
             _playButton.onClick.AddListener(LoadGameScreen);
             _audioSettingsButton.onClick.AddListener(ShowAudioSettings);
             _bookButton.onClick.AddListener(ShowBookPopup);
+            _miniGamesButton.onClick.AddListener(LoadMiniGames);
             _planetsVisualSetter.UpdatePlanet();
             ChangeStage();
             if (YG2.envir.isMobile) {
@@ -92,11 +97,19 @@ namespace UI {
         }
 
         private void LoadGameScreen() {
-            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow) {
+            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
                 YG2.InterstitialAdvShow();
             }
             
             Account.Instance.StartGame();
+        }
+
+        private void LoadMiniGames() {
+            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
+                YG2.InterstitialAdvShow();
+            }
+
+            Account.Instance.StartMiniGame();
         }
 
         void Update() {

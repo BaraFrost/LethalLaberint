@@ -24,7 +24,7 @@ MonoBehaviour:
     showFirstAdv: 1
     interAdvInterval: 60
     postponeCallByFail: 0
-    postponeCallTimer: 10
+    postponeCallTimer: 20
     labelAdvSimLabel: 0
   Leaderboards:
     enable: 1
@@ -208,11 +208,11 @@ MonoBehaviour:
     loadSceneIndex: 0
     simulationLoadScene: 0
   Simulation:
-    device: 1
+    device: 0
     language: ru
     advIntervalSimulation: 60
-    durationAdv: 0.5
-    loadAdv: 0
+    durationAdv: 1
+    loadAdv: 1
     testFailAds: 0
   Templates:
     logoImageFormat: 3

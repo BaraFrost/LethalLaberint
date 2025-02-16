@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 353af96b70486b64b814dc2f6ee7c726, type: 3}
+  m_Name: BagStartModifier 1
+  m_EditorClassIdentifier: 
+  _type: 1
+  _value: 0.5
+  _temporary: 0
+  _modifierTime: 0
+  _showModifierEffect: 0

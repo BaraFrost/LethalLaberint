@@ -323,6 +323,51 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &362850699599189852
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8006466827689226141}
+  - component: {fileID: 3409223050615138959}
+  m_Layer: 0
+  m_Name: StartBonusLogic
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8006466827689226141
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362850699599189852}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 777068285019488023}
+  m_RootOrder: -1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3409223050615138959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 362850699599189852}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1532fec2338c87d4d97db1f6af28f75d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _startBonusCollection: {fileID: 11400000, guid: f377eb2c334906a4f9e395ebfa83f8cb, type: 2}
 --- !u!1 &526449649430453846
 GameObject:
   m_ObjectHideFlags: 0
@@ -954,10 +999,10 @@ MonoBehaviour:
   _fonCellPrefab: {fileID: 6512197731316312124, guid: 5494ffb8c0e35aa48a107349b97c9c43, type: 3}
   _labyrinthVariants:
   - cellsContainer: {fileID: 11400000, guid: 299900a2134c01341bff577866df71df, type: 2}
-    weight: 30
+    weight: 20
     floor: {fileID: 3742812268540439254}
   - cellsContainer: {fileID: 11400000, guid: f98889420943cf946b55e097b9dad4db, type: 2}
-    weight: 60
+    weight: 80
     floor: {fileID: 889324423270060020}
   _floor: {fileID: 1506110411621302930}
   _cellSize: 2.485378
@@ -1275,6 +1320,7 @@ Transform:
   - {fileID: 4657434025158059833}
   - {fileID: 1355565659405978802}
   - {fileID: 5227922473394313398}
+  - {fileID: 8006466827689226141}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1304,6 +1350,7 @@ MonoBehaviour:
   _gameEntitiesContainer: {fileID: 4059535754313293149}
   _hintManager: {fileID: 4998660703902478552}
   _inShipInfoShower: {fileID: 7478615236780419897}
+  _startBonusLogic: {fileID: 3409223050615138959}
 --- !u!1 &3100998269668599002
 GameObject:
   m_ObjectHideFlags: 0
@@ -2679,8 +2726,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: -110.5614}
-  m_SizeDelta: {x: 393.0624, y: 137.1228}
+  m_AnchoredPosition: {x: -70.74646, y: -91}
+  m_SizeDelta: {x: 534.5554, y: 137.1228}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1227341085705747586
 MonoBehaviour:
@@ -2699,7 +2746,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 0
+  m_ChildAlignment: 4
   m_Spacing: 0
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1

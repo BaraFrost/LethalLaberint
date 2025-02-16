@@ -32,6 +32,13 @@ namespace UI {
         }
 
         private void UpdateHealth() {
+            if(_healthLogic.HealthCount > _healthImages.Count) {
+                var currentHealthImagesCount = _healthImages.Count;
+                for (var i = 0; i < _healthLogic.HealthCount - currentHealthImagesCount; i++) {
+                    var healthImage = Instantiate(_healthImagePrefab, _contentGroup.transform);
+                    _healthImages.Add(healthImage);
+                }
+            }
             for (var i = 0; i < _healthImages.Count; i++) {
                 _healthImages[i].gameObject.SetActive(i < _healthLogic.HealthCount);
             }

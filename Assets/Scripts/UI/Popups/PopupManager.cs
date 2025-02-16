@@ -1,7 +1,6 @@
 using Game;
 using Infrastructure;
 using System;
-using System.Net.NetworkInformation;
 using UnityEngine;
 
 namespace UI {
@@ -42,6 +41,10 @@ namespace UI {
 
         [SerializeField]
         private AudioSource _popupSound;
+
+        [SerializeField]
+        private StartBonusPopup _startBonusPopupPrefab;
+        private StartBonusPopup _startBonusPopup;
 
         private AbstractPopup _currentPopup;
 
@@ -112,6 +115,14 @@ namespace UI {
             }
             _bookPopup.SetData(enemyType);
             ShowPopup(_bookPopup);
+        }
+
+        public void ShowStartBonusPopup(StartBonusPopup.Data data) {
+            if (_startBonusPopup == null) {
+                _startBonusPopup = Instantiate(_startBonusPopupPrefab, gameObject.transform);
+            }
+            _startBonusPopup.SetData(data);
+            _startBonusPopup.ShowPopup();
         }
 
         public void CloseCurrentPopup(bool immediately) {

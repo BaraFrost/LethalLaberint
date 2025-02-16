@@ -37,7 +37,6 @@ namespace UI {
         public void Init(PlayerController playerController) {
             playerController.HealthLogic.onDamaged += ShowDeathHint;
             _playerController = playerController;
-            ShowStartHint();
         }
 
         public void ShowStartHint() {
