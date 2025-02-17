@@ -45,6 +45,7 @@ namespace UI {
         private void GiveAllBonuses() {
             YG2.RewardedAdvShow("start_bonus", () => {
                 _data.onBonusesSelectedCallback?.Invoke(_startBonusItems.Select(item => item.StartBonus).ToList());
+                YG2.MetricaSend("rewarded_adv", "type", "start_bonus");
                 HidePopup(immediately: true);
             });
         }

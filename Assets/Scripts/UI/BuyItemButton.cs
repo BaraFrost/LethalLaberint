@@ -14,6 +14,9 @@ namespace UI {
         private Button _button;
 
         [SerializeField]
+        private GameObject _priceGroup;
+
+        [SerializeField]
         private TextMeshProUGUI _text;
 
         [SerializeField]
@@ -44,6 +47,9 @@ namespace UI {
 
         private void UpdateBuyGroup(ShopItem shopItem) {
             var canBuyByMoney = Account.Instance.TotalMoney >= shopItem.Price && shopItem.CanBuyByMoney;
+            if(_priceGroup != null) {
+                _priceGroup.SetActive(canBuyByMoney);
+            }
             _cantBuyGroup.SetActive(!canBuyByMoney);
             _addImage.SetActive(!canBuyByMoney && shopItem.CanBuyByAdd);
         }

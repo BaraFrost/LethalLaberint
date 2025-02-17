@@ -7,6 +7,7 @@ namespace Data {
 
         [SerializeField]
         private float _increasePerLevel;
+        public float IncreasePerLevelValue => _increasePerLevel;
 
         public override float Value => GetValueByLevel();
 

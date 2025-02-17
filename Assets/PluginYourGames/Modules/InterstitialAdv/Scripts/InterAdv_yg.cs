@@ -44,7 +44,7 @@ namespace YG
             }
         }
 
-        private static bool skipIterAdv;
+        public static bool skipIterAdv;
 
         [InitYG]
         private static void InitInterstitialAdv()
@@ -126,6 +126,8 @@ namespace YG.Insides
         {
             if(Account.Instance != null && (Account.Instance.GameStarted || Account.Instance.MiniGameStarted)) {
                 Account.Instance.CanShowInterAdd = false;
+                YG2.nowInterAdv = false;
+                YG2.nowRewardAdv = false;
                 return;
             }
             YG2.PauseGame(true);

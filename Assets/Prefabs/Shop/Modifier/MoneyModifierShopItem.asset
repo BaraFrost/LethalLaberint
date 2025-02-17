@@ -16,12 +16,12 @@ MonoBehaviour:
   _price: 1000
   _sprite: {fileID: 21300000, guid: 12487475984c3c44f94f2228089f0f5d, type: 3}
   _name:
-    _defaultText: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A"
+    _defaultText: "\u0426\u0435\u043D\u0430 \u0445\u043B\u0430\u043C\u0430"
     _localizations:
     - language: 0
-      text: "\u0417\u0430\u0440\u0430\u0431\u043E\u0442\u043E\u043A"
+      text: "\u0426\u0435\u043D\u0430 \u0445\u043B\u0430\u043C\u0430"
     - language: 1
-      text: Earnings
+      text: Price of trash
     _overrideLocalization: 0
   _reward: {fileID: 11400000, guid: 0db9dcebb9da3e34e95c99e4b30523f3, type: 2}
   _canBuyByMoney: 1

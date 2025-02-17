@@ -1,3 +1,6 @@
+#if UNITY_EDITOR
+using NaughtyAttributes;
+#endif
 using System;
 using System.Collections.Generic;
 using UI;
@@ -35,6 +38,16 @@ namespace Game {
             _entitiesContainer.playerController.EnablePlayer();
             _onApplyBonuses?.Invoke();
         }
+
+#if UNITY_EDITOR
+        [SerializeField]
+        private AbstractStartBonus _startBonus;
+
+        [Button]
+        private void ApplyTestStartBonus() {
+            _startBonus.Apply(_entitiesContainer);
+        }
+#endif
     }
 }
 

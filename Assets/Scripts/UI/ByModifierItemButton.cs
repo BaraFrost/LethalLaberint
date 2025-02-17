@@ -12,9 +12,13 @@ namespace UI {
         [SerializeField]
         private ModifierType _modifierType;
 
+        [SerializeField]
+        private TextMeshProUGUI _modifierValueText;
+
         protected override void UpdateMoneyText() {
             base.UpdateMoneyText();
-            _modifierLevelText.text = $"+{Account.Instance.LevelsModifiersContainer.Modifiers[_modifierType].Value * 100}%";// Account.Instance.ModifiersCountData[_modifierType].ToString();
+            _modifierLevelText.text = Account.Instance.ModifiersCountData[_modifierType].ToString();
+            _modifierValueText.text = $"+{Account.Instance.LevelsModifiersContainer.Modifiers[_modifierType].IncreasePerLevelValue * 100}%"; 
         }
     }
 }

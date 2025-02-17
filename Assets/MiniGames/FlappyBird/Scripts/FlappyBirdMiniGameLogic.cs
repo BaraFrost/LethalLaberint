@@ -3,6 +3,7 @@ using Game;
 using Infrastructure;
 using UI;
 using UnityEngine;
+using YG;
 
 namespace MiniGames.FlappyBird {
 
@@ -26,6 +27,7 @@ namespace MiniGames.FlappyBird {
         private bool _isInitialized;
 
         private void Start() {
+            YG2.MetricaSend("mini_game_started");
             PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
                 time = _time,
                 type = TextPopup.Type.MiddleBig,

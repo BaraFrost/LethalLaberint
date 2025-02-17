@@ -35,6 +35,8 @@ namespace UI {
         [SerializeField]
         private RequiredAbilityInfo _requiredAbilityInfo;
 
+        [SerializeField]
+        private LocalizationText _addShowingText;
 
         private void Start() {
             if(!Account.Instance.GameStarted) {
@@ -97,18 +99,63 @@ namespace UI {
         }
 
         private void LoadGameScreen() {
-            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
-                YG2.InterstitialAdvShow();
+            if (YG2.skipIterAdv) {
+                YG2.skipIterAdv = false;
+                Account.Instance.StartGame();
+                return;
             }
-            
+            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
+                /*PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
+                    text = _addShowingText.GetText(),
+                    time = 100,
+                    type = TextPopup.Type.MiddleBig,
+                });*/
+                YG2.InterstitialAdvShow();
+                YG2.onErrorInterAdv += LoadGameAfterAdd;
+                YG2.onCloseInterAdvWasShow += LoadGameAfterAdd;
+            } else {
+                Account.Instance.StartGame();
+            }
+        }
+
+        private void LoadGameAfterAdd() {
+            Account.Instance.StartGame();
+        }
+
+        private void LoadGameAfterAdd(bool shown) {
+            YG2.onCloseInterAdvWasShow -= LoadGameAfterAdd;
+            YG2.onErrorInterAdv -= LoadGameAfterAdd;
             Account.Instance.StartGame();
         }
 
         private void LoadMiniGames() {
-            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
-                YG2.InterstitialAdvShow();
+            if(YG2.skipIterAdv) {
+                YG2.skipIterAdv = false;
+                Account.Instance.StartMiniGame();
+                return;
             }
+            if (YG2.isTimerAdvCompleted && !YG2.nowAdsShow && Account.Instance.CanShowInterAdd) {
+                /*PopupManager.Instance.ShowTextPopup(new TextPopup.Data {
+                    text = _addShowingText.GetText(),
+                    time = 100,
+                    type = TextPopup.Type.MiddleBig,
+                });*/
+                YG2.InterstitialAdvShow();
+                YG2.onErrorInterAdv += LoadMiniGameAfterAdd;
+                YG2.onCloseInterAdvWasShow += LoadMiniGameAfterAdd;
+            }
+            else {
+                Account.Instance.StartMiniGame();
+            }
+        }
 
+        private void LoadMiniGameAfterAdd() {
+            LoadMiniGameAfterAdd(false);
+        }
+
+        private void LoadMiniGameAfterAdd(bool shown) {
+            YG2.onCloseInterAdvWasShow -= LoadMiniGameAfterAdd;
+            YG2.onErrorInterAdv -= LoadMiniGameAfterAdd;
             Account.Instance.StartMiniGame();
         }
 

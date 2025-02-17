@@ -55,6 +55,7 @@ namespace Game {
 
         private void Start() {
             YG2.GameplayStart();
+            YG2.MetricaSend("game_started");
             Init();
         }
 

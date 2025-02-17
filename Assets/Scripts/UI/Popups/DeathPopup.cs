@@ -33,6 +33,7 @@ namespace UI {
         private void OnRespawnButtonClicked() {
             YG2.RewardedAdvShow("Respawn", () => {
                 _data.respawnCallback?.Invoke();
+                YG2.MetricaSend("rewarded_adv","type", "respawn");
                 HidePopup(immediately: true);
             });
         }

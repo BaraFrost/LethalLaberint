@@ -244,8 +244,9 @@ namespace Data {
             MiniGameStarted = false;
             if(earnedMoney > MiniGameRecord) {
                 MiniGameRecord = earnedMoney;
+                YG2.SetLeaderboard("MiniGameBestScore", MiniGameRecord);
             }
-            if(GameStarted) {
+            if (GameStarted) {
                 CurrentStageMoney += earnedMoney;
             }
             else {
