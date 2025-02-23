@@ -707,6 +707,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3409223050615138959, guid: 3086404de40a52c4d8cc6ade84864c78, type: 3}
+      propertyPath: _startBonus
+      value: 
+      objectReference: {fileID: 11400000, guid: 3e3d5157170ab024985735f14f0e2737, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 3984776758931912744}
   - component: {fileID: 6611233903555385095}
   - component: {fileID: 264581127138967081}
+  - component: {fileID: 8613244608609530367}
   - component: {fileID: 153037253238293531}
   - component: {fileID: 3039295039577918132}
   m_Layer: 5
@@ -105,6 +106,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _shopItemType: 2
   _button: {fileID: 3039295039577918132}
+  _priceGroup: {fileID: 0}
   _text: {fileID: 1384023086755468143}
   _image: {fileID: 153037253238293531}
   _nameTextLabel: {fileID: 7441952349065983868}
@@ -113,6 +115,25 @@ MonoBehaviour:
   _abilityCounter: {fileID: 1713886528026707922}
   _abilityId: 1
   _alertImage: {fileID: 8220748719433697132}
+--- !u!114 &8613244608609530367
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 478467469311684212}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _image: {fileID: 153037253238293531}
+  _loadOnAwake: 0
 --- !u!114 &153037253238293531
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -357,7 +378,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 196.15
+  m_fontSize: 277.4
   m_fontSizeBase: 232.62
   m_fontWeight: 400
   m_enableAutoSizing: 1

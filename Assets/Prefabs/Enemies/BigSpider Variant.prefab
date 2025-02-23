@@ -84,6 +84,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 1.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2208001839541530291, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
+      propertyPath: m_ObstacleAvoidanceType
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2613209291613002300, guid: a33dc73e06674654fa3bb852a1831d14, type: 3}
       propertyPath: m_Name
       value: BigSpider Variant
