@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 4
   _abstractAbility: {fileID: -6279952449789065949, guid: 1aa3cacb8b18ee745a42eed15ebfd45e, type: 3}
-  _sprite: {fileID: 21300000, guid: 44ca242b4b92ea14987cab266c2d8724, type: 3}
+  _sprite: {fileID: 0}
+  _spriteAssetReference:
+    m_AssetGUID: 44ca242b4b92ea14987cab266c2d8724
+    m_SubObjectName: Blackout
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _abilityName:
     _defaultText: "\u0411\u043B\u044D\u043A\u0430\u0443\u0442"
     _localizations:

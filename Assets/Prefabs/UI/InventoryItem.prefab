@@ -86,6 +86,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3535457456946981077}
   - component: {fileID: 2669131211866261362}
+  - component: {fileID: 4601370867016435737}
   - component: {fileID: 7531465847268055759}
   m_Layer: 5
   m_Name: AbilityImage
@@ -122,6 +123,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3045138395373938707}
   m_CullTransparentMesh: 1
+--- !u!114 &4601370867016435737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3045138395373938707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _image: {fileID: 7531465847268055759}
+  _loadOnAwake: 0
 --- !u!114 &7531465847268055759
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -142,7 +162,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7fac0aeeb4a28f740b305ac1cc13d8af, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -510,6 +530,7 @@ MonoBehaviour:
   _button: {fileID: 1472673876835856232}
   _countText: {fileID: 5257247081373798486}
   _iconImage: {fileID: 7531465847268055759}
+  _asyncIconImage: {fileID: 4601370867016435737}
   _progressImage: {fileID: 4090303062490712782}
 --- !u!114 &1752794207963307299
 MonoBehaviour:

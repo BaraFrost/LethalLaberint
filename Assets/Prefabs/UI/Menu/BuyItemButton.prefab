@@ -509,6 +509,7 @@ GameObject:
   - component: {fileID: 1860908320725304918}
   - component: {fileID: 8479987808953208059}
   - component: {fileID: 3674846134728360905}
+  - component: {fileID: 2128604136668861291}
   - component: {fileID: 8856452674148509072}
   - component: {fileID: 6759130257169089148}
   m_Layer: 5
@@ -566,9 +567,29 @@ MonoBehaviour:
   _priceGroup: {fileID: 0}
   _text: {fileID: 2878413563084853120}
   _image: {fileID: 8856452674148509072}
+  _asyncImage: {fileID: 2128604136668861291}
   _nameTextLabel: {fileID: 3506605291849049077}
   _cantBuyGroup: {fileID: 0}
   _addImage: {fileID: 0}
+--- !u!114 &2128604136668861291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7970427262975647097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _image: {fileID: 8856452674148509072}
+  _loadOnAwake: 0
 --- !u!114 &8856452674148509072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -589,7 +610,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7b623c26436bf1e4a9e5b3924a80c5e0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

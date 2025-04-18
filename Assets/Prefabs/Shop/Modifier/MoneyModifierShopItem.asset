@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 8
   _price: 1000
-  _sprite: {fileID: 21300000, guid: 12487475984c3c44f94f2228089f0f5d, type: 3}
+  _sprite: {fileID: 0}
+  _spriteAssetReference:
+    m_AssetGUID: 12487475984c3c44f94f2228089f0f5d
+    m_SubObjectName: MoneyModifier
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _name:
     _defaultText: "\u0426\u0435\u043D\u0430 \u0445\u043B\u0430\u043C\u0430"
     _localizations:

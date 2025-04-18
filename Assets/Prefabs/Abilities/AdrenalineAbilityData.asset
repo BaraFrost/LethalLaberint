@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 3
   _abstractAbility: {fileID: 5711205328488920124, guid: d062c2f2476295e45be4aa6d080308c5, type: 3}
-  _sprite: {fileID: 21300000, guid: ff212bec9338009439928185b5f5d799, type: 3}
+  _sprite: {fileID: 0}
+  _spriteAssetReference:
+    m_AssetGUID: ff212bec9338009439928185b5f5d799
+    m_SubObjectName: adrenaline
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _abilityName:
     _defaultText: "\u0410\u0434\u0440\u0435\u043D\u0430\u043B\u0438\u043D"
     _localizations:

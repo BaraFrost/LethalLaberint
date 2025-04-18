@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +21,7 @@ namespace UI {
         private TextMeshProUGUI _text;
 
         [SerializeField]
-        private Image _image;
+        private AsyncImage _asyncImage;
 
         [SerializeField]
         private TextMeshProUGUI _nameTextLabel;
@@ -32,7 +33,9 @@ namespace UI {
         private GameObject _addImage;
 
         public void Start() {
+            var shopItem = Account.Instance.GetShopItemByType(_shopItemType);
             _button.onClick.AddListener(TryToBuyItem);
+            _asyncImage.Load(shopItem.SpriteAssetReference);
         }
 
         protected virtual void UpdateMoneyText() {
@@ -41,7 +44,6 @@ namespace UI {
             if(_text != null) {
                 _text.text = $"{shopItem.Price.ToString()}$";
             }
-            _image.sprite = shopItem.Sprite;
             _nameTextLabel.text = shopItem.Name.GetText();
         }
 

@@ -25,7 +25,7 @@ namespace UI {
                 return;
             }
             ;
-            _abilityImage.sprite = Account.Instance.AbilityDataContainer.GetAbility(abilityId).Sprite;
+            //_abilityImage.sprite = Account.Instance.AbilityDataContainer.GetAbility(abilityId).Sprite;
             _label.text = _requiredAbilityText.GetText();
         }
     }

@@ -20,5 +20,11 @@ MonoBehaviour:
     - language: 1
       text: Assistant
     _overrideLocalization: 0
-  _icon: {fileID: 21300000, guid: 0e804939023d1f441b88cb6252508d80, type: 3}
+  _icon: {fileID: 0}
+  _iconAssetReference:
+    m_AssetGUID: 0e804939023d1f441b88cb6252508d80
+    m_SubObjectName: HelperStartBonus
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _helperEnemyPrefab: {fileID: 3697047083246791927, guid: 88f3499ed4ad7774faafcb824c999e54, type: 3}

@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: 1
   _abstractAbility: {fileID: 4459479490428146231, guid: 3e2e29e3d0087294fa08e22d5e9adcbb, type: 3}
-  _sprite: {fileID: 21300000, guid: e8ce57ed2e4ff9b40bc77a98ee765e82, type: 3}
+  _sprite: {fileID: 0}
+  _spriteAssetReference:
+    m_AssetGUID: e8ce57ed2e4ff9b40bc77a98ee765e82
+    m_SubObjectName: flashbang
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _abilityName:
     _defaultText: "\u0424\u043B\u0435\u0448\u043A\u0430"
     _localizations:

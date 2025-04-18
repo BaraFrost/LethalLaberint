@@ -1,6 +1,7 @@
 using Infrastructure;
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace UI {
 
@@ -9,7 +10,7 @@ namespace UI {
 
         [Serializable]
         public struct PlanetData {
-            public Sprite sprite;
+            public AssetReference spriteAssetReference;
             public LocalizationText name;
         }
 

@@ -21,5 +21,11 @@ MonoBehaviour:
     - language: 1
       text: Increased earnings
     _overrideLocalization: 0
-  _icon: {fileID: 21300000, guid: 133e6ad373266d849ac083379dc3ffbc, type: 3}
+  _icon: {fileID: 0}
+  _iconAssetReference:
+    m_AssetGUID: 133e6ad373266d849ac083379dc3ffbc
+    m_SubObjectName: MoneyStartBonus
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _modifier: {fileID: 11400000, guid: b7a611d1f0386434289c5434e051e52b, type: 2}

@@ -2,6 +2,7 @@ using Game;
 using Infrastructure;
 using NaughtyAttributes;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Data {
 
@@ -16,8 +17,8 @@ namespace Data {
         public AbstractAbility AbstractAbility => _abstractAbility;
 
         [SerializeField]
-        private Sprite _sprite;
-        public Sprite Sprite => _sprite;
+        private AssetReference _spriteAssetReference;
+        public AssetReference SpriteAssetReference => _spriteAssetReference;
 
         [SerializeField]
         private LocalizationText _abilityName;

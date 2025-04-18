@@ -109,6 +109,7 @@ MonoBehaviour:
   _priceGroup: {fileID: 0}
   _text: {fileID: 1384023086755468143}
   _image: {fileID: 153037253238293531}
+  _asyncImage: {fileID: 8613244608609530367}
   _nameTextLabel: {fileID: 7441952349065983868}
   _cantBuyGroup: {fileID: 2250552306309045170}
   _addImage: {fileID: 6778611927805240387}
@@ -154,7 +155,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 776449778aa676d468397827b689a9f6, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -378,7 +379,7 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 277.4
+  m_fontSize: 196.15
   m_fontSizeBase: 232.62
   m_fontWeight: 400
   m_enableAutoSizing: 1

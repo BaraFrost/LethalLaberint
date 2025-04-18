@@ -1,0 +1,70 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: BookPopupGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: BookPopupGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c37bd237b0db2ac418de44a7d9df7a9d
+  m_SerializeEntries:
+  - m_GUID: d98a176d5de6d094ca7b930085f02b1c
+    m_Address: BookClosed
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: dd30f7b29a899ed4e84844b8fa2a026c
+    m_Address: Eyelessdog
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 03af336179976dc408e71d5d1cbdd3c7
+    m_Address: Hoardingbug
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b25a7b78c8ed9194a99b1e958d3a64fb
+    m_Address: Jester
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: da4fed4dd3d2c694181586e240c71158
+    m_Address: Masked
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: ba51ad151528e8d49aac261285efecfa
+    m_Address: Skeleton
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 39af51bcf507ce64ab3ed02df2d3c60f
+    m_Address: TurretRender
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2a5d305084e7a8f459003c940bb8803e
+    m_Address: Wolf
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: f1ca042547721bf46825e5e8afadb7e3
+    m_Address: Bunkerspider
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3a6cc52f4000c3b468ff01b25644f01a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 26d5a8c2c9357994cb1c482b41259464, type: 2}
+    - {fileID: 11400000, guid: c408e6963324495479eec6fadc733b2e, type: 2}

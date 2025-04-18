@@ -1,4 +1,5 @@
 using Game;
+using Infrastructure;
 using System;
 using TMPro;
 using UnityEngine;
@@ -15,7 +16,7 @@ namespace UI {
         private TextMeshProUGUI _countText;
 
         [SerializeField]
-        private Image _iconImage;
+        private AsyncImage _asyncIconImage;
 
         [SerializeField]
         private Image _progressImage;
@@ -32,7 +33,7 @@ namespace UI {
 
         public void UpdateItem(PlayerAbilityLogic.SpawnedAbility ability) {
             _countText.text = ability.Count.ToString();
-            _iconImage.sprite = ability.AbilityData.Sprite;
+            _asyncIconImage.Load(ability.AbilityData.SpriteAssetReference);
         }
 
         public void UpdateProgress(PlayerAbilityLogic.SpawnedAbility spawnedAbility) {

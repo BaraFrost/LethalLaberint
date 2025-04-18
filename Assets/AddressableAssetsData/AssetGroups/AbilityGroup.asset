@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: AbilityGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: AbilityGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: 8fe8d3ae3d6e659428e2d30291182cbe
+  m_SerializeEntries:
+  - m_GUID: ff212bec9338009439928185b5f5d799
+    m_Address: adrenaline
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 44ca242b4b92ea14987cab266c2d8724
+    m_Address: Blackout
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 2404162889793ef40bf9bdbf424ca985
+    m_Address: Boombox
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: e8ce57ed2e4ff9b40bc77a98ee765e82
+    m_Address: flashbang
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 776449778aa676d468397827b689a9f6
+    m_Address: Teleport
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3a6cc52f4000c3b468ff01b25644f01a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 42e90c347010fff4cba6a369b58e3a37, type: 2}
+    - {fileID: 11400000, guid: f6f57df0cbc39f243969f69f9292ad73, type: 2}

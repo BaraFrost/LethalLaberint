@@ -14,7 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _booksData:
   - enemyType: 0
-    enemyImage: {fileID: 21300000, guid: f1ca042547721bf46825e5e8afadb7e3, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: f1ca042547721bf46825e5e8afadb7e3
+      m_SubObjectName: Bunkerspider
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0411\u0443\u043D\u043A\u0435\u0440\u043D\u044B\u0439 \u043F\u0430\u0443\u043A"
       _localizations:
@@ -43,7 +49,13 @@ MonoBehaviour:
           Be careful with their webs'
       _overrideLocalization: 1
   - enemyType: 10
-    enemyImage: {fileID: 21300000, guid: dd30f7b29a899ed4e84844b8fa2a026c, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: dd30f7b29a899ed4e84844b8fa2a026c
+      m_SubObjectName: Eyelessdog
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0421\u043B\u0435\u043F\u0430\u044F \u0441\u043E\u0431\u0430\u043A\u0430"
       _localizations:
@@ -78,7 +90,13 @@ MonoBehaviour:
           The company won't be able to pay out insurance without a body.
       _overrideLocalization: 1
   - enemyType: 2
-    enemyImage: {fileID: 21300000, guid: da4fed4dd3d2c694181586e240c71158, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: da4fed4dd3d2c694181586e240c71158
+      m_SubObjectName: Masked
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u041C\u0438\u043C\u0438\u043A\u0438"
       _localizations:
@@ -100,7 +118,13 @@ MonoBehaviour:
         text: It seems that they pick up the bodies of employees ...
       _overrideLocalization: 0
   - enemyType: 3
-    enemyImage: {fileID: 21300000, guid: b25a7b78c8ed9194a99b1e958d3a64fb, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: b25a7b78c8ed9194a99b1e958d3a64fb
+      m_SubObjectName: Jester
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0428\u0443\u0442"
       _localizations:
@@ -127,7 +151,13 @@ MonoBehaviour:
           extremely dangerous.
       _overrideLocalization: 0
   - enemyType: 4
-    enemyImage: {fileID: 21300000, guid: ba51ad151528e8d49aac261285efecfa, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: ba51ad151528e8d49aac261285efecfa
+      m_SubObjectName: Skeleton
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0421\u043A\u0435\u043B\u0435\u0442\u044B"
       _localizations:
@@ -152,7 +182,13 @@ MonoBehaviour:
           of the company to rest.
       _overrideLocalization: 0
   - enemyType: 8
-    enemyImage: {fileID: 21300000, guid: ff212bec9338009439928185b5f5d799, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: ff212bec9338009439928185b5f5d799
+      m_SubObjectName: adrenaline
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u041E\u0431\u043E\u0440\u043E\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F
         \u0441\u0438\u0441\u0442\u0435\u043C\u0430"
@@ -189,7 +225,13 @@ MonoBehaviour:
           of the company
       _overrideLocalization: 0
   - enemyType: 5
-    enemyImage: {fileID: 21300000, guid: 03af336179976dc408e71d5d1cbdd3c7, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: 03af336179976dc408e71d5d1cbdd3c7
+      m_SubObjectName: Hoardingbug
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0422\u0430\u0440\u0430\u043A\u0430\u043D\u044B \u043C\u0443\u0441\u043E\u0440\u0449\u0438\u043A\u0438"
       _localizations:
@@ -222,7 +264,13 @@ MonoBehaviour:
           Maybe the company should hire them.'
       _overrideLocalization: 1
   - enemyType: 6
-    enemyImage: {fileID: 21300000, guid: 39af51bcf507ce64ab3ed02df2d3c60f, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: 39af51bcf507ce64ab3ed02df2d3c60f
+      m_SubObjectName: TurretRender
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u041E\u0431\u043E\u0440\u043E\u043D\u0438\u0442\u0435\u043B\u044C\u043D\u0430\u044F
         \u0441\u0438\u0441\u0442\u0435\u043C\u0430"
@@ -259,7 +307,13 @@ MonoBehaviour:
           of the company perfectly.
       _overrideLocalization: 0
   - enemyType: 9
-    enemyImage: {fileID: 21300000, guid: f1ca042547721bf46825e5e8afadb7e3, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: f1ca042547721bf46825e5e8afadb7e3
+      m_SubObjectName: Bunkerspider
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0413\u0438\u0433\u0430\u043D\u0442\u0441\u043A\u0438\u0439
         \u043F\u0430\u0443\u043A"
@@ -291,7 +345,13 @@ MonoBehaviour:
           to wave to gigantic sizes ...
       _overrideLocalization: 0
   - enemyType: 1
-    enemyImage: {fileID: 21300000, guid: 2a5d305084e7a8f459003c940bb8803e, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: 2a5d305084e7a8f459003c940bb8803e
+      m_SubObjectName: Wolf
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u041C\u0443\u0442\u0438\u0440\u043E\u0432\u0430\u0432\u0448\u0438\u0439
         \u0432\u043E\u043B\u043A"
@@ -320,7 +380,13 @@ MonoBehaviour:
           got eaten.
       _overrideLocalization: 1
   - enemyType: 11
-    enemyImage: {fileID: 21300000, guid: b25a7b78c8ed9194a99b1e958d3a64fb, type: 3}
+    enemyImage: {fileID: 0}
+    enemyImageAssetReference:
+      m_AssetGUID: b25a7b78c8ed9194a99b1e958d3a64fb
+      m_SubObjectName: Jester
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     title:
       _defaultText: "\u0428\u0443\u0442 \u0432 \u043F\u043E\u0434\u0430\u0440\u043A\u0435"
       _localizations:

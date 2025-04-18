@@ -2,14 +2,14 @@ using Data;
 using Infrastructure;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.AddressableAssets;
 
 namespace UI {
 
     public class BookItem : MonoBehaviour {
 
         [SerializeField]
-        private Image _image;
+        private AsyncImage _asyncImage;
 
         [SerializeField]
         private TextMeshProUGUI _textLabel;
@@ -18,7 +18,7 @@ namespace UI {
         private TextMeshProUGUI _titleTextLabel;
 
         [SerializeField]
-        private Sprite _closedSprite;
+        private AssetReference _closedSpriteReference;
 
         [SerializeField]
         private LocalizationText _closedText;
@@ -28,12 +28,12 @@ namespace UI {
         public void SetData(BookItemsData.Data data) {
             _data = data;
             if (!Account.Instance.OpenedEnemies[data.enemyType]) {
-                _image.sprite = _closedSprite;
+                _asyncImage.Load(_closedSpriteReference);
                 _textLabel.text = _closedText.GetText();
                 _titleTextLabel.text = _closedText.GetText();
                 return;
             }
-            _image.sprite = _data.enemyImage;
+            _asyncImage.Load(_data.enemyImageAssetReference);
             _textLabel.text = _data.description.GetText();
             _titleTextLabel.text = _data.title.GetText();
         }

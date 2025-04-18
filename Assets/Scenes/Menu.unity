@@ -447,6 +447,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1035630126 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9019123208939297624, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1035630128 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8566814774593042991, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035630126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1035630131
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1035630126}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 
+    m_SubObjectName: 
+    m_SubObjectType: 
+    m_EditorAssetChanged: 0
+  _image: {fileID: 1035630128}
+  _loadOnAwake: 0
 --- !u!1 &1127173558
 GameObject:
   m_ObjectHideFlags: 0
@@ -910,6 +945,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1221999922453131469, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
+    - target: {fileID: 2187611928253522319, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
     - target: {fileID: 2445627843602294510, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -1026,6 +1069,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5996217131692583629, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      propertyPath: _planetAsyncImage
+      value: 
+      objectReference: {fileID: 1035630131}
     - target: {fileID: 6405364941401904444, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
@@ -1094,11 +1141,96 @@ PrefabInstance:
       propertyPath: m_Name
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 8566814774593042991, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 9e90a53aeabe02d43883c670b61f9bcd, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8334266902351515387, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 482320115291010588}
+    - targetCorrespondingSourceObject: {fileID: 9019123208939297624, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      insertIndex: 3
+      addedObject: {fileID: 1035630131}
+    - targetCorrespondingSourceObject: {fileID: 8629587271640054094, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+      insertIndex: 2
+      addedObject: {fileID: 482320115291010587}
   m_SourcePrefab: {fileID: 100100000, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+--- !u!1 &482320115291010583 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8629587271640054094, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &482320115291010584 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2187611928253522319, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482320115291010583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &482320115291010585 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8334266902351515387, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &482320115291010586 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1221999922453131469, guid: de4dce55c284cf34c882e4349e4a2217, type: 3}
+  m_PrefabInstance: {fileID: 482320115291010582}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482320115291010585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &482320115291010587
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482320115291010583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 8374a8ff6ebf3ae4ea524360afd7140b
+    m_SubObjectName: MiniGamesButton
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  _image: {fileID: 482320115291010584}
+  _loadOnAwake: 1
+--- !u!114 &482320115291010588
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 482320115291010585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2c87b3b5d96704cb4f27bcecf304cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _loadableSprite:
+    m_AssetGUID: 3fa6c58acd3016f4b894fb391408b3b3
+    m_SubObjectName: Books
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
+  _image: {fileID: 482320115291010586}
+  _loadOnAwake: 1
 --- !u!1 &527641234650881168
 GameObject:
   m_ObjectHideFlags: 0

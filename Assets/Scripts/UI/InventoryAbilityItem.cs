@@ -1,4 +1,5 @@
 using Data;
+using Infrastructure;
 using System;
 using TMPro;
 using UnityEngine;
@@ -18,7 +19,7 @@ namespace UI {
         private TextMeshProUGUI _textMeshPro;
 
         [SerializeField]
-        private Image _iconImage;
+        private AsyncImage _iconAsyncImage;
 
         [SerializeField]
         private GameObject _canSelectOnlyThisGroup;
@@ -48,7 +49,7 @@ namespace UI {
         public void SetItemData() {
             var ability = Account.Instance.AbilityDataContainer.GetAbility(_abilityId);
             _textMeshPro.text = Account.Instance.AbilitiesCountData[_abilityId].ToString();
-            _iconImage.sprite = ability.Sprite;
+            _iconAsyncImage.Load(ability.SpriteAssetReference);
         }
 
         private void Update() {

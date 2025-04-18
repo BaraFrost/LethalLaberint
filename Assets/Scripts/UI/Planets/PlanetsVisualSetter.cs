@@ -13,7 +13,7 @@ namespace UI {
         private PlanetsVisualData _planetsVisualData;
 
         [SerializeField]
-        private Image _planetImage;
+        private AsyncImage _planetAsyncImage;
 
         [SerializeField]
         private LocalizationText _planetText;
@@ -26,7 +26,7 @@ namespace UI {
             var planetsNameRandom = new System.Random(235 + Account.Instance.CurrentStage);
             var randomLetter = (char)planetsNameRandom.Next(65, 90);
             var randomNumber = planetsNameRandom.Next(100, 1000);
-            _planetImage.sprite = _planetsVisualData.Planets[planetIndex].sprite;
+            _planetAsyncImage.Load(_planetsVisualData.Planets[planetIndex].spriteAssetReference);
             _planetNameLabel.text = string.Format(_planetText.GetText(), $"{randomLetter}{randomNumber}");
         }
     }

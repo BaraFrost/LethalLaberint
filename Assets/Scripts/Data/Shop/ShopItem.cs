@@ -1,5 +1,6 @@
 using Infrastructure;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 using YG;
 
 namespace Data {
@@ -28,8 +29,8 @@ namespace Data {
         public int Price => _price;
 
         [SerializeField]
-        private Sprite _sprite;
-        public Sprite Sprite => _sprite;
+        private AssetReference _spriteAssetReference;
+        public AssetReference SpriteAssetReference => _spriteAssetReference;
 
         [SerializeField]
         private LocalizationText _name;

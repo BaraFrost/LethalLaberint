@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bbb281ee3bf0b054c82ac2347e9e782c, type: 3}
+  m_Name: GameGroup
+  m_EditorClassIdentifier: 
+  m_GroupName: GameGroup
+  m_Data:
+    m_SerializedData: []
+  m_GUID: c454a9153fa5e354f8d5eb63419431b0
+  m_SerializeEntries:
+  - m_GUID: bfbe2dff84f7ae9438a3fc784be88f21
+    m_Address: BagStartBonus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: b6399567bd2e3f047be8b01853638dc4
+    m_Address: HealthStartBonus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 0e804939023d1f441b88cb6252508d80
+    m_Address: HelperStartBonus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 133e6ad373266d849ac083379dc3ffbc
+    m_Address: MoneyStartBonus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 4338cbbb47e9aa24cb8a86ca28485074
+    m_Address: SpeedStartBonus
+    m_ReadOnly: 0
+    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
+  m_ReadOnly: 0
+  m_Settings: {fileID: 11400000, guid: 3a6cc52f4000c3b468ff01b25644f01a, type: 2}
+  m_SchemaSet:
+    m_Schemas:
+    - {fileID: 11400000, guid: 509768b939967d04f9554090e15b0545, type: 2}
+    - {fileID: 11400000, guid: 43bb872660019a6419ca520a2cd15f6c, type: 2}

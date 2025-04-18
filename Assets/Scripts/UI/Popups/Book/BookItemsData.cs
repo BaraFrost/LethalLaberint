@@ -2,6 +2,7 @@ using Game;
 using Infrastructure;
 using System;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Data {
 
@@ -11,7 +12,7 @@ namespace Data {
         [Serializable]
         public struct Data {
             public Enemy.EnemyType enemyType;
-            public Sprite enemyImage;
+            public AssetReference enemyImageAssetReference;
             public LocalizationText title;
             public LocalizationText description;
         }

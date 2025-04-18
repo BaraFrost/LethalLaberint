@@ -13,142 +13,282 @@ MonoBehaviour:
   m_Name: PlanetsVisualData
   m_EditorClassIdentifier: 
   _planetsData:
-  - sprite: {fileID: 681949829, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_0
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 973993637, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_1
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 369639056, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_2
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -1692470350, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_3
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 884857083, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_4
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 207937250, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_5
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1178134105, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_6
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -2019097255, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_7
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -317108627, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_8
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 473542937, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_9
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -1302729249, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_10
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 631736717, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_11
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 258175290, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_11
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1240043546, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_12
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1443949670, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_13
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -1348558361, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_14
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 2055706164, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_15
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -37559406, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_16
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -1914566507, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_17
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -1563845390, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_18
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1586509170, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_19
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -248425224, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_20
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1016339365, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_21
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1752213496, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_22
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1216089345, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_23
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -311791140, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_24
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: -255157205, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_25
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []
       _overrideLocalization: 0
-  - sprite: {fileID: 1403676088, guid: 1b2ed6c24e3de2d4dab7786661d2f30c, type: 3}
+  - spriteAssetReference:
+      m_AssetGUID: 1b2ed6c24e3de2d4dab7786661d2f30c
+      m_SubObjectName: Planets_26
+      m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      m_EditorAssetChanged: 1
     name:
       _defaultText: 
       _localizations: []

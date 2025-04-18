@@ -1,4 +1,5 @@
 using Game;
+using Infrastructure;
 using System;
 using TMPro;
 using UnityEngine;
@@ -9,7 +10,7 @@ namespace UI {
     public class StartBonusItem : MonoBehaviour {
 
         [SerializeField]
-        private Image _image;
+        private AsyncImage _asyncImage;
 
         [SerializeField]
         private Button _button;
@@ -29,7 +30,7 @@ namespace UI {
         public void Init(AbstractStartBonus startBonus, Action<AbstractStartBonus> onClicked) {
             _onClicked = onClicked;
             _startBonus = startBonus;
-            _image.sprite = startBonus.Icon;
+            _asyncImage.Load(startBonus.IconAssetReference);
             _label.text = startBonus.Name.GetText();
         }
 

@@ -1,5 +1,6 @@
 using Infrastructure;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Game {
 
@@ -10,8 +11,8 @@ namespace Game {
         public LocalizationText Name => _name;
 
         [SerializeField]
-        private Sprite _icon;
-        public Sprite Icon => _icon;
+        private AssetReference _iconAssetReference;
+        public AssetReference IconAssetReference => _iconAssetReference;
 
         public abstract void Apply(GameEntitiesContainer entitiesContainer);
     }

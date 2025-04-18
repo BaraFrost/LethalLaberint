@@ -20,5 +20,11 @@ MonoBehaviour:
     - language: 1
       text: Additional health
     _overrideLocalization: 0
-  _icon: {fileID: 21300000, guid: b6399567bd2e3f047be8b01853638dc4, type: 3}
+  _icon: {fileID: 0}
+  _iconAssetReference:
+    m_AssetGUID: b6399567bd2e3f047be8b01853638dc4
+    m_SubObjectName: HealthStartBonus
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _additionalHealth: 1

@@ -21,5 +21,11 @@ MonoBehaviour:
     - language: 1
       text: Increased speed
     _overrideLocalization: 0
-  _icon: {fileID: 21300000, guid: 4338cbbb47e9aa24cb8a86ca28485074, type: 3}
+  _icon: {fileID: 0}
+  _iconAssetReference:
+    m_AssetGUID: 4338cbbb47e9aa24cb8a86ca28485074
+    m_SubObjectName: SpeedStartBonus
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _modifier: {fileID: 11400000, guid: f490ac750d13efc438fba21201fdc251, type: 2}

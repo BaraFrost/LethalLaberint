@@ -14,7 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _type: 0
   _price: 400
-  _sprite: {fileID: 21300000, guid: 7b623c26436bf1e4a9e5b3924a80c5e0, type: 3}
+  _spriteAssetReference:
+    m_AssetGUID: 7b623c26436bf1e4a9e5b3924a80c5e0
+    m_SubObjectName: chest
+    m_SubObjectType: UnityEngine.Sprite, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+    m_EditorAssetChanged: 1
   _name:
     _defaultText: "+10 \u0421\u043F\u043E\u0441\u043E\u0431\u043D\u043E\u0441\u0442\u0435\u0439"
     _localizations:
